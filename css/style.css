@@ -69,7 +69,7 @@
     }
 
     .hero-content p {
-      font-size: clamp(  10px, 3.1vw, 16px);
+      font-size: clamp(  11px, 3.1vw, 16px);
     }
 
 
@@ -1126,4 +1126,201 @@
     min-width: 100%;
     max-height: 100%;
     object-fit: contain;
+}
+
+
+
+
+
+
+
+
+
+
+/* ===== Parent frame for both cards ===== */
+.cards-frame {
+  max-width: 950px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #22364b, #2f3c52); /* Common background */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ===== Cards style ===== */
+.creator-card, .contact-card {
+  background: transparent; /* Transparent to show parent background */
+  border: 1px solid #00aeff;
+  border-radius: 20px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: 0.4s ease;
+}
+
+.creator-card:hover, .contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(79,195,247,0.4);
+}
+
+/* ===== Images ===== */
+.creator-img, .contact-img {
+  width: 100px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #000;
+}
+
+/* ===== Text ===== */
+.creator-text h2, .contact-text h2 {
+  font-size: clamp(20px, 3vw, 28px);
+  margin-bottom: 10px;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.creator-role {
+  color: #4f86a1;
+  font-size: 10px;
+  margin-bottom: 0;
+  font-weight: 200;
+}
+
+.contact-role {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+/* ===== Buttons ===== */
+.creator-whatsapp, .contact-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 40px;
+  
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  transition: 0.3s ease;
+}
+
+.creator-whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.contact-call {
+  background: linear-gradient(135deg, #2b83cc, #677b90);
+}
+
+.creator-whatsapp:hover, .contact-call:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(79,195,247,0.6);
+}
+
+.creator-wa-icon, .contact-call-icon {
+  width: 22px;
+}
+
+/* ===== Mobile Fix ===== */
+@media (max-width: 600px) {
+  .creator-card, .contact-card {
+    flex-direction: row;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .creator-img, .contact-img {
+    width: 70px;
+    height: 90px;
+  }
+
+  .creator-text h2, .contact-text h2 {
+    font-size: 16px;
+  }
+
+  .creator-whatsapp, .contact-call {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+}
+
+
+
+
+
+
+
+
+/* ===== PAGE TITLE ===== */
+.page-title-suchana {
+    text-align: center;
+    margin: 20px 0;
+    color: #ff0000;
+    font-size: 10px;
+}
+
+
+
+
+
+
+.last-updated-box {
+  background-color: #fff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 30px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.last-updated-box h1 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.last-updated-box #lastUpdated {
+  font-weight: bold;
+  color: #007BFF;
+  transition: color 0.5s;
+}
+
+.last-updated-box #lastUpdated:hover {
+  color: #ff5722;
+}
+
+/* Tablet / mobile responsiveness */
+@media (max-width: 768px) {
+  .last-updated-box {
+    padding: 15px 20px;
+    margin: 20px 10px;
+  }
+
+  .last-updated-box #lastUpdated {
+    font-size: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .last-updated-box {
+    padding: 12px 15px;
+    margin: 15px 5px;
+  }
+  .last-updated-box h1 {
+    font-size: 10px;
+  }
+  .last-updated-box #lastUpdated {
+    font-size: 10px;
+  }
 }
