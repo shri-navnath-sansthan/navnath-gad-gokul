@@ -219,7 +219,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  width:43px;
+  width:70px;
   height: 100%;
   background: #ff2d2d;  
   color: rgb(255, 255, 255);
@@ -564,35 +564,32 @@
 /* ===== OUTER FRAME ===== */
 .seva-card-frame {
   background: #f8f2e9;
-  padding: 15px 10px;              /* कमी padding */
+  padding: 15px 10px;
   border-radius: 20px;
 
   border: 2px solid #ff5722;
   border-top: 1px solid #ff7300; 
   border-bottom: 1px solid #ff9900;
 
-  margin: 20px auto;               /* कमी margin */
-  max-width: 99% ;
+  margin: 20px auto;
+  max-width: 99%;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 
   transition: 0.3s ease;
 }
 
-/* Hover Effect */
 .seva-card-frame:hover {
   box-shadow: 0 15px 40px rgba(0,0,0,0.25);
   transform: translateY(-4px);
 }
 
-/* Cards मधील spacing कमी */
 .seva-card-frame .seva-card-header {
-  margin: 2px auto;     /* जवळ आणले */
+  margin: 2px auto;
 }
-
 
 /* ===== CARD HEADER ===== */
 .seva-card-header {
-  padding: 5px 5px;     /* कमी केले */
+  padding: 5px 5px;
   display: flex;
   justify-content: center;
 }
@@ -600,14 +597,14 @@
 /* ===== CARD CONTENT ===== */
 .seva-card-content {
   width: 100%;
-  max-width: 100%;       /* full width */
+  max-width: 100%;
   padding: 8px;
 
   border: 1px solid #581111;
   border-top: 1px solid #ac7777;
   border-bottom: 1px solid #4c1d1d;
- border-radius: 50% ;
- 
+  border-radius: 50px;
+
   background-color: #efe4d1;
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 
@@ -619,32 +616,32 @@
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-
-/* ===== FLEX LAYOUT ===== */
+/* ===== FLEX LAYOUT (FIXED) ===== */
 .seva-card-flex {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;              /* कमी gap */
+  justify-content: flex-start;   /* center ऐवजी */
+  gap: 15px;
   flex-wrap: nowrap;
+  padding-left: 40px;            /* alignment fix */
 }
 
-
-/* ===== IMAGE ===== */
+/* ===== IMAGE (FIXED) ===== */
 .seva-card-img {
   width: 90px;
   height: 120px;
   margin: 5px;
-  min-width: 70px;
-  border-radius: 50% ;
+  min-width: 90px;      /* equal width */
+  flex-shrink: 0;       /* image shift होऊ नये म्हणून */
+  border-radius: 50%;
   object-fit: cover;
   border: 2px solid #ff5722;
 }
 
-
 /* ===== TEXT ===== */
 .seva-card-text {
   text-align: center;
+  width: 100%;
 }
 
 .seva-card-text h1 {
@@ -663,11 +660,43 @@
 }
 
 
+.seva-card-text2 p {
+  font-size: clamp(14px, 2vw, 16px);
+  margin: 2px 0;
+  white-space: normal;
+  word-break: break-word;
+
+  /* 6 रंगांचा bold, स्पष्ट gradient */
+  background: linear-gradient(
+    90deg, 
+    #2c4b79 16.6%,   /* गडद निळा */
+    #0b3c6c 33.2%,   /* मध्यम निळा */
+    #2da233 49.8%,   /* हिरवा */
+    #a29350 66.4%,   /* पिवळा */
+    #fb8c00 83%,     /* नारिंगी */
+    #d81b60 100%     /* गडद गुलाबी */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-weight: bold; /* रंग अधिक उठून दिसण्यासाठी */
+}
+
+.seva-card-text2 h1 {
+  color: #834d3d;
+  font-size: clamp(15px, 3vw, 25px);
+  margin-bottom: 2px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+
 /* ===== MOBILE FIX ===== */
 @media (max-width: 600px) {
 
   .seva-card-frame {
-    padding: 10px 6px;   /* अजून कमी */
+    padding: 10px 6px;
   }
 
   .seva-card-content {
@@ -678,23 +707,28 @@
   .seva-card-flex {
     flex-direction: row;
     gap: 5px;
+    padding-left: 10px;
   }
 
   .seva-card-img {
     width: 60px;
     height: 90px;
+    min-width: 60px;
   }
 
   .seva-card-text h1 {
-    font-size: 18px;   /* auto error fix */
+    font-size: 18px;
   }
 
   .seva-card-text p {
     font-size: 12px;
     white-space: normal;
-  }
-}
 
+    
+  }
+
+  
+}
 
 
 

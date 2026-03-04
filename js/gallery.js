@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 { src: "images/galleryimage/image2.jpeg", month: "फेब्रुवारी", year: "2026", caption: "पीर बाबा समाधी नवनाथ गड गोकूळ 🚩 " },
 { src: "images/galleryimage/image3.jpeg", month: "फेब्रुवारी", year: "2026", caption: "     " },
 { src: "images/galleryimage/image4.jpeg", month: "फेब्रुवारी", year: "2026", caption: "     " },
-{ src: "images/galleryimage/image5.jpeg", month: "फेब्रुवारी", year: "2026", caption: "एक झाड भविष्यासाठी 🌴" },
+{ src: "images/galleryimage/image5.jpeg", month: "फेब्रुवारी", year: "2026", caption: "" },
 { src: "images/galleryimage/image6.jpeg", month: "फेब्रुवारी", year: "2026", caption: "जिल्हा परिषद प्राथमिक शाळा गोकुळ येथे विद्यार्थ्यांच्या उत्स्फूर्त सहभागातून सांस्कृतिक कार्यक्रम संपन्न झाला.  " },
 { src: "images/galleryimage/image7.jpeg", month: "फेब्रुवारी", year: "2026", caption: "" },
 { src: "images/galleryimage/image8.jpeg", month: "फेब्रुवारी", year: "2026", caption: "" },
