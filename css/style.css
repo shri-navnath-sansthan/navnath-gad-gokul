@@ -312,14 +312,16 @@
 .menu-container {
   width: 99%;
   height: auto;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 5px auto;
   padding: 8px;
+  border-radius: 12px;
+
 
   border: 1px solid #ff5722;
   border-top: 1px solid #ffbb00;
   border-bottom: 1px solid #ff9900;
-  border-radius: 20px;
+ 
 
   background-color: #ffffff;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -350,7 +352,8 @@
   color: #bf360c;
   background: #f5e0c0;
 
-  border-radius: 12px;
+ border-radius: 12px;
+
   border: 1px solid #ff9900;
 
   transition: all 0.3s ease;
@@ -366,12 +369,104 @@
 
 
 
+
+
+
+
+
+/* ===== नवनाथ गड अभ्यासिका ===== */
+
+.abhyashika {
+  width:99%;
+  height:auto;
+  max-width: 1000px;
+  margin: 5px auto;
+  padding: 8px;
+  border: 1px solid #ef8e33;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px ;
+
+  background-color: #690f67;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 7px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect container */
+.abhyashika:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Menu Buttons */
+.abhyashika-btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px 5px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+ 
+
+  color: #21126e;
+  background: #ffffff;
+
+   border-top-left-radius: 100px;
+ border-bottom-right-radius: 100px ;
+  border: 1px solid #ab995f;
+
+  transition: all 0.3s ease;
+}
+
+/* Button Hover */
+.abhayashika-btn:hover {
+  background: #ff5722;
+  color: white;
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
 /* 🔵 Blue Animated Dot */
 .blue-dot {
     width:  8px;
     height: 8px;
     text-align: center;
     background-color: #ff5100;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    animation: blueFade 0.8s ease-in-out infinite;
+}
+
+/* Smooth Fade Animation */
+@keyframes blueFade {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+
+
+/* 🔵 Blue Animated Dot */
+.abhyashika-dot {
+    width:  8px;
+    height: 8px;
+    text-align: center;
+    background-color: #18307e;
     border-radius: 50%;
     display: inline-block;
     margin-right: 6px;
@@ -437,7 +532,7 @@
   padding: 15px;
   background-color: #fff3e0;       
   color: #bf360c;             
-  max-width: 800px;
+  max-width: 900px;
   margin: 10px auto;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;               
@@ -502,7 +597,7 @@
   border-bottom:1px solid #ff0000; 
   background-color: #f3e5f5;       
   color: #4a148c;                 
-  max-width: 800px;
+  max-width: 900px;
   margin: 10px auto;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;              
@@ -1362,4 +1457,102 @@
   .last-updated-box #lastUpdated {
     font-size: 10px;
   }
+}
+
+
+
+
+
+
+
+
+/* ===== ABHYASIKA HEADER ===== */
+
+.abhyasika-heldar {
+position: relative;
+min-height: 40px;
+background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 10px 0;
+overflow: hidden;
+border-top-right-radius: 50px;
+border-bottom-left-radius: 50px;
+}
+
+/* dark overlay */
+.abhyasika-heldar::after {
+content: "";
+position: absolute;
+inset: 0;
+background: rgba(0,0,0,0.45);
+}
+
+/* content */
+.abhyasika-heldar-content {
+position: relative;
+z-index: 2;
+width: 100%;
+padding: 0 10px;
+}
+
+/* flex layout */
+.abhyasika-heldar-flex {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 5px;
+
+/* image wrap होऊ नये */
+flex-wrap: nowrap;
+}
+
+/* image */
+.abhyasika-heldar-img {
+width: 50px;
+height: 70px;
+min-width: 50px;
+flex-shrink: 0;   /* image shrink किंवा wrap होणार नाही */
+
+border-radius: 50%;
+object-fit: cover;
+border: 0.5px solid #ff9d00;
+box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* ===== TEXT STYLE ===== */
+
+.abhyasika-heldar-content h1 {
+font-size: clamp(22px,5vw,50px);
+font-weight: 1000;
+line-height: 1.2;
+margin: 0;
+padding: 4px 10px;
+
+/* text wrap */
+white-space: normal;
+word-break: break-word;
+
+/* gradient text */
+background: linear-gradient(90deg,#ffe259,#ffa751);
+background-clip: text;
+-webkit-background-clip: text;
+
+color: transparent;
+-webkit-text-fill-color: transparent;
+
+text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+/* subtitle */
+.abhyasika-heldar-content p {
+font-size: clamp(14px,3vw,20px);
+color: #ffffff;
+margin-top: 4px;
+
+/* text wrap */
+white-space: normal;
+word-break: break-word;
 }

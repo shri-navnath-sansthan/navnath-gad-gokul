@@ -1,6 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const videos = [
+        {src: "videos/video11.mp4", month:"मार्च ", year:"2026"},
+        
+
+
+
+
+
+
+        {src: "videos/video10.mp4", month:"फेब्रुवारी", year:"2026"},
+        {src: "videos/video11.mp4", month:"फेब्रुवारी", year:"2026"},
+        {src: "videos/video12.mp4", month:"फेब्रुवारी", year:"2026"},
+        {src: "videos/video13.mp4", month:"फेब्रुवारी", year:"2026"},
+        {src: "videos/video14.mp4", month:"फेब्रुवारी", year:"2026"},
+        {src: "videos/video15.mp4", month:"फेब्रुवारी", year:"2026"},
+        {src: "videos/saptah1.mp4", month:"फेब्रुवारी", year:"2026"},
         {src: "videos/video1.mp4", month:"फेब्रुवारी", year:"2026"},
         {src: "videos/video2.mp4", month:"फेब्रुवारी", year:"2026"},
         {src: "videos/video3.mp4", month:"फेब्रुवारी", year:"2026"},
