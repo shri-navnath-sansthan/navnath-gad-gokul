@@ -1,0 +1,42 @@
+
+/* red Animated Dot */
+.blue-dot {
+    width:  8px;
+    height: 8px;
+    text-align: center;
+    background-color: #ff5100;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    animation: blueFade 0.8s ease-in-out infinite;
+}
+
+/* Smooth Fade Animation */
+@keyframes blueFade {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+
+
+/* Blue Animated Dot */
+.abhyashika-dot {
+    width:  8px;
+    height: 8px;
+    text-align: center;
+    background-color: #18307e;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    animation: blueFade 0.8s ease-in-out infinite;
+}
+
+/* Smooth Fade Animation */
+@keyframes blueFade {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+

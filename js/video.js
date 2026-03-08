@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         {src: "videos/video10.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video11.mp4", month:"फेब्रुवारी", year:"2026"},
         {src: "videos/video12.mp4", month:"फेब्रुवारी", year:"2026"},
         {src: "videos/video13.mp4", month:"फेब्रुवारी", year:"2026"},
         {src: "videos/video14.mp4", month:"फेब्रुवारी", year:"2026"},

@@ -1,0 +1,199 @@
+
+/* ===== ABHYASIKA HEADER ===== */
+
+.abhyasika-heldar {
+position: relative;
+min-height: 40px;
+background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 10px 0;
+overflow: hidden;
+border-top-right-radius: 50px;
+border-bottom-left-radius: 50px;
+}
+
+/* dark overlay */
+.abhyasika-heldar::after {
+content: "";
+position: absolute;
+inset: 0;
+background: rgba(0,0,0,0.45);
+}
+
+/* content */
+.abhyasika-heldar-content {
+position: relative;
+z-index: 2;
+width: 100%;
+padding: 0 10px;
+}
+
+/* flex layout */
+.abhyasika-heldar-flex {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 5px;
+
+/* image wrap होऊ नये */
+flex-wrap: nowrap;
+}
+
+/* image */
+.abhyasika-heldar-img {
+width: 50px;
+height: 70px;
+min-width: 50px;
+flex-shrink: 0;   /* image shrink किंवा wrap होणार नाही */
+
+border-radius: 50%;
+object-fit: cover;
+border: 0.5px solid #0b3348;
+box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* ===== TEXT STYLE ===== */
+
+.abhyasika-heldar-content h1 {
+font-size: clamp(22px,5vw,50px);
+font-weight: 1000;
+line-height: 1.2;
+margin: 0;
+padding: 4px 10px;
+
+/* text wrap */
+white-space: normal;
+word-break: break-word;
+
+/* gradient text */
+background: linear-gradient(90deg,#ffffff,#ffffff);
+background-clip: text;
+-webkit-background-clip: text;
+
+color: transparent;
+-webkit-text-fill-color: transparent;
+
+text-shadow: 0.5px 0.5px 2px rgba(255, 255, 255, 0.699);
+}
+
+/* subtitle */
+.abhyasika-heldar-content p {
+font-size: clamp(14px,3vw,20px);
+color: #ffffff;
+margin-top: 4px;
+
+/* text wrap */
+white-space: normal;
+word-break: break-word;
+}
+
+
+
+
+
+
+
+
+
+
+/* ===== ABHYASIKA SECTION ===== */
+
+.abhyasika-section{
+padding:60px 20px;
+background:#1c3048;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* container */
+
+.abhyasika-container{
+max-width:1100px;
+margin:auto;
+text-align:center;
+}
+
+
+
+/* intro text */
+
+.abhyasika-intro{
+max-width:800px;
+margin:auto;
+font-size:18px;
+line-height:1.4;
+color:#ffffff;
+margin-bottom:40px;
+}
+
+/* grid layout */
+
+.abhyasika-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+}
+
+/* cards */
+
+.abhyasika-card{
+background:#ffffff;
+padding:25px;
+border-radius:16px;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+text-align:left;
+transition:0.3s;
+}
+
+/* hover effect */
+
+.abhyasika-card:hover{
+transform:translateY(-6px);
+box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* card heading */
+
+.abhyasika-card h3{
+font-size:22px;
+margin-bottom:12px;
+color:#094863;
+}
+
+/* list */
+
+.abhyasika-card ul{
+padding-left:20px;
+}
+
+.abhyasika-card ul li{
+margin-bottom:8px;
+font-size:16px;
+color:#000000;
+}
+
+/* paragraph */
+
+.abhyasika-card p{
+font-size:16px;
+color:#000000;
+margin-bottom:6px;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+
+@media (max-width:768px){
+
+.abhyasika-title{
+font-size:30px;
+}
+
+.abhyasika-intro{
+font-size:16px;
+}
+
+}
+
+

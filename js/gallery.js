@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const images = [
-{ src: "images/galleryimage/navnathgad.jpeg", month: "फेब्रुवारी", year: "2026", caption: "" },
 { src: "images/galleryimage/image0.jpg", month: "फेब्रुवारी", year: "2026", caption: "श्री. 🚩" },
 { src: "images/galleryimage/image1.jpeg", month: "फेब्रुवारी", year: "2026", caption: "गोकुळ येथे छत्रपती शिवाजी महाराज जयंती मोठ्या उत्साहात साजरी! 🚩" },
 { src: "images/galleryimage/image2.jpeg", month: "फेब्रुवारी", year: "2026", caption: "पीर बाबा समाधी नवनाथ गड गोकूळ 🚩 " },

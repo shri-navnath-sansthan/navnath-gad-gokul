@@ -1,0 +1,172 @@
+/* ===== NOTICE ===== */
+.notice-bar1 {
+  position: relative;
+  width: 100%;
+  height: 18px;
+  background: #f4e2a7;   /* हलका पिवळा */
+  overflow: hidden;
+}
+
+.notice-fixed1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  background: #f49b17;   /* नारिंगी */
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  z-index: 2;
+  font-size: 12px;
+}
+
+.notice-track1 {
+  display: flex;
+  width: max-content;
+  animation: marquee1 18s linear infinite;
+}
+
+.notice-track1 span {
+  padding-left: 220px;
+  white-space: nowrap;
+  color: #ff5900;   /* गडद नारिंगी टेक्स्ट */
+  font-weight: bold;
+  font-size: 13px;
+}
+
+@keyframes marquee1 {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+
+
+
+/* ===== NOTICE 2 (Suchana) ===== */
+.notice-bar2 {
+  position: relative;
+  width: 100%;
+  height: 17px;
+  background: #facfcf;   /* हलका पिवळा */
+  overflow: hidden;
+}
+
+.notice-fixed2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width:70px;
+  height: 100%;
+  background: #ff2d2d;  
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  z-index: 2;
+  font-size: 13px;
+}
+
+.notice-track2 {
+  display: flex;
+  width: max-content;
+  animation: marquee2 20s linear infinite;
+}
+
+.notice-track2 span {
+  padding-left: 230px;
+  white-space: nowrap;
+  color: #f71a1a; 
+  font-weight: bold;
+  font-size: 13px;
+}
+
+@keyframes marquee2 {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+
+
+
+
+
+
+/* ===== ABHYASIKA NOTICE BAR ===== */
+
+.abhyasika-notice-bar {
+  position: relative;
+  width: 100%;
+  height: 22px;
+  background: #e6f2ff; /* हलका blue */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* left fixed label */
+
+.abhyasika-notice-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 42px;
+  height: 100%;
+  background: #043854; /* dark blue */
+  color: #ffffff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  font-size: 12px;
+}
+
+/* moving text container */
+
+.abhyasika-notice-track {
+  display: flex;
+  width: max-content;
+  animation: abhyasika-marquee 18s linear infinite;
+}
+
+/* notice text */
+
+.abhyasika-notice-track span {
+  padding-left: 250px;
+  white-space: nowrap;
+  color: #470028;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* animation */
+
+@keyframes abhyasika-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* mobile responsive */
+
+@media (max-width:768px) {
+
+.abhyasika-notice-bar{
+height:24px;
+}
+
+.abhyasika-notice-track span{
+font-size:12px;
+padding-left:200px;
+}
+
+}

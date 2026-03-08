@@ -4,72 +4,10 @@
   box-sizing: border-box;
 }
 
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      line-height: 1.4;
-    }
-
-
-
-
-
-    /* ===== INDEX HEADER ===== */
-    .hero {
-      position: relative;
-      min-height: 120px;
-      background: url('../images/heldarbackgroundimage.jpeg') no-repeat center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8px 0;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      padding: 0 10px;
-    }
-
-    .hero-flex {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2px;
-      flex-wrap: nowrap;
-    }
-
-    .hero-img {
-      width: 60px;
-      height: 80px;
-      min-width: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid rgb(238, 255, 0);
-    }
-
-    .hero-content h1,
-    .hero-content p {
-      color: #eeff00;
-      white-space: nowrap;
-    }
-
-    .hero-content h1 {
-      font-size: clamp(20px, 3.5vw, 32px);
-    }
-
-    .hero-content p {
-      font-size: clamp(  11px, 3.1vw, 16px);
+ body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    line-height: 1.4;
     }
 
 
@@ -77,178 +15,7 @@
 
 
 
-/* ===== VIDEO HTML HEADER AND IMAGE HTML HELDER  ===== */
-.video-hero {
-  position: relative;
-  min-height: 120px;
-  background: #3d5150;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 8px 0;
-  overflow: hidden;
-}
 
-.video-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-}
-
-.video-hero-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding: 0 10px;
-}
-
-.video-hero-flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1px;
-  flex-wrap: nowrap;
-
-}
-
-.video-hero-img {
-  width: 70px;
-  height: 100px;
-  min-width: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #ffffff;
-}
-
-/* ===== TEXT STYLE ===== */
-
-.video-hero-content h1 {
-  font-size: clamp(28px, 5vw, 48px);
-  font-weight: bold;
-  white-space: normal;
-  line-height: 1.3;
-  text-align: center;
-  margin: 0 auto;
-  display: inline-block;
-  padding: 6px 12px;
-
-  /* Gradient Text */
-  background: linear-gradient(90deg, #ffea00, #ffffff);
-  background-clip: text;
-  -webkit-background-clip: text;
-
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-}
-
-.video-hero-content p {
-  font-size: clamp(14px, 3vw, 22px);
-  color: #ffffff;
-  white-space: nowrap;
-  margin-top: 4px;
-}
-
-
-
-
-
-
-
-/* ===== NOTICE ===== */
-.notice-bar1 {
-  position: relative;
-  width: 100%;
-  height: 18px;
-  background: #f4e2a7;   /* हलका पिवळा */
-  overflow: hidden;
-}
-
-.notice-fixed1 {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 40px;
-  height: 100%;
-  background: #f49b17;   /* नारिंगी */
-  color: white;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  padding-left: 5px;
-  z-index: 2;
-  font-size: 12px;
-}
-
-.notice-track1 {
-  display: flex;
-  width: max-content;
-  animation: marquee1 18s linear infinite;
-}
-
-.notice-track1 span {
-  padding-left: 220px;
-  white-space: nowrap;
-  color: #ff5900;   /* गडद नारिंगी टेक्स्ट */
-  font-weight: bold;
-  font-size: 13px;
-}
-
-@keyframes marquee1 {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-
-
-
-
-/* ===== NOTICE 2 (Suchana) ===== */
-.notice-bar2 {
-  position: relative;
-  width: 100%;
-  height: 17px;
-  background: #facfcf;   /* हलका पिवळा */
-  overflow: hidden;
-}
-
-.notice-fixed2 {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width:70px;
-  height: 100%;
-  background: #ff2d2d;  
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  padding-left: 5px;
-  z-index: 2;
-  font-size: 13px;
-}
-
-.notice-track2 {
-  display: flex;
-  width: max-content;
-  animation: marquee2 20s linear infinite;
-}
-
-.notice-track2 span {
-  padding-left: 230px;
-  white-space: nowrap;
-  color: #f71a1a; 
-  font-weight: bold;
-  font-size: 13px;
-}
-
-@keyframes marquee2 {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
 
 
 
@@ -307,7 +74,20 @@
 
 
 
-/* ===== MENU SECTION (Info Box Style) ===== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== MENU SECTION  ===== */
 
 .menu-container {
   width: 99%;
@@ -351,8 +131,9 @@
 
   color: #bf360c;
   background: #f5e0c0;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px ;
 
- border-radius: 12px;
 
   border: 1px solid #ff9900;
 
@@ -369,116 +150,6 @@
 
 
 
-
-
-
-
-
-/* ===== नवनाथ गड अभ्यासिका ===== */
-
-.abhyashika {
-  width:99%;
-  height:auto;
-  max-width: 1000px;
-  margin: 5px auto;
-  padding: 8px;
-  border: 1px solid #ef8e33;
-  border-top-left-radius: 100px;
-  border-bottom-right-radius: 100px ;
-
-  background-color: #690f67;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 7px;
-
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover effect container */
-.abhyashika:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* Menu Buttons */
-.abhyashika-btn {
-  flex: 1;
-  text-align: center;
-  padding: 10px 5px;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: bold;
- 
-
-  color: #21126e;
-  background: #ffffff;
-
-   border-top-left-radius: 100px;
- border-bottom-right-radius: 100px ;
-  border: 1px solid #ab995f;
-
-  transition: all 0.3s ease;
-}
-
-/* Button Hover */
-.abhayashika-btn:hover {
-  background: #ff5722;
-  color: white;
-  transform: scale(1.05);
-}
-
-
-
-
-
-
-
-
-
-
-/* 🔵 Blue Animated Dot */
-.blue-dot {
-    width:  8px;
-    height: 8px;
-    text-align: center;
-    background-color: #ff5100;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 6px;
-    animation: blueFade 0.8s ease-in-out infinite;
-}
-
-/* Smooth Fade Animation */
-@keyframes blueFade {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-
-
-
-/* 🔵 Blue Animated Dot */
-.abhyashika-dot {
-    width:  8px;
-    height: 8px;
-    text-align: center;
-    background-color: #18307e;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 6px;
-    animation: blueFade 0.8s ease-in-out infinite;
-}
-
-/* Smooth Fade Animation */
-@keyframes blueFade {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-}
 
 
 
@@ -521,6 +192,10 @@
     .slide.exit {
       transform: translateX(-200%);
     }
+
+
+
+
 
 
 /* Info Box 1 - माझ्या रंगसंगतीसह, Text Centered */
@@ -651,297 +326,6 @@
 }
 
 
-
-
-
-
-
-/* ===== OUTER FRAME ===== */
-.seva-card-frame {
-  background: #f8f2e9;
-  padding: 15px 10px;
-  border-radius: 20px;
-
-  border: 2px solid #ff5722;
-  border-top: 1px solid #ff7300; 
-  border-bottom: 1px solid #ff9900;
-
-  margin: 20px auto;
-  max-width: 99%;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-
-  transition: 0.3s ease;
-}
-
-.seva-card-frame:hover {
-  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-  transform: translateY(-4px);
-}
-
-.seva-card-frame .seva-card-header {
-  margin: 2px auto;
-}
-
-/* ===== CARD HEADER ===== */
-.seva-card-header {
-  padding: 5px 5px;
-  display: flex;
-  justify-content: center;
-}
-
-/* ===== CARD CONTENT ===== */
-.seva-card-content {
-  width: 100%;
-  max-width: 100%;
-  padding: 8px;
-
-  border: 1px solid #581111;
-  border-top: 1px solid #ac7777;
-  border-bottom: 1px solid #4c1d1d;
-  border-radius: 50px;
-
-  background-color: #efe4d1;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-
-  transition: 0.3s ease;
-}
-
-.seva-card-content:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-}
-
-/* ===== FLEX LAYOUT (FIXED) ===== */
-.seva-card-flex {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;   /* center ऐवजी */
-  gap: 15px;
-  flex-wrap: nowrap;
-  padding-left: 40px;            /* alignment fix */
-}
-
-/* ===== IMAGE (FIXED) ===== */
-.seva-card-img {
-  width: 90px;
-  height: 120px;
-  margin: 5px;
-  min-width: 90px;      /* equal width */
-  flex-shrink: 0;       /* image shift होऊ नये म्हणून */
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #ff5722;
-}
-
-/* ===== TEXT ===== */
-.seva-card-text {
-  text-align: center;
-  width: 100%;
-}
-
-.seva-card-text h1 {
-  color: #bf360c;
-  font-size: clamp(18px, 3vw, 30px);
-  margin-bottom: 5px;
-  white-space: nowrap;
-}
-
-.seva-card-text p {
-  color: #e64a19;
-  font-size: clamp(14px, 2vw, 16px);
-  margin: 2px 0;
-  white-space: normal;
-  word-break: break-word;
-}
-
-
-.seva-card-text2 p {
-  font-size: clamp(14px, 2vw, 16px);
-  margin: 2px 0;
-  white-space: normal;
-  word-break: break-word;
-
-  /* Gradient text */
-  background: linear-gradient(
-    90deg, 
-    #2c4b79 16.6%,
-    #0b3c6c 33.2%,
-    #2da233 49.8%,
-    #a29350 66.4%,
-    #fb8c00 83%,
-    #d81b60 100%
-  );
-
-  /* Standard property for compatibility */
-  background-clip: text;
-
-  /* Vendor-specific for WebKit */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  font-weight: bold;
-}
-
-.seva-card-text2 h1 {
-  color: #834d3d;
-  font-size: clamp(15px, 3vw, 25px);
-  margin-bottom: 2px;
-  text-align: center;
-  white-space: nowrap;
-}
-
-
-
-/* ===== MOBILE FIX ===== */
-@media (max-width: 600px) {
-
-  .seva-card-frame {
-    padding: 10px 6px;
-  }
-
-  .seva-card-content {
-    padding: 8px;
-    border-radius: 15px;
-  }
-
-  .seva-card-flex {
-    flex-direction: row;
-    gap: 5px;
-    padding-left: 10px;
-  }
-
-  .seva-card-img {
-    width: 60px;
-    height: 90px;
-    min-width: 60px;
-  }
-
-  .seva-card-text h1 {
-    font-size: 18px;
-  }
-
-  .seva-card-text p {
-    font-size: 12px;
-    white-space: normal;
-
-    
-  }
-
-  
-}
-
-
-
-/* ===== वृक्षदानातून निसर्गसेवा ===== */
-
-.main-box {
-  text-align: center;
-}
-
-/* ===== OVAL TITLE - Nature Green Theme ===== */
-.oval-title {
-  display: inline-block;
-  padding: 14px 30px;
-  font-size: 22px;
-  font-weight: bold;
-  margin: 15px 0;
-
-  /* 🌿 Rounded Green Background */
-  background: linear-gradient(135deg, #a5d6a7, #43a047);
- border-top-left-radius: 100px;
- border-bottom-right-radius: 100px ;
-
-  /* 🌳 Border */
-  border: 0.5px solid #2e7d32;
-
-  /* 🌿 Text Gradient */
-  background-clip: text;
-  -webkit-background-clip: text;
-
-  /* Important Trick */
-  color: #1b5e20;
-
-  transition: all 0.3s ease;
-}
-
-/* Hover Effect */
-.oval-title:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 100, 0, 0.35);
-}
-
-
-
-/* ===== फिरता बॉर्डर  ===== */
-
-.main-box {
-  text-align: center;
-}
-
-/* ===== OVAL TITLE ===== */
-.oval-title {
-  position: relative;
-  display: inline-block;
-  padding: 14px 30px;
-  font-size: 22px;
-  font-weight: bold;
-  margin: 15px 0;
-
-  background: #ffffff;   /* White background inside */
-  color: #1b5e20;
-
-  border-top-left-radius: 100px;
-  border-bottom-right-radius: 100px;
-
-  z-index: 1;
-  overflow: hidden;
-
-  transition: all 0.3s ease;
-}
-
-/* 🔴 Single Red Rotating Border */
-.oval-title::before {
-  content: "";
-  position: absolute;
-  inset: -3px;   /* Border thickness */
-
-  border-top-left-radius: 110px;
-  border-bottom-right-radius: 110px;
-
-  background: conic-gradient(
-    from 0deg,
-    rgb(255, 0, 0) 0deg 90deg,
-    transparent 90deg 360deg
-  );
-
-  animation: rotateBorder 3s linear infinite;
-  z-index: -2;
-}
-
-/* Inner Layer */
-.oval-title::after {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  background: #ffffff;
-
-  border-top-left-radius: 100px;
-  border-bottom-right-radius: 100px;
-
-  z-index: -1;
-}
-
-/* Rotation Animation */
-@keyframes rotateBorder {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Hover */
-.oval-title:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(200, 0, 0, 0.35);
-}
 
 
 
@@ -1267,124 +651,60 @@
 
 
 
+/* ===== नवनाथ गड अभ्यासिका ===== */
 
+.abhyashika {
+  width:99%;
+  height:auto;
+  max-width: 1000px;
+  margin: 5px auto;
+  padding: 8px;
+  border: 1px solid #ef8e33;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px ;
 
+  background-color: #690f67;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 
-
-/* ===== Parent frame for both cards ===== */
-.cards-frame {
-  max-width: 950px;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 25px;
-  background: linear-gradient(135deg, #22364b, #2f3c52); /* Common background */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* ===== Cards style ===== */
-.creator-card, .contact-card {
-  background: transparent; /* Transparent to show parent background */
-  border: 1px solid #00aeff;
-  border-radius: 20px;
-  padding: 15px 20px;
-  display: flex;
+  justify-content: space-around;
   align-items: center;
-  gap: 20px;
-  transition: 0.4s ease;
+  gap: 7px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.creator-card:hover, .contact-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 40px rgba(79,195,247,0.4);
+/* Hover effect container */
+.abhyashika:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* ===== Images ===== */
-.creator-img, .contact-img {
-  width: 100px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid #000;
-}
-
-/* ===== Text ===== */
-.creator-text h2, .contact-text h2 {
-  font-size: clamp(20px, 3vw, 28px);
-  margin-bottom: 10px;
-  color: #ffffff;
-  letter-spacing: 1px;
-}
-
-.creator-role {
-  color: #4f86a1;
-  font-size: 10px;
-  margin-bottom: 0;
-  font-weight: 200;
-}
-
-.contact-role {
-  color: #ffffff;
-  font-size: 14px;
-  margin-bottom: 10px;
-  font-weight: 500;
-}
-
-/* ===== Buttons ===== */
-.creator-whatsapp, .contact-call {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 22px;
-  border-radius: 40px;
-  
-  color: white;
+/* Menu Buttons */
+.abhyashika-btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px 5px;
   text-decoration: none;
+  font-size: 12px;
   font-weight: bold;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-  transition: 0.3s ease;
+ 
+
+  color: #21126e;
+  background: #ffffff;
+
+   border-top-left-radius: 100px;
+ border-bottom-right-radius: 100px ;
+  border: 1px solid #ab995f;
+
+  transition: all 0.3s ease;
 }
 
-.creator-whatsapp {
-  background: linear-gradient(135deg, #25D366, #128C7E);
-}
-
-.contact-call {
-  background: linear-gradient(135deg, #2b83cc, #677b90);
-}
-
-.creator-whatsapp:hover, .contact-call:hover {
-  transform: scale(1.08);
-  box-shadow: 0 10px 25px rgba(79,195,247,0.6);
-}
-
-.creator-wa-icon, .contact-call-icon {
-  width: 22px;
-}
-
-/* ===== Mobile Fix ===== */
-@media (max-width: 600px) {
-  .creator-card, .contact-card {
-    flex-direction: row;
-    padding: 12px;
-    gap: 12px;
-  }
-
-  .creator-img, .contact-img {
-    width: 70px;
-    height: 90px;
-  }
-
-  .creator-text h2, .contact-text h2 {
-    font-size: 16px;
-  }
-
-  .creator-whatsapp, .contact-call {
-    font-size: 13px;
-    padding: 6px 14px;
-  }
+/* Button Hover */
+.abhayashika-btn:hover {
+  background: #ff5722;
+  color: white;
+  transform: scale(1.05);
 }
 
 
@@ -1393,8 +713,7 @@
 
 
 
-
-/* ===== PAGE TITLE ===== */
+/* ===== update notice ===== */
 .page-title-suchana {
     text-align: center;
     margin: 20px 0;
@@ -1403,156 +722,3 @@
 }
 
 
-
-
-
-
-.last-updated-box {
-  background-color: #fff;
-  padding: 20px 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  max-width: 600px;
-  margin: 30px auto;
-  text-align: center;
-  font-family: Arial, sans-serif;
-}
-
-.last-updated-box h1 {
-  font-size: 1.8em;
-  margin-bottom: 15px;
-  color: #1a1a1a;
-}
-
-.last-updated-box #lastUpdated {
-  font-weight: bold;
-  color: #007BFF;
-  transition: color 0.5s;
-}
-
-.last-updated-box #lastUpdated:hover {
-  color: #ff5722;
-}
-
-/* Tablet / mobile responsiveness */
-@media (max-width: 768px) {
-  .last-updated-box {
-    padding: 15px 20px;
-    margin: 20px 10px;
-  }
-
-  .last-updated-box #lastUpdated {
-    font-size: 5px;
-  }
-}
-
-@media (max-width: 480px) {
-  .last-updated-box {
-    padding: 12px 15px;
-    margin: 15px 5px;
-  }
-  .last-updated-box h1 {
-    font-size: 10px;
-  }
-  .last-updated-box #lastUpdated {
-    font-size: 10px;
-  }
-}
-
-
-
-
-
-
-
-
-/* ===== ABHYASIKA HEADER ===== */
-
-.abhyasika-heldar {
-position: relative;
-min-height: 40px;
-background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
-padding: 10px 0;
-overflow: hidden;
-border-top-right-radius: 50px;
-border-bottom-left-radius: 50px;
-}
-
-/* dark overlay */
-.abhyasika-heldar::after {
-content: "";
-position: absolute;
-inset: 0;
-background: rgba(0,0,0,0.45);
-}
-
-/* content */
-.abhyasika-heldar-content {
-position: relative;
-z-index: 2;
-width: 100%;
-padding: 0 10px;
-}
-
-/* flex layout */
-.abhyasika-heldar-flex {
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 5px;
-
-/* image wrap होऊ नये */
-flex-wrap: nowrap;
-}
-
-/* image */
-.abhyasika-heldar-img {
-width: 50px;
-height: 70px;
-min-width: 50px;
-flex-shrink: 0;   /* image shrink किंवा wrap होणार नाही */
-
-border-radius: 50%;
-object-fit: cover;
-border: 0.5px solid #ff9d00;
-box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-/* ===== TEXT STYLE ===== */
-
-.abhyasika-heldar-content h1 {
-font-size: clamp(22px,5vw,50px);
-font-weight: 1000;
-line-height: 1.2;
-margin: 0;
-padding: 4px 10px;
-
-/* text wrap */
-white-space: normal;
-word-break: break-word;
-
-/* gradient text */
-background: linear-gradient(90deg,#ffe259,#ffa751);
-background-clip: text;
--webkit-background-clip: text;
-
-color: transparent;
--webkit-text-fill-color: transparent;
-
-text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-}
-
-/* subtitle */
-.abhyasika-heldar-content p {
-font-size: clamp(14px,3vw,20px);
-color: #ffffff;
-margin-top: 4px;
-
-/* text wrap */
-white-space: normal;
-word-break: break-word;
-}
