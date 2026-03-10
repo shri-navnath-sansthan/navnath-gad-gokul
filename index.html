@@ -463,16 +463,6 @@
 
 
 
-<script>
-fetch("https://api.countapi.xyz/hit/navnathgad_official_site/visits")
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById("visitor-count").innerText = data.value;
-  });
-</script>
-
-
-
 
 <script src="js/script.js"></script>
 
@@ -481,6 +471,29 @@ fetch("https://api.countapi.xyz/hit/navnathgad_official_site/visits")
 
 
 </body>
+
+
+
+
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6LEERLBH3L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6LEERLBH3L');
+</script>
+
+
+
+
+
+
+
 </html>
 
 
