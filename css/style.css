@@ -722,3 +722,77 @@
 }
 
 
+
+
+
+
+
+.navnath-container{
+width: auto;
+max-width: 99%;
+margin:auto;
+border:1px solid #9aa6b2;
+border-radius:20px;
+padding:15px;
+background:#573657;
+text-align:center;
+}
+
+.navnath-title{
+display:inline-block;
+padding:4px 8px;
+background-color: white;
+border-top-left-radius: 100px;
+border-bottom-right-radius: 100px;
+border:0.5px solid #a9b3bd;
+font-weight:bold;
+margin-bottom:10px;
+font-size: 10px ;
+color:#8b0000; 
+
+}
+
+.navnath-box{
+background:#412941;
+border-top-left-radius: 100px;
+border-bottom-right-radius: 100px ;
+padding:8px;
+display:flex;
+justify-content:space-around;
+
+}
+
+.circle{
+width: 55px;
+height:55px;
+background:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+border:1px solid black;
+text-decoration:none;
+}
+
+.circle img{
+width: 40px;
+height:40px;
+}
+
+
+
+
+
+
+
+.visitor-counter{
+  width:auto;
+  margin:2px;
+  padding:2px;
+  text-align:center;
+  font-size:10px;
+  font-weight:bold;
+
+  border-radius:15px;
+  background:#dfeafa;
+}

@@ -93,6 +93,11 @@
 
 
 
+<div class="visitor-counter">
+  👁️  आतापर्यंत संकेतस्थळाला : <span id="visitor-count">0</span> जनानी भेट दिली. 
+</div>
+
+
 
 
 
@@ -376,11 +381,37 @@
       </div>
   </div>
 
+</div>
 
 
-  
+
+
+
+
+<div class="navnath-container">
+
+  <div class="navnath-title">
+   👉 नवनाथ गड अधिकृत सोशल मीडिया — आत्ताच Follow करा.
+  </div>
+
+  <div class="navnath-box">
+
+    <a href="https://www.instagram.com/navnathgad_gokul_official" target="_blank" class="circle">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+    </a>
+
+    <a href="https://www.youtube.com/@navnathgad_gokul_official" target="_blank" class="circle">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+    </a>
+
+    <a href="https://telegram.org" target="_blank" class="circle">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
+    </a>
+
+  </div>
 
 </div>
+
 
 
 
@@ -432,7 +463,13 @@
 
 
 
-
+<script>
+fetch("https://api.countapi.xyz/hit/navnathgad_official_site/visits")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("visitor-count").innerText = data.value;
+  });
+</script>
 
 
 
