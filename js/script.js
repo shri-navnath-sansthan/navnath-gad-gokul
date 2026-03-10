@@ -28,3 +28,12 @@ setInterval(() => {
     current = next;
   }, 800);
 }, 3700);
+
+
+
+
+
+
+
+
+

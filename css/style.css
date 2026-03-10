@@ -782,10 +782,22 @@ height:40px;
 
 
 
-
 .visitor-counter{
-    font-size:10px;
+    display:inline-block;
+    background:#fff3e0;
+    border:2px solid #ff9800;
+    border-radius:10px;
+    padding:12px 20px;
+    font-size:18px;
     font-weight:bold;
+    color:#d35400;
     text-align:center;
-    margin-top:10px;
+    margin:20px auto;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+#visitor-count{
+    font-size:22px;
+    color:#e53935;
+    margin-left:6px;
 }
