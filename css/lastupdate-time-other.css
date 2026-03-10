@@ -1,11 +1,11 @@
 
 .last-updated-box {
   background-color: #fff;
-  padding: 20px 25px;
+  padding: 10px 15px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   max-width: 600px;
-  margin: 30px auto;
+  margin: 10px auto;
   text-align: center;
   font-family: Arial, sans-serif;
 }
@@ -29,8 +29,8 @@
 /* Tablet / mobile responsiveness */
 @media (max-width: 768px) {
   .last-updated-box {
-    padding: 15px 20px;
-    margin: 20px 10px;
+    padding: 5px 10px;
+    margin: 10px 5px;
   }
 
   .last-updated-box #lastUpdated {
@@ -40,8 +40,8 @@
 
 @media (max-width: 480px) {
   .last-updated-box {
-    padding: 12px 15px;
-    margin: 15px 5px;
+    padding: 5px 2px;
+    
   }
   .last-updated-box h1 {
     font-size: 10px;
