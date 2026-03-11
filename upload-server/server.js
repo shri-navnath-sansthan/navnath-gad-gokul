@@ -8,27 +8,39 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+/* Cloudinary config */
 cloudinary.config({
   cloud_name: "djxhwbxah",
   api_key: "332867976324913",
   api_secret: "UupLdCHel2pTBO_1DV17HjCKZQM"
 });
 
+/* Multer setup */
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
+/* Test route */
+app.get("/", (req, res) => {
+  res.send("Navnath Upload Server Running 🚀");
+});
+
+/* Upload route */
 app.post("/upload", upload.single("image"), async (req, res) => {
 
   try {
 
     const result = await new Promise((resolve, reject) => {
-      cloudinary.uploader.upload_stream(
-        { folder: "gallery" },
+
+      const stream = cloudinary.uploader.upload_stream(
+        { folder: "navnath-gallery" },
         (error, result) => {
           if (error) reject(error);
           else resolve(result);
         }
-      ).end(req.file.buffer);
+      );
+
+      stream.end(req.file.buffer);
+
     });
 
     res.json({
@@ -37,11 +49,19 @@ app.post("/upload", upload.single("image"), async (req, res) => {
     });
 
   } catch (err) {
-    res.status(500).json({ error: err.message });
+
+    res.status(500).json({
+      success: false,
+      error: err.message
+    });
+
   }
 
 });
 
-app.listen(3000, () => {
-  console.log("Server running");
+/* Render dynamic port */
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("Server running on port " + PORT);
 });
