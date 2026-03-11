@@ -1,7 +1,6 @@
 {
-  "name": "navnath-gallery-upload",
+  "name": "navnath-upload-server",
   "version": "1.0.0",
-  "description": "Photo upload server",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
