@@ -462,10 +462,46 @@
 /* ===== PAGE TITLE ===== */
 .page-title {
     text-align: center;
-    margin: 20px 0;
+    margin: 1px 0;
     color: #b30000;
-    font-size: 22px;
+    font-size: 18px;
 }
+
+
+
+
+
+
+.upload-btn-box{
+text-align:center;
+margin:5px 0;
+}
+
+.upload-btn{
+display:inline-block;
+width: auto;
+background:#b30000;
+color:#fff;
+padding:5px 9px;
+border-radius:8px;
+text-decoration:none;
+font-size:12px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.upload-btn:hover{
+background:#ff0000;
+transform:scale(1.05);
+}
+
+
+
+
+
+
+
+
 
 /* ===== MONTH TITLE ===== */
 .month-title {
@@ -809,3 +845,8 @@ height:40px;
     white-space:nowrap;
    
 }
+
+
+
+
+
