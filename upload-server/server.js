@@ -2,66 +2,71 @@ const express = require("express");
 const multer = require("multer");
 const cloudinary = require("cloudinary").v2;
 const cors = require("cors");
+const fs = require("fs");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-/* Cloudinary config */
 cloudinary.config({
   cloud_name: "djxhwbxah",
-  api_key: "332867976324913",
-  api_secret: "UupLdCHel2pTBO_1DV17HjCKZQM"
+  api_key: "YOUR_API_KEY",
+  api_secret: "YOUR_NEW_SECRET"
 });
 
-/* Multer setup */
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-/* Test route */
-app.get("/", (req, res) => {
-  res.send("Navnath Upload Server Running 🚀");
-});
-
-/* Upload route */
 app.post("/upload", upload.single("image"), async (req, res) => {
 
   try {
 
-    const result = await new Promise((resolve, reject) => {
+    const caption = req.body.caption;
+    const month = req.body.month;
+    const year = req.body.year;
 
-      const stream = cloudinary.uploader.upload_stream(
-        { folder: "navnath-gallery" },
+    const result = await new Promise((resolve, reject) => {
+      cloudinary.uploader.upload_stream(
+        { folder: "gallery" },
         (error, result) => {
           if (error) reject(error);
           else resolve(result);
         }
-      );
-
-      stream.end(req.file.buffer);
-
+      ).end(req.file.buffer);
     });
+
+    const imageUrl = result.secure_url;
+
+    const newImage = {
+      src: imageUrl,
+      month: month,
+      year: year,
+      caption: caption
+    };
+
+    const data = fs.readFileSync("../gallery.json");
+    const images = JSON.parse(data);
+
+    images.unshift(newImage);
+
+    fs.writeFileSync("../gallery.json", JSON.stringify(images, null, 2));
 
     res.json({
       success: true,
-      imageUrl: result.secure_url
+      imageUrl: imageUrl
     });
 
   } catch (err) {
-
-    res.status(500).json({
-      success: false,
-      error: err.message
-    });
-
+    res.status(500).json({ error: err.message });
   }
 
 });
 
-/* Render dynamic port */
-const PORT = process.env.PORT || 3000;
+app.get("/", (req, res) => {
+  res.send("Upload server running 🚀");
+});
 
-app.listen(PORT, () => {
-  console.log("Server running on port " + PORT);
+app.listen(3000, () => {
+  console.log("Server running");
 });

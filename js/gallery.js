@@ -1,176 +1,252 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-fetch("gallery.json")
+const cloudName = "djxhwbxah";
+const folder = "gallery";
+
+fetch(`https://res.cloudinary.com/${cloudName}/image/list/${folder}.json`)
 .then(res => res.json())
-.then(images => {
+.then(data => {
 
-    const galleryWrapper = document.getElementById("gallery-wrapper");
-    const modal = document.getElementById("modal");
-    const header = document.querySelector("header");
+const images = data.resources.map(img => {
+return {
+src: `https://res.cloudinary.com/${cloudName}/image/upload/${img.public_id}.${img.format}`,
+month: "मार्च",
+year: "2026",
+caption: ""
+};
+});
 
-    let currentIndex = 0;
-    let sliderTrack;
-    let modalCaption;
-    let modalCaptionText;
-    let readMoreBtn;
-    let isExpanded = false;
+const galleryWrapper = document.getElementById("gallery-wrapper");
+const modal = document.getElementById("modal");
+const header = document.querySelector("header");
 
-    const COLLAPSED_HEIGHT = 40;
+let currentIndex = 0;
+let sliderTrack;
+let modalCaption;
+let modalCaptionText;
+let readMoreBtn;
+let isExpanded = false;
 
-    const grouped = {};
-    images.forEach((img, index) => {
-        const key = img.month + " " + img.year;
-        if (!grouped[key]) grouped[key] = [];
-        grouped[key].push({ ...img, index });
-    });
+const COLLAPSED_HEIGHT = 40;
 
-    Object.keys(grouped).forEach(monthKey => {
+const grouped = {};
 
-        const monthTitle = document.createElement("h2");
-        monthTitle.className = "month-title";
-        monthTitle.innerText = monthKey;
+images.forEach((img, index) => {
+const key = img.month + " " + img.year;
+if (!grouped[key]) grouped[key] = [];
+grouped[key].push({ ...img, index });
+});
 
-        const gallery = document.createElement("div");
-        gallery.className = "gallery";
+Object.keys(grouped).forEach(monthKey => {
 
-        grouped[monthKey].forEach(item => {
-            const img = document.createElement("img");
-            img.src = item.src;
-            img.onclick = () => openModal(item.index);
-            gallery.appendChild(img);
-        });
+const monthTitle = document.createElement("h2");
+monthTitle.className = "month-title";
+monthTitle.innerText = monthKey;
 
-        galleryWrapper.appendChild(monthTitle);
-        galleryWrapper.appendChild(gallery);
-    });
+const gallery = document.createElement("div");
+gallery.className = "gallery";
 
-    sliderTrack = document.createElement("div");
-    sliderTrack.classList.add("modal-track");
+grouped[monthKey].forEach(item => {
 
-    images.forEach(img => {
-        const image = document.createElement("img");
-        image.src = img.src;
-        sliderTrack.appendChild(image);
-    });
+const img = document.createElement("img");
+img.src = item.src;
+img.onclick = () => openModal(item.index);
 
-    modalCaption = document.createElement("div");
-    modalCaption.style.position = "absolute";
-    modalCaption.style.bottom = "0";
-    modalCaption.style.left = "0";
-    modalCaption.style.width = "100%";
-    modalCaption.style.background = "#000000";
-    modalCaption.style.color = "#fff";
-    modalCaption.style.padding = "2px";
-    modalCaption.style.textAlign = "center";
+gallery.appendChild(img);
 
-    modalCaptionText = document.createElement("div");
-    modalCaptionText.style.overflow = "hidden";
-    modalCaptionText.style.height = COLLAPSED_HEIGHT + "1px";
-    modalCaptionText.style.transition = "height 0.3s ease";
+});
 
-    readMoreBtn = document.createElement("div");
-    readMoreBtn.style.marginTop = "2px";
-    readMoreBtn.style.fontWeight = "bold";
-    readMoreBtn.style.cursor = "pointer";
-    readMoreBtn.innerText = "आणखी वाचा";
+galleryWrapper.appendChild(monthTitle);
+galleryWrapper.appendChild(gallery);
 
-    modalCaption.appendChild(modalCaptionText);
-    modalCaption.appendChild(readMoreBtn);
+});
 
-    modal.appendChild(sliderTrack);
-    modal.appendChild(modalCaption);
+sliderTrack = document.createElement("div");
+sliderTrack.classList.add("modal-track");
 
-    function openModal(index) {
-        currentIndex = index;
-        modal.style.display = "flex";
-        header.style.display = "none";
-        setPositionByIndex();
-        updateCaption();
-        history.pushState({ modalOpen: true }, "");
-    }
+images.forEach(img => {
 
-    function updateCaption() {
-        modalCaptionText.innerText = images[currentIndex].caption;
-        modalCaptionText.style.height = COLLAPSED_HEIGHT + "px";
-        readMoreBtn.innerText = "आणखी वाचा";
-        isExpanded = false;
+const image = document.createElement("img");
+image.src = img.src;
 
-        setTimeout(() => {
-            if (modalCaptionText.scrollHeight > COLLAPSED_HEIGHT) {
-                readMoreBtn.style.display = "block";
-            } else {
-                readMoreBtn.style.display = "none";
-            }
-        }, 50);
-    }
+sliderTrack.appendChild(image);
 
-    readMoreBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
+});
 
-        if (!isExpanded) {
-            modalCaptionText.style.height =
-                modalCaptionText.scrollHeight + "px";
-            readMoreBtn.innerText = " ";
-            isExpanded = true;
-        } else {
-            modalCaptionText.style.height = COLLAPSED_HEIGHT + "px";
-            readMoreBtn.innerText = "आणखी वाचा";
-            isExpanded = false;
-        }
-    });
+modalCaption = document.createElement("div");
 
-    function closeModal() {
-        modal.style.display = "none";
-        header.style.display = "block";
-    }
+modalCaption.style.position = "absolute";
+modalCaption.style.bottom = "0";
+modalCaption.style.left = "0";
+modalCaption.style.width = "100%";
+modalCaption.style.background = "#000000";
+modalCaption.style.color = "#fff";
+modalCaption.style.padding = "2px";
+modalCaption.style.textAlign = "center";
 
-    window.closeModal = closeModal;
+modalCaptionText = document.createElement("div");
 
-    modal.addEventListener("click", function (e) {
-        if (e.target === modal) closeModal();
-    });
+modalCaptionText.style.overflow = "hidden";
+modalCaptionText.style.height = COLLAPSED_HEIGHT + "px";
+modalCaptionText.style.transition = "height 0.3s ease";
 
-    window.addEventListener("popstate", function () {
-        if (modal.style.display === "flex") closeModal();
-    });
+readMoreBtn = document.createElement("div");
 
-    let startX = 0;
-    let isDragging = false;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
+readMoreBtn.style.marginTop = "2px";
+readMoreBtn.style.fontWeight = "bold";
+readMoreBtn.style.cursor = "pointer";
+readMoreBtn.innerText = "आणखी वाचा";
 
-    modal.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-        isDragging = true;
-        sliderTrack.style.transition = "none";
-    });
+modalCaption.appendChild(modalCaptionText);
+modalCaption.appendChild(readMoreBtn);
 
-    modal.addEventListener("touchmove", (e) => {
-        if (!isDragging) return;
-        const currentX = e.touches[0].clientX;
-        const diff = currentX - startX;
-        currentTranslate = prevTranslate + diff;
-        sliderTrack.style.transform = `translateX(${currentTranslate}px)`;
-    });
+modal.appendChild(sliderTrack);
+modal.appendChild(modalCaption);
 
-    modal.addEventListener("touchend", () => {
-        isDragging = false;
-        const movedBy = currentTranslate - prevTranslate;
+function openModal(index) {
 
-        if (movedBy < -80 && currentIndex < images.length - 1) currentIndex++;
-        if (movedBy > 80 && currentIndex > 0) currentIndex--;
+currentIndex = index;
 
-        setPositionByIndex();
-        updateCaption();
-    });
+modal.style.display = "flex";
+header.style.display = "none";
 
-    function setPositionByIndex() {
-        const slideWidth = modal.offsetWidth;
-        currentTranslate = currentIndex * -slideWidth;
-        prevTranslate = currentTranslate;
-        sliderTrack.style.transition = "transform 0.35s ease";
-        sliderTrack.style.transform = `translateX(${currentTranslate}px)`;
-    }
+setPositionByIndex();
+updateCaption();
+
+history.pushState({ modalOpen: true }, "");
+
+}
+
+function updateCaption() {
+
+modalCaptionText.innerText = images[currentIndex].caption;
+
+modalCaptionText.style.height = COLLAPSED_HEIGHT + "px";
+
+readMoreBtn.innerText = "आणखी वाचा";
+
+isExpanded = false;
+
+setTimeout(() => {
+
+if (modalCaptionText.scrollHeight > COLLAPSED_HEIGHT) {
+
+readMoreBtn.style.display = "block";
+
+} else {
+
+readMoreBtn.style.display = "none";
+
+}
+
+}, 50);
+
+}
+
+readMoreBtn.addEventListener("click", function (e) {
+
+e.stopPropagation();
+
+if (!isExpanded) {
+
+modalCaptionText.style.height =
+modalCaptionText.scrollHeight + "px";
+
+readMoreBtn.innerText = " ";
+
+isExpanded = true;
+
+} else {
+
+modalCaptionText.style.height = COLLAPSED_HEIGHT + "px";
+
+readMoreBtn.innerText = "आणखी वाचा";
+
+isExpanded = false;
+
+}
+
+});
+
+function closeModal() {
+
+modal.style.display = "none";
+header.style.display = "block";
+
+}
+
+window.closeModal = closeModal;
+
+modal.addEventListener("click", function (e) {
+
+if (e.target === modal) closeModal();
+
+});
+
+window.addEventListener("popstate", function () {
+
+if (modal.style.display === "flex") closeModal();
+
+});
+
+let startX = 0;
+let isDragging = false;
+let currentTranslate = 0;
+let prevTranslate = 0;
+
+modal.addEventListener("touchstart", (e) => {
+
+startX = e.touches[0].clientX;
+
+isDragging = true;
+
+sliderTrack.style.transition = "none";
+
+});
+
+modal.addEventListener("touchmove", (e) => {
+
+if (!isDragging) return;
+
+const currentX = e.touches[0].clientX;
+
+const diff = currentX - startX;
+
+currentTranslate = prevTranslate + diff;
+
+sliderTrack.style.transform = `translateX(${currentTranslate}px)`;
+
+});
+
+modal.addEventListener("touchend", () => {
+
+isDragging = false;
+
+const movedBy = currentTranslate - prevTranslate;
+
+if (movedBy < -80 && currentIndex < images.length - 1) currentIndex++;
+
+if (movedBy > 80 && currentIndex > 0) currentIndex--;
+
+setPositionByIndex();
+
+updateCaption();
+
+});
+
+function setPositionByIndex() {
+
+const slideWidth = modal.offsetWidth;
+
+currentTranslate = currentIndex * -slideWidth;
+
+prevTranslate = currentTranslate;
+
+sliderTrack.style.transition = "transform 0.35s ease";
+
+sliderTrack.style.transform = `translateX(${currentTranslate}px)`;
+
+}
 
 });
 

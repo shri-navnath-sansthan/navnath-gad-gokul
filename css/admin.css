@@ -1,13 +1,13 @@
 body{
 font-family:sans-serif;
+background:#f2f2f2;
 text-align:center;
-padding:30px;
-background:#f4f4f4;
+padding:40px;
 }
 
 form{
-background:#fff;
-padding:20px;
+background:white;
+padding:25px;
 border-radius:10px;
 max-width:400px;
 margin:auto;
@@ -16,14 +16,19 @@ box-shadow:0 0 10px rgba(0,0,0,0.1);
 
 input,button{
 width:100%;
-margin:10px 0;
 padding:10px;
+margin:10px 0;
+font-size:16px;
 }
 
 button{
 background:#b30000;
-color:#fff;
+color:white;
 border:none;
-border-radius:5px;
+border-radius:6px;
 cursor:pointer;
+}
+
+button:hover{
+background:#ff0000;
 }
