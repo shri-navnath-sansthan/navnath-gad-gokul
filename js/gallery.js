@@ -58,7 +58,11 @@ grouped[key].push({ ...img, index });
 
 });
 
-Object.keys(grouped).forEach(monthKey => {
+/* ===== MONTH SORT (NEWEST FIRST) ===== */
+
+const sortedMonths = Object.keys(grouped).sort().reverse();
+
+sortedMonths.forEach(monthKey => {
 
 const monthTitle = document.createElement("h2");
 monthTitle.className = "month-title";
@@ -112,9 +116,7 @@ modalCaption.style.textAlign = "center";
 modalCaptionText = document.createElement("div");
 
 modalCaptionText.style.overflow = "hidden";
-
 modalCaptionText.style.height = COLLAPSED_HEIGHT + "px";
-
 modalCaptionText.style.transition = "height 0.3s ease";
 
 readMoreBtn = document.createElement("div");
@@ -122,15 +124,12 @@ readMoreBtn = document.createElement("div");
 readMoreBtn.style.marginTop = "5px";
 readMoreBtn.style.fontWeight = "bold";
 readMoreBtn.style.cursor = "pointer";
-
 readMoreBtn.innerText = "आणखी वाचा";
 
 modalCaption.appendChild(modalCaptionText);
-
 modalCaption.appendChild(readMoreBtn);
 
 modal.appendChild(sliderTrack);
-
 modal.appendChild(modalCaption);
 
 function openModal(index){
@@ -224,11 +223,8 @@ if(modal.style.display==="flex") closeModal();
 });
 
 let startX=0;
-
 let isDragging=false;
-
 let currentTranslate=0;
-
 let prevTranslate=0;
 
 modal.addEventListener("touchstart",(e)=>{
