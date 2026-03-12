@@ -6,11 +6,11 @@ fetch(API)
 .then(res => res.json())
 .then(data => {
 
-const images = data.map((img,index) => {
+const images = data.map((img,index)=>{
 
-let caption = "";
-let month = "Gallery";
-let year = "";
+let caption="";
+let month="Gallery";
+let year="";
 
 if(img.context && img.context.custom){
 
@@ -20,14 +20,12 @@ year = img.context.custom.year || "";
 
 }
 
-return {
-
+return{
 src: img.secure_url,
 month: month,
 year: year,
 caption: caption,
 index: index
-
 };
 
 });
@@ -57,26 +55,26 @@ grouped[key].push({...img,index});
 
 });
 
-/* Month sort newest first */
+/* ===== MONTH SORT ===== */
 
 const sortedMonths = Object.keys(grouped).sort().reverse();
 
 sortedMonths.forEach(monthKey=>{
 
 const monthTitle = document.createElement("h2");
-monthTitle.className = "month-title";
-monthTitle.innerText = monthKey;
+monthTitle.className="month-title";
+monthTitle.innerText=monthKey;
 
-const gallery = document.createElement("div");
-gallery.className = "gallery";
+const gallery=document.createElement("div");
+gallery.className="gallery";
 
 grouped[monthKey].forEach(item=>{
 
-const img = document.createElement("img");
+const img=document.createElement("img");
 
-img.src = item.src;
+img.src=item.src;
 
-img.onclick = ()=>openModal(item.index);
+img.onclick=()=>openModal(item.index);
 
 gallery.appendChild(img);
 
@@ -87,19 +85,22 @@ galleryWrapper.appendChild(gallery);
 
 });
 
-sliderTrack = document.createElement("div");
+/* ===== MODAL SLIDER ===== */
+
+sliderTrack=document.createElement("div");
 sliderTrack.classList.add("modal-track");
 
 images.forEach(img=>{
 
-const image = document.createElement("img");
-image.src = img.src;
+const image=document.createElement("img");
+
+image.src=img.src;
 
 sliderTrack.appendChild(image);
 
 });
 
-modalCaption = document.createElement("div");
+modalCaption=document.createElement("div");
 
 modalCaption.style.position="absolute";
 modalCaption.style.bottom="0";
@@ -110,13 +111,13 @@ modalCaption.style.color="#fff";
 modalCaption.style.padding="5px";
 modalCaption.style.textAlign="center";
 
-modalCaptionText = document.createElement("div");
+modalCaptionText=document.createElement("div");
 
 modalCaptionText.style.overflow="hidden";
 modalCaptionText.style.height=COLLAPSED_HEIGHT+"px";
 modalCaptionText.style.transition="height 0.3s ease";
 
-readMoreBtn = document.createElement("div");
+readMoreBtn=document.createElement("div");
 
 readMoreBtn.style.marginTop="5px";
 readMoreBtn.style.fontWeight="bold";
@@ -178,7 +179,8 @@ e.stopPropagation();
 
 if(!isExpanded){
 
-modalCaptionText.style.height=modalCaptionText.scrollHeight+"px";
+modalCaptionText.style.height=
+modalCaptionText.scrollHeight+"px";
 
 readMoreBtn.innerText=" ";
 
@@ -186,7 +188,8 @@ isExpanded=true;
 
 }else{
 
-modalCaptionText.style.height=COLLAPSED_HEIGHT+"px";
+modalCaptionText.style.height=
+COLLAPSED_HEIGHT+"px";
 
 readMoreBtn.innerText="आणखी वाचा";
 
@@ -216,6 +219,8 @@ window.addEventListener("popstate",function(){
 if(modal.style.display==="flex") closeModal();
 
 });
+
+/* ===== MOBILE SWIPE ===== */
 
 let startX=0;
 let isDragging=false;
@@ -277,7 +282,9 @@ sliderTrack.style.transform=`translateX(${currentTranslate}px)`;
 
 })
 .catch(err=>{
+
 console.error("Gallery load error:",err);
+
 });
 
 });
