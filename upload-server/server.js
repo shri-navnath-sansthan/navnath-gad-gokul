@@ -8,118 +8,108 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-/* ---------------- CLOUDINARY CONFIG ---------------- */
-
 cloudinary.config({
   cloud_name: "djxhwbxah",
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-
-/* ---------------- MULTER STORAGE ---------------- */
-
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-
-/* ---------------- IMAGE UPLOAD API ---------------- */
-
-app.post("/upload", upload.single("image"), async (req, res) => {
+app.post("/upload", upload.array("image", 25), async (req, res) => {
 
   try {
 
-    if (!req.file) {
-      return res.status(400).json({
-        success: false,
-        message: "No image uploaded"
-      });
-    }
-
-    const caption = req.body.caption || "";
+    const files = req.files;
+    const captions = req.body.captions;
     const month = req.body.month || "";
     const year = req.body.year || "";
 
-    const result = await new Promise((resolve, reject) => {
+    if (!files || files.length === 0) {
+      return res.json({ success:false });
+    }
 
-      cloudinary.uploader.upload_stream(
-        {
-          folder: "gallery",
-          tags: ["gallery"],
+    const uploadedImages = [];
 
-          context: {
-            caption: caption,
-            month: month,
-            year: year
+    for(let i=0;i<files.length;i++){
+
+      const file = files[i];
+      const caption = Array.isArray(captions) ? captions[i] : captions;
+
+      const result = await new Promise((resolve,reject)=>{
+
+        cloudinary.uploader.upload_stream(
+          {
+            folder:"gallery",
+            tags:["gallery"],
+            context:{
+              caption:caption,
+              month:month,
+              year:year
+            }
+          },
+          (error,result)=>{
+            if(error) reject(error);
+            else resolve(result);
           }
+        ).end(file.buffer);
 
-        },
-        (error, result) => {
+      });
 
-          if (error) reject(error);
-          else resolve(result);
+      uploadedImages.push({
+        imageUrl:result.secure_url,
+        public_id:result.public_id
+      });
 
-        }
-      ).end(req.file.buffer);
-
-    });
+    }
 
     res.json({
-      success: true,
-      imageUrl: result.secure_url,
-      public_id: result.public_id
+      success:true,
+      images:uploadedImages
     });
 
-  } catch (err) {
+  } catch(err){
 
     res.status(500).json({
-      success: false,
-      error: err.message
+      success:false,
+      error:err.message
     });
 
   }
 
 });
 
+app.get("/gallery", async (req,res)=>{
 
-/* ---------------- GALLERY API ---------------- */
-
-app.get("/gallery", async (req, res) => {
-
-  try {
+  try{
 
     const result = await cloudinary.search
       .expression("folder:gallery")
-      .sort_by("created_at", "desc")
+      .sort_by("created_at","desc")
       .max_results(100)
       .with_field("context")
       .execute();
 
     res.json(result.resources);
 
-  } catch (err) {
+  }catch(err){
 
     res.status(500).json({
-      success: false,
-      error: err.message
+      success:false,
+      error:err.message
     });
 
   }
 
 });
 
-
-/* ---------------- SERVER TEST ---------------- */
-
-app.get("/", (req, res) => {
-  res.send("Navnath Gallery Upload Server Running 🚀");
+app.get("/",(req,res)=>{
+res.send("Navnath Gallery Upload Server Running 🚀");
 });
-
-
-/* ---------------- PORT ---------------- */
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-  console.log("Server running on port " + PORT);
+app.listen(PORT,()=>{
+console.log("Server running on port "+PORT);
 });
