@@ -15,12 +15,12 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-/* Multer memory storage */
+/* Multer */
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 /* =========================
-   Upload API
+   IMAGE UPLOAD
 ========================= */
 
 app.post("/upload", upload.single("image"), async (req, res) => {
@@ -29,8 +29,8 @@ app.post("/upload", upload.single("image"), async (req, res) => {
 
     if (!req.file) {
       return res.status(400).json({
-        success: false,
-        message: "No image uploaded"
+        success:false,
+        message:"No image uploaded"
       });
     }
 
@@ -38,37 +38,34 @@ app.post("/upload", upload.single("image"), async (req, res) => {
     const month = req.body.month || "";
     const year = req.body.year || "";
 
-    const result = await new Promise((resolve, reject) => {
+    const result = await new Promise((resolve,reject)=>{
 
       cloudinary.uploader.upload_stream(
         {
-          folder: "gallery",
-          tags: ["gallery"],
+          folder:"gallery",
+          tags:["gallery"],
 
-          /* caption month year store */
-          context: `caption=${caption}|month=${month}|year=${year}`
+          context:`caption=${caption}|month=${month}|year=${year}`
         },
-        (error, result) => {
-
-          if (error) reject(error);
+        (error,result)=>{
+          if(error) reject(error);
           else resolve(result);
-
         }
       ).end(req.file.buffer);
 
     });
 
     res.json({
-      success: true,
-      imageUrl: result.secure_url,
-      public_id: result.public_id
+      success:true,
+      imageUrl:result.secure_url,
+      public_id:result.public_id
     });
 
-  } catch (err) {
+  } catch(err){
 
     res.status(500).json({
-      success: false,
-      error: err.message
+      success:false,
+      error:err.message
     });
 
   }
@@ -76,41 +73,40 @@ app.post("/upload", upload.single("image"), async (req, res) => {
 });
 
 /* =========================
-   Gallery API
+   GALLERY API
 ========================= */
 
-app.get("/gallery", async (req, res) => {
+app.get("/gallery", async (req,res)=>{
 
-  try {
+  try{
 
     const result = await cloudinary.search
       .expression("folder:gallery")
-      .sort_by("created_at", "desc")
+      .sort_by("created_at","desc")
       .max_results(100)
-      .with_context(true)
       .execute();
 
     res.json(result.resources);
 
-  } catch (err) {
+  }catch(err){
 
     res.status(500).json({
-      success: false,
-      error: err.message
+      success:false,
+      error:err.message
     });
 
   }
 
 });
 
-/* Test route */
+/* Server test */
 
-app.get("/", (req, res) => {
+app.get("/",(req,res)=>{
   res.send("Upload server running 🚀");
 });
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-  console.log("Server running on port " + PORT);
+app.listen(PORT,()=>{
+  console.log("Server running on port "+PORT);
 });
