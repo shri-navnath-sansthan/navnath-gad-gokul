@@ -19,15 +19,16 @@ cloudinary.config({
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-/* Upload API */
+/* ================= UPLOAD API ================= */
+
 app.post("/upload", upload.single("image"), async (req, res) => {
 
   try {
 
     if (!req.file) {
       return res.status(400).json({
-        success: false,
-        message: "No image uploaded"
+        success:false,
+        message:"No image uploaded"
       });
     }
 
@@ -35,20 +36,17 @@ app.post("/upload", upload.single("image"), async (req, res) => {
     const month = req.body.month || "";
     const year = req.body.year || "";
 
-    const result = await new Promise((resolve, reject) => {
+    const result = await new Promise((resolve,reject)=>{
 
       cloudinary.uploader.upload_stream(
         {
-          folder: "gallery",
-
-          /* IMPORTANT */
-          tags: ["gallery"],
-
-          context: `caption=${caption}|month=${month}|year=${year}`
+          folder:"gallery",
+          tags:["gallery"],
+          context:`caption=${caption}|month=${month}|year=${year}`
         },
-        (error, result) => {
+        (error,result)=>{
 
-          if (error) reject(error);
+          if(error) reject(error);
           else resolve(result);
 
         }
@@ -57,29 +55,55 @@ app.post("/upload", upload.single("image"), async (req, res) => {
     });
 
     res.json({
-      success: true,
-      imageUrl: result.secure_url,
-      public_id: result.public_id
+      success:true,
+      imageUrl:result.secure_url,
+      public_id:result.public_id
     });
 
-  } catch (err) {
+  } catch(err){
 
     res.status(500).json({
-      success: false,
-      error: err.message
+      success:false,
+      error:err.message
     });
 
   }
 
 });
 
-/* Server Test Route */
-app.get("/", (req, res) => {
+/* ================= GALLERY API ================= */
+
+app.get("/gallery", async (req,res)=>{
+
+  try{
+
+    const result = await cloudinary.search
+      .expression("folder:gallery")
+      .sort_by("created_at","desc")
+      .max_results(100)
+      .execute();
+
+    res.json(result.resources);
+
+  }catch(err){
+
+    res.status(500).json({
+      success:false,
+      error:err.message
+    });
+
+  }
+
+});
+
+/* ================= TEST ROUTE ================= */
+
+app.get("/",(req,res)=>{
   res.send("Upload server running 🚀");
 });
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-  console.log("Server running on port " + PORT);
+app.listen(PORT,()=>{
+  console.log("Server running on port "+PORT);
 });
