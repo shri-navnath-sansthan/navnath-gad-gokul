@@ -8,18 +8,28 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+/* Cloudinary Config */
 cloudinary.config({
   cloud_name: "djxhwbxah",
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+/* Multer memory storage */
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
+/* Upload API */
 app.post("/upload", upload.single("image"), async (req, res) => {
 
   try {
+
+    if (!req.file) {
+      return res.status(400).json({
+        success: false,
+        message: "No image uploaded"
+      });
+    }
 
     const caption = req.body.caption || "";
     const month = req.body.month || "";
@@ -30,6 +40,10 @@ app.post("/upload", upload.single("image"), async (req, res) => {
       cloudinary.uploader.upload_stream(
         {
           folder: "gallery",
+
+          /* IMPORTANT */
+          tags: ["gallery"],
+
           context: `caption=${caption}|month=${month}|year=${year}`
         },
         (error, result) => {
@@ -44,7 +58,8 @@ app.post("/upload", upload.single("image"), async (req, res) => {
 
     res.json({
       success: true,
-      imageUrl: result.secure_url
+      imageUrl: result.secure_url,
+      public_id: result.public_id
     });
 
   } catch (err) {
@@ -58,6 +73,7 @@ app.post("/upload", upload.single("image"), async (req, res) => {
 
 });
 
+/* Server Test Route */
 app.get("/", (req, res) => {
   res.send("Upload server running 🚀");
 });

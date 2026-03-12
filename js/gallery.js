@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const cloudName = "djxhwbxah";
 const folder = "gallery";
 
-fetch(`https://res.cloudinary.com/${cloudName}/image/list/${folder}.json`)
+fetch(`https://res.cloudinary.com/${cloudName}/image/list/gallery.json`)
 .then(res => res.json())
 .then(data => {
 
