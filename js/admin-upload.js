@@ -4,13 +4,12 @@ form.addEventListener("submit", async function(e){
 
 e.preventDefault();
 
-const file = document.getElementById("image").files[0];
+const fileInput = document.getElementById("image");
+const file = fileInput.files[0];
 
 if(!file){
-
-alert("कृपया फोटो निवडा");
+alert("कृपया फोटो निवडा 📷");
 return;
-
 }
 
 const caption = document.getElementById("caption").value;
@@ -27,28 +26,27 @@ formData.append("year", year);
 try{
 
 const res = await fetch("https://navnath-upload-server.onrender.com/upload",{
-
 method:"POST",
 body:formData
-
 });
 
 const data = await res.json();
 
 if(data.success){
 
-alert("फोटो यशस्वीपणे अपलोड झाला!");
+alert("✅ फोटो यशस्वीपणे अपलोड झाला!");
 form.reset();
 
 }else{
 
-alert("Upload failed");
+alert("❌ Upload failed : " + (data.error || "Unknown error"));
 
 }
 
 }catch(err){
 
-alert("Server error");
+console.error(err);
+alert("❌ Server error");
 
 }
 

@@ -12,11 +12,11 @@ let caption="";
 let month="Gallery";
 let year="";
 
-if(img.context && img.context.custom){
+if(img.context){
 
-caption = img.context.custom.caption || "";
-month = img.context.custom.month || "Gallery";
-year = img.context.custom.year || "";
+caption = img.context.caption || "";
+month = img.context.month || "Gallery";
+year = img.context.year || "";
 
 }
 
@@ -43,6 +43,8 @@ let isExpanded = false;
 
 const COLLAPSED_HEIGHT = 40;
 
+/* ===== GROUP BY MONTH ===== */
+
 const grouped = {};
 
 images.forEach((img,index)=>{
@@ -55,7 +57,7 @@ grouped[key].push({...img,index});
 
 });
 
-/* ===== MONTH SORT ===== */
+/* ===== SORT MONTHS ===== */
 
 const sortedMonths = Object.keys(grouped).sort().reverse();
 
@@ -71,7 +73,6 @@ gallery.className="gallery";
 grouped[monthKey].forEach(item=>{
 
 const img=document.createElement("img");
-
 img.src=item.src;
 
 img.onclick=()=>openModal(item.index);
@@ -93,7 +94,6 @@ sliderTrack.classList.add("modal-track");
 images.forEach(img=>{
 
 const image=document.createElement("img");
-
 image.src=img.src;
 
 sliderTrack.appendChild(image);
@@ -108,7 +108,7 @@ modalCaption.style.left="0";
 modalCaption.style.width="100%";
 modalCaption.style.background="#000";
 modalCaption.style.color="#fff";
-modalCaption.style.padding="5px";
+modalCaption.style.padding="10px";
 modalCaption.style.textAlign="center";
 
 modalCaptionText=document.createElement("div");
@@ -122,7 +122,6 @@ readMoreBtn=document.createElement("div");
 readMoreBtn.style.marginTop="5px";
 readMoreBtn.style.fontWeight="bold";
 readMoreBtn.style.cursor="pointer";
-
 readMoreBtn.innerText="आणखी वाचा";
 
 modalCaption.appendChild(modalCaptionText);
@@ -131,28 +130,29 @@ modalCaption.appendChild(readMoreBtn);
 modal.appendChild(sliderTrack);
 modal.appendChild(modalCaption);
 
+/* ===== OPEN MODAL ===== */
+
 function openModal(index){
 
 currentIndex=index;
 
 modal.style.display="flex";
-
 header.style.display="none";
 
 setPositionByIndex();
-
 updateCaption();
 
 history.pushState({modalOpen:true},"");
 
 }
 
+/* ===== UPDATE CAPTION ===== */
+
 function updateCaption(){
 
 modalCaptionText.innerText=images[currentIndex].caption;
 
 modalCaptionText.style.height=COLLAPSED_HEIGHT+"px";
-
 readMoreBtn.innerText="आणखी वाचा";
 
 isExpanded=false;
@@ -173,22 +173,24 @@ readMoreBtn.style.display="none";
 
 }
 
+/* ===== READ MORE ===== */
+
 readMoreBtn.addEventListener("click",function(e){
 
 e.stopPropagation();
 
 if(!isExpanded){
 
-modalCaptionText.style.height=
+modalCaptionText.style.height =
 modalCaptionText.scrollHeight+"px";
 
-readMoreBtn.innerText=" ";
+readMoreBtn.innerText="कमी करा";
 
 isExpanded=true;
 
 }else{
 
-modalCaptionText.style.height=
+modalCaptionText.style.height =
 COLLAPSED_HEIGHT+"px";
 
 readMoreBtn.innerText="आणखी वाचा";
@@ -198,6 +200,8 @@ isExpanded=false;
 }
 
 });
+
+/* ===== CLOSE MODAL ===== */
 
 function closeModal(){
 
@@ -261,10 +265,11 @@ if(movedBy<-80 && currentIndex<images.length-1) currentIndex++;
 if(movedBy>80 && currentIndex>0) currentIndex--;
 
 setPositionByIndex();
-
 updateCaption();
 
 });
+
+/* ===== SLIDER POSITION ===== */
 
 function setPositionByIndex(){
 
