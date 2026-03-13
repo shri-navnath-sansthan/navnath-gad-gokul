@@ -17,6 +17,8 @@ cloudinary.config({
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
+/* ================= UPLOAD ================= */
+
 app.post("/upload", upload.array("image", 25), async (req, res) => {
 
   try {
@@ -80,6 +82,8 @@ app.post("/upload", upload.array("image", 25), async (req, res) => {
 
 });
 
+/* ================= GALLERY ================= */
+
 app.get("/gallery", async (req,res)=>{
 
   try{
@@ -103,6 +107,35 @@ app.get("/gallery", async (req,res)=>{
   }
 
 });
+
+/* ================= DELETE PHOTO ================= */
+
+app.post("/delete-photo", async (req,res)=>{
+
+  const {public_id,password} = req.body;
+
+  if(password !== "shri"){
+    return res.json({success:false});
+  }
+
+  try{
+
+    await cloudinary.uploader.destroy(public_id);
+
+    res.json({success:true});
+
+  }catch(err){
+
+    res.json({
+      success:false,
+      error:err.message
+    });
+
+  }
+
+});
+
+/* ================= SERVER ================= */
 
 app.get("/",(req,res)=>{
 res.send("Navnath Gallery Upload Server Running 🚀");

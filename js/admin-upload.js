@@ -5,7 +5,6 @@ const months = [
 "जुलै","ऑगस्ट","सप्टेंबर","ऑक्टोबर","नोव्हेंबर","डिसेंबर"
 ];
 
-// default month year
 document.getElementById("month").value = months[now.getMonth()];
 document.getElementById("year").value = now.getFullYear();
 
@@ -17,7 +16,6 @@ const progressText = document.getElementById("progressText");
 const overlay = document.getElementById("uploadOverlay");
 const uploadBtn = document.getElementById("uploadBtn");
 
-// image preview
 fileInput.addEventListener("change", function(){
 
 captionContainer.innerHTML = "";
@@ -133,3 +131,81 @@ alert("❌ Upload failed");
 xhr.send(formData);
 
 });
+
+/* ================= LOAD PHOTOS ================= */
+
+const API="https://navnath-upload-server.onrender.com/gallery";
+const photoList=document.getElementById("photo-list");
+
+fetch(API)
+.then(res=>res.json())
+.then(data=>{
+
+photoList.innerHTML="";
+
+data.forEach(img=>{
+
+const box=document.createElement("div");
+box.style.display="inline-block";
+box.style.margin="10px";
+box.style.textAlign="center";
+
+const image=document.createElement("img");
+image.src=img.secure_url;
+image.style.width="120px";
+image.style.height="120px";
+image.style.objectFit="cover";
+image.style.display="block";
+
+const btn=document.createElement("button");
+btn.innerText="🗑 Delete";
+btn.style.marginTop="5px";
+
+btn.onclick=()=>deletePhoto(img.public_id);
+
+box.appendChild(image);
+box.appendChild(btn);
+
+photoList.appendChild(box);
+
+});
+
+});
+
+/* ================= DELETE ================= */
+
+async function deletePhoto(public_id){
+
+if(!confirm("हा फोटो delete करायचा का?")){
+return;
+}
+
+const password=prompt("Admin password टाका");
+
+const res=await fetch(
+"https://navnath-upload-server.onrender.com/delete-photo",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+public_id:public_id,
+password:password
+})
+});
+
+const data=await res.json();
+
+if(data.success){
+
+alert("✅ फोटो delete झाला");
+location.reload();
+
+}else{
+
+alert("❌ Delete failed");
+
+}
+
+}

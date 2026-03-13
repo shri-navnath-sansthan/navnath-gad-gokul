@@ -12,7 +12,6 @@ fetch(API)
 .then(res => res.json())
 .then(data => {
 
-/* data आल्यावर skeleton hide */
 if(skeleton){
 skeleton.style.display="none";
 }
@@ -24,15 +23,21 @@ let month="Gallery";
 let year="";
 
 if(img.context){
-
 caption = img.context.caption || "";
 month = img.context.month || "Gallery";
 year = img.context.year || "";
-
 }
 
+/* ===== CLOUDINARY FAST IMAGE ===== */
+
+let fastImage = img.secure_url.replace(
+"/upload/",
+"/upload/f_auto,q_auto,w_800/"
+);
+
 return{
-src: img.secure_url,
+src: fastImage,
+original: img.secure_url,
 month: month,
 year: year,
 caption: caption,
@@ -84,7 +89,12 @@ gallery.className="gallery";
 grouped[monthKey].forEach(item=>{
 
 const img=document.createElement("img");
+
+/* FAST IMAGE */
 img.src=item.src;
+
+/* LAZY LOADING */
+img.loading="lazy";
 
 img.onclick=()=>openModal(item.index);
 
@@ -105,7 +115,9 @@ sliderTrack.classList.add("modal-track");
 images.forEach(img=>{
 
 const image=document.createElement("img");
-image.src=img.src;
+
+/* ORIGINAL HD IMAGE */
+image.src=img.original;
 
 sliderTrack.appendChild(image);
 
@@ -186,7 +198,7 @@ readMoreBtn.style.display="none";
 
 }
 
-/* ===== READ MORE BUTTON ===== */
+/* ===== READ MORE ===== */
 
 readMoreBtn.addEventListener("click",function(e){
 
@@ -303,7 +315,6 @@ sliderTrack.style.transform=`translateX(${currentTranslate}px)`;
 
 console.error("Gallery load error:",err);
 
-/* error झाला तर loader hide */
 if(skeleton){
 skeleton.style.display="none";
 }
