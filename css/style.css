@@ -333,144 +333,15 @@
 
 
 
-
-
 /* ===== PAGE TITLE ===== */
-.page-title {
-    text-align: center;
-    margin: 20px 0;
-    color: #b30000;
-    font-size: 22px;
+.page-title{
+text-align:center;
+margin:10px 0;
+color:#b30000;
+font-size:20px;
 }
 
-/* ===== GALLERY GRID ===== */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    padding: 10px;
-}
-
-.gallery img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-}
-
-/* ===== FULL SCREEN MODAL ===== */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    display: none;
-    overflow: hidden;
-}
-
-/* Slider Track */
-.modal-track {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    transition: transform 0.35s ease;
-}
-
-/* Single Image */
-.modal-track img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-
-
-
-
-
-/* ===== PAGE TITLE ===== */
-.page-title {
-    text-align: center;
-    margin: 20px 0;
-    color: #b30000;
-    font-size: 22px;
-}
-
-/* ===== GALLERY GRID ===== */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    padding: 10px;
-}
-
-.gallery img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-}
-
-/* ===== FULL SCREEN MODAL ===== */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    display: none;
-    overflow: hidden;
-}
-
-/* Slider Track */
-.modal-track {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    transition: transform 0.35s ease;
-}
-
-/* Single Image */
-.modal-track img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-
-
-
-
-
-/* ===== PAGE TITLE ===== */
-.page-title {
-    text-align: center;
-    margin: 1px 0;
-    color: #b30000;
-    font-size: 18px;
-}
-
-
-
-
-
+/* ===== UPLOAD BUTTON ===== */
 
 .upload-btn-box{
 text-align:center;
@@ -479,10 +350,9 @@ margin:5px 0;
 
 .upload-btn{
 display:inline-block;
-width: auto;
 background:#b30000;
 color:#fff;
-padding:5px 9px;
+padding:5px 10px;
 border-radius:8px;
 text-decoration:none;
 font-size:12px;
@@ -495,88 +365,144 @@ background:#ff0000;
 transform:scale(1.05);
 }
 
-
-
-
-
-
-
-
-
 /* ===== MONTH TITLE ===== */
-.month-title {
-    text-align: left;
-    margin: 15px 10px;
-    font-size: 20px;
-    color: #444;
+
+.month-title{
+font-size:1.4rem;
+font-weight:bold;
+margin:20px 10px 10px;
+color:#222;
+border-bottom:2px solid #ccc;
 }
 
 /* ===== GALLERY GRID ===== */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    padding: 10px;
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+padding:10px;
 }
 
-.gallery img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+.gallery img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+cursor:pointer;
+border-radius:10px;
+transition:transform 0.3s ease;
 }
 
-.gallery img:hover {
-    transform: scale(1.05);
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* ===== RESPONSIVE GALLERY ===== */
+
+/* Tablet */
+@media (min-width:768px){
+
+.gallery{
+grid-template-columns:repeat(4,1fr);
+}
+
+}
+
+/* Laptop / Desktop */
+@media (min-width:1200px){
+
+.gallery{
+grid-template-columns:repeat(6,1fr);
+}
+
 }
 
 /* ===== FULL SCREEN MODAL ===== */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    display: none;
-    overflow: hidden;
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+display:none;
+overflow:hidden;
 }
 
-/* Slider Track */
-.modal-track {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    transition: transform 0.35s ease;
+.modal-track{
+display:flex;
+height:100%;
+width:100%;
+transition:transform 0.35s ease;
 }
 
-/* Single Image */
-.modal-track img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    flex-shrink: 0;
+.modal-track img{
+width:100%;
+height:100%;
+object-fit:contain;
+flex-shrink:0;
 }
 
-/* Close Button */
-.close-btn {
-    position: absolute;
-    top: 25px;       /* image च्या थोडं वर */
-    right: 15px;     /* उजव्या कोपऱ्यात */
-    font-size: 15px;
-    color: #fff;
-    cursor: pointer;
-    z-index: 10;
-    background: rgba(255, 255, 255, 0.5);
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+/* ===== CLOSE BUTTON ===== */
+
+.close-btn{
+position:absolute;
+top:25px;
+right:15px;
+font-size:15px;
+color:#fff;
+cursor:pointer;
+z-index:10;
+background:rgba(255,255,255,0.5);
+padding:5px 10px;
+border-radius:5px;
+transition:background 0.3s ease;
 }
 
-.close-btn:hover {
-    background: rgba(255, 0, 0, 0.7); /* ✅ लाल hover */
+.close-btn:hover{
+background:rgba(255,0,0,0.7);
+}
+
+
+
+
+
+/* ===== SKELETON LOADER ===== */
+
+.skeleton-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+padding:10px;
+}
+
+.skeleton{
+width:100%;
+aspect-ratio:1/1;
+border-radius:10px;
+
+background:linear-gradient(
+90deg,
+#eeeeee 25%,
+#dddddd 37%,
+#eeeeee 63%
+);
+
+background-size:400% 100%;
+animation:skeleton-loading 1.4s ease infinite;
+}
+
+@keyframes skeleton-loading{
+
+0%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0 50%;
+}
+
 }
 
 
@@ -584,14 +510,12 @@ transform:scale(1.05);
 
 
 
-/* Month Heading */
-.month-title {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin: 20px 0 10px;
-    color: #222;
-    border-bottom: 2px solid #ccc;
-}
+
+
+
+
+
+
 
 /* ===== VIDEO GRID ===== */
 .video-gallery {

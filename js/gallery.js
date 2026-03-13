@@ -2,9 +2,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const API = "https://navnath-upload-server.onrender.com/gallery";
 
+/* ===== SKELETON LOADER ===== */
+
+const skeleton = document.getElementById("skeleton-loader");
+
+/* ===== FETCH GALLERY ===== */
+
 fetch(API)
 .then(res => res.json())
 .then(data => {
+
+/* data आल्यावर skeleton hide */
+if(skeleton){
+skeleton.style.display="none";
+}
 
 const images = data.map((img,index)=>{
 
@@ -100,6 +111,8 @@ sliderTrack.appendChild(image);
 
 });
 
+/* ===== CAPTION BOX ===== */
+
 modalCaption=document.createElement("div");
 
 modalCaption.style.position="absolute";
@@ -173,7 +186,7 @@ readMoreBtn.style.display="none";
 
 }
 
-/* ===== READ MORE ===== */
+/* ===== READ MORE BUTTON ===== */
 
 readMoreBtn.addEventListener("click",function(e){
 
@@ -289,6 +302,11 @@ sliderTrack.style.transform=`translateX(${currentTranslate}px)`;
 .catch(err=>{
 
 console.error("Gallery load error:",err);
+
+/* error झाला तर loader hide */
+if(skeleton){
+skeleton.style.display="none";
+}
 
 });
 
