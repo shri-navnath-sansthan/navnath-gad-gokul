@@ -2,9 +2,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const API = "https://navnath-upload-server.onrender.com/gallery";
 
-/* ===== SKELETON LOADER ===== */
-
 const skeleton = document.getElementById("skeleton-loader");
+const galleryWrapper = document.getElementById("gallery-wrapper");
+const modal = document.getElementById("modal");
+const header = document.querySelector("header");
+const searchBox = document.getElementById("searchBox");
+const closeBtn = document.getElementById("closeBtn");
+
+let images = [];
+let currentIndex = 0;
+
+let sliderTrack;
+let modalCaption;
+let modalCaptionText;
+let readMoreBtn;
+let isExpanded = false;
+
+const COLLAPSED_HEIGHT = 40;
 
 /* ===== FETCH GALLERY ===== */
 
@@ -16,7 +30,7 @@ if(skeleton){
 skeleton.style.display="none";
 }
 
-const images = data.map((img,index)=>{
+images = data.map((img,index)=>{
 
 let caption="";
 let month="Gallery";
@@ -27,8 +41,6 @@ caption = img.context.caption || "";
 month = img.context.month || "Gallery";
 year = img.context.year || "";
 }
-
-/* ===== CLOUDINARY FAST IMAGE ===== */
 
 let fastImage = img.secure_url.replace(
 "/upload/",
@@ -46,40 +58,48 @@ index: index
 
 });
 
-const galleryWrapper = document.getElementById("gallery-wrapper");
-const modal = document.getElementById("modal");
-const header = document.querySelector("header");
+renderGallery(images);
+createModalSlider();
 
-let currentIndex = 0;
-let sliderTrack;
-let modalCaption;
-let modalCaptionText;
-let readMoreBtn;
-let isExpanded = false;
+});
 
-const COLLAPSED_HEIGHT = 40;
+/* ===== SEARCH ===== */
 
-/* ===== GROUP BY MONTH ===== */
+searchBox.addEventListener("input",function(){
 
-const grouped = {};
+const value=this.value.toLowerCase();
 
-images.forEach((img,index)=>{
+const filtered=images.filter(img=>
+img.caption.toLowerCase().includes(value)
+);
 
-const key = img.month + " " + img.year;
+renderGallery(filtered);
 
-if(!grouped[key]) grouped[key] = [];
+});
+
+/* ===== RENDER GALLERY ===== */
+
+function renderGallery(imagesList){
+
+galleryWrapper.innerHTML="";
+
+const grouped={};
+
+imagesList.forEach((img,index)=>{
+
+const key=img.month+" "+img.year;
+
+if(!grouped[key]) grouped[key]=[];
 
 grouped[key].push({...img,index});
 
 });
 
-/* ===== SORT MONTHS ===== */
-
-const sortedMonths = Object.keys(grouped).sort().reverse();
+const sortedMonths=Object.keys(grouped).sort().reverse();
 
 sortedMonths.forEach(monthKey=>{
 
-const monthTitle = document.createElement("h2");
+const monthTitle=document.createElement("h2");
 monthTitle.className="month-title";
 monthTitle.innerText=monthKey;
 
@@ -90,10 +110,7 @@ grouped[monthKey].forEach(item=>{
 
 const img=document.createElement("img");
 
-/* FAST IMAGE */
 img.src=item.src;
-
-/* LAZY LOADING */
 img.loading="lazy";
 
 img.onclick=()=>openModal(item.index);
@@ -107,7 +124,11 @@ galleryWrapper.appendChild(gallery);
 
 });
 
+}
+
 /* ===== MODAL SLIDER ===== */
+
+function createModalSlider(){
 
 sliderTrack=document.createElement("div");
 sliderTrack.classList.add("modal-track");
@@ -115,15 +136,11 @@ sliderTrack.classList.add("modal-track");
 images.forEach(img=>{
 
 const image=document.createElement("img");
-
-/* ORIGINAL HD IMAGE */
 image.src=img.original;
 
 sliderTrack.appendChild(image);
 
 });
-
-/* ===== CAPTION BOX ===== */
 
 modalCaption=document.createElement("div");
 
@@ -154,6 +171,8 @@ modalCaption.appendChild(readMoreBtn);
 
 modal.appendChild(sliderTrack);
 modal.appendChild(modalCaption);
+
+}
 
 /* ===== OPEN MODAL ===== */
 
@@ -232,16 +251,27 @@ function closeModal(){
 
 modal.style.display="none";
 header.style.display="block";
+galleryWrapper.style.display="block";
 
 }
 
 window.closeModal=closeModal;
+
+/* ✅ CLOSE BUTTON CLICK */
+
+if(closeBtn){
+closeBtn.addEventListener("click",closeModal);
+}
+
+/* ===== CLICK OUTSIDE ===== */
 
 modal.addEventListener("click",function(e){
 
 if(e.target===modal) closeModal();
 
 });
+
+/* ===== BACK BUTTON ===== */
 
 window.addEventListener("popstate",function(){
 
@@ -309,16 +339,5 @@ sliderTrack.style.transition="transform 0.35s ease";
 sliderTrack.style.transform=`translateX(${currentTranslate}px)`;
 
 }
-
-})
-.catch(err=>{
-
-console.error("Gallery load error:",err);
-
-if(skeleton){
-skeleton.style.display="none";
-}
-
-});
 
 });
