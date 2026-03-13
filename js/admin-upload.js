@@ -12,8 +12,10 @@ document.getElementById("year").value = now.getFullYear();
 const fileInput = document.getElementById("image");
 const captionContainer = document.getElementById("captionContainer");
 
-const progressBox = document.getElementById("progressBox");
 const progressBar = document.getElementById("uploadProgress");
+const progressText = document.getElementById("progressText");
+const overlay = document.getElementById("uploadOverlay");
+const uploadBtn = document.getElementById("uploadBtn");
 
 // image preview
 fileInput.addEventListener("change", function(){
@@ -70,6 +72,9 @@ alert("कृपया फोटो निवडा 📷");
 return;
 }
 
+uploadBtn.disabled=true;
+overlay.style.display="flex";
+
 const captions=document.querySelectorAll(".captionInput");
 
 const month=document.getElementById("month").value;
@@ -85,10 +90,6 @@ formData.append("captions",captions[i].value);
 formData.append("month",month);
 formData.append("year",year);
 
-// show progress
-progressBox.style.display="block";
-progressBar.value=0;
-
 const xhr=new XMLHttpRequest();
 
 xhr.open("POST","https://navnath-upload-server.onrender.com/upload");
@@ -97,8 +98,10 @@ xhr.upload.onprogress=function(e){
 
 if(e.lengthComputable){
 
-const percent=(e.loaded/e.total)*100;
+const percent=Math.round((e.loaded/e.total)*100);
+
 progressBar.value=percent;
+progressText.innerText="Uploading "+percent+"%";
 
 }
 
@@ -106,14 +109,15 @@ progressBar.value=percent;
 
 xhr.onload=function(){
 
+uploadBtn.disabled=false;
+overlay.style.display="none";
+
 if(xhr.status===200){
 
-alert("✅ सर्व फोटो upload झाले!");
+alert("✅ upload झाले!");
 
 form.reset();
 captionContainer.innerHTML="";
-
-progressBox.style.display="none";
 
 document.getElementById("month").value=months[new Date().getMonth()];
 document.getElementById("year").value=new Date().getFullYear();
