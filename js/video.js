@@ -1,12 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const videos = [
-        {src: "videos/video11.mp4", month:"मार्च ", year:"2026"},
         
-
-
-
-
+        
 
 
         {src: "videos/video10.mp4", month:"फेब्रुवारी", year:"2026"},

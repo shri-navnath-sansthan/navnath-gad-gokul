@@ -7,7 +7,6 @@ const galleryWrapper = document.getElementById("gallery-wrapper");
 const modal = document.getElementById("modal");
 const header = document.querySelector("header");
 const searchBox = document.getElementById("searchBox");
-const closeBtn = document.getElementById("closeBtn");
 
 let images = [];
 let currentIndex = 0;
@@ -16,6 +15,7 @@ let sliderTrack;
 let modalCaption;
 let modalCaptionText;
 let readMoreBtn;
+let imageCounter;   // ⭐ NEW
 let isExpanded = false;
 
 const COLLAPSED_HEIGHT = 40;
@@ -26,9 +26,7 @@ fetch(API)
 .then(res => res.json())
 .then(data => {
 
-if(skeleton){
-skeleton.style.display="none";
-}
+if(skeleton) skeleton.style.display = "none";
 
 images = data.map((img,index)=>{
 
@@ -59,23 +57,30 @@ index: index
 });
 
 renderGallery(images);
-createModalSlider();
+createModal();
 
+})
+.catch(err=>{
+console.log("Gallery load error",err);
 });
 
 /* ===== SEARCH ===== */
+
+if(searchBox){
 
 searchBox.addEventListener("input",function(){
 
 const value=this.value.toLowerCase();
 
-const filtered=images.filter(img=>
+const filtered=images.filter(img =>
 img.caption.toLowerCase().includes(value)
 );
 
 renderGallery(filtered);
 
 });
+
+}
 
 /* ===== RENDER GALLERY ===== */
 
@@ -85,19 +90,17 @@ galleryWrapper.innerHTML="";
 
 const grouped={};
 
-imagesList.forEach((img,index)=>{
+imagesList.forEach(img=>{
 
-const key=img.month+" "+img.year;
+const key = img.month + " " + img.year;
 
-if(!grouped[key]) grouped[key]=[];
+if(!grouped[key]) grouped[key] = [];
 
-grouped[key].push({...img,index});
+grouped[key].push(img);
 
 });
 
-const sortedMonths=Object.keys(grouped).sort().reverse();
-
-sortedMonths.forEach(monthKey=>{
+Object.keys(grouped).sort().reverse().forEach(monthKey=>{
 
 const monthTitle=document.createElement("h2");
 monthTitle.className="month-title";
@@ -108,14 +111,14 @@ gallery.className="gallery";
 
 grouped[monthKey].forEach(item=>{
 
-const img=document.createElement("img");
+const image=document.createElement("img");
 
-img.src=item.src;
-img.loading="lazy";
+image.src=item.src;
+image.loading="lazy";
 
-img.onclick=()=>openModal(item.index);
+image.onclick = ()=> openModal(item.index);
 
-gallery.appendChild(img);
+gallery.appendChild(image);
 
 });
 
@@ -126,9 +129,9 @@ galleryWrapper.appendChild(gallery);
 
 }
 
-/* ===== MODAL SLIDER ===== */
+/* ===== CREATE MODAL ===== */
 
-function createModalSlider(){
+function createModal(){
 
 sliderTrack=document.createElement("div");
 sliderTrack.classList.add("modal-track");
@@ -150,7 +153,7 @@ modalCaption.style.left="0";
 modalCaption.style.width="100%";
 modalCaption.style.background="#000";
 modalCaption.style.color="#fff";
-modalCaption.style.padding="10px";
+modalCaption.style.padding="6px";
 modalCaption.style.textAlign="center";
 
 modalCaptionText=document.createElement("div");
@@ -161,63 +164,12 @@ modalCaptionText.style.transition="height 0.3s ease";
 
 readMoreBtn=document.createElement("div");
 
-readMoreBtn.style.marginTop="5px";
+readMoreBtn.style.marginTop="4px";
 readMoreBtn.style.fontWeight="bold";
 readMoreBtn.style.cursor="pointer";
 readMoreBtn.innerText="आणखी वाचा";
 
-modalCaption.appendChild(modalCaptionText);
-modalCaption.appendChild(readMoreBtn);
-
-modal.appendChild(sliderTrack);
-modal.appendChild(modalCaption);
-
-}
-
-/* ===== OPEN MODAL ===== */
-
-function openModal(index){
-
-currentIndex=index;
-
-modal.style.display="flex";
-header.style.display="none";
-
-setPositionByIndex();
-updateCaption();
-
-history.pushState({modalOpen:true},"");
-
-}
-
-/* ===== UPDATE CAPTION ===== */
-
-function updateCaption(){
-
-modalCaptionText.innerText=images[currentIndex].caption;
-
-modalCaptionText.style.height=COLLAPSED_HEIGHT+"px";
-readMoreBtn.innerText="आणखी वाचा";
-
-isExpanded=false;
-
-setTimeout(()=>{
-
-if(modalCaptionText.scrollHeight>COLLAPSED_HEIGHT){
-
-readMoreBtn.style.display="block";
-
-}else{
-
-readMoreBtn.style.display="none";
-
-}
-
-},50);
-
-}
-
-/* ===== READ MORE ===== */
+/* READ MORE BUTTON */
 
 readMoreBtn.addEventListener("click",function(e){
 
@@ -245,25 +197,89 @@ isExpanded=false;
 
 });
 
+/* ⭐ IMAGE COUNTER */
+
+imageCounter = document.createElement("div");
+
+imageCounter.style.position="absolute";
+imageCounter.style.top="20px";
+imageCounter.style.left="20px";
+imageCounter.style.color="#fff";
+imageCounter.style.fontSize="15px";
+imageCounter.style.background="rgba(0,0,0,0.6)";
+imageCounter.style.padding="5px 10px";
+imageCounter.style.borderRadius="6px";
+
+modal.appendChild(imageCounter);
+
+modalCaption.appendChild(modalCaptionText);
+modalCaption.appendChild(readMoreBtn);
+
+modal.appendChild(sliderTrack);
+modal.appendChild(modalCaption);
+
+}
+
+/* ===== OPEN MODAL ===== */
+
+function openModal(index){
+
+currentIndex=index;
+
+modal.style.display="flex";
+
+if(header) header.style.display="none";
+
+setTimeout(()=>{
+setPositionByIndex();
+updateCaption();
+},30);
+
+history.pushState({modalOpen:true},"");
+
+}
+
+/* ===== UPDATE CAPTION ===== */
+
+function updateCaption(){
+
+modalCaptionText.innerText = images[currentIndex].caption;
+
+/* ⭐ COUNTER UPDATE */
+
+imageCounter.innerText = (currentIndex + 1) + " / " + images.length;
+
+modalCaptionText.style.height = COLLAPSED_HEIGHT+"px";
+
+readMoreBtn.innerText="आणखी वाचा";
+
+isExpanded=false;
+
+setTimeout(()=>{
+
+if(modalCaptionText.scrollHeight > COLLAPSED_HEIGHT){
+readMoreBtn.style.display="block";
+}else{
+readMoreBtn.style.display="none";
+}
+
+},50);
+
+}
+
 /* ===== CLOSE MODAL ===== */
 
 function closeModal(){
 
 modal.style.display="none";
-header.style.display="block";
-galleryWrapper.style.display="block";
+
+if(header) header.style.display="block";
 
 }
 
-window.closeModal=closeModal;
+window.closeModal = closeModal;
 
-/* ✅ CLOSE BUTTON CLICK */
-
-if(closeBtn){
-closeBtn.addEventListener("click",closeModal);
-}
-
-/* ===== CLICK OUTSIDE ===== */
+/* CLICK OUTSIDE CLOSE */
 
 modal.addEventListener("click",function(e){
 
@@ -271,7 +287,7 @@ if(e.target===modal) closeModal();
 
 });
 
-/* ===== BACK BUTTON ===== */
+/* BACK BUTTON */
 
 window.addEventListener("popstate",function(){
 
@@ -289,6 +305,7 @@ let prevTranslate=0;
 modal.addEventListener("touchstart",(e)=>{
 
 startX=e.touches[0].clientX;
+
 isDragging=true;
 
 sliderTrack.style.transition="none";
@@ -316,7 +333,6 @@ isDragging=false;
 const movedBy=currentTranslate-prevTranslate;
 
 if(movedBy<-80 && currentIndex<images.length-1) currentIndex++;
-
 if(movedBy>80 && currentIndex>0) currentIndex--;
 
 setPositionByIndex();
@@ -328,7 +344,7 @@ updateCaption();
 
 function setPositionByIndex(){
 
-const slideWidth=modal.offsetWidth;
+const slideWidth = window.innerWidth;
 
 currentTranslate=currentIndex*-slideWidth;
 
