@@ -15,7 +15,7 @@ let sliderTrack;
 let modalCaption;
 let modalCaptionText;
 let readMoreBtn;
-let imageCounter;
+let imageCounter;   // ⭐ NEW
 let isExpanded = false;
 
 const COLLAPSED_HEIGHT = 40;
@@ -111,30 +111,14 @@ gallery.className="gallery";
 
 grouped[monthKey].forEach(item=>{
 
-/* skeleton box */
-
-const box=document.createElement("div");
-box.className="photo-box";
-
-const skeleton=document.createElement("div");
-skeleton.className="photo-skeleton";
-
-box.appendChild(skeleton);
-gallery.appendChild(box);
-
 const image=document.createElement("img");
-image.loading="lazy";
-
-image.onload=function(){
-
-box.innerHTML="";
-box.appendChild(image);
-
-};
 
 image.src=item.src;
+image.loading="lazy";
 
 image.onclick = ()=> openModal(item.index);
+
+gallery.appendChild(image);
 
 });
 
@@ -185,6 +169,8 @@ readMoreBtn.style.fontWeight="bold";
 readMoreBtn.style.cursor="pointer";
 readMoreBtn.innerText="आणखी वाचा";
 
+/* READ MORE BUTTON */
+
 readMoreBtn.addEventListener("click",function(e){
 
 e.stopPropagation();
@@ -211,7 +197,7 @@ isExpanded=false;
 
 });
 
-/* IMAGE COUNTER */
+/* ⭐ IMAGE COUNTER */
 
 imageCounter = document.createElement("div");
 
@@ -259,6 +245,8 @@ function updateCaption(){
 
 modalCaptionText.innerText = images[currentIndex].caption;
 
+/* ⭐ COUNTER UPDATE */
+
 imageCounter.innerText = (currentIndex + 1) + " / " + images.length;
 
 modalCaptionText.style.height = COLLAPSED_HEIGHT+"px";
@@ -291,11 +279,15 @@ if(header) header.style.display="block";
 
 window.closeModal = closeModal;
 
+/* CLICK OUTSIDE CLOSE */
+
 modal.addEventListener("click",function(e){
 
 if(e.target===modal) closeModal();
 
 });
+
+/* BACK BUTTON */
 
 window.addEventListener("popstate",function(){
 
@@ -313,7 +305,9 @@ let prevTranslate=0;
 modal.addEventListener("touchstart",(e)=>{
 
 startX=e.touches[0].clientX;
+
 isDragging=true;
+
 sliderTrack.style.transition="none";
 
 });
@@ -323,6 +317,7 @@ modal.addEventListener("touchmove",(e)=>{
 if(!isDragging) return;
 
 const currentX=e.touches[0].clientX;
+
 const diff=currentX-startX;
 
 currentTranslate=prevTranslate+diff;
@@ -345,14 +340,18 @@ updateCaption();
 
 });
 
+/* ===== SLIDER POSITION ===== */
+
 function setPositionByIndex(){
 
 const slideWidth = window.innerWidth;
 
 currentTranslate=currentIndex*-slideWidth;
+
 prevTranslate=currentTranslate;
 
 sliderTrack.style.transition="transform 0.35s ease";
+
 sliderTrack.style.transform=`translateX(${currentTranslate}px)`;
 
 }
