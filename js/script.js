@@ -1,3 +1,22 @@
+/* ===== Render Server Ping ===== */
+/* server: :contentReference[oaicite:0]{index=0} */
+
+function pingServer(){
+fetch("https://navnath-upload-server.onrender.com/gallery")
+.then(()=>console.log("Render server active"))
+.catch(()=>console.log("Ping failed"));
+}
+
+/* ⭐ page open होताच request */
+pingServer();
+
+/* ⭐ 12 मिनिटांनी request */
+setInterval(pingServer,720000);
+
+
+
+/* ===== Slider Script ===== */
+
 const slides = document.querySelectorAll(".slide");
 const slider = document.getElementById("slider");
 let current = 0;
@@ -28,12 +47,6 @@ setInterval(() => {
     current = next;
   }, 800);
 }, 3700);
-
-
-
-
-
-
 
 
 

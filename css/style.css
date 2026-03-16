@@ -472,7 +472,6 @@ background:rgba(255,0,0,0.7);
 
 
 
-
 /* ===== SKELETON LOADER ===== */
 
 .skeleton-grid{
@@ -498,6 +497,45 @@ background-size:400% 100%;
 animation:skeleton-loading 1.4s ease infinite;
 }
 
+/* ===== PER IMAGE BOX ===== */
+
+.photo-box{
+position:relative;
+width:100%;
+aspect-ratio:1/1;
+overflow:hidden;
+border-radius:10px;
+}
+
+/* ===== PHOTO ===== */
+
+.photo-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+/* ===== PHOTO SKELETON ===== */
+
+.photo-skeleton{
+width:100%;
+height:100%;
+border-radius:10px;
+
+background:linear-gradient(
+90deg,
+#9d9c9c 25%,
+#dddddd 37%,
+#eeeeee 63%
+);
+
+background-size:400% 100%;
+animation:skeleton-loading 1.4s ease infinite;
+}
+
+/* ===== ANIMATION ===== */
+
 @keyframes skeleton-loading{
 
 0%{
@@ -509,7 +547,6 @@ background-position:0 50%;
 }
 
 }
-
 
 
 
