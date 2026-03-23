@@ -256,14 +256,20 @@ app.post("/delete-video", async (req,res)=>{
 
 });
 
-/* ================= SERVER ================= */
 
-app.get("/",(req,res)=>{
+// SERVER
+
+app.get("/", (req, res) => {
   res.send("Navnath Gallery Upload Server Running 🚀");
+});
+
+// ✅ FIX: ping route वर हलवा
+app.get("/ping", (req, res) => {
+  res.send("Server is awake 🚀");
 });
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT,()=>{
-  console.log("Server running on port "+PORT);
+app.listen(PORT, () => {
+  console.log("Server running on port " + PORT);
 });

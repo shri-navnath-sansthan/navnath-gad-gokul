@@ -469,6 +469,35 @@
 
 
 
+
+
+
+
+<script>
+async function wakeServer() {
+  try {
+    // server wake
+    await fetch("https://navnath-upload-server.onrender.com/ping");
+
+    // optional: gallery preload (fast feel येईल)
+    await fetch("https://navnath-upload-server.onrender.com/gallery");
+  } catch (e) {
+    console.log("Wake error", e);
+  }
+}
+
+// page load होताच run होईल
+document.addEventListener("DOMContentLoaded", wakeServer);
+</script>
+
+
+
+
+
+
+
+
+
 </body>
 
 
@@ -487,6 +516,16 @@
   gtag('config', 'G-6LEERLBH3L');
 </script>
 
+
+
+
+<script>
+window.addEventListener("load", () => {
+  fetch("https://your-render-server.onrender.com/ping")
+    .then(res => console.log("Server wake request sent"))
+    .catch(err => console.log("Server error", err));
+});
+</script>
 
 
 
