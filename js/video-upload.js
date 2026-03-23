@@ -8,6 +8,18 @@ const progressBar = document.getElementById("uploadProgress");
 const progressText = document.getElementById("progressText");
 const overlay = document.getElementById("uploadOverlay");
 
+/* ===== AUTO MONTH YEAR ===== */
+
+const now = new Date();
+
+const months = [
+"जानेवारी","फेब्रुवारी","मार्च","एप्रिल","मे","जून",
+"जुलै","ऑगस्ट","सप्टेंबर","ऑक्टोबर","नोव्हेंबर","डिसेंबर"
+];
+
+document.getElementById("videoMonth").value = months[now.getMonth()];
+document.getElementById("videoYear").value = now.getFullYear();
+
 /* ===== PREVIEW ===== */
 
 videoInput.addEventListener("change", function(){
@@ -54,8 +66,9 @@ return;
 uploadBtn.disabled = true;
 overlay.style.display = "flex";
 
-const month = document.getElementById("month").value;
-const year = document.getElementById("year").value;
+/* ✅ FIXED IDS */
+const month = document.getElementById("videoMonth").value;
+const year = document.getElementById("videoYear").value;
 
 const formData = new FormData();
 
@@ -84,10 +97,14 @@ uploadBtn.disabled = false;
 overlay.style.display = "none";
 
 if(xhr.status===200){
+
 alert("✅ Video upload झाला!");
+
 videoInput.value = "";
 videoCaptionContainer.innerHTML = "";
+
 loadVideos();
+
 }else{
 alert("❌ Upload failed");
 }
@@ -118,6 +135,7 @@ box.style.textAlign="center";
 
 const video=document.createElement("video");
 
+/* ⚡ FAST CLOUDINARY LOAD */
 video.src = vid.secure_url.replace(
 "/upload/",
 "/upload/f_auto,q_auto/"

@@ -1,26 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const videos = [
-        
-        
-
-
-        {src: "videos/video10.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video12.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video13.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video14.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video15.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/saptah1.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video1.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video2.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video3.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video4.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video5.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video6.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video7.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video8.mp4", month:"फेब्रुवारी", year:"2026"},
-        {src: "videos/video9.mp4", month:"फेब्रुवारी", year:"2026"},
-    ];
+    const API = "https://navnath-upload-server.onrender.com/videos";
 
     const galleryWrapper = document.getElementById("videoGallery");
     const modal = document.getElementById("videoModal");
@@ -30,58 +10,122 @@ document.addEventListener("DOMContentLoaded", function () {
     let startX = 0;
     let isDragging = false;
 
-    /* ===== GROUP BY MONTH + YEAR ===== */
-    const grouped = {};
-    videos.forEach((vid, index) => {
-        const key = vid.month + " " + vid.year;
-        if (!grouped[key]) grouped[key] = [];
-        grouped[key].push({...vid, index});
+    let videos = [];
+
+    /* ================= SKELETON ================= */
+
+    const skeleton = document.createElement("div");
+    skeleton.className = "skeleton-grid";
+
+    for(let i=0;i<12;i++){
+        const box = document.createElement("div");
+        box.className = "skeleton-box";
+        skeleton.appendChild(box);
+    }
+
+    galleryWrapper.appendChild(skeleton);
+
+    /* ================= FETCH ================= */
+
+    fetch(API)
+    .then(res => res.json())
+    .then(data => {
+
+        galleryWrapper.innerHTML = ""; // 🔥 clear first
+
+        videos = data.map((vid, index) => ({
+            src: vid.secure_url.replace("/upload/", "/upload/f_auto,q_auto/"),
+            month: vid.context?.month || "Gallery",
+            year: vid.context?.year || "",
+            index: index
+        }));
+
+        renderGallery();
+        createSlider();
+
+    })
+    .catch(err=>{
+        console.log("Video load error",err);
     });
 
-    Object.keys(grouped).forEach(monthKey => {
-        const monthTitle = document.createElement("h2");
-        monthTitle.className = "month-title";
-        monthTitle.innerText = monthKey;
+    /* ================= RENDER ================= */
 
-        const gallery = document.createElement("div");
-        gallery.className = "video-gallery";
+    function renderGallery(){
 
-        grouped[monthKey].forEach(item => {
-            const card = document.createElement("div");
-            card.classList.add("video-card");
+        const grouped = {};
+
+        videos.forEach((vid) => {
+            const key = vid.month + " " + vid.year;
+            if (!grouped[key]) grouped[key] = [];
+            grouped[key].push(vid);
+        });
+
+        Object.keys(grouped).sort().reverse().forEach(monthKey => {
+
+            const monthTitle = document.createElement("h2");
+            monthTitle.className = "month-title";
+            monthTitle.innerText = monthKey;
+
+            const gallery = document.createElement("div");
+            gallery.className = "video-gallery";
+
+            grouped[monthKey].forEach((item,i) => {
+
+                const card = document.createElement("div");
+                card.classList.add("video-card");
+
+                const video = document.createElement("video");
+
+                video.src = item.src;
+                video.muted = true;
+                video.playsInline = true;
+                video.preload = "metadata"; // 🔥 performance boost
+
+                card.appendChild(video);
+
+                card.onclick = () => openVideo(item.index);
+
+                gallery.appendChild(card);
+
+                /* 🔥 SMOOTH ANIMATION */
+                setTimeout(()=>{
+                    card.classList.add("show");
+                }, i * 80);
+
+            });
+
+            galleryWrapper.appendChild(monthTitle);
+            galleryWrapper.appendChild(gallery);
+
+        });
+
+    }
+
+    /* ================= SLIDER ================= */
+
+    let sliderTrack;
+
+    function createSlider(){
+
+        sliderTrack = document.createElement("div");
+        sliderTrack.classList.add("modal-track");
+
+        videos.forEach(item => {
 
             const video = document.createElement("video");
             video.src = item.src;
-            video.muted = true;
+            video.controls = true;
             video.playsInline = true;
 
-            card.appendChild(video);
+            sliderTrack.appendChild(video);
 
-            // ❌ caption काढले आहेत
-
-            gallery.appendChild(card);
-            card.onclick = () => openVideo(item.index);
         });
 
-        galleryWrapper.appendChild(monthTitle);
-        galleryWrapper.appendChild(gallery);
-    });
+        modal.appendChild(sliderTrack);
+    }
 
-    /* ===== SLIDER TRACK ===== */
-    const sliderTrack = document.createElement("div");
-    sliderTrack.classList.add("modal-track");
+    /* ================= OPEN ================= */
 
-    videos.forEach(item => {
-        const video = document.createElement("video");
-        video.src = item.src;
-        video.controls = true;
-        video.playsInline = true;
-        sliderTrack.appendChild(video);
-    });
-
-    modal.appendChild(sliderTrack);
-
-    /* ===== OPEN VIDEO ===== */
     function openVideo(index) {
         currentIndex = index;
         modal.style.display = "flex";
@@ -90,13 +134,15 @@ document.addEventListener("DOMContentLoaded", function () {
         history.pushState({modalOpen:true},"");
     }
 
-    /* ===== CLOSE VIDEO ===== */
+    /* ================= CLOSE ================= */
+
     function closeVideo() {
         modal.style.display = "none";
         header.style.display = "block";
+
         sliderTrack.querySelectorAll("video").forEach(v=>{
             v.pause();
-            v.currentTime=0;
+            v.currentTime = 0;
         });
     }
 
@@ -111,7 +157,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if(modal.style.display==="flex") closeVideo();
     });
 
-    /* ===== TOUCH SWIPE ===== */
+    /* ================= SWIPE ================= */
+
     modal.addEventListener("touchstart", (e)=>{
         startX = e.touches[0].clientX;
         isDragging = true;
@@ -119,24 +166,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     modal.addEventListener("touchend", (e)=>{
         if(!isDragging) return;
+
         let endX = e.changedTouches[0].clientX;
         let diff = endX - startX;
-        if(diff<-80 && currentIndex<videos.length-1) currentIndex++;
-        if(diff>80 && currentIndex>0) currentIndex--;
+
+        if(diff < -80 && currentIndex < videos.length-1) currentIndex++;
+        if(diff > 80 && currentIndex > 0) currentIndex--;
+
         setPosition();
         isDragging=false;
     });
 
-    /* ===== FIXED setPosition ===== */
+    /* ================= POSITION ================= */
+
     function setPosition(){
+
         sliderTrack.style.transition="transform 0.4s ease";
         sliderTrack.style.transform=`translateX(-${currentIndex*window.innerWidth}px)`;
-        const allVideos=sliderTrack.querySelectorAll("video");
+
+        const allVideos = sliderTrack.querySelectorAll("video");
+
         allVideos.forEach((video,index)=>{
             video.pause();
-            // ❌ currentTime reset काढलं
             if(index===currentIndex) video.play();
         });
+
     }
 
 });

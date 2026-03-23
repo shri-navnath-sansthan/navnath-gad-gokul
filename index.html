@@ -92,6 +92,10 @@
 
 
 
+<p class="abhyasika-establish">
+
+<b>📆 दिनांक:</b> <span id="live-date"></span> |
+<b>🕒 वेळ:</b> <span id="live-time"></span>
 
 
 
@@ -431,7 +435,7 @@
 
 
 <div class="last-updated-box">
-  <p>Last Updated On: <span id="lastUpdated">Loading...</span></p>
+  <p>Last Updated on: <span id="lastUpdated">Loading...</span></p>
 </div>
 
 <script>
@@ -495,9 +499,6 @@ document.addEventListener("DOMContentLoaded", wakeServer);
 
 
 
-
-
-
 </body>
 
 
@@ -519,13 +520,40 @@ document.addEventListener("DOMContentLoaded", wakeServer);
 
 
 
+
 <script>
-window.addEventListener("load", () => {
-  fetch("https://your-render-server.onrender.com/ping")
-    .then(res => console.log("Server wake request sent"))
-    .catch(err => console.log("Server error", err));
-});
+
+function updateDateTime() {
+
+  const now = new Date();
+
+  // Live Date (Marathi format)
+  const date = now.toLocaleDateString('mr-IN', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+
+  // Live Time
+  const time = now.toLocaleTimeString('mr-IN', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+
+  // HTML मध्ये update
+  document.getElementById("live-date").textContent = date;
+  document.getElementById("live-time").textContent = time;
+}
+
+// 1 सेकंदाने update
+setInterval(updateDateTime, 1000);
+
+// Page load होताच run
+updateDateTime();
+
 </script>
+
 
 
 
