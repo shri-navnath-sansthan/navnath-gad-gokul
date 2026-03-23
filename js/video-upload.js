@@ -34,8 +34,6 @@ const name = document.createElement("p");
 name.innerText = file.name;
 div.appendChild(name);
 
-// ❌ Caption काढलं
-
 videoCaptionContainer.appendChild(div);
 
 }
@@ -62,24 +60,22 @@ const year = document.getElementById("year").value;
 const formData = new FormData();
 
 for(let i=0;i<files.length;i++){
-formData.append("video", files[i]); // ✔ फक्त video
+formData.append("video", files[i]);
 }
 
-formData.append("month", month); // ✔ month
-formData.append("year", year);   // ✔ year
+formData.append("month", month);
+formData.append("year", year);
 
 const xhr = new XMLHttpRequest();
 
 xhr.open("POST","https://navnath-upload-server.onrender.com/upload-video");
 
 xhr.upload.onprogress = function(e){
-
 if(e.lengthComputable){
 const percent = Math.round((e.loaded/e.total)*100);
 progressBar.value = percent;
 progressText.innerText = "Uploading Video "+percent+"%";
 }
-
 };
 
 xhr.onload = function(){
@@ -88,18 +84,12 @@ uploadBtn.disabled = false;
 overlay.style.display = "none";
 
 if(xhr.status===200){
-
 alert("✅ Video upload झाला!");
-
 videoInput.value = "";
 videoCaptionContainer.innerHTML = "";
-
 loadVideos();
-
 }else{
-
 alert("❌ Upload failed");
-
 }
 
 };
@@ -128,10 +118,9 @@ box.style.textAlign="center";
 
 const video=document.createElement("video");
 
-// ⚡ Cloudinary fast loading
 video.src = vid.secure_url.replace(
-  "/upload/",
-  "/upload/f_auto,q_auto/"
+"/upload/",
+"/upload/f_auto,q_auto/"
 );
 
 video.style.width="150px";

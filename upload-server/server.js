@@ -14,8 +14,15 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+/* ===== MULTER ===== */
 const storage = multer.memoryStorage();
-const upload = multer({ storage });
+
+const upload = multer({
+  storage,
+  limits: {
+    fileSize: 100 * 1024 * 1024 // 🔥 100MB
+  }
+});
 
 /* ================= UPLOAD PHOTOS ================= */
 
@@ -66,18 +73,10 @@ app.post("/upload", upload.array("image", 25), async (req, res) => {
 
     }
 
-    res.json({
-      success:true,
-      images:uploadedImages
-    });
+    res.json({ success:true, images:uploadedImages });
 
   } catch(err){
-
-    res.status(500).json({
-      success:false,
-      error:err.message
-    });
-
+    res.status(500).json({ success:false, error:err.message });
   }
 
 });
@@ -89,7 +88,6 @@ app.post("/upload-video", upload.array("video", 10), async (req, res) => {
   try {
 
     const files = req.files;
-    const captions = req.body.captions;
     const month = req.body.month || "";
     const year = req.body.year || "";
 
@@ -102,17 +100,15 @@ app.post("/upload-video", upload.array("video", 10), async (req, res) => {
     for(let i=0;i<files.length;i++){
 
       const file = files[i];
-      const caption = Array.isArray(captions) ? captions[i] : captions;
 
       const result = await new Promise((resolve,reject)=>{
 
         cloudinary.uploader.upload_stream(
           {
-            resource_type: "video", // 🔥 IMPORTANT
+            resource_type: "video",
             folder:"videos",
-            tags:["videos"],
+            chunk_size: 6000000, // 🔥 stable upload
             context:{
-              caption:caption,
               month:month,
               year:year
             }
@@ -132,18 +128,10 @@ app.post("/upload-video", upload.array("video", 10), async (req, res) => {
 
     }
 
-    res.json({
-      success:true,
-      videos:uploadedVideos
-    });
+    res.json({ success:true, videos:uploadedVideos });
 
   } catch(err){
-
-    res.status(500).json({
-      success:false,
-      error:err.message
-    });
-
+    res.status(500).json({ success:false, error:err.message });
   }
 
 });
@@ -153,7 +141,6 @@ app.post("/upload-video", upload.array("video", 10), async (req, res) => {
 app.get("/gallery", async (req,res)=>{
 
   try{
-
     const result = await cloudinary.search
       .expression("folder:gallery")
       .sort_by("created_at","desc")
@@ -164,12 +151,7 @@ app.get("/gallery", async (req,res)=>{
     res.json(result.resources);
 
   }catch(err){
-
-    res.status(500).json({
-      success:false,
-      error:err.message
-    });
-
+    res.status(500).json({ success:false, error:err.message });
   }
 
 });
@@ -179,7 +161,6 @@ app.get("/gallery", async (req,res)=>{
 app.get("/videos", async (req,res)=>{
 
   try{
-
     const result = await cloudinary.search
       .expression("folder:videos")
       .sort_by("created_at","desc")
@@ -190,12 +171,7 @@ app.get("/videos", async (req,res)=>{
     res.json(result.resources);
 
   }catch(err){
-
-    res.status(500).json({
-      success:false,
-      error:err.message
-    });
-
+    res.status(500).json({ success:false, error:err.message });
   }
 
 });
@@ -211,18 +187,10 @@ app.post("/delete-photo", async (req,res)=>{
   }
 
   try{
-
     await cloudinary.uploader.destroy(public_id);
-
     res.json({success:true});
-
   }catch(err){
-
-    res.json({
-      success:false,
-      error:err.message
-    });
-
+    res.json({success:false,error:err.message});
   }
 
 });
@@ -238,32 +206,23 @@ app.post("/delete-video", async (req,res)=>{
   }
 
   try{
-
     await cloudinary.uploader.destroy(public_id, {
       resource_type: "video"
     });
 
     res.json({success:true});
-
   }catch(err){
-
-    res.json({
-      success:false,
-      error:err.message
-    });
-
+    res.json({success:false,error:err.message});
   }
 
 });
 
-
-// SERVER
+/* ================= SERVER ================= */
 
 app.get("/", (req, res) => {
   res.send("Navnath Gallery Upload Server Running 🚀");
 });
 
-// ✅ FIX: ping route वर हलवा
 app.get("/ping", (req, res) => {
   res.send("Server is awake 🚀");
 });
