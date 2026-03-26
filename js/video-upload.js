@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
 
+/* ===== ELEMENTS ===== */
+
 const videoInput = document.getElementById("video");
 const videoCaptionContainer = document.getElementById("videoCaptionContainer");
 const uploadBtn = document.getElementById("uploadVideoBtn");
@@ -56,6 +58,9 @@ videoCaptionContainer.appendChild(div);
 
 uploadBtn.addEventListener("click", function(){
 
+const passwordInput = document.getElementById("videoPassword");
+const password = passwordInput.value;
+
 const files = videoInput.files;
 
 if(files.length === 0){
@@ -63,14 +68,20 @@ alert("कृपया व्हिडिओ निवडा 🎬");
 return;
 }
 
+if(!password){
+alert("पासवर्ड टाका 🔐");
+return;
+}
+
 uploadBtn.disabled = true;
 overlay.style.display = "flex";
 
-/* ✅ FIXED IDS */
 const month = document.getElementById("videoMonth").value;
 const year = document.getElementById("videoYear").value;
 
 const formData = new FormData();
+
+formData.append("password", password);
 
 for(let i=0;i<files.length;i++){
 formData.append("video", files[i]);
@@ -96,19 +107,39 @@ xhr.onload = function(){
 uploadBtn.disabled = false;
 overlay.style.display = "none";
 
-if(xhr.status===200){
+if(xhr.status === 200){
 
 alert("✅ Video upload झाला!");
 
+/* 🔐 password save */
+const savedPassword = passwordInput.value;
+
+/* RESET */
 videoInput.value = "";
 videoCaptionContainer.innerHTML = "";
 
+/* restore password */
+passwordInput.value = savedPassword;
+
+/* reload */
 loadVideos();
 
+}else if(xhr.status === 401){
+
+alert("❌ Wrong Password 🔐");
+
 }else{
+
 alert("❌ Upload failed");
+
 }
 
+};
+
+xhr.onerror = function(){
+overlay.style.display = "none";
+uploadBtn.disabled = false;
+alert("❌ Network error");
 };
 
 xhr.send(formData);
@@ -136,10 +167,15 @@ box.style.textAlign="center";
 const video=document.createElement("video");
 
 /* ⚡ FAST CLOUDINARY LOAD */
-video.src = vid.secure_url.replace(
+video.src = (vid.secure_url || vid.url).replace(
 "/upload/",
 "/upload/f_auto,q_auto/"
 );
+
+/* fallback */
+video.onerror = () => {
+video.poster = "https://via.placeholder.com/150";
+};
 
 video.style.width="150px";
 video.controls=true;
@@ -157,11 +193,14 @@ videoList.appendChild(box);
 
 });
 
+})
+.catch(err=>{
+console.error("Video load error:", err);
 });
 
 }
 
-/* ===== DELETE ===== */
+/* ===== DELETE VIDEO ===== */
 
 async function deleteVideo(public_id){
 
@@ -169,9 +208,16 @@ if(!confirm("हा व्हिडिओ delete करायचा का?")){
 return;
 }
 
-const password=prompt("Admin password टाका");
+const password = document.getElementById("videoPassword").value;
 
-const res=await fetch(
+if(!password){
+alert("पासवर्ड टाका 🔐");
+return;
+}
+
+try{
+
+const res = await fetch(
 "https://navnath-upload-server.onrender.com/delete-video",
 {
 method:"POST",
@@ -184,13 +230,23 @@ password:password
 })
 });
 
-const data=await res.json();
+if(!res.ok){
+alert("❌ Server error");
+return;
+}
+
+const data = await res.json();
 
 if(data.success){
 alert("✅ व्हिडिओ delete झाला");
 loadVideos();
 }else{
-alert("❌ Delete failed");
+alert("❌ Wrong Password");
+}
+
+}catch(err){
+console.error(err);
+alert("❌ Network error");
 }
 
 }
