@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function(){
+
+/* ===== DATE ===== */
+
 const now = new Date();
 
 const months = [
@@ -8,6 +12,8 @@ const months = [
 document.getElementById("month").value = months[now.getMonth()];
 document.getElementById("year").value = now.getFullYear();
 
+/* ===== ELEMENTS ===== */
+
 const fileInput = document.getElementById("image");
 const captionContainer = document.getElementById("captionContainer");
 
@@ -15,6 +21,8 @@ const progressBar = document.getElementById("uploadProgress");
 const progressText = document.getElementById("progressText");
 const overlay = document.getElementById("uploadOverlay");
 const uploadBtn = document.getElementById("uploadBtn");
+
+/* ===== IMAGE PREVIEW ===== */
 
 fileInput.addEventListener("change", function(){
 
@@ -27,22 +35,14 @@ for(let i=0;i<files.length;i++){
 const file = files[i];
 
 const div = document.createElement("div");
-div.style.marginBottom="15px";
 
 const img = document.createElement("img");
 img.src = URL.createObjectURL(file);
 img.style.width="80px";
 img.style.height="80px";
 img.style.objectFit="cover";
-img.style.borderRadius="6px";
-img.style.display="block";
-img.style.marginBottom="5px";
 
 div.appendChild(img);
-
-const name=document.createElement("p");
-name.innerText=file.name;
-div.appendChild(name);
 
 const input=document.createElement("input");
 input.type="text";
@@ -57,16 +57,26 @@ captionContainer.appendChild(div);
 
 });
 
+/* ===== UPLOAD PHOTOS ===== */
+
 const form=document.getElementById("uploadForm");
 
 form.addEventListener("submit",function(e){
 
 e.preventDefault();
 
+const passwordInput = document.getElementById("adminPassword");
+const password = passwordInput.value;
+
 const files=fileInput.files;
 
 if(files.length===0){
-alert("कृपया फोटो निवडा 📷");
+alert("फोटो निवडा 📷");
+return;
+}
+
+if(!password){
+alert("पासवर्ड टाका 🔐");
 return;
 }
 
@@ -80,29 +90,25 @@ const year=document.getElementById("year").value;
 
 const formData=new FormData();
 
-for(let i=0;i<files.length;i++){
-formData.append("image",files[i]);
-formData.append("captions",captions[i].value);
-}
-
+formData.append("password",password);
 formData.append("month",month);
 formData.append("year",year);
+
+for(let i=0;i<files.length;i++){
+formData.append("image",files[i]);
+formData.append("captions",captions[i]?.value || "");
+}
 
 const xhr=new XMLHttpRequest();
 
 xhr.open("POST","https://navnath-upload-server.onrender.com/upload");
 
 xhr.upload.onprogress=function(e){
-
 if(e.lengthComputable){
-
 const percent=Math.round((e.loaded/e.total)*100);
-
 progressBar.value=percent;
 progressText.innerText="Uploading "+percent+"%";
-
 }
-
 };
 
 xhr.onload=function(){
@@ -112,13 +118,24 @@ overlay.style.display="none";
 
 if(xhr.status===200){
 
-alert("✅ upload झाले!");
+alert("✅ Upload झाले");
 
+/* 🔐 password save */
+const savedPassword = passwordInput.value;
+
+/* RESET */
 form.reset();
 captionContainer.innerHTML="";
 
-document.getElementById("month").value=months[new Date().getMonth()];
-document.getElementById("year").value=new Date().getFullYear();
+/* restore password */
+passwordInput.value = savedPassword;
+
+/* reload photos */
+loadPhotos();
+
+}else if(xhr.status===401){
+
+alert("❌ Wrong Password 🔐");
 
 }else{
 
@@ -128,19 +145,25 @@ alert("❌ Upload failed");
 
 };
 
+xhr.onerror=function(){
+overlay.style.display="none";
+uploadBtn.disabled=false;
+alert("❌ Network error");
+};
+
 xhr.send(formData);
 
 });
 
-/* ================= LOAD PHOTOS ================= */
+/* ===== LOAD PHOTOS ===== */
 
-const API="https://navnath-upload-server.onrender.com/gallery";
-const photoList=document.getElementById("photo-list");
+function loadPhotos(){
 
-fetch(API)
+fetch("https://navnath-upload-server.onrender.com/gallery")
 .then(res=>res.json())
 .then(data=>{
 
+const photoList=document.getElementById("photo-list");
 photoList.innerHTML="";
 
 data.forEach(img=>{
@@ -151,11 +174,17 @@ box.style.margin="10px";
 box.style.textAlign="center";
 
 const image=document.createElement("img");
-image.src=img.secure_url;
+
+image.src = img.secure_url || img.url;
+
+/* fallback */
+image.onerror = () => {
+image.src = "https://via.placeholder.com/120";
+};
+
 image.style.width="120px";
 image.style.height="120px";
 image.style.objectFit="cover";
-image.style.display="block";
 
 const btn=document.createElement("button");
 btn.innerText="🗑 Delete";
@@ -170,9 +199,14 @@ photoList.appendChild(box);
 
 });
 
+})
+.catch(err=>{
+console.error("Gallery error:", err);
 });
 
-/* ================= DELETE ================= */
+}
+
+/* ===== DELETE PHOTO ===== */
 
 async function deletePhoto(public_id){
 
@@ -180,7 +214,14 @@ if(!confirm("हा फोटो delete करायचा का?")){
 return;
 }
 
-const password=prompt("Admin password टाका");
+const password=document.getElementById("adminPassword").value;
+
+if(!password){
+alert("पासवर्ड टाका 🔐");
+return;
+}
+
+try{
 
 const res=await fetch(
 "https://navnath-upload-server.onrender.com/delete-photo",
@@ -195,17 +236,29 @@ password:password
 })
 });
 
+if(!res.ok){
+alert("❌ Server error");
+return;
+}
+
 const data=await res.json();
 
 if(data.success){
-
 alert("✅ फोटो delete झाला");
-location.reload();
-
+loadPhotos();
 }else{
+alert("❌ Wrong Password");
+}
 
-alert("❌ Delete failed");
-
+}catch(err){
+console.error(err);
+alert("❌ Network error");
 }
 
 }
+
+/* ===== INIT ===== */
+
+loadPhotos();
+
+});

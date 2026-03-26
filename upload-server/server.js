@@ -2,11 +2,16 @@ const express = require("express");
 const multer = require("multer");
 const cloudinary = require("cloudinary").v2;
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 
+/* ================= MIDDLEWARE ================= */
+
 app.use(cors());
 app.use(express.json());
+
+/* ================= CLOUDINARY CONFIG ================= */
 
 cloudinary.config({
   cloud_name: "djxhwbxah",
@@ -14,19 +19,39 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-/* ===== MULTER ===== */
+/* ================= PASSWORD ================= */
+
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "shri";
+
+/* ================= MULTER ================= */
+
 const storage = multer.memoryStorage();
 
 const upload = multer({
   storage,
   limits: {
-    fileSize: 100 * 1024 * 1024 // 🔥 100MB
+    fileSize: 100 * 1024 * 1024 // 100MB
   }
 });
+
+/* ================= AUTH FUNCTION (NEW 🔥) ================= */
+
+function checkPassword(req, res) {
+  const password = req.body.password;
+
+  if (!password || password !== ADMIN_PASSWORD) {
+    res.status(401).json({ success: false, message: "Wrong password" });
+    return false;
+  }
+
+  return true;
+}
 
 /* ================= UPLOAD PHOTOS ================= */
 
 app.post("/upload", upload.array("image", 25), async (req, res) => {
+
+  if (!checkPassword(req, res)) return;
 
   try {
 
@@ -36,30 +61,30 @@ app.post("/upload", upload.array("image", 25), async (req, res) => {
     const year = req.body.year || "";
 
     if (!files || files.length === 0) {
-      return res.json({ success:false });
+      return res.json({ success: false, message: "No files" });
     }
 
     const uploadedImages = [];
 
-    for(let i=0;i<files.length;i++){
+    for (let i = 0; i < files.length; i++) {
 
       const file = files[i];
       const caption = Array.isArray(captions) ? captions[i] : captions;
 
-      const result = await new Promise((resolve,reject)=>{
+      const result = await new Promise((resolve, reject) => {
 
         cloudinary.uploader.upload_stream(
           {
-            folder:"gallery",
-            tags:["gallery"],
-            context:{
-              caption:caption,
-              month:month,
-              year:year
+            folder: "gallery",
+            tags: ["gallery"],
+            context: {
+              caption: caption || "",
+              month: month,
+              year: year
             }
           },
-          (error,result)=>{
-            if(error) reject(error);
+          (error, result) => {
+            if (error) reject(error);
             else resolve(result);
           }
         ).end(file.buffer);
@@ -67,16 +92,17 @@ app.post("/upload", upload.array("image", 25), async (req, res) => {
       });
 
       uploadedImages.push({
-        imageUrl:result.secure_url,
-        public_id:result.public_id
+        secure_url: result.secure_url,   // 🔥 FIXED NAME
+        public_id: result.public_id
       });
 
     }
 
-    res.json({ success:true, images:uploadedImages });
+    res.json({ success: true, images: uploadedImages });
 
-  } catch(err){
-    res.status(500).json({ success:false, error:err.message });
+  } catch (err) {
+    console.error("UPLOAD ERROR:", err);
+    res.status(500).json({ success: false, error: err.message });
   }
 
 });
@@ -85,6 +111,8 @@ app.post("/upload", upload.array("image", 25), async (req, res) => {
 
 app.post("/upload-video", upload.array("video", 10), async (req, res) => {
 
+  if (!checkPassword(req, res)) return;
+
   try {
 
     const files = req.files;
@@ -92,29 +120,29 @@ app.post("/upload-video", upload.array("video", 10), async (req, res) => {
     const year = req.body.year || "";
 
     if (!files || files.length === 0) {
-      return res.json({ success:false });
+      return res.json({ success: false });
     }
 
     const uploadedVideos = [];
 
-    for(let i=0;i<files.length;i++){
+    for (let i = 0; i < files.length; i++) {
 
       const file = files[i];
 
-      const result = await new Promise((resolve,reject)=>{
+      const result = await new Promise((resolve, reject) => {
 
         cloudinary.uploader.upload_stream(
           {
             resource_type: "video",
-            folder:"videos",
-            chunk_size: 6000000, // 🔥 stable upload
-            context:{
-              month:month,
-              year:year
+            folder: "videos",
+            chunk_size: 6000000,
+            context: {
+              month: month,
+              year: year
             }
           },
-          (error,result)=>{
-            if(error) reject(error);
+          (error, result) => {
+            if (error) reject(error);
             else resolve(result);
           }
         ).end(file.buffer);
@@ -122,110 +150,120 @@ app.post("/upload-video", upload.array("video", 10), async (req, res) => {
       });
 
       uploadedVideos.push({
-        videoUrl:result.secure_url,
-        public_id:result.public_id
+        secure_url: result.secure_url,
+        public_id: result.public_id
       });
 
     }
 
-    res.json({ success:true, videos:uploadedVideos });
+    res.json({ success: true, videos: uploadedVideos });
 
-  } catch(err){
-    res.status(500).json({ success:false, error:err.message });
+  } catch (err) {
+    console.error("VIDEO UPLOAD ERROR:", err);
+    res.status(500).json({ success: false, error: err.message });
   }
 
 });
 
-/* ================= API GALLERY ================= */
+/* ================= GET PHOTOS ================= */
 
-app.get("/gallery", async (req,res)=>{
+app.get("/gallery", async (req, res) => {
 
-  try{
+  try {
+
     const result = await cloudinary.search
       .expression("folder:gallery")
-      .sort_by("created_at","desc")
+      .sort_by("created_at", "desc")
       .max_results(100)
       .with_field("context")
       .execute();
 
     res.json(result.resources);
 
-  }catch(err){
-    res.status(500).json({ success:false, error:err.message });
+  } catch (err) {
+    console.error("GALLERY ERROR:", err);
+    res.status(500).json({ success: false, error: err.message });
   }
 
 });
 
-/* ================= API VIDEOS ================= */
+/* ================= GET VIDEOS ================= */
 
-app.get("/videos", async (req,res)=>{
+app.get("/videos", async (req, res) => {
 
-  try{
+  try {
+
     const result = await cloudinary.search
       .expression("folder:videos")
-      .sort_by("created_at","desc")
+      .sort_by("created_at", "desc")
       .max_results(100)
       .with_field("context")
       .execute();
 
     res.json(result.resources);
 
-  }catch(err){
-    res.status(500).json({ success:false, error:err.message });
+  } catch (err) {
+    console.error("VIDEOS ERROR:", err);
+    res.status(500).json({ success: false, error: err.message });
   }
 
 });
 
 /* ================= DELETE PHOTO ================= */
 
-app.post("/delete-photo", async (req,res)=>{
+app.post("/delete-photo", async (req, res) => {
 
-  const {public_id,password} = req.body;
+  if (!checkPassword(req, res)) return;
 
-  if(password !== "shri"){
-    return res.json({success:false});
-  }
+  try {
 
-  try{
+    const { public_id } = req.body;
+
     await cloudinary.uploader.destroy(public_id);
-    res.json({success:true});
-  }catch(err){
-    res.json({success:false,error:err.message});
+
+    res.json({ success: true });
+
+  } catch (err) {
+    console.error("DELETE PHOTO ERROR:", err);
+    res.json({ success: false, error: err.message });
   }
 
 });
 
 /* ================= DELETE VIDEO ================= */
 
-app.post("/delete-video", async (req,res)=>{
+app.post("/delete-video", async (req, res) => {
 
-  const {public_id,password} = req.body;
+  if (!checkPassword(req, res)) return;
 
-  if(password !== "shri"){
-    return res.json({success:false});
-  }
+  try {
 
-  try{
+    const { public_id } = req.body;
+
     await cloudinary.uploader.destroy(public_id, {
       resource_type: "video"
     });
 
-    res.json({success:true});
-  }catch(err){
-    res.json({success:false,error:err.message});
+    res.json({ success: true });
+
+  } catch (err) {
+    console.error("DELETE VIDEO ERROR:", err);
+    res.json({ success: false, error: err.message });
   }
 
 });
 
-/* ================= SERVER ================= */
+/* ================= HEALTH ================= */
 
 app.get("/", (req, res) => {
-  res.send("Navnath Gallery Upload Server Running 🚀");
+  res.send("Navnath Upload Server Running 🚀");
 });
 
 app.get("/ping", (req, res) => {
   res.send("Server is awake 🚀");
 });
+
+/* ================= SERVER ================= */
 
 const PORT = process.env.PORT || 3000;
 
