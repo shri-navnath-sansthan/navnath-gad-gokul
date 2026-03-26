@@ -1,70 +1,55 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>फोटो अपलोड</title>
-
 <link rel="stylesheet" href="css/admin.css">
-
 </head>
-
 <body>
 
 <h2>📤 फोटो अपलोड करा</h2>
-
 <form id="uploadForm">
+  <label>फोटो निवडा</label>
+  <input type="file" id="image" accept="image/*" multiple required>
 
+  <div id="captionContainer"></div>
 
+  <label>महिना</label>
+  <input type="text" id="month">
 
-<label>फोटो निवडा</label>
-<input type="file" id="image" accept="image/*" multiple required>
+  <label>वर्ष</label>
+  <input type="text" id="year">
 
-<div id="captionContainer"></div>
+  <label>ॲडमिन पासवर्ड</label>
+  <input type="password" id="adminPassword" placeholder="Password टाका 🔐" required>
 
-<label>महिना</label>
-<input type="text" id="month">
-
-<label>वर्ष</label>
-<input type="text" id="year">
-
-<label>ॲडमिन पासवर्ड</label>
-<input type="password" id="adminPassword" required>
-
-<button type="submit" id="uploadBtn">Upload</button>
-
+  <button type="submit" id="uploadBtn">Upload</button>
 </form>
 
-<!-- VIDEO -->
-
 <h2>🎬 व्हिडिओ अपलोड करा</h2>
-
 <form id="videoUploadForm">
+  <label>व्हिडिओ निवडा</label>
+  <input type="file" id="video" accept="video/*" multiple required>
 
+  <label>महिना</label>
+  <input type="text" id="videoMonth">
 
+  <label>वर्ष</label>
+  <input type="text" id="videoYear">
 
-<label>व्हिडिओ निवडा</label>
-<input type="file" id="video" accept="video/*" multiple required>
+  <label>ॲडमिन पासवर्ड</label>
+  <input type="password" id="videoPassword" placeholder="Password टाका 🔐" required>
 
-<label>महिना</label>
-<input type="text" id="videoMonth">
-
-<label>वर्ष</label>
-<input type="text" id="videoYear">
-
-<label>ॲडमिन पासवर्ड</label>
-<input type="password" id="videoPassword" required>
-
-<button type="button" id="uploadVideoBtn">Upload Video</button>
-
+  <button type="button" id="uploadVideoBtn">Upload Video</button>
 </form>
 
 <!-- Overlay -->
-<div id="uploadOverlay" style="display:none;">
-  <p id="progressText">Uploading 0%</p>
-  <progress id="uploadProgress" value="0" max="100"></progress>
+<div id="uploadOverlay">
+  <div class="overlayBox">
+    <p id="progressText">Uploading 0%</p>
+    <progress id="uploadProgress" value="0" max="100"></progress>
+  </div>
 </div>
 
 <h3>📸 Uploaded Photos</h3>
@@ -77,6 +62,5 @@
 
 <script src="js/admin-upload.js"></script>
 <script src="js/video-upload.js"></script>
-
 </body>
 </html>
