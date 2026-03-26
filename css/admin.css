@@ -1,3 +1,5 @@
+/* ===== BODY ===== */
+
 body{
 font-family:sans-serif;
 background:#f2f2f2;
@@ -5,143 +7,175 @@ text-align:center;
 padding:40px;
 }
 
+/* ===== FORM ===== */
+
 form{
-background:white;
-padding:25px;
-border-radius:10px;
+background:#fff;
+padding:20px;
+border-radius:12px;
 max-width:400px;
 margin:auto;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+margin-bottom:30px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-input,button{
+input, button{
 width:100%;
 padding:10px;
-margin:10px 0;
+margin-top:10px;
+border-radius:6px;
+border:1px solid #ccc;
 font-size:16px;
 }
 
 button{
-background:#b30000;
-color:white;
+background:#c40000;
+color:#fff;
 border:none;
-border-radius:6px;
 cursor:pointer;
+transition:0.3s;
 }
 
 button:hover{
-background:#ff0000;
+background:#a00000;
 }
 
-/* image preview */
+/* ===== IMAGE CAPTION ===== */
 
 #captionContainer div{
 border-bottom:1px solid #ddd;
 padding:10px;
 }
 
-
-
-
-
-font-family: Arial, sans-serif;
-  padding:20px;
-  background:#f5f5f5;
-}
-
-/* ===== FORM ===== */
-
-form{
-  background:#fff;
-  padding:20px;
-  border-radius:12px;
-  max-width:400px;
-  margin:auto;
-  margin-bottom:30px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-input, button{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-  border-radius:6px;
-  border:1px solid #ccc;
-}
-
-button{
-  background:#c40000;
-  color:#fff;
-  border:none;
-  cursor:pointer;
-}
-
-button:hover{
-  background:#a00000;
-}
-
 /* ===== OVERLAY ===== */
 
 #uploadOverlay{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-
-  display:none;
-  justify-content:center;
-  align-items:center;
-
-  z-index:9999;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
 }
-
-/* ===== CENTER BOX ===== */
 
 .overlayBox{
-  background:#fff;
-  padding:25px 30px;
-  border-radius:12px;
-  text-align:center;
-  width:280px;
-
-  box-shadow:0 10px 25px rgba(0,0,0,0.3);
-  animation: pop 0.3s ease;
+background:#fff;
+padding:25px;
+border-radius:12px;
+width:260px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+animation: pop 0.3s ease;
 }
-
-/* ===== TEXT ===== */
 
 #progressText{
-  margin-bottom:10px;
-  font-weight:600;
+margin-bottom:10px;
+font-weight:600;
 }
 
-/* ===== PROGRESS BAR ===== */
-
 #uploadProgress{
-  width:100%;
-  height:12px;
-  border-radius:10px;
-  overflow:hidden;
+width:100%;
+height:12px;
+border-radius:10px;
 }
 
 /* ===== ANIMATION ===== */
 
 @keyframes pop{
-  from{
-    transform: scale(0.8);
-    opacity:0;
-  }
-  to{
-    transform: scale(1);
-    opacity:1;
-  }
+from{
+transform: scale(0.8);
+opacity:0;
+}
+to{
+transform: scale(1);
+opacity:1;
+}
 }
 
-/* ===== GALLERY ===== */
+/* ===== PHOTO GRID ===== */
 
-#photo-list img,
+#photo-list{
+display:grid;
+grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+gap:12px;
+padding:10px;
+}
+
+#photo-list img{
+width:100%;
+height:120px;
+object-fit:cover;
+border-radius:8px;
+}
+
+#photo-list button{
+width:100%;
+margin-top:5px;
+padding:5px;
+font-size:12px;
+background:red;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* ===== VIDEO GRID ===== */
+
+#video-list{
+display:grid;
+grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+gap:15px;
+padding:10px;
+}
+
+#video-list div{
+background:#fff;
+border-radius:10px;
+padding:8px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+text-align:center;
+}
+
 #video-list video{
-  border-radius:8px;
+width:100%;
+height:120px;
+object-fit:cover;
+border-radius:8px;
+}
+
+#video-list button{
+width:100%;
+margin-top:6px;
+padding:6px;
+font-size:12px;
+border:none;
+border-radius:6px;
+background:#ff4d4d;
+color:white;
+cursor:pointer;
+}
+
+#video-list button:hover{
+background:#e60000;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+#photo-list,
+#video-list{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:480px){
+#photo-list,
+#video-list{
+grid-template-columns:1fr;
+}
 }
