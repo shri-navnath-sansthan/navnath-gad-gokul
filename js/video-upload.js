@@ -19,7 +19,7 @@ const months = [
 document.getElementById("videoMonth").value = months[now.getMonth()];
 document.getElementById("videoYear").value = now.getFullYear();
 
-/* ===== UPLOAD (FIXED UX) ===== */
+/* ===== UPLOAD ===== */
 
 uploadBtn.addEventListener("click", async function(){
 
@@ -27,16 +27,22 @@ const password = document.getElementById("videoPassword").value;
 const files = videoInput.files;
 
 if(files.length === 0){
-alert("व्हिडिओ निवडा 🎥");
+alert("Select a video 🎥");
 return;
 }
 
 if(!password){
-alert("पासवर्ड टाका 🔐");
+alert("Enter password 🔐");
 return;
 }
 
-/* 🔥 STEP 1: VERIFY PASSWORD FIRST */
+/* 🔐 PASSWORD CHECK LOADER */
+
+overlay.style.display="flex";
+progressBar.value = 0;
+progressText.innerText = "🔐 Checking password...";
+
+/* 🔥 VERIFY PASSWORD */
 
 try{
 
@@ -52,18 +58,21 @@ body:JSON.stringify({ password })
 );
 
 if(verifyRes.status === 401){
-alert("❌ Wrong Password 🔐");
-return; // 🚫 upload थांबव
+
+progressText.innerText = "❌ Wrong Password";
+setTimeout(()=> overlay.style.display="none",1200);
+return;
 }
 
 }catch(err){
+overlay.style.display="none";
 alert("❌ Server verify error");
 return;
 }
 
-/* 🔥 STEP 2: START UPLOAD */
+/* 🔐 START UPLOAD */
 
-overlay.style.display="flex";
+progressText.innerText = "Uploading 0%";
 uploadBtn.disabled = true;
 
 const formData = new FormData();
@@ -95,14 +104,11 @@ uploadBtn.disabled = false;
 
 if(xhr.status===200){
 
-alert("✅ Upload success");
+alert("✅ Upload successful");
 
 const savedPassword = document.getElementById("videoPassword").value;
 
-/* RESET */
 videoInput.value = "";
-
-/* restore password */
 document.getElementById("videoPassword").value = savedPassword;
 
 loadVideos();
@@ -149,15 +155,22 @@ btn.innerText="🗑 Delete";
 btn.style.display="block";
 btn.style.marginTop="5px";
 
-/* DELETE WITH PASSWORD */
+/* ===== DELETE WITH LOADER ===== */
+
 btn.onclick=async()=>{
 
-const pass=prompt("Admin password टाका 🔐");
+const pass=prompt("Enter admin password 🔐");
 
 if(!pass){
-alert("पासवर्ड टाकला नाही ❌");
+alert("Password not entered ❌");
 return;
 }
+
+/* 🔐 SHOW LOADER */
+
+overlay.style.display="flex";
+progressBar.value = 0;
+progressText.innerText = "🗑 Deleting video...";
 
 try{
 
@@ -175,14 +188,19 @@ password:pass
 
 const data = await res.json();
 
+/* 🔓 HIDE LOADER */
+
+overlay.style.display="none";
+
 if(data.success){
-alert("✅ Delete झाला");
+alert("✅ Deleted successfully");
 loadVideos();
 }else{
 alert("❌ Wrong Password");
 }
 
 }catch(err){
+overlay.style.display="none";
 alert("❌ Network error");
 }
 

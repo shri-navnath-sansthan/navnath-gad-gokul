@@ -46,7 +46,7 @@ div.appendChild(img);
 
 const input=document.createElement("input");
 input.type="text";
-input.placeholder="Caption लिहा";
+input.placeholder="Enter caption";
 input.className="captionInput";
 
 div.appendChild(input);
@@ -57,7 +57,7 @@ captionContainer.appendChild(div);
 
 });
 
-/* ===== UPLOAD PHOTOS (FIXED UX) ===== */
+/* ===== UPLOAD PHOTOS ===== */
 
 const form=document.getElementById("uploadForm");
 
@@ -71,16 +71,22 @@ const password = passwordInput.value;
 const files=fileInput.files;
 
 if(files.length===0){
-alert("फोटो निवडा 📷");
+alert("Select photos 📷");
 return;
 }
 
 if(!password){
-alert("पासवर्ड टाका 🔐");
+alert("Enter password 🔐");
 return;
 }
 
-/* 🔥 STEP 1: VERIFY PASSWORD FIRST */
+/* 🔐 PASSWORD CHECK LOADER */
+
+overlay.style.display = "flex";
+progressBar.value = 0;
+progressText.innerText = "🔐 Checking password...";
+
+/* 🔥 VERIFY PASSWORD */
 
 try{
 
@@ -96,19 +102,22 @@ body:JSON.stringify({ password })
 );
 
 if(verifyRes.status === 401){
-alert("❌ Wrong Password 🔐");
-return; // 🚫 upload थांबव
+progressText.innerText = "❌ Wrong Password";
+setTimeout(()=> overlay.style.display="none",1200);
+return;
 }
 
 }catch(err){
+overlay.style.display="none";
 alert("❌ Server verify error");
 return;
 }
 
-/* 🔥 STEP 2: START UPLOAD ONLY IF PASSWORD OK */
+/* 🔐 START UPLOAD */
 
+progressText.innerText = "Uploading 0%";
+progressBar.value = 0;
 uploadBtn.disabled=true;
-overlay.style.display="flex";
 
 const captions=document.querySelectorAll(".captionInput");
 
@@ -130,11 +139,15 @@ const xhr=new XMLHttpRequest();
 
 xhr.open("POST","https://navnath-upload-server.onrender.com/upload");
 
+/* ✅ PROGRESS FIX */
+
 xhr.upload.onprogress=function(e){
-if(e.lengthComputable){
+if(e.lengthComputable && e.total > 0){
 const percent=Math.round((e.loaded/e.total)*100);
 progressBar.value=percent;
 progressText.innerText="Uploading "+percent+"%";
+}else{
+progressText.innerText="Uploading...";
 }
 };
 
@@ -145,7 +158,7 @@ overlay.style.display="none";
 
 if(xhr.status===200){
 
-alert("✅ Upload झाले");
+alert("✅ Upload successful");
 
 const savedPassword = passwordInput.value;
 
@@ -222,20 +235,26 @@ console.error("Gallery error:", err);
 
 }
 
-/* ===== DELETE PHOTO ===== */
+/* ===== DELETE PHOTO (LOADER ADDED) ===== */
 
 async function deletePhoto(public_id){
 
-if(!confirm("हा फोटो delete करायचा का?")){
+if(!confirm("Do you want to delete this photo?")){
 return;
 }
 
-const password = prompt("Admin password टाका 🔐");
+const password = prompt("Enter admin password 🔐");
 
 if(!password){
-alert("पासवर्ड टाकला नाही ❌");
+alert("Password not entered ❌");
 return;
 }
+
+/* 🔐 SHOW LOADER */
+
+overlay.style.display="flex";
+progressBar.value = 0;
+progressText.innerText = "🗑 Deleting photo...";
 
 try{
 
@@ -252,21 +271,21 @@ password:password
 })
 });
 
-if(!res.ok){
-alert("❌ Server error");
-return;
-}
-
 const data=await res.json();
 
+/* 🔓 HIDE LOADER */
+
+overlay.style.display="none";
+
 if(data.success){
-alert("✅ फोटो delete झाला");
+alert("✅ Photo deleted successfully");
 loadPhotos();
 }else{
 alert("❌ Wrong Password");
 }
 
 }catch(err){
+overlay.style.display="none";
 console.error(err);
 alert("❌ Network error");
 }
