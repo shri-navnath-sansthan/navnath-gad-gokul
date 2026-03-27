@@ -9,7 +9,7 @@ const app = express();
 /* ================= MIDDLEWARE ================= */
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // 🔥 required for verify-password
 
 /* ================= CLOUDINARY CONFIG ================= */
 
@@ -34,7 +34,7 @@ const upload = multer({
   }
 });
 
-/* ================= AUTH FUNCTION (NEW 🔥) ================= */
+/* ================= AUTH FUNCTION ================= */
 
 function checkPassword(req, res) {
   const password = req.body.password;
@@ -46,6 +46,34 @@ function checkPassword(req, res) {
 
   return true;
 }
+
+/* ================= VERIFY PASSWORD (NEW 🔥) ================= */
+
+app.post("/verify-password", (req, res) => {
+
+  try {
+
+    const { password } = req.body;
+
+    if (!password) {
+      return res.status(400).json({
+        success: false,
+        message: "Password required"
+      });
+    }
+
+    if (password === ADMIN_PASSWORD) {
+      return res.json({ success: true });
+    } else {
+      return res.status(401).json({ success: false });
+    }
+
+  } catch (err) {
+    console.error("VERIFY ERROR:", err);
+    res.status(500).json({ success: false });
+  }
+
+});
 
 /* ================= UPLOAD PHOTOS ================= */
 
@@ -92,7 +120,7 @@ app.post("/upload", upload.array("image", 25), async (req, res) => {
       });
 
       uploadedImages.push({
-        secure_url: result.secure_url,   // 🔥 FIXED NAME
+        secure_url: result.secure_url,
         public_id: result.public_id
       });
 
