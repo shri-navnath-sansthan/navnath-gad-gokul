@@ -1,21 +1,23 @@
-
-/* ===== Parent frame for both cards ===== */
+/* ===== Parent frame for cards ===== */
 .cards-frame {
-  max-width: 950px;
+  max-width: 900px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 10px;
   border-radius: 25px;
-  background: linear-gradient(135deg, #22364b, #2f3c52); /* Common background */
+  background: linear-gradient(135deg, #22364b, #2f3c52);
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-direction: column; /* stacked vertically */
+  gap: 15px; /* समान अंतर प्रत्येक कार्डसाठी */
+  justify-content: flex-start; /* वरून खाली alignment */
+  align-items: center; /* center horizontally */
 }
 
 /* ===== Cards style ===== */
 .creator-card, .contact-card {
-  background: transparent; /* Transparent to show parent background */
-  border: 1px solid #00aeff;
+  width: 98%; /* समान width */
+  background: transparent;
+  border: 1px solid #697a81;
   border-radius: 20px;
   padding: 15px 20px;
   display: flex;
@@ -39,24 +41,42 @@
 }
 
 /* ===== Text ===== */
-.creator-text h2, .contact-text h2 {
+.creator-text h2 {
   font-size: clamp(20px, 3vw, 28px);
-  margin-bottom: 10px;
-  color: #ffffff;
+  color: #edeaea;
   letter-spacing: 1px;
+}
+
+ .contact-text h2 {
+  font-size: clamp(20px, 3vw, 28px);
+  color: #d4dada;
+  letter-spacing: 1px;
+}
+
+
+
+.website-date {
+  color: #d3d7d7;
+  font-size: 11px;
+  font-weight: 400;
+  margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 .creator-role {
   color: #4f86a1;
   font-size: 10px;
-  margin-bottom: 0;
+ margin-left: 10px;
   font-weight: 200;
 }
 
+
+
 .contact-role {
   color: #ffffff;
-  font-size: 14px;
+  font-size: 15px;
   margin-bottom: 10px;
+  margin-left: 40px;
   font-weight: 500;
 }
 
@@ -67,7 +87,6 @@
   gap: 8px;
   padding: 10px 22px;
   border-radius: 40px;
-  
   color: white;
   text-decoration: none;
   font-weight: bold;
@@ -77,10 +96,12 @@
 
 .creator-whatsapp {
   background: linear-gradient(135deg, #25D366, #128C7E);
+  margin-top: 5px;
 }
 
 .contact-call {
   background: linear-gradient(135deg, #2b83cc, #677b90);
+ 
 }
 
 .creator-whatsapp:hover, .contact-call:hover {
@@ -93,11 +114,12 @@
 }
 
 /* ===== Mobile Fix ===== */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .creator-card, .contact-card {
     flex-direction: row;
     padding: 12px;
     gap: 12px;
+    width: 98%;
   }
 
   .creator-img, .contact-img {
@@ -114,5 +136,117 @@
     padding: 6px 14px;
   }
 }
+
+
+
+
+/* ===== Parent container for social media ===== */
+.navnath-container {
+  width: 98%;
+  max-width: 98%;
+  margin: 2px; 
+  border: 1px solid #616569;
+  border-radius: 20px;
+  padding: 15px;
+  background: #412541;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  box-sizing: border-box;
+}
+
+/* Title */
+.navnath-title {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: white;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border: 0.5px solid #a9b3bd;
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 12px;
+  color: #8b0000;
+}
+
+/* Social icons container */
+.navnath-box {
+  width: 90%;
+  background: #180818;
+  border-top-left-radius: 70px;
+  border-bottom-right-radius: 70px;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Circle icon link */
+.circle {
+  width: 55px;
+  height: 55px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.circle:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.circle img {
+  width: 40px;
+  height: 40px;
+}
+
+/* ===== Spacing between all sections ===== */
+.cards-frame + .navnath-container {
+  margin-top: 30px; /* सोशल मीडिया सेक्शन आणि कार्ड्स दरम्यान */
+}
+
+
+
+
+
+
+
+
+
+.visitor-counter{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    background:#f7f1e9;
+    border-radius:10px;
+    padding:5px 8px;
+    width: auto;
+    margin:2px auto;
+    font-size:10px;
+    font-weight:bold;
+    margin-top: 10px;
+    color:#143a69;
+    box-shadow:0 3px 8px rgba(0,0,0,0.15);
+}
+
+.visitor-counter img{
+    height: 18px;
+}
+
+.visitor-text{
+    white-space:nowrap;
+   
+}
+
+
+
 
 
