@@ -92,10 +92,58 @@
 
 
 
+
+
 <p class="abhyasika-establish">
 
-<b>📆 दिनांक:</b> <span id="live-date"></span> |
-<b>🕒 वेळ:</b> <span id="live-time"></span>
+  <b>📆 दिनांक:</b> <span id="live-date"></span> |
+  <b>📅 वार:</b> <span id="live-day"></span> |
+  <b>🕒 वेळ:</b> <span id="live-time"></span>
+</p>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  function updateDateTime() {
+
+    var now = new Date();
+
+    // Marathi Days
+    var days = ["रविवार","सोमवार","मंगळवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
+    var dayName = days[now.getDay()];
+
+    // Date
+    var date = now.toLocaleDateString('mr-IN', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+
+    // Time
+    var time = now.toLocaleTimeString('mr-IN', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+
+    // Set values
+    document.getElementById("live-day").textContent = dayName;
+    document.getElementById("live-date").textContent = date;
+    document.getElementById("live-time").textContent = time;
+  }
+
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+
+});
+
+</script>
+
+
+
+
+
 
 
 
@@ -324,98 +372,96 @@
 </div>
 
 
-
 <!-- Parent frame for both cards -->
 <div class="cards-frame">
 
-
-
-
   <!-- Contact Section -->
   <div class="contact-card">
-      <img src="images/umeshshelke2.jpeg" class="contact-img">
+      <img src="images/umeshshelke2.jpeg" class="contact-img" alt="Umesh Shelke">
       <div class="contact-text">
-          <h2>देवस्थान व्यवस्थापन संपर्क :</h2>
+          <h2> ⛪देवस्थान व्यवस्थापन संपर्क :</h2>
           <p class="contact-role">📲 उमेश शेळके</p>
-          <p class="creator-role">📞 संपर्कासाठी कॉल/व्हाट्सअँप   (क्लिक करा)</p>
+          <p class="creator-role">📞 संपर्कासाठी कॉल/व्हाट्सअँप (क्लिक करा)</p>
+
+          <!-- Call Link -->
           <a href="tel:+919623467524" class="contact-call">
               <span class="blue-dot"></span>
-              <img src="images/phonelogo.png" class="contact-call-icon">
+              <img src="images/phonelogo.png" class="contact-call-icon" alt="Call Icon">
               +91 9623467524
           </a>
 
-           <a href="https://wa.me/919623467524?text=🙏%20नमस्कार.%20मला%20देवस्थानाबद्दल%20अधिक%20माहिती%20हवी%20आहे.%20कृपया%20मार्गदर्शन%20करावे."
+          <!-- WhatsApp Link -->
+          <a href="https://wa.me/919623467524?text=🙏%20नमस्कार.%20मला%20देवस्थानाबद्दल%20अधिक%20माहिती%20हवी%20आहे.%20कृपया%20मार्गदर्शन%20करावे."
              target="_blank"
+             rel="noopener noreferrer"
              class="creator-whatsapp">
               <span class="blue-dot"></span>
-              <img src="images/whatsappimage.png" class="creator-wa-icon">
+              <img src="images/whatsappimage.png" class="creator-wa-icon" alt="WhatsApp Icon">
               +91 9623467524 
           </a>
 
-
-  
       </div>
   </div>
 
+  <!-- Creator Section -->
+  <div class="creator-card">
+      <img src="images/Ravindrashelke.jpeg" class="creator-img" alt="Ravindra Shelke">
 
-  
-  
-<!-- Creator Section -->
-<div class="creator-card">
-    <img src="images/Ravindrashelke.jpeg" class="creator-img">
+      <div class="creator-text">
+          <h2>🌐 निर्माता : रविंद्र शेळके</h2>
+           <p class="website-date">  🚀  संकेतस्थळ प्रकाशन दिनांक  : 23 Feb 2026
+          <p class="creator-role">📞 संपर्कासाठी व्हॉट्सॲप (क्लिक करा)</p>
 
-    <div class="creator-text">
-        <h2>🌐 निर्माता : रविंद्र शेळके</h2>
-        <p class="creator-role">📞 संपर्कासाठी व्हॉट्सॲप (क्लिक करा)</p>
+          <!-- WhatsApp Link -->
+          <a href="https://wa.me/919067633604?text=🙏%20नमस्कार.%20मला%20देवस्थानाबद्दल%20अधिक%20माहिती%20हवी%20आहे.%20कृपया%20मार्गदर्शन%20करावे."
+             target="_blank"
+             rel="noopener noreferrer"
+             class="creator-whatsapp">
+              <span class="blue-dot"></span>
+              <img src="images/whatsappimage.png" class="creator-wa-icon" alt="WhatsApp Icon">
+              +91 9067633604
+          </a>
 
-        <a href="https://wa.me/919067633604?text=🙏%20नमस्कार.%20मला%20देवस्थानाबद्दल%20अधिक%20माहिती%20हवी%20आहे.%20कृपया%20मार्गदर्शन%20करावे."
-           target="_blank"
-           class="creator-whatsapp">
-            <span class="blue-dot"></span>
-            <img src="images/whatsappimage.png" class="creator-wa-icon">
-            +91 9067633604
-        </a>
+          <!-- Upload Button -->
+          <div class="upload-btn-box">
+              <a href="admin-upload.html" class="upload-btn">
+                  🔐 Admin Panel
+              </a>
+            
+</p>
+          </div>
 
-        <!-- ✅ Upload Button -->
-        <div class="upload-btn-box">
-            <a href="admin-upload.html" class="upload-btn">
-                🔐 Admin Panel
-            </a>
-        </div>
-
-    </div>
-</div>
-
-</div>
-
-
-
-
-
-
-<div class="navnath-container">
-
-  <div class="navnath-title">
-   👉 नवनाथ गड अधिकृत सोशल मीडिया — आत्ताच Follow करा.
+      </div>
   </div>
 
-  <div class="navnath-box">
+  <!-- Social Media Section -->
+  <div class="navnath-container">
+      <div class="navnath-title">
+          👉 नवनाथ गड अधिकृत सोशल मीडिया — आत्ताच Follow करा.
+      </div>
 
-    <a href="https://www.instagram.com/navnathgad_gokul_official" target="_blank" class="circle">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-    </a>
+      <div class="navnath-box">
+          <a href="https://www.instagram.com/navnathgad_gokul_official" target="_blank" rel="noopener noreferrer" class="circle">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+          </a>
 
-    <a href="https://www.youtube.com/@navnathgad_gokul_official" target="_blank" class="circle">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
-    </a>
+          <a href="https://www.youtube.com/@navnathgad_gokul_official" target="_blank" rel="noopener noreferrer" class="circle">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+          </a>
 
-    <a href="https://telegram.org" target="_blank" class="circle">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
-    </a>
-
+          <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" class="circle">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
+          </a>
+      </div>
   </div>
 
 </div>
+</div>
+ </div>
+
+
+  
+  
 
 
 
@@ -520,39 +566,6 @@ document.addEventListener("DOMContentLoaded", wakeServer);
 
 
 
-
-<script>
-
-function updateDateTime() {
-
-  const now = new Date();
-
-  // Live Date (Marathi format)
-  const date = now.toLocaleDateString('mr-IN', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  });
-
-  // Live Time
-  const time = now.toLocaleTimeString('mr-IN', {
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-  });
-
-  // HTML मध्ये update
-  document.getElementById("live-date").textContent = date;
-  document.getElementById("live-time").textContent = time;
-}
-
-// 1 सेकंदाने update
-setInterval(updateDateTime, 1000);
-
-// Page load होताच run
-updateDateTime();
-
-</script>
 
 
 

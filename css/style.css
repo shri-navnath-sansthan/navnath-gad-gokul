@@ -16,15 +16,12 @@
 
 
 
-
-
-
 /* ===== LOCATION ===== */
 .location-bar {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 8px 0;
+  margin: 5px 0;
   background-color: #dad8fb;   /* हलका sky blue */
   padding: 4px 0;
   border-radius: 8px;
@@ -671,6 +668,8 @@ html{
 
 
 
+
+
 /* ===== नवनाथ गड अभ्यासिका ===== */
 
 .abhyashika {
@@ -730,9 +729,6 @@ html{
 
 
 
-
-
-
 /* ===== update notice ===== */
 .page-title-suchana {
     text-align: center;
@@ -742,93 +738,6 @@ html{
 }
 
 
-
-
-
-
-
-.navnath-container{
-width: auto;
-max-width: 99%;
-margin:auto;
-border:1px solid #9aa6b2;
-border-radius:20px;
-padding:15px;
-background:#412541;
-text-align:center;
-}
-
-.navnath-title{
-display:inline-block;
-padding:4px 8px;
-background-color: white;
-border-top-left-radius: 100px;
-border-bottom-right-radius: 100px;
-border:0.5px solid #a9b3bd;
-font-weight:bold;
-margin-bottom:10px;
-font-size: 10px ;
-color:#8b0000; 
-
-}
-
-.navnath-box{
-background:#180818;
-border-top-left-radius: 100px;
-border-bottom-right-radius: 100px ;
-padding:8px;
-display:flex;
-justify-content:space-around;
-
-}
-
-.circle{
-width: 55px;
-height:55px;
-background:white;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-border:1px solid black;
-text-decoration:none;
-}
-
-.circle img{
-width: 40px;
-height:40px;
-}
-
-
-
-
-
-
-.visitor-counter{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:6px;
-    background:#f7f1e9;
-    border-radius:10px;
-    padding:5px 8px;
-    width: auto;
-    margin:2px auto;
-    font-size:10px;
-    font-weight:bold;
-    margin-top: 10px;
-    color:#143a69;
-    box-shadow:0 3px 8px rgba(0,0,0,0.15);
-}
-
-.visitor-counter img{
-    height: 18px;
-}
-
-.visitor-text{
-    white-space:nowrap;
-   
-}
 
 
 
