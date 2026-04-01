@@ -1,0 +1,69 @@
+/* ===== GOKUL MAZ GAON HEADER ===== */
+
+.gokul-maz-gaon {
+  position: relative;
+  min-height: 50px;
+  background-color: #210734; /* deep purple background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1px 0;
+  overflow: hidden;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border: 15px solid #ffaa00b4; /* hot pink border */
+  margin: 0px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* subtle shadow */
+}
+
+.gokul-maz-gaon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* content */
+.gokul-maz-gaon-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 2px;
+}
+
+/* flex layout */
+.gokul-maz-gaon-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+/* image */
+.gokul-maz-gaon-img {
+  width: 60px;
+  height: 80px;
+  min-width: 50px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 20px;
+  border: 1px solid #8d9091;
+ 
+}
+
+
+.gokul-maz-gaon-content h1 {
+  font-size: clamp(28px,5vw,60px);
+  font-weight: 1000;
+  color: #ffc400;
+  text-shadow:
+    0 0.5px 0 #ffffff;
+
+
+    
+}
+
+
+
+
