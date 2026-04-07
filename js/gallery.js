@@ -15,10 +15,14 @@ let sliderTrack;
 let modalCaption;
 let modalCaptionText;
 let readMoreBtn;
-let imageCounter;   // ⭐ NEW
+let imageCounter;
 let isExpanded = false;
 
 const COLLAPSED_HEIGHT = 40;
+
+/* ✅ HISTORY SETUP (NEW) */
+history.replaceState({page:"home"},"");
+history.pushState({page:"gallery"},"","#gallery");
 
 /* ===== FETCH GALLERY ===== */
 
@@ -100,7 +104,25 @@ grouped[key].push(img);
 
 });
 
-Object.keys(grouped).sort().reverse().forEach(monthKey=>{
+const monthOrder = [
+"January","February","March","April","May","June",
+"July","August","September","October","November","December"
+];
+
+Object.keys(grouped)
+.sort((a,b)=>{
+
+const [monthA, yearA] = a.split(" ");
+const [monthB, yearB] = b.split(" ");
+
+if(yearA !== yearB){
+return yearB - yearA;
+}
+
+return monthOrder.indexOf(monthB) - monthOrder.indexOf(monthA);
+
+})
+.forEach(monthKey=>{
 
 const monthTitle=document.createElement("h2");
 monthTitle.className="month-title";
@@ -169,8 +191,6 @@ readMoreBtn.style.fontWeight="bold";
 readMoreBtn.style.cursor="pointer";
 readMoreBtn.innerText="आणखी वाचा";
 
-/* READ MORE BUTTON */
-
 readMoreBtn.addEventListener("click",function(e){
 
 e.stopPropagation();
@@ -196,8 +216,6 @@ isExpanded=false;
 }
 
 });
-
-/* ⭐ IMAGE COUNTER */
 
 imageCounter = document.createElement("div");
 
@@ -235,7 +253,8 @@ setPositionByIndex();
 updateCaption();
 },30);
 
-history.pushState({modalOpen:true},"");
+/* modal state */
+history.pushState({modalOpen:true},"","#modal");
 
 }
 
@@ -244,8 +263,6 @@ history.pushState({modalOpen:true},"");
 function updateCaption(){
 
 modalCaptionText.innerText = images[currentIndex].caption;
-
-/* ⭐ COUNTER UPDATE */
 
 imageCounter.innerText = (currentIndex + 1) + " / " + images.length;
 
@@ -275,11 +292,13 @@ modal.style.display="none";
 
 if(header) header.style.display="block";
 
+if(location.hash === "#modal"){
+history.back();
+}
+
 }
 
 window.closeModal = closeModal;
-
-/* CLICK OUTSIDE CLOSE */
 
 modal.addEventListener("click",function(e){
 
@@ -287,11 +306,21 @@ if(e.target===modal) closeModal();
 
 });
 
-/* BACK BUTTON */
+/* ===== BACK BUTTON FLOW ===== */
 
-window.addEventListener("popstate",function(){
+window.addEventListener("popstate",function(e){
 
-if(modal.style.display==="flex") closeModal();
+// modal open असेल → close
+if(modal.style.display==="flex"){
+modal.style.display="none";
+if(header) header.style.display="block";
+return;
+}
+
+// gallery वरून back → index.html
+if(e.state && e.state.page === "home"){
+window.location.href = "index.html";
+}
 
 });
 
@@ -339,8 +368,6 @@ setPositionByIndex();
 updateCaption();
 
 });
-
-/* ===== SLIDER POSITION ===== */
 
 function setPositionByIndex(){
 
