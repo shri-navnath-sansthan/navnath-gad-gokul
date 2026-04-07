@@ -167,15 +167,31 @@ background:#e60000;
 /* ===== MOBILE ===== */
 
 @media(max-width:768px){
-#photo-list,
+#photo-list{
+grid-template-columns:repeat(3,1fr); /* tablet */
+}
+
 #video-list{
 grid-template-columns:repeat(2,1fr);
 }
 }
 
 @media(max-width:480px){
-#photo-list,
+#photo-list{
+grid-template-columns:repeat(4,1fr); /* ✅ 4 photos */
+gap:6px;
+}
+
+#photo-list img{
+height:70px;
+}
+
 #video-list{
-grid-template-columns:1fr;
+grid-template-columns:repeat(2,1fr); /* videos */
+gap:8px;
+}
+
+#video-list video{
+height:90px;
 }
 }
