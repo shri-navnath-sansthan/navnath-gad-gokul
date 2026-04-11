@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .then(res => res.json())
     .then(data => {
 
-        galleryWrapper.innerHTML = ""; // 🔥 clear first
+        galleryWrapper.innerHTML = "";
 
         videos = data.map((vid, index) => ({
             src: vid.secure_url.replace("/upload/", "/upload/f_auto,q_auto/"),
@@ -60,7 +60,22 @@ document.addEventListener("DOMContentLoaded", function () {
             grouped[key].push(vid);
         });
 
-        Object.keys(grouped).sort().reverse().forEach(monthKey => {
+        // ✅ 🔥 FIXED SORTING
+        const monthOrder = {
+          January:1, February:2, March:3, April:4, May:5, June:6,
+          July:7, August:8, September:9, October:10, November:11, December:12
+        };
+
+        Object.keys(grouped)
+        .sort((a,b)=>{
+            const [m1,y1] = a.split(" ");
+            const [m2,y2] = b.split(" ");
+
+            if (y1 !== y2) return y2 - y1;
+
+            return monthOrder[m2] - monthOrder[m1];
+        })
+        .forEach(monthKey => {
 
             const monthTitle = document.createElement("h2");
             monthTitle.className = "month-title";
@@ -79,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 video.src = item.src;
                 video.muted = true;
                 video.playsInline = true;
-                video.preload = "metadata"; // 🔥 performance boost
+                video.preload = "metadata";
 
                 card.appendChild(video);
 
@@ -87,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 gallery.appendChild(card);
 
-                /* 🔥 SMOOTH ANIMATION */
                 setTimeout(()=>{
                     card.classList.add("show");
                 }, i * 80);

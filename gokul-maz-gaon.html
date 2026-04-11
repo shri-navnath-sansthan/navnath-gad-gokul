@@ -7,6 +7,7 @@
     <title>माझ गोकुळ माझ्या अभिमान </title>
     <link rel="stylesheet" href="css/gokul-maz-gaon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/abhyashika.css">
 
 </head>
 
@@ -38,6 +39,61 @@
       <span class="click-anim">क्लिक करा</span>
     </a>
   </div>
+
+
+
+  
+<p class="abhyasika-establish">
+
+  <b>📆 दिनांक:</b> <span id="live-date"></span> |
+  <b>📅 वार:</b> <span id="live-day"></span> |
+  <b>🕒 वेळ:</b> <span id="live-time"></span>
+</p>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  function updateDateTime() {
+
+    var now = new Date();
+
+    // Marathi Days
+    var days = ["रविवार","सोमवार","मंगळवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
+    var dayName = days[now.getDay()];
+
+    // Date
+    var date = now.toLocaleDateString('mr-IN', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+
+    // Time
+    var time = now.toLocaleTimeString('mr-IN', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+
+    // Set values
+    document.getElementById("live-day").textContent = dayName;
+    document.getElementById("live-date").textContent = date;
+    document.getElementById("live-time").textContent = time;
+  }
+
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+
+});
+
+</script>
+
+
+
+
+
+
 
 <div class="info-box1  ">
   <h2> * गोकुळ गावचे महत्व *</h2>

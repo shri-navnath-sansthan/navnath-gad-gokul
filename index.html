@@ -191,24 +191,40 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
 <section class="photo-frame">
-  <div class="slider" id="slider">
-    <img src="images/Sliderphoto/sliderphoto1.jpeg" class="slide active">
-    <img src="images/Sliderphoto/sliderphotoone.jpeg" class="slide">
-    <img src="images/Sliderphoto/sliderphoto2.jpeg" class="slide">
-    <img src="images/Sliderphoto/sliderphoto3.jpeg" class="slide">
-    <img src="images/Sliderphoto/sliderphoto4.jpeg" class="slide">
-    <img src="images/Sliderphoto/sliderphoto5.jpeg" class="slide">
-    <img src="images/Sliderphoto/sliderphoto7.jpeg" class="slide">
-    <img src="images/Sliderphoto/sliderphoto6.jpeg" class="slide">
-    <img src="images/Sliderphoto/sliderphoto8.jpeg" class="slide">
-    <img src="images/Sliderphoto/sliderphoto9.jpeg" class="slide">
 
+  <div class="slider" id="slider">
+  <div class="play-pause" id="playPause">⏸</div>
+
+    <img src="images/Sliderphoto/sliderphoto1.jpeg" class="slide active" data-caption="नवनाथ गड, गोकुळ येथील पवित्र क्षण" loading="lazy">
+    <img src="images/Sliderphoto/sliderphotoone.jpeg" class="slide" data-caption="नवनाथ गड – संस्कृतीचा दीपस्तंभ, अभिमानाचा वारसा" loading="lazy">
+    <img src="images/Sliderphoto/sliderphoto2.jpeg" class="slide" data-caption="छत्रपती शिवाजी महाराज जयंती सोहळा" loading="lazy">
+    <img src="images/Sliderphoto/sliderphoto5.jpeg" class="slide" data-caption="शौर्य, संस्कृती आणि स्वाभिमान – गोकुळ गावात शिवजयंती उत्सव" loading="lazy">
+    <img src="images/Sliderphoto/sliderphoto3.jpeg" class="slide" data-caption="नवनाथ गड, गोकुळ येथील निसर्गरम्य व भक्तीमय वातावरण 🙏🌿" loading="lazy">
+    <img src="images/Sliderphoto/sliderphoto4.jpeg" class="slide" data-caption="नवनाथ गड अभ्यासिका – गोकुळ गावाचा अभिमान 🙏🌿" loading="lazy">
+    <img src="images/Sliderphoto/sliderphoto7.jpeg" class="slide" data-caption="गोकुळ गावाचा अभिमान! नवनाथ गडावर हरिनाम सप्ताहात भव्य पंगतींचा सोहळा 🙏🚩" loading="lazy">
+    <img src="images/Sliderphoto/sliderphoto6.jpeg" class="slide" data-caption="निसर्गरम्य वातावरणाचा संगम 🌿" loading="lazy">
+    <img src="images/Sliderphoto/sliderphoto8.jpeg" class="slide" data-caption="भक्ती, एकता आणि भव्य पंगतीचा दिव्य संगम 🙏🌿" loading="lazy">
+    <img src="images/Sliderphoto/sliderphoto9.jpeg" class="slide" data-caption="गोकुळ गावाचा अभिमान! नवनाथ गडावर हरिनाम सप्ताहाचा भव्य दिव्य सोहळा 🙏🚩" loading="lazy">
+
+    <!-- ✅ Buttons (ONLY HERE) -->
+    <button id="prevBtn">❮</button>
+    <button id="nextBtn">❯</button>
     
 
-  
+    <!-- ✅ Progress -->
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+
   </div>
+
+  <!-- Caption -->
+  <div class="caption" id="caption"></div>
+
+  <!-- Dots -->
+  <div class="dots" id="dots"></div>
+
 </section>
 
 
@@ -216,19 +232,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
-
-<div class="notice-bar2">
-  <div class="notice-fixed2">नवनाथ मंत्र:</div>
-  <div class="notice-track2">
-    <span>
-      ॐ श्री देवदत्ताय नमः • ॐ श्री गोरक्षनाथाय नमः • ॐ श्री रघुनाथाय नमः • ॐ श्री चारनाथाय नमः • ॐ श्री भैरवनाथाय नमः • ॐ श्री कुलसुतनाथाय नमः • ॐ श्री पंचनाथाय नमः • ॐ श्री आदिनाथाय नमः • ॐ श्री हरिनाथाय नमः •
-    </span>
-    <span>
-      ॐ श्री देवदत्ताय नमः • ॐ श्री गोरक्षनाथाय नमः • ॐ श्री रघुनाथाय नमः • ॐ श्री चारनाथाय नमः • ॐ श्री भैरवनाथाय नमः • ॐ श्री कुलसुतनाथाय नमः • ॐ श्री पंचनाथाय नमः • ॐ श्री आदिनाथाय नमः • ॐ श्री हरिनाथाय नमः •
-    </span>
-  </div>
-</div>
 
 
 
