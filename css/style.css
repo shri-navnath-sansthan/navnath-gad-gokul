@@ -100,7 +100,7 @@
   border-bottom: 1px solid #ff9900;
  
 
-  background-color: #ffffff;
+  background-color: #f9f9e8;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 
   display: flex;
@@ -153,42 +153,145 @@
 
 
 
+/* ===== FRAME ===== */
+.photo-frame {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    /* ===== SLIDER ===== */
-    .photo-frame {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin: 15px 0;
-    }
+/* ===== SLIDER ===== */
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #f2eded;
+  transition: height 0.4s ease;
+}
 
-    .slider {
-      position: relative;
-      width: 100%;
-      max-width: 100%;
-      overflow: hidden;
-      background: #f2eded;
-      transition: height 0.4s ease; /* 🔥 smooth height change */
-    }
+/* ===== SLIDES ===== */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #fff;
+  transition: transform 0.8s ease-in-out;
+}
 
-    .slide {
-      position: absolute;
-      top: 0;
-      left: 100%;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      background: #fff;
-      transition: transform 0.8s ease-in-out;
-    }
+.slide.active {
+  transform: translateX(-100%);
+}
 
-    .slide.active {
-      transform: translateX(-100%);
-    }
+.slide.exit {
+  transform: translateX(-200%);
+}
 
-    .slide.exit {
-      transform: translateX(-200%);
-    }
+/* ===== BUTTONS ===== */
+#prevBtn, #nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  font-size: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#prevBtn { left: 8px; }
+#nextBtn { right: 8px; }
+
+/* ===== PROGRESS BAR ===== */
+.progress-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(197, 17, 17, 0.1);
+}
+
+
+/* ✅ CAPTION (Soft + Transparent + Animation) */
+.caption {
+  width: 100%;
+  background: #ff7a00; /* orange */
+  color: #fff;
+  text-align: center;
+  padding: 2px 2px;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.5s ease;
+
+  backdrop-filter: blur(5px); /* 🔥 premium */
+}
+
+/* animation active */
+.caption.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ===== DOTS ===== */
+.dots {
+  text-align: center;
+ 
+}
+
+.dot {
+  height: 5px;
+  width: 5px;
+  margin: 2.5px;
+  background: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* active dot */
+.dot.active {
+  background: #000000;
+  transform: scale(1.3);
+}
+
+
+
+
+.play-pause {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  font-size: 20px; /* 🔥 smaller icon */
+  color: #fff;
+  
+  background: rgba(117, 115, 115, 0.5);
+  border-radius: 50%;
+  padding: 6px 10px; /* 🔥 reduced padding */
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 30;
+}
+
+.play-pause.show {
+  opacity: 1;
+}
+
+
 
 
 
