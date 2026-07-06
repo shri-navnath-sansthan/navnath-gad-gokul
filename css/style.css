@@ -208,6 +208,8 @@
 #prevBtn { left: 8px; }
 #nextBtn { right: 8px; }
 
+
+
 /* ===== PROGRESS BAR ===== */
 .progress-bar {
   position: absolute;
@@ -444,31 +446,72 @@ font-size:20px;
 
 
 
-/* ===== UPLOAD BUTTON ===== */
 
-.upload-btn-box{
-text-align:center;
-margin:5px 0;
+
+
+/* ===== ADMIN PANEL BUTTON ===== */
+
+.upload-btn-box {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
 }
 
-.upload-btn{
-display:inline-block;
-background:#b30000;
-color:#fff;
-padding:5px 10px;
-border-radius:8px;
-text-decoration:none;
-font-size:12px;
-font-weight:bold;
-transition:0.3s;
-width:97% ; 
-text-align:center;
+.upload-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    width: 100%;
+    max-width: 170px;
+    padding: 14px 20px;
+    margin-right: 20px;
+    height: 8px;
+
+    background: linear-gradient(135deg, #1f2937, #111827);
+    color: #FFD700;
+
+    border: 2px solid #FFD700;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 60px;
+
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    transition: all 0.35s ease;
+
+    cursor: pointer;
 }
 
-.upload-btn:hover{
-background:#ff0000;
-transform:scale(1.05);
+.upload-btn:hover {
+    background: linear-gradient(135deg, #FFD700, #FFC107);
+    color: #111827;
+
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.45);
 }
+
+.upload-btn:active {
+    transform: scale(0.97);
+}
+
+.upload-btn::before {
+    content: "🛡️";
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
 
 /* ===== MONTH TITLE ===== */
 
