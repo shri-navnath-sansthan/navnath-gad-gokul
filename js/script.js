@@ -112,7 +112,7 @@ function prevSlide(){
 /* AUTO */
 function startSlider(){
   stopSlider();
-  interval = setInterval(runSlider, 3700);
+  interval = setInterval(runSlider, 1750);
   resetProgress();
 }
 
