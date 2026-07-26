@@ -59,8 +59,8 @@
 
 /* "क्लिक करा" blink */
 .click-anim {
-  color: #d60000;
-  animation: textBlink 1.2s infinite;
+  color: #1d7611;
+  animation: textBlink 0.8s infinite;
 }
 
 @keyframes textBlink {

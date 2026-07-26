@@ -249,4 +249,19 @@
 
 
 
+#quote-text{
+    transition:all .5s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+}
+
+.hide{
+    opacity:0;
+    transform:translateY(20px) scale(.95);
+    filter:blur(5px);
+}
 
