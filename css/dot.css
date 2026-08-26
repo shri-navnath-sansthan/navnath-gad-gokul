@@ -1,42 +1,48 @@
-
-/* red Animated Dot */
-.blue-dot {
-    width:  8px;
-    height: 8px;
-    text-align: center;
-    background-color: #16761e;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 6px;
-    animation: blueFade 0.5s ease-in-out infinite;
+.dot {
+  width: 10px;
+  height: 10px;
+  border: 3px solid green;   /* ripple साठी border */
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+  animation: ripple 1s infinite;
 }
 
-/* Smooth Fade Animation */
-@keyframes blueFade {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+@keyframes ripple {
+  0% {
+    transform: scale(0.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
 }
 
 
 
 
-/* Blue Animated Dot */
-.abhyashika-dot {
-    width:  8px;
-    height: 8px;
-    text-align: center;
-    background-color: #166f27;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 6px;
-    animation: blueFade 0.5s ease-in-out infinite;
+
+.whatsapp_dot {
+  width: 10px;
+  height: 10px;
+  border: 3px solid rgb(36, 0, 107);   /* ripple साठी border */
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+  animation: ripple 1s infinite;
 }
 
-/* Smooth Fade Animation */
-@keyframes blueFade {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+@keyframes ripple {
+  0% {
+    transform: scale(0.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
 }
+
+
 
