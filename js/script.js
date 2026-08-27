@@ -229,9 +229,6 @@ document.addEventListener("visibilitychange", ()=>{
 
 
 
-
-
-
 /* ==========================================
    🌿 Premium Quote Animation
    Shri Navnath Gad
