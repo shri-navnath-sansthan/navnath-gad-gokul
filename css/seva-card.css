@@ -294,51 +294,44 @@
 
 
 
-/* ==========================
-   🌿 Daily Quote Section
-========================== */
 
-.quote-section{
-    width:100%;
-    margin:20px 0;
-    display:flex;
-    justify-content:center;
+
+
+
+.quote-section {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  text-align: center; /* text center */
 }
 
-#quote-text{
-    margin:0;
-    font-size:25px;
-    font-weight:500;
-    color:#a1058c;
-    line-height:1.6;
-    font-style:italic;
-    transition:opacity .4s ease;
+#quote-text {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.6;
+  font-style: italic;
+  transition: opacity 0.5s ease;
+
+  /* 🌈 Multicolour Gradient Text */
+  background: linear-gradient(90deg, #ff0000, #ff9900, #33cc33, #00a6ff, #9900cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.fade{
-    opacity:0;
-}
+/* Animation states */
+.show { opacity: 1; }
+.hide { opacity: 0; }
 
-/* Mobile */
+@media (max-width:768px) {
+  #quote-text {
+    font-size: 14px;
+    line-height: 1.5;
 
-@media (max-width:768px){
-
-    .quote-section{
-        margin:15px 0;
-    }
-
-    .quote-box{
-        padding:12px 15px;
-        border-radius:10px;
-    }
-
-    .quote-box h2{
-        font-size:17px;
-    }
-
-    #quote-text{
-        font-size:14px;
-        line-height:1.5;
-    }
-
+    /* Mobile gradient */
+    background: linear-gradient(90deg, #ff3399, #33ccff, #66ff66);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
