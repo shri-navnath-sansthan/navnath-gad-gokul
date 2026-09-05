@@ -1,24 +1,31 @@
-.dot {
+/* ===== LUKLUK DOT ===== */
+
+.luklukdot {
   width: 10px;
   height: 10px;
-  border: 3px solid green;   /* ripple साठी border */
+  border: 3px solid green;
   border-radius: 50%;
   display: inline-block;
   margin-right: 6px;
   animation: ripple 1s infinite;
 }
 
+
+/* ===== RIPPLE ANIMATION ===== */
+
 @keyframes ripple {
+
   0% {
     transform: scale(0.2);
     opacity: 1;
   }
+
   100% {
     transform: scale(2.5);
     opacity: 0;
   }
-}
 
+}
 
 
 
