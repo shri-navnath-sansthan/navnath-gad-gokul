@@ -244,11 +244,9 @@
   transform: translateY(0);
 }
 
-
 /* ===== DOTS ===== */
-.dots {
+#dots {
   text-align: center;
- 
 }
 
 .dot {
@@ -263,10 +261,9 @@
 
 /* active dot */
 .dot.active {
-  background: #000000;
+  background: #181111;
   transform: scale(1.3);
 }
-
 
 
 

@@ -298,12 +298,308 @@
 
 
 
+
+/* =========================================
+   🌱 TREE DONATION WHATSAPP SECTION
+   ========================================= */
+
+.tree-donation-section {
+    width: 90%;
+    max-width: 650px;
+    margin: 35px auto;
+    padding: 25px 18px 30px;
+
+    background: #fffdf5;
+
+    border: 2px solid #4caf50;
+    border-radius: 35px;
+
+    box-sizing: border-box;
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================
+   🌱 SECTION HEADING
+   ========================================= */
+
+.tree-donation-title {
+    margin: 0 auto 24px;
+
+    padding: 5px 6px;
+
+    border: 1px solid #4caf50;
+  
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px ;
+
+    background: #ffffff;
+
+    color: #286b2d;
+
+    font-size: 22px;
+    font-weight: 800;
+
+    line-height: 1.45;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   🟢 WHATSAPP BUTTON
+   ========================================= */
+
+.tree-whatsapp-btn {
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 54px;
+
+    margin: 14px 0;
+    padding: 10px 15px;
+
+    box-sizing: border-box;
+
+    border-radius: 9px;
+
+    /* 🌿 TWO COLOR MIX */
+    background: linear-gradient(
+        100deg,
+        #235d29 0%,
+        #08ed41 50%,
+        #195c1c 100%
+    );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 19px;
+    font-weight: 800;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 10px rgba(46, 158, 46, 0.30);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================
+   💬 LEFT TEXT
+   ========================================= */
+
+.whatsapp-left {
+    position: relative;
+
+    z-index: 2;
+
+    white-space: nowrap;
+
+    text-shadow:
+        1px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================
+   >>> MOVING ARROWS
+   एकामागोमाग एक पुढे धावतील
+   ========================================= */
+
+.moving-arrows {
+
+    display: inline-flex;
+
+    margin-left: 7px;
+    gap: 10px;
+
+    min-width: 42px;
+
+    justify-content: flex-start;
+
+    overflow: hidden;
+}
+
+
+/* प्रत्येक > */
+
+.moving-arrows i {
+
+    display: inline-block;
+
+    font-style: normal;
+
+    font-size: 40px;
+    font-weight: 900;
+
+    opacity: 0;
+
+    transform: translateX(-12px);
+
+    animation: arrowRunning 1.2s infinite;
+}
+
+
+/* दुसरा > */
+
+.moving-arrows i:nth-child(2) {
+    animation-delay: 0.20s;
+}
+
+
+/* तिसरा > */
+
+.moving-arrows i:nth-child(3) {
+    animation-delay: 0.40s;
+}
+
+
+/* =========================================
+   ➡️ ARROW ANIMATION
+   ========================================= */
+
+@keyframes arrowRunning {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+
+    25% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    55% {
+        opacity: 1;
+        transform: translateX(5px);
+    }
+
+    75% {
+        opacity: 0.8;
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(18px);
+    }
+}
+
+
+/* =========================================
+   ✨ BUTTON HOVER
+   ========================================= */
+
+.tree-whatsapp-btn:hover {
+
+    transform: translateY(-2px) scale(1.015);
+
+    box-shadow:
+        0 7px 18px rgba(55, 167, 55, 0.4);
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .tree-donation-section {
+
+        width: 92%;
+
+        margin: 25px auto;
+
+        padding: 20px 12px 25px;
+
+        border-radius: 30px;
+    }
+
+
+    .tree-donation-title {
+
+        font-size: 18px;
+
+        line-height: 1.4;
+
+        padding: 9px 8px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .tree-whatsapp-btn {
+
+        min-height: 50px;
+
+        padding: 9px 10px;
+
+        font-size: 16px;
+
+        border-radius: 8px;
+    }
+
+
+    .moving-arrows {
+
+        margin-left: 5px;
+
+        min-width: 35px;
+    }
+
+
+    .moving-arrows i {
+
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================
+   📱 SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 380px) {
+
+    .tree-whatsapp-btn {
+
+        font-size: 14px;
+
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+    .moving-arrows i {
+
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+
+
 .quote-section {
   width: 100%;
   margin: 20px 0;
   display: flex;
   justify-content: center;
-  text-align: center; /* text center */
+  text-align: center;
 }
 
 #quote-text {
@@ -314,24 +610,25 @@
   font-style: italic;
   transition: opacity 0.5s ease;
 
-  /* 🌈 Multicolour Gradient Text */
-  background: linear-gradient(90deg, #ff0000, #ff9900, #33cc33, #00a6ff, #9900cc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* एकच रंग */
+  color: #05602c;
 }
 
 /* Animation states */
-.show { opacity: 1; }
-.hide { opacity: 0; }
+.show {
+  opacity: 1;
+}
+
+.hide {
+  opacity: 0;
+}
 
 @media (max-width:768px) {
   #quote-text {
     font-size: 14px;
     line-height: 1.5;
 
-    /* Mobile gradient */
-    background: linear-gradient(90deg, #ff3399, #33ccff, #66ff66);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /* Mobile वरही तोच रंग */
+    color: #064923;
   }
 }
