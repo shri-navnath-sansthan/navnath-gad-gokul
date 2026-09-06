@@ -552,6 +552,7 @@ app.post(
 
 /* =====================================================
    ✅ APPROVE PUBLIC PHOTO
+   Month + Year Admin निवडू शकतो
    ===================================================== */
 
 app.post(
@@ -561,11 +562,12 @@ app.post(
     if (!checkPassword(req, res))
       return;
 
-
     try {
 
       const {
-        public_id
+        public_id,
+        month,
+        year
       } = req.body;
 
 
@@ -583,7 +585,23 @@ app.post(
       }
 
 
-      /* pending tag काढा */
+      if (!month || !year) {
+
+        return res.status(400).json({
+
+          success: false,
+
+          message:
+            "Approve Month आणि Year required"
+
+        });
+
+      }
+
+
+      /* ============================
+         🔄 PENDING → APPROVED
+         ============================ */
 
       await cloudinary.uploader.remove_tag(
         "pending",
@@ -591,19 +609,25 @@ app.post(
       );
 
 
-      /* approved tag जोडा */
-
       await cloudinary.uploader.add_tag(
         "approved",
         [public_id]
       );
 
 
-      /*
-        आता pending tag नसल्यामुळे
-        /gallery API मध्ये हा फोटो
-        आपोआप दिसेल.
-      */
+      /* ============================
+         📅 MONTH + YEAR SAVE
+         ============================ */
+
+      await cloudinary.uploader.add_context(
+        {
+          month: month,
+          year: year,
+          status: "approved",
+          source: "public"
+        },
+        [public_id]
+      );
 
 
       res.json({
@@ -611,7 +635,7 @@ app.post(
         success: true,
 
         message:
-          "Photo approved"
+          "Photo approved with Month and Year"
 
       });
 
@@ -636,77 +660,6 @@ app.post(
 
   }
 );
-
-
-/* =====================================================
-   ❌ REJECT PUBLIC PHOTO
-   ===================================================== */
-
-app.post(
-  "/reject-photo",
-  async (req, res) => {
-
-    if (!checkPassword(req, res))
-      return;
-
-
-    try {
-
-      const {
-        public_id
-      } = req.body;
-
-
-      if (!public_id) {
-
-        return res.status(400).json({
-
-          success: false,
-
-          message:
-            "Public ID required"
-
-        });
-
-      }
-
-
-      await cloudinary.uploader.destroy(
-        public_id
-      );
-
-
-      res.json({
-
-        success: true,
-
-        message:
-          "Photo rejected and deleted"
-
-      });
-
-
-    } catch (err) {
-
-      console.error(
-        "REJECT PHOTO ERROR:",
-        err
-      );
-
-      res.status(500).json({
-
-        success: false,
-
-        error:
-          err.message
-
-      });
-
-    }
-
-  }
-);
-
 
 /* =====================================================
    🎬 UPLOAD VIDEOS

@@ -15,6 +15,7 @@
 
 <body>
 
+
 <!-- =====================================================
      📤 ADMIN PHOTO UPLOAD
      ===================================================== -->
@@ -68,6 +69,7 @@
 </form>
 
 
+
 <!-- =====================================================
      🎬 ADMIN VIDEO UPLOAD
      ===================================================== -->
@@ -119,6 +121,7 @@
 </form>
 
 
+
 <!-- =====================================================
      ⏳ UPLOAD OVERLAY
      ===================================================== -->
@@ -142,6 +145,7 @@
 </div>
 
 
+
 <!-- =====================================================
      📥 PENDING PHOTOS
      ===================================================== -->
@@ -160,23 +164,61 @@
   </div>
 
 
-  <div id="pending-loading">
+  <!-- 🔐 SAME ADMIN PASSWORD -->
+
+  <div class="pending-password-box">
+
+    <label for="pendingPassword">
+      🔐 Admin Password
+    </label>
+
+    <input
+      type="password"
+      id="pendingPassword"
+      placeholder="Enter Admin password 🔐"
+      autocomplete="current-password"
+    >
+
+    <button
+      type="button"
+      id="pendingLoadBtn"
+    >
+      🔍 Pending Photos पहा
+    </button>
+
+  </div>
+
+
+  <!-- ⏳ LOADING -->
+
+  <div
+    id="pending-loading"
+    style="display:none;"
+  >
 
     ⏳ Pending photos loading...
 
   </div>
 
 
-  <div id="pending-empty">
+  <!-- 📭 EMPTY -->
+
+  <div
+    id="pending-empty"
+    style="display:none;"
+  >
 
     📭 सध्या कोणतेही Pending फोटो नाहीत.
 
   </div>
 
 
+  <!-- 📸 PENDING LIST -->
+
   <div id="pending-list"></div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -188,7 +230,9 @@
 <div id="photo-list"></div>
 
 
+
 <hr>
+
 
 
 <!-- =====================================================
@@ -198,6 +242,7 @@
 <h3>🎬 Uploaded Videos</h3>
 
 <div id="video-list"></div>
+
 
 
 <!-- =====================================================
