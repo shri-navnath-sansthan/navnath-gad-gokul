@@ -641,10 +641,495 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* =========================================
-   🕉️ गोकुळ गावचे महत्त्व
-   👑 ROYAL DEVOTIONAL PREMIUM THEME
-   🔵 निळा • 🦚 मोरपंखी • 🟡 सुवर्ण • 🤍 क्रीम
+   🏆 GOKUL FEATURES SECTION
+   ========================================= */
+
+.gokul-features-section {
+    width: 92%;
+    max-width: 1000px;
+    margin: 35px auto;
+    padding: 28px 20px 32px;
+    box-sizing: border-box;
+
+    background: linear-gradient(
+        135deg,
+        #fffaf0 0%,
+        #f7f1ff 50%,
+        #eef8f7 100%
+    );
+
+    border: 1px solid #8b6fb3;
+    border-top: 4px solid #5b3f8c;
+    border-bottom: 4px solid #c49a28;
+    border-radius: 28px;
+
+    box-shadow:
+        0 8px 24px rgba(91, 63, 140, 0.15),
+        0 2px 8px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* वरची decorative line */
+
+.gokul-features-section::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 180px;
+    height: 4px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #5b3f8c,
+        #c49a28,
+        #2f8f8b,
+        transparent
+    );
+
+    border-radius: 0 0 15px 15px;
+}
+
+
+/* Hover */
+
+.gokul-features-section:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 14px 32px rgba(91, 63, 140, 0.22),
+        0 4px 10px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.gokul-features-header h2 {
+    margin: 5px 0 9px;
+
+    color: #4b2f78;
+
+    font-size: 29px;
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+
+    text-shadow:
+        0 1px 2px rgba(75, 47, 120, 0.15);
+}
+
+
+.gokul-features-header h2::after {
+    content: "";
+
+    display: block;
+
+    width: 95px;
+    height: 3px;
+
+    margin: 10px auto 0;
+
+    background: linear-gradient(
+        90deg,
+        #5b3f8c,
+        #c49a28,
+        #2f8f8b
+    );
+
+    border-radius: 10px;
+}
+
+
+.gokul-features-header span {
+    display: block;
+
+    margin-top: 12px;
+
+    color: #6b5b7e;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.gokul-features-intro {
+    width: 94%;
+    max-width: 850px;
+
+    margin: 22px auto;
+
+    padding: 15px 18px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    border-left: 4px solid #c49a28;
+    border-right: 4px solid #2f8f8b;
+
+    border-radius: 15px;
+
+    box-shadow: 0 3px 12px rgba(91, 63, 140, 0.08);
+}
+
+
+.gokul-features-intro p {
+    margin: 0;
+
+    color: #3f4550;
+
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+
+.gokul-features-intro strong {
+    color: #4b2f78;
+}
+
+
+/* =========================================
+   FEATURE CARDS
+   ========================================= */
+
+.gokul-features-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 17px;
+
+    margin-top: 24px;
+}
+
+
+.gokul-feature-card {
+    padding: 21px 16px 20px;
+
+    background: rgba(255, 255, 255, 0.86);
+
+    border: 1px solid rgba(91, 63, 140, 0.20);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 5px 15px rgba(91, 63, 140, 0.10);
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.gokul-feature-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #c49a28;
+
+    box-shadow:
+        0 10px 23px rgba(91, 63, 140, 0.18);
+}
+
+
+/* =========================================
+   ICON
+   ========================================= */
+
+.gokul-feature-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #f3eaff,
+        #fff7dc
+    );
+
+    border: 2px solid #c49a28;
+
+    border-radius: 50%;
+
+    font-size: 29px;
+
+    box-shadow:
+        0 4px 10px rgba(196, 154, 40, 0.16);
+}
+
+
+/* =========================================
+   CARD TEXT
+   ========================================= */
+
+.gokul-feature-card h3 {
+    margin: 5px 0 10px;
+
+    color: #4b2f78;
+
+    font-size: 19px;
+    font-weight: 900;
+}
+
+
+.gokul-feature-card p {
+    margin: 0;
+
+    color: #4d555c;
+
+    font-size: 15.5px;
+    line-height: 1.65;
+}
+
+
+/* =========================================
+   FINAL HIGHLIGHT
+   ========================================= */
+
+.gokul-features-highlight {
+    width: 94%;
+    max-width: 900px;
+
+    margin: 27px auto 0;
+    padding: 17px 15px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(91, 63, 140, 0.08),
+        rgba(255, 255, 255, 0.88),
+        rgba(196, 154, 40, 0.12)
+    );
+
+    border: 1px solid rgba(196, 154, 40, 0.45);
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 3px 12px rgba(91, 63, 140, 0.08);
+}
+
+
+.gokul-features-highlight span {
+    font-size: 25px;
+    flex-shrink: 0;
+}
+
+
+.gokul-features-highlight p {
+    margin: 0;
+
+    color: #4b2f78;
+
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .gokul-features-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+    .gokul-features-header h2 {
+        font-size: 26px;
+    }
+
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 550px) {
+
+    .gokul-features-section {
+        width: 94%;
+        padding: 21px 12px 25px;
+
+        margin: 22px auto;
+
+        border-radius: 22px;
+
+        border-top-width: 3px;
+        border-bottom-width: 3px;
+    }
+
+
+    .gokul-features-section::before {
+        width: 125px;
+        height: 3px;
+    }
+
+
+    .gokul-features-header h2 {
+        font-size: 22px;
+        margin-top: 3px;
+    }
+
+
+    .gokul-features-header h2::after {
+        width: 65px;
+        height: 2px;
+        margin-top: 8px;
+    }
+
+
+    .gokul-features-header span {
+        font-size: 13px;
+        margin-top: 9px;
+    }
+
+
+    .gokul-features-intro {
+        width: 97%;
+        margin: 17px auto;
+        padding: 12px 10px;
+    }
+
+
+    .gokul-features-intro p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+
+    .gokul-features-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 18px;
+    }
+
+
+    .gokul-feature-card {
+        padding: 17px 13px;
+
+        border-radius: 17px;
+    }
+
+
+    .gokul-feature-icon {
+        width: 50px;
+        height: 50px;
+
+        font-size: 25px;
+
+        margin-bottom: 9px;
+    }
+
+
+    .gokul-feature-card h3 {
+        font-size: 17px;
+        margin-bottom: 8px;
+    }
+
+
+    .gokul-feature-card p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+
+    .gokul-features-highlight {
+        width: 97%;
+
+        margin-top: 19px;
+        padding: 12px 9px;
+
+        gap: 7px;
+
+        border-radius: 13px;
+    }
+
+
+    .gokul-features-highlight span {
+        font-size: 19px;
+    }
+
+
+    .gokul-features-highlight p {
+        font-size: 13.5px;
+        line-height: 1.55;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🏡 गोकुळ गावचे महत्त्व
+   🌿 NATURE HERITAGE PREMIUM THEME
+   🫒 Olive • 🌿 Sage • 🏜️ Sand • 🤍 White
    ========================================= */
 
 .gokul-mahatva-box {
@@ -657,30 +1142,28 @@
 
     box-sizing: border-box;
 
-    /* 👑 Premium Royal Background */
     background:
         linear-gradient(
             135deg,
-            #eef8f7 0%,
-            #fffdf6 48%,
-            #e5f1f4 100%
+            #f3f7ec 0%,
+            #ffffff 48%,
+            #eef2df 100%
         );
 
-    /* 🦚 मोरपंखी + सुवर्ण Border */
-    border: 1px solid #2f8f8b;
-    border-top: 4px solid #145c78;
-    border-bottom: 4px solid #c49a28;
+    border: 1px solid #a9b78b;
+
+    border-top: 4px solid #657a3a;
+    border-bottom: 4px solid #879b55;
 
     border-radius: 25px;
 
-    /* 👑 Premium Shadow */
     box-shadow:
-        0 8px 22px rgba(20, 92, 120, 0.16),
-        0 2px 7px rgba(0, 0, 0, 0.08);
+        0 8px 22px rgba(80, 100, 45, 0.14),
+        0 2px 7px rgba(0, 0, 0, 0.07);
 
     text-align: center;
 
-    color: #173f50;
+    color: #35402a;
 
     position: relative;
 
@@ -693,7 +1176,7 @@
 
 
 /* =========================================
-   ✨ वरचा Royal Decorative Line
+   🌿 वरची Decorative Line
    ========================================= */
 
 .gokul-mahatva-box::before {
@@ -714,9 +1197,9 @@
         linear-gradient(
             90deg,
             transparent,
-            #2f8f8b,
-            #c49a28,
-            #2f8f8b,
+            #657a3a,
+            #a9b78b,
+            #879b55,
             transparent
         );
 
@@ -725,7 +1208,7 @@
 
 
 /* =========================================
-   👑 Hover Effect
+   ✨ Hover
    ========================================= */
 
 .gokul-mahatva-box:hover {
@@ -733,18 +1216,18 @@
     transform: translateY(-6px);
 
     box-shadow:
-        0 14px 32px rgba(20, 92, 120, 0.23),
-        0 4px 10px rgba(0, 0, 0, 0.10);
+        0 14px 32px rgba(80, 100, 45, 0.20),
+        0 4px 10px rgba(0, 0, 0, 0.09);
 }
 
 
 /* =========================================
-   🕉️ Heading
+   🏡 Heading
    ========================================= */
 
 .gokul-mahatva-box h2 {
 
-    color: #145c78;
+    color: #52672f;
 
     font-size: 28px;
 
@@ -755,14 +1238,14 @@
     letter-spacing: 0.5px;
 
     text-shadow:
-        0 1px 2px rgba(20, 92, 120, 0.15);
+        0 1px 2px rgba(82, 103, 47, 0.13);
 
     position: relative;
 }
 
 
 /* =========================================
-   ✨ Heading खाली Royal Line
+   🌿 Heading खाली Line
    ========================================= */
 
 .gokul-mahatva-box h2::after {
@@ -779,9 +1262,9 @@
     background:
         linear-gradient(
             90deg,
-            #2f8f8b,
-            #c49a28,
-            #2f8f8b
+            #657a3a,
+            #a9b78b,
+            #879b55
         );
 
     border-radius: 10px;
@@ -800,29 +1283,29 @@
 
     margin: 13px 0;
 
-    color: #294c59;
+    color: #4c5742;
 
     text-align: center;
 }
 
 
 /* =========================================
-   🟡 Important Text
+   🌿 Important Text
    ========================================= */
 
 .gokul-mahatva-box strong {
 
-    color: #176b70;
+    color: #52672f;
 
     font-weight: 800;
 
     text-shadow:
-        0 1px 1px rgba(23, 107, 112, 0.10);
+        0 1px 1px rgba(82, 103, 47, 0.08);
 }
 
 
 /* =========================================
-   👑 शेवटचा Paragraph Highlight
+   🏡 शेवटचा Paragraph Highlight
    ========================================= */
 
 .gokul-mahatva-box p:last-child {
@@ -834,17 +1317,17 @@
     background:
         linear-gradient(
             90deg,
-            rgba(47, 143, 139, 0.08),
-            rgba(255, 255, 255, 0.82),
-            rgba(196, 154, 40, 0.10)
+            rgba(101, 122, 58, 0.08),
+            rgba(255, 255, 255, 0.88),
+            rgba(169, 183, 139, 0.13)
         );
 
     border-radius: 15px;
 
-    border: 1px solid rgba(196, 154, 40, 0.38);
+    border: 1px solid rgba(135, 155, 85, 0.40);
 
     box-shadow:
-        0 2px 9px rgba(20, 92, 120, 0.08);
+        0 2px 9px rgba(80, 100, 45, 0.07);
 }
 
 
@@ -956,7 +1439,6 @@
         font-size: 14px;
     }
 }
-
 
 
 
@@ -4975,3 +5457,37 @@
         font-size: 15px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

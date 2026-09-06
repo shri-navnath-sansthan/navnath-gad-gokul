@@ -195,3 +195,302 @@ gap:8px;
 height:90px;
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   📥 PENDING PHOTOS
+   ===================================================== */
+
+.pending-section{
+    width:95%;
+    max-width:1100px;
+    margin:35px auto;
+    padding:20px;
+    box-sizing:border-box;
+
+    background:#fff;
+    border-radius:15px;
+
+    box-shadow:0 5px 18px rgba(0,0,0,0.10);
+}
+
+.pending-header{
+    margin-bottom:20px;
+}
+
+.pending-header h2{
+    margin:0 0 8px;
+    color:#b36b00;
+    font-size:26px;
+}
+
+.pending-header p{
+    margin:0;
+    color:#666;
+    font-size:15px;
+}
+
+#pending-loading{
+    display:none;
+    padding:15px;
+    color:#777;
+}
+
+#pending-empty{
+    display:none;
+    padding:20px;
+    color:#777;
+    background:#f8f8f8;
+    border-radius:10px;
+}
+
+
+/* ===== PENDING GRID ===== */
+
+#pending-list{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(210px,1fr));
+
+    gap:18px;
+
+    margin-top:20px;
+}
+
+
+/* ===== PENDING CARD ===== */
+
+.pending-card{
+    background:#fffdf5;
+
+    border:1px solid #e2d4a7;
+
+    border-radius:12px;
+
+    padding:10px;
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,0.08);
+
+    overflow:hidden;
+
+    transition:0.25s;
+}
+
+.pending-card:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 7px 18px rgba(0,0,0,0.13);
+}
+
+
+/* ===== PENDING IMAGE ===== */
+
+.pending-card > img{
+    width:100%;
+    height:180px;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:9px;
+}
+
+
+/* ===== PENDING INFO ===== */
+
+.pending-info{
+    text-align:left;
+
+    padding:8px 4px;
+
+    min-height:45px;
+}
+
+.pending-info p{
+    margin:5px 0;
+
+    font-size:14px;
+
+    color:#444;
+
+    word-break:break-word;
+}
+
+
+/* ===== ACTION BUTTONS ===== */
+
+.pending-actions{
+    display:flex;
+
+    gap:8px;
+
+    margin-top:8px;
+}
+
+.pending-actions button{
+    width:50%;
+
+    margin:0;
+
+    padding:9px 5px;
+
+    border:none;
+
+    border-radius:7px;
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.25s;
+}
+
+
+/* ===== APPROVE ===== */
+
+.pending-actions .approve-btn{
+    background:#168a3a;
+}
+
+.pending-actions .approve-btn:hover{
+    background:#0f6e2d;
+}
+
+
+/* ===== REJECT ===== */
+
+.pending-actions .reject-btn{
+    background:#d62828;
+}
+
+.pending-actions .reject-btn:hover{
+    background:#ad1f1f;
+}
+
+
+/* ===== DISABLED ===== */
+
+.pending-actions button:disabled{
+    opacity:0.6;
+
+    cursor:not-allowed;
+}
+
+
+/* =====================================================
+   📱 TABLET
+   ===================================================== */
+
+@media(max-width:768px){
+
+    .pending-section{
+        width:94%;
+        padding:15px;
+    }
+
+    .pending-header h2{
+        font-size:23px;
+    }
+
+    #pending-list{
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:12px;
+    }
+
+    .pending-card > img{
+        height:150px;
+    }
+
+}
+
+
+/* =====================================================
+   📱 MOBILE
+   ===================================================== */
+
+@media(max-width:480px){
+
+    body{
+        padding:20px 8px;
+    }
+
+    .pending-section{
+        width:96%;
+
+        padding:10px;
+
+        margin:25px auto;
+
+        border-radius:12px;
+    }
+
+    .pending-header h2{
+        font-size:20px;
+    }
+
+    .pending-header p{
+        font-size:13px;
+        line-height:1.5;
+    }
+
+    #pending-list{
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:8px;
+    }
+
+    .pending-card{
+        padding:6px;
+        border-radius:9px;
+    }
+
+    .pending-card > img{
+        height:110px;
+        border-radius:7px;
+    }
+
+    .pending-info{
+        padding:5px 2px;
+    }
+
+    .pending-info p{
+        font-size:11px;
+        margin:3px 0;
+    }
+
+    .pending-actions{
+        gap:4px;
+        margin-top:5px;
+    }
+
+    .pending-actions button{
+        padding:7px 2px;
+        font-size:11px;
+        border-radius:5px;
+    }
+
+}

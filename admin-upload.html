@@ -1,66 +1,214 @@
 <!DOCTYPE html>
 <html lang="mr">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Photo Upload</title>
+
 <link rel="stylesheet" href="css/admin.css">
+
 </head>
+
 <body>
 
+<!-- =====================================================
+     📤 ADMIN PHOTO UPLOAD
+     ===================================================== -->
+
 <h2>📤 Upload Photos</h2>
+
 <form id="uploadForm">
+
   <label>Select Photos</label>
-  <input type="file" id="image" accept="image/*" multiple required>
+
+  <input
+    type="file"
+    id="image"
+    accept="image/*"
+    multiple
+    required
+  >
 
   <div id="captionContainer"></div>
 
   <label>Month</label>
-  <input type="text" id="month">
+
+  <input
+    type="text"
+    id="month"
+  >
 
   <label>Year</label>
-  <input type="text" id="year">
+
+  <input
+    type="text"
+    id="year"
+  >
 
   <label>Admin Password</label>
-  <input type="password" id="adminPassword" placeholder="Enter Admin password 🔐" required>
 
-  <button type="submit" id="uploadBtn">Upload</button>
+  <input
+    type="password"
+    id="adminPassword"
+    placeholder="Enter Admin password 🔐"
+    required
+  >
+
+  <button
+    type="submit"
+    id="uploadBtn"
+  >
+    Upload
+  </button>
+
 </form>
+
+
+<!-- =====================================================
+     🎬 ADMIN VIDEO UPLOAD
+     ===================================================== -->
 
 <h2>🎬 Upload Videos</h2>
+
 <form id="videoUploadForm">
+
   <label>Select Videos</label>
-  <input type="file" id="video" accept="video/*" multiple required>
+
+  <input
+    type="file"
+    id="video"
+    accept="video/*"
+    multiple
+    required
+  >
 
   <label>Month</label>
-  <input type="text" id="videoMonth">
+
+  <input
+    type="text"
+    id="videoMonth"
+  >
 
   <label>Year</label>
-  <input type="text" id="videoYear">
+
+  <input
+    type="text"
+    id="videoYear"
+  >
 
   <label>Admin Password</label>
-  <input type="password" id="videoPassword" placeholder="Enter Admin password 🔐" required>
 
-  <button type="button" id="uploadVideoBtn">Upload Video</button>
+  <input
+    type="password"
+    id="videoPassword"
+    placeholder="Enter Admin password 🔐"
+    required
+  >
+
+  <button
+    type="button"
+    id="uploadVideoBtn"
+  >
+    Upload Video
+  </button>
+
 </form>
 
-<!-- Overlay -->
+
+<!-- =====================================================
+     ⏳ UPLOAD OVERLAY
+     ===================================================== -->
+
 <div id="uploadOverlay">
+
   <div class="overlayBox">
-    <p id="progressText">Uploading 0%</p>
-    <progress id="uploadProgress" value="0" max="100"></progress>
+
+    <p id="progressText">
+      Uploading 0%
+    </p>
+
+    <progress
+      id="uploadProgress"
+      value="0"
+      max="100"
+    ></progress>
+
   </div>
+
 </div>
 
+
+<!-- =====================================================
+     📥 PENDING PHOTOS
+     ===================================================== -->
+
+<section class="pending-section">
+
+  <div class="pending-header">
+
+    <h2>📥 Pending Photos</h2>
+
+    <p>
+      गावकऱ्यांनी पाठवलेले फोटो येथे दिसतील.
+      मंजुरी दिल्यानंतरच ते Gallery मध्ये दिसतील.
+    </p>
+
+  </div>
+
+
+  <div id="pending-loading">
+
+    ⏳ Pending photos loading...
+
+  </div>
+
+
+  <div id="pending-empty">
+
+    📭 सध्या कोणतेही Pending फोटो नाहीत.
+
+  </div>
+
+
+  <div id="pending-list"></div>
+
+</section>
+
+
+<!-- =====================================================
+     📸 UPLOADED PHOTOS
+     ===================================================== -->
+
 <h3>📸 Uploaded Photos</h3>
+
 <div id="photo-list"></div>
+
 
 <hr>
 
+
+<!-- =====================================================
+     🎬 UPLOADED VIDEOS
+     ===================================================== -->
+
 <h3>🎬 Uploaded Videos</h3>
+
 <div id="video-list"></div>
 
+
+<!-- =====================================================
+     📜 JAVASCRIPT
+     ===================================================== -->
+
 <script src="js/admin-upload.js"></script>
+
 <script src="js/video-upload.js"></script>
+
+
 </body>
+
 </html>
