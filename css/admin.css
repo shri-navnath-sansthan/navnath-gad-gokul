@@ -1,450 +1,1133 @@
-/* ===== BODY ===== */
+/* =========================================================
+   🌿 NAVNATH GAD GOKUL
+   ADMIN PANEL — NATURE HERITAGE PREMIUM THEME
+   ========================================================= */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    width:100%;
+    overflow-x:hidden;
+}
 
 body{
-font-family:sans-serif;
-background:#f2f2f2;
-text-align:center;
-padding:40px;
+    margin:0;
+    width:100%;
+    min-height:100vh;
+
+    font-family:
+        "Noto Sans Devanagari",
+        "Nirmala UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f4f7ed 0%,
+            #f8f4e8 45%,
+            #f1ead8 100%
+        );
+
+    color:#3f4637;
+
+    text-align:center;
+
+    padding:
+        35px
+        20px
+        60px;
+
+    overflow-x:hidden;
 }
 
-/* ===== FORM ===== */
+
+/* =========================================================
+   🌿 PAGE HEADINGS
+   ========================================================= */
+
+body > h2{
+    width:100%;
+    max-width:1100px;
+
+    margin:25px auto 18px;
+
+    padding:16px 20px;
+
+    color:#3f5f2f;
+
+    font-size:27px;
+    font-weight:800;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f4f7e9
+        );
+
+    border:1px solid #d9dfc7;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 5px 18px rgba(67,85,44,0.10);
+
+    position:relative;
+}
+
+body > h2::after{
+    content:"";
+
+    display:block;
+
+    width:70px;
+    height:3px;
+
+    margin:10px auto 0;
+
+    background:#8b6b32;
+
+    border-radius:20px;
+}
+
+
+body > h3{
+    width:95%;
+    max-width:1100px;
+
+    margin:32px auto 15px;
+
+    padding:12px 15px;
+
+    color:#526b36;
+
+    font-size:21px;
+    font-weight:800;
+
+    border-bottom:2px solid #d8cda9;
+}
+
+
+/* =========================================================
+   📤 UPLOAD FORM
+   ========================================================= */
 
 form{
-background:#fff;
-padding:20px;
-border-radius:12px;
-max-width:400px;
-margin:auto;
-margin-bottom:30px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    width:100%;
+    max-width:560px;
+
+    margin:0 auto 30px;
+
+    padding:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fbfaf2
+        );
+
+    border:1px solid #dce2cf;
+
+    border-radius:22px;
+
+    box-shadow:
+        0 8px 25px rgba(64,79,45,0.12);
+
+    text-align:left;
 }
 
-input, button{
-width:100%;
-padding:10px;
-margin-top:10px;
-border-radius:6px;
-border:1px solid #ccc;
-font-size:16px;
+
+/* =========================================================
+   🏷️ LABEL
+   ========================================================= */
+
+form label{
+    display:block;
+
+    margin-top:14px;
+    margin-bottom:6px;
+
+    color:#53633e;
+
+    font-size:14px;
+    font-weight:700;
 }
+
+
+/* =========================================================
+   📝 INPUT
+   ========================================================= */
+
+input,
+select,
+button{
+    font-family:inherit;
+}
+
+input,
+select{
+    width:100%;
+    min-width:0;
+
+    padding:12px 13px;
+
+    margin:0 0 5px;
+
+    border:1px solid #cfd6bd;
+
+    border-radius:11px;
+
+    background:#fff;
+
+    color:#3e4638;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+input:focus,
+select:focus{
+    border-color:#71904c;
+
+    background:#fffef9;
+
+    box-shadow:
+        0 0 0 3px rgba(113,144,76,.13);
+}
+
+
+/* =========================================================
+   📁 FILE INPUT
+   ========================================================= */
+
+input[type="file"]{
+    padding:9px;
+
+    background:#f8faf2;
+
+    cursor:pointer;
+}
+
+input[type="file"]::file-selector-button{
+    border:none;
+
+    padding:8px 12px;
+
+    margin-right:8px;
+
+    border-radius:8px;
+
+    background:#627c43;
+
+    color:#fff;
+
+    font-family:inherit;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   🔘 MAIN BUTTON
+   ========================================================= */
 
 button{
-background:#c40000;
-color:#fff;
-border:none;
-cursor:pointer;
-transition:0.3s;
+    width:100%;
+
+    padding:12px 15px;
+
+    margin-top:12px;
+
+    border:none;
+
+    border-radius:11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #58763c,
+            #405f2b
+        );
+
+    color:#fff;
+
+    font-size:15px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 4px 10px rgba(64,95,43,.20);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
 }
 
 button:hover{
-background:#a00000;
+    transform:translateY(-1px);
+
+    filter:brightness(1.05);
+
+    box-shadow:
+        0 7px 15px rgba(64,95,43,.25);
 }
 
-/* ===== IMAGE CAPTION ===== */
+button:active{
+    transform:translateY(0);
+}
+
+button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+}
+
+
+/* =========================================================
+   📸 CAPTION CONTAINER
+   ========================================================= */
+
+#captionContainer{
+    width:100%;
+}
 
 #captionContainer div{
-border-bottom:1px solid #ddd;
-padding:10px;
+    margin:10px 0;
+    padding:12px;
+
+    background:#f6f8ee;
+
+    border:1px solid #e0e5d2;
+
+    border-radius:11px;
 }
 
-/* ===== OVERLAY ===== */
+#captionContainer label{
+    margin-top:0;
+}
+
+
+/* =========================================================
+   ⏳ UPLOAD OVERLAY
+   ========================================================= */
 
 #uploadOverlay{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:9999;
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    background:
+        rgba(34,44,25,.70);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    z-index:9999;
+
+    backdrop-filter:blur(3px);
 }
 
 .overlayBox{
-background:#fff;
-padding:25px;
-border-radius:12px;
-width:260px;
-text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
-animation: pop 0.3s ease;
+    width:min(330px,100%);
+
+    padding:28px 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f7f8ef
+        );
+
+    border:1px solid #dbe2ca;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25);
+
+    animation:adminPop .3s ease;
 }
 
 #progressText{
-margin-bottom:10px;
-font-weight:600;
+    margin:0 0 14px;
+
+    color:#4e6737;
+
+    font-size:17px;
+    font-weight:800;
 }
 
 #uploadProgress{
-width:100%;
-height:12px;
-border-radius:10px;
+    display:block;
+
+    width:100%;
+    height:13px;
+
+    border:none;
+
+    border-radius:20px;
+
+    overflow:hidden;
 }
 
-/* ===== ANIMATION ===== */
+@keyframes adminPop{
+    from{
+        transform:scale(.88);
+        opacity:0;
+    }
 
-@keyframes pop{
-from{
-transform: scale(0.8);
-opacity:0;
-}
-to{
-transform: scale(1);
-opacity:1;
-}
-}
-
-/* ===== PHOTO GRID ===== */
-
-#photo-list{
-display:grid;
-grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
-gap:12px;
-padding:10px;
-}
-
-#photo-list img{
-width:100%;
-height:120px;
-object-fit:cover;
-border-radius:8px;
-}
-
-#photo-list button{
-width:100%;
-margin-top:5px;
-padding:5px;
-font-size:12px;
-background:red;
-color:white;
-border:none;
-border-radius:5px;
-cursor:pointer;
-}
-
-/* ===== VIDEO GRID ===== */
-
-#video-list{
-display:grid;
-grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
-gap:15px;
-padding:10px;
-}
-
-#video-list div{
-background:#fff;
-border-radius:10px;
-padding:8px;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
-text-align:center;
-}
-
-#video-list video{
-width:100%;
-height:120px;
-object-fit:cover;
-border-radius:8px;
-}
-
-#video-list button{
-width:100%;
-margin-top:6px;
-padding:6px;
-font-size:12px;
-border:none;
-border-radius:6px;
-background:#ff4d4d;
-color:white;
-cursor:pointer;
-}
-
-#video-list button:hover{
-background:#e60000;
-}
-
-/* ===== MOBILE ===== */
-
-@media(max-width:768px){
-#photo-list{
-grid-template-columns:repeat(3,1fr); /* tablet */
-}
-
-#video-list{
-grid-template-columns:repeat(2,1fr);
-}
-}
-
-@media(max-width:480px){
-#photo-list{
-grid-template-columns:repeat(4,1fr); /* ✅ 4 photos */
-gap:6px;
-}
-
-#photo-list img{
-height:70px;
-}
-
-#video-list{
-grid-template-columns:repeat(2,1fr); /* videos */
-gap:8px;
-}
-
-#video-list video{
-height:90px;
-}
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* =====================================================
-   📥 PENDING PHOTOS
-   ===================================================== */
+/* =========================================================
+   📥 PENDING PHOTOS — MAIN SECTION
+   ========================================================= */
 
 .pending-section{
-    width:95%;
-    max-width:1100px;
-    margin:35px auto;
-    padding:20px;
-    box-sizing:border-box;
+    width:100%;
+    max-width:1150px;
 
-    background:#fff;
-    border-radius:15px;
+    margin:40px auto;
 
-    box-shadow:0 5px 18px rgba(0,0,0,0.10);
+    padding:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f7f8ee
+        );
+
+    border:1px solid #d9dfc9;
+
+    border-radius:25px;
+
+    box-shadow:
+        0 9px 28px rgba(65,81,45,.12);
 }
 
+
+/* =========================================================
+   📥 PENDING HEADER
+   ========================================================= */
+
 .pending-header{
-    margin-bottom:20px;
+    padding:5px 5px 20px;
+
+    border-bottom:1px solid #e1e4d7;
+
+    text-align:center;
 }
 
 .pending-header h2{
     margin:0 0 8px;
-    color:#b36b00;
-    font-size:26px;
+
+    color:#5c6f35;
+
+    font-size:28px;
+    font-weight:850;
+}
+
+.pending-header h2::after{
+    content:"";
+
+    display:block;
+
+    width:65px;
+    height:3px;
+
+    margin:9px auto 0;
+
+    background:#9b7837;
+
+    border-radius:20px;
 }
 
 .pending-header p{
+    max-width:720px;
+
+    margin:12px auto 0;
+
+    color:#69705f;
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   🔐 PENDING PASSWORD BOX
+   ========================================================= */
+
+.pending-password-box{
+    width:100%;
+    max-width:520px;
+
+    margin:22px auto 5px;
+
+    padding:18px;
+
+    background:#f3f6e9;
+
+    border:1px solid #d8dfc6;
+
+    border-radius:16px;
+
+    text-align:left;
+}
+
+.pending-password-box label{
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#52643c;
+
+    font-size:14px;
+    font-weight:800;
+}
+
+.pending-password-box input{
     margin:0;
-    color:#666;
-    font-size:15px;
+}
+
+.pending-password-box button{
+    margin-top:10px;
+}
+
+
+/* =========================================================
+   ⏳ LOADING / EMPTY
+   ========================================================= */
+
+#pending-loading,
+#pending-empty{
+    width:100%;
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:14px;
+
+    font-size:14px;
+
+    text-align:center;
 }
 
 #pending-loading{
-    display:none;
-    padding:15px;
-    color:#777;
+    color:#61704d;
+
+    background:#f4f7ec;
+
+    border:1px dashed #cbd5b8;
 }
 
 #pending-empty{
-    display:none;
-    padding:20px;
-    color:#777;
-    background:#f8f8f8;
-    border-radius:10px;
+    color:#777b70;
+
+    background:#faf9f2;
+
+    border:1px dashed #ddd7c4;
 }
 
 
-/* ===== PENDING GRID ===== */
+/* =========================================================
+   📸 PENDING GRID
+   ========================================================= */
 
 #pending-list{
+    width:100%;
+
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fill,minmax(210px,1fr));
+        repeat(
+            auto-fit,
+            minmax(235px,1fr)
+        );
 
-    gap:18px;
+    gap:20px;
 
-    margin-top:20px;
+    margin-top:22px;
+
+    align-items:start;
 }
 
 
-/* ===== PENDING CARD ===== */
+/* =========================================================
+   📸 PENDING CARD
+   ========================================================= */
 
 .pending-card{
-    background:#fffdf5;
+    width:100%;
+    min-width:0;
 
-    border:1px solid #e2d4a7;
+    padding:11px;
 
-    border-radius:12px;
+    background:
+        linear-gradient(
+            145deg,
+            #fffef8,
+            #f8f5e8
+        );
 
-    padding:10px;
+    border:1px solid #ddd4b7;
 
-    box-shadow:
-    0 3px 10px rgba(0,0,0,0.08);
+    border-radius:18px;
 
     overflow:hidden;
 
-    transition:0.25s;
+    box-shadow:
+        0 5px 15px rgba(78,74,48,.10);
+
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease;
 }
 
 .pending-card:hover{
     transform:translateY(-3px);
 
+    border-color:#b7bd8e;
+
     box-shadow:
-    0 7px 18px rgba(0,0,0,0.13);
+        0 10px 25px rgba(73,81,44,.16);
 }
 
 
-/* ===== PENDING IMAGE ===== */
+/* =========================================================
+   🖼️ PENDING IMAGE
+   ========================================================= */
 
 .pending-card > img{
+    display:block;
+
     width:100%;
-    height:180px;
+    height:205px;
 
     object-fit:cover;
 
-    display:block;
+    border-radius:12px;
 
-    border-radius:9px;
+    background:#e9e9e3;
 }
 
 
-/* ===== PENDING INFO ===== */
+/* =========================================================
+   📝 PENDING INFO
+   ========================================================= */
 
 .pending-info{
+    width:100%;
+
+    padding:10px 4px 4px;
+
     text-align:left;
-
-    padding:8px 4px;
-
-    min-height:45px;
 }
 
 .pending-info p{
-    margin:5px 0;
+    margin:6px 0;
 
-    font-size:14px;
+    color:#4f5548;
 
-    color:#444;
+    font-size:13px;
+
+    line-height:1.55;
 
     word-break:break-word;
 }
 
+.pending-info p strong{
+    color:#536d35;
+}
 
-/* ===== ACTION BUTTONS ===== */
+
+/* =========================================================
+   📅 APPROVE DATE BOX
+   Works with dynamic JS-created controls
+   ========================================================= */
+
+.approve-date-box{
+    width:100%;
+
+    margin-top:10px;
+
+    padding:12px;
+
+    background:#f0f5e6;
+
+    border:1px solid #d2ddbd;
+
+    border-radius:13px;
+
+    text-align:left;
+}
+
+.approve-date-box label{
+    display:block;
+
+    margin:0 0 5px;
+
+    color:#53663d;
+
+    font-size:12px;
+    font-weight:800;
+}
+
+.approve-date-box select,
+.approve-date-box input{
+    width:100%;
+
+    margin:0 0 8px;
+
+    padding:9px 10px;
+
+    font-size:13px;
+
+    border-radius:9px;
+}
+
+.approve-date-box input:last-child,
+.approve-date-box select:last-child{
+    margin-bottom:0;
+}
+
+
+/* =========================================================
+   🔘 PENDING ACTION BUTTONS
+   ========================================================= */
 
 .pending-actions{
-    display:flex;
+    display:grid;
 
-    gap:8px;
+    grid-template-columns:1fr 1fr;
 
-    margin-top:8px;
+    gap:9px;
+
+    width:100%;
+
+    margin-top:11px;
 }
 
 .pending-actions button{
-    width:50%;
+    width:100%;
 
     margin:0;
 
-    padding:9px 5px;
+    padding:10px 6px;
 
-    border:none;
+    border-radius:10px;
 
-    border-radius:7px;
-
-    color:#fff;
-
-    font-size:14px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:0.25s;
+    font-size:13px;
+    font-weight:800;
 }
 
 
-/* ===== APPROVE ===== */
+/* =========================================================
+   ✅ APPROVE
+   ========================================================= */
 
 .pending-actions .approve-btn{
-    background:#168a3a;
+    background:
+        linear-gradient(
+            135deg,
+            #438447,
+            #286c36
+        );
+
+    box-shadow:
+        0 4px 9px rgba(40,108,54,.18);
 }
 
 .pending-actions .approve-btn:hover{
-    background:#0f6e2d;
+    background:
+        linear-gradient(
+            135deg,
+            #4d9652,
+            #2d773d
+        );
 }
 
 
-/* ===== REJECT ===== */
+/* =========================================================
+   ❌ REJECT
+   ========================================================= */
 
 .pending-actions .reject-btn{
-    background:#d62828;
+    background:
+        linear-gradient(
+            135deg,
+            #c9574c,
+            #a83a32
+        );
+
+    box-shadow:
+        0 4px 9px rgba(168,58,50,.17);
 }
 
 .pending-actions .reject-btn:hover{
-    background:#ad1f1f;
+    background:
+        linear-gradient(
+            135deg,
+            #d9665b,
+            #b33e36
+        );
 }
 
 
-/* ===== DISABLED ===== */
+/* =========================================================
+   📸 UPLOADED PHOTO GRID
+   ========================================================= */
 
-.pending-actions button:disabled{
-    opacity:0.6;
+#photo-list{
+    width:95%;
+    max-width:1100px;
 
-    cursor:not-allowed;
+    margin:0 auto 30px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(145px,1fr)
+        );
+
+    gap:15px;
+
+    padding:5px;
+}
+
+#photo-list > div{
+    min-width:0;
+
+    padding:7px;
+
+    background:#fff;
+
+    border:1px solid #dfe3d5;
+
+    border-radius:13px;
+
+    box-shadow:
+        0 4px 12px rgba(61,75,44,.08);
+
+    overflow:hidden;
+}
+
+#photo-list img{
+    display:block;
+
+    width:100%;
+    height:135px;
+
+    object-fit:cover;
+
+    border-radius:9px;
+}
+
+#photo-list button{
+    width:100%;
+
+    margin-top:7px;
+
+    padding:8px 5px;
+
+    background:#bd463d;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:12px;
+    font-weight:700;
+}
+
+#photo-list button:hover{
+    background:#a43630;
 }
 
 
-/* =====================================================
-   📱 TABLET
-   ===================================================== */
+/* =========================================================
+   🎬 VIDEO GRID
+   ========================================================= */
 
-@media(max-width:768px){
+#video-list{
+    width:95%;
+    max-width:1100px;
 
-    .pending-section{
-        width:94%;
-        padding:15px;
-    }
+    margin:0 auto;
 
-    .pending-header h2{
-        font-size:23px;
-    }
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(190px,1fr)
+        );
+
+    gap:17px;
+
+    padding:5px;
+}
+
+#video-list > div{
+    min-width:0;
+
+    padding:9px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f7f8f0
+        );
+
+    border:1px solid #dfe3d5;
+
+    border-radius:15px;
+
+    box-shadow:
+        0 4px 14px rgba(61,75,44,.09);
+
+    text-align:center;
+
+    overflow:hidden;
+}
+
+#video-list video{
+    display:block;
+
+    width:100%;
+    height:145px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    background:#222;
+}
+
+#video-list button{
+    width:100%;
+
+    margin-top:8px;
+
+    padding:8px;
+
+    background:#bd463d;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:12px;
+    font-weight:700;
+}
+
+#video-list button:hover{
+    background:#a43630;
+}
+
+
+/* =========================================================
+   ➖ HR
+   ========================================================= */
+
+hr{
+    width:92%;
+    max-width:1050px;
+
+    margin:35px auto;
+
+    border:0;
+
+    border-top:1px solid #d8dccd;
+}
+
+
+/* =========================================================
+   💻 LARGE LAPTOP
+   ========================================================= */
+
+@media (min-width:1200px){
 
     #pending-list{
         grid-template-columns:
-        repeat(2,1fr);
-
-        gap:12px;
+            repeat(4,1fr);
     }
 
-    .pending-card > img{
-        height:150px;
+    #photo-list{
+        grid-template-columns:
+            repeat(6,1fr);
     }
 
+    #video-list{
+        grid-template-columns:
+            repeat(4,1fr);
+    }
 }
 
 
-/* =====================================================
-   📱 MOBILE
-   ===================================================== */
+/* =========================================================
+   💻 LAPTOP / TABLET
+   ========================================================= */
 
-@media(max-width:480px){
+@media (max-width:900px){
 
     body{
-        padding:20px 8px;
+        padding:
+            25px
+            14px
+            50px;
+    }
+
+    body > h2{
+        font-size:24px;
     }
 
     .pending-section{
         width:96%;
 
-        padding:10px;
+        padding:20px;
+    }
 
-        margin:25px auto;
+    #pending-list{
+        grid-template-columns:
+            repeat(2,1fr);
 
-        border-radius:12px;
+        gap:15px;
+    }
+
+    .pending-card > img{
+        height:175px;
+    }
+
+    #photo-list{
+        grid-template-columns:
+            repeat(4,1fr);
+    }
+
+    #video-list{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+}
+
+
+/* =========================================================
+   📱 MOBILE
+   ========================================================= */
+
+@media (max-width:600px){
+
+    body{
+        padding:
+            16px
+            7px
+            40px;
+    }
+
+    body > h2{
+        width:96%;
+
+        margin:16px auto 14px;
+
+        padding:13px 10px;
+
+        border-radius:15px;
+
+        font-size:20px;
+    }
+
+    body > h3{
+        width:96%;
+
+        font-size:18px;
+
+        margin-top:25px;
+    }
+
+
+    /* FORM */
+
+    form{
+        width:96%;
+
+        padding:17px 13px;
+
+        border-radius:17px;
+
+        margin-bottom:22px;
+    }
+
+    form label{
+        font-size:13px;
+    }
+
+    input,
+    select{
+        padding:11px;
+
+        font-size:14px;
+    }
+
+    button{
+        padding:11px;
+
+        font-size:14px;
+    }
+
+
+    /* PENDING */
+
+    .pending-section{
+        width:96%;
+
+        padding:12px;
+
+        margin:28px auto;
+
+        border-radius:18px;
+    }
+
+    .pending-header{
+        padding-bottom:15px;
     }
 
     .pending-header h2{
@@ -452,45 +1135,245 @@ height:90px;
     }
 
     .pending-header p{
-        font-size:13px;
-        line-height:1.5;
+        font-size:12px;
+
+        line-height:1.55;
     }
+
+
+    /* PASSWORD */
+
+    .pending-password-box{
+        padding:12px;
+
+        margin-top:15px;
+
+        border-radius:13px;
+    }
+
+    .pending-password-box label{
+        font-size:12px;
+    }
+
+
+    /* PENDING GRID */
 
     #pending-list{
         grid-template-columns:
-        repeat(2,1fr);
+            repeat(2,minmax(0,1fr));
 
         gap:8px;
+
+        margin-top:15px;
     }
+
+
+    /* CARD */
 
     .pending-card{
         padding:6px;
-        border-radius:9px;
+
+        border-radius:11px;
     }
 
+    .pending-card:hover{
+        transform:none;
+    }
+
+
+    /* IMAGE */
+
     .pending-card > img{
-        height:110px;
+        width:100%;
+        height:115px;
+
         border-radius:7px;
     }
 
+
+    /* INFO */
+
     .pending-info{
-        padding:5px 2px;
+        padding:5px 2px 2px;
     }
 
     .pending-info p{
-        font-size:11px;
         margin:3px 0;
+
+        font-size:10px;
+
+        line-height:1.4;
     }
+
+
+    /* DATE */
+
+    .approve-date-box{
+        margin-top:6px;
+
+        padding:7px;
+
+        border-radius:8px;
+    }
+
+    .approve-date-box label{
+        font-size:9px;
+
+        margin-bottom:3px;
+    }
+
+    .approve-date-box select,
+    .approve-date-box input{
+        padding:6px 5px;
+
+        margin-bottom:5px;
+
+        font-size:10px;
+
+        border-radius:6px;
+    }
+
+
+    /* ACTION */
 
     .pending-actions{
         gap:4px;
-        margin-top:5px;
+
+        margin-top:6px;
     }
 
     .pending-actions button{
         padding:7px 2px;
-        font-size:11px;
+
+        font-size:10px;
+
+        border-radius:6px;
+    }
+
+
+    /* PHOTOS */
+
+    #photo-list{
+        width:96%;
+
+        grid-template-columns:
+            repeat(4,minmax(0,1fr));
+
+        gap:6px;
+    }
+
+    #photo-list > div{
+        padding:4px;
+
+        border-radius:8px;
+    }
+
+    #photo-list img{
+        height:72px;
+
+        border-radius:6px;
+    }
+
+    #photo-list button{
+        margin-top:4px;
+
+        padding:5px 2px;
+
+        font-size:9px;
+
         border-radius:5px;
     }
 
+
+    /* VIDEOS */
+
+    #video-list{
+        width:96%;
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        gap:8px;
+    }
+
+    #video-list > div{
+        padding:5px;
+
+        border-radius:9px;
+    }
+
+    #video-list video{
+        height:95px;
+
+        border-radius:6px;
+    }
+
+    #video-list button{
+        margin-top:5px;
+
+        padding:6px 3px;
+
+        font-size:9px;
+
+        border-radius:5px;
+    }
+
+
+    hr{
+        width:90%;
+
+        margin:25px auto;
+    }
+}
+
+
+/* =========================================================
+   📱 VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width:360px){
+
+    body{
+        padding-left:4px;
+        padding-right:4px;
+    }
+
+    body > h2{
+        font-size:18px;
+    }
+
+    .pending-section{
+        width:97%;
+
+        padding:9px;
+    }
+
+    #pending-list{
+        gap:6px;
+    }
+
+    .pending-card{
+        padding:5px;
+    }
+
+    .pending-card > img{
+        height:100px;
+    }
+
+    .pending-info p{
+        font-size:9px;
+    }
+
+    .pending-actions button{
+        font-size:9px;
+        padding:6px 1px;
+    }
+
+    #photo-list img{
+        height:62px;
+    }
+
+    #video-list video{
+        height:85px;
+    }
 }
