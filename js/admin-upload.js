@@ -14,12 +14,15 @@ const SERVER = "https://navnath-upload-server.onrender.com";
 const now = new Date();
 
 const months = [
-"जानेवारी","फेब्रुवारी","मार्च","एप्रिल","मे","जून",
-"जुलै","ऑगस्ट","सप्टेंबर","ऑक्टोबर","नोव्हेंबर","डिसेंबर"
+  "जानेवारी","फेब्रुवारी","मार्च","एप्रिल","मे","जून",
+  "जुलै","ऑगस्ट","सप्टेंबर","ऑक्टोबर","नोव्हेंबर","डिसेंबर"
 ];
 
-document.getElementById("month").value = months[now.getMonth()];
-document.getElementById("year").value = now.getFullYear();
+document.getElementById("month").value =
+  months[now.getMonth()];
+
+document.getElementById("year").value =
+  now.getFullYear();
 
 
 /* =====================================================
@@ -27,22 +30,22 @@ document.getElementById("year").value = now.getFullYear();
    ===================================================== */
 
 const fileInput =
-document.getElementById("image");
+  document.getElementById("image");
 
 const captionContainer =
-document.getElementById("captionContainer");
+  document.getElementById("captionContainer");
 
 const progressBar =
-document.getElementById("uploadProgress");
+  document.getElementById("uploadProgress");
 
 const progressText =
-document.getElementById("progressText");
+  document.getElementById("progressText");
 
 const overlay =
-document.getElementById("uploadOverlay");
+  document.getElementById("uploadOverlay");
 
 const uploadBtn =
-document.getElementById("uploadBtn");
+  document.getElementById("uploadBtn");
 
 
 /* =====================================================
@@ -60,13 +63,13 @@ fileInput.addEventListener("change", function(){
     const file = files[i];
 
     const div =
-    document.createElement("div");
+      document.createElement("div");
 
     const img =
-    document.createElement("img");
+      document.createElement("img");
 
     img.src =
-    URL.createObjectURL(file);
+      URL.createObjectURL(file);
 
     img.style.width = "80px";
     img.style.height = "80px";
@@ -76,15 +79,15 @@ fileInput.addEventListener("change", function(){
 
 
     const input =
-    document.createElement("input");
+      document.createElement("input");
 
     input.type = "text";
 
     input.placeholder =
-    "Enter caption";
+      "Enter caption";
 
     input.className =
-    "captionInput";
+      "captionInput";
 
     div.appendChild(input);
 
@@ -100,20 +103,20 @@ fileInput.addEventListener("change", function(){
    ===================================================== */
 
 const form =
-document.getElementById("uploadForm");
+  document.getElementById("uploadForm");
 
 form.addEventListener("submit", async function(e){
 
   e.preventDefault();
 
   const passwordInput =
-  document.getElementById("adminPassword");
+    document.getElementById("adminPassword");
 
   const password =
-  passwordInput.value;
+    passwordInput.value;
 
   const files =
-  fileInput.files;
+    fileInput.files;
 
 
   if(files.length === 0){
@@ -134,44 +137,46 @@ form.addEventListener("submit", async function(e){
   }
 
 
-  /* 🔐 PASSWORD CHECK */
+  /* =====================================================
+     🔐 PASSWORD CHECK
+     ===================================================== */
 
   overlay.style.display = "flex";
 
   progressBar.value = 0;
 
   progressText.innerText =
-  "🔐 Checking password...";
+    "🔐 Checking password...";
 
 
   try{
 
     const verifyRes =
-    await fetch(
-      `${SERVER}/verify-password`,
-      {
-        method:"POST",
+      await fetch(
+        `${SERVER}/verify-password`,
+        {
+          method:"POST",
 
-        headers:{
-          "Content-Type":
-          "application/json"
-        },
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
 
-        body:JSON.stringify({
-          password:password
-        })
-      }
-    );
+          body:JSON.stringify({
+            password:password
+          })
+        }
+      );
 
 
     if(verifyRes.status === 401){
 
       progressText.innerText =
-      "❌ Wrong Password";
+        "❌ Wrong Password";
 
       setTimeout(
         () =>
-        overlay.style.display = "none",
+          overlay.style.display = "none",
         1200
       );
 
@@ -206,7 +211,7 @@ form.addEventListener("submit", async function(e){
      ===================================================== */
 
   progressText.innerText =
-  "Uploading 0%";
+    "Uploading 0%";
 
   progressBar.value = 0;
 
@@ -214,19 +219,19 @@ form.addEventListener("submit", async function(e){
 
 
   const captions =
-  document.querySelectorAll(
-    ".captionInput"
-  );
+    document.querySelectorAll(
+      ".captionInput"
+    );
 
   const month =
-  document.getElementById("month").value;
+    document.getElementById("month").value;
 
   const year =
-  document.getElementById("year").value;
+    document.getElementById("year").value;
 
 
   const formData =
-  new FormData();
+    new FormData();
 
 
   formData.append(
@@ -261,7 +266,7 @@ form.addEventListener("submit", async function(e){
 
 
   const xhr =
-  new XMLHttpRequest();
+    new XMLHttpRequest();
 
 
   xhr.open(
@@ -275,34 +280,34 @@ form.addEventListener("submit", async function(e){
      ===================================================== */
 
   xhr.upload.onprogress =
-  function(e){
+    function(e){
 
-    if(
-      e.lengthComputable &&
-      e.total > 0
-    ){
+      if(
+        e.lengthComputable &&
+        e.total > 0
+      ){
 
-      const percent =
-      Math.round(
-        (e.loaded / e.total) * 100
-      );
+        const percent =
+          Math.round(
+            (e.loaded / e.total) * 100
+          );
 
-      progressBar.value =
-      percent;
+        progressBar.value =
+          percent;
 
-      progressText.innerText =
-      "Uploading " +
-      percent +
-      "%";
+        progressText.innerText =
+          "Uploading " +
+          percent +
+          "%";
 
-    }else{
+      }else{
 
-      progressText.innerText =
-      "Uploading...";
+        progressText.innerText =
+          "Uploading...";
 
-    }
+      }
 
-  };
+    };
 
 
   /* =====================================================
@@ -310,46 +315,46 @@ form.addEventListener("submit", async function(e){
      ===================================================== */
 
   xhr.onload =
-  function(){
+    function(){
 
-    uploadBtn.disabled = false;
+      uploadBtn.disabled = false;
 
-    overlay.style.display =
-    "none";
-
-
-    if(xhr.status === 200){
-
-      alert(
-        "✅ Upload successful"
-      );
+      overlay.style.display =
+        "none";
 
 
-      const savedPassword =
-      passwordInput.value;
+      if(xhr.status === 200){
+
+        alert(
+          "✅ Upload successful"
+        );
 
 
-      form.reset();
-
-      captionContainer.innerHTML =
-      "";
+        const savedPassword =
+          passwordInput.value;
 
 
-      passwordInput.value =
-      savedPassword;
+        form.reset();
+
+        captionContainer.innerHTML =
+          "";
 
 
-      loadPhotos();
+        passwordInput.value =
+          savedPassword;
 
-    }else{
 
-      alert(
-        "❌ Upload failed"
-      );
+        loadPhotos();
 
-    }
+      }else{
 
-  };
+        alert(
+          "❌ Upload failed"
+        );
+
+      }
+
+    };
 
 
   /* =====================================================
@@ -357,19 +362,19 @@ form.addEventListener("submit", async function(e){
      ===================================================== */
 
   xhr.onerror =
-  function(){
+    function(){
 
-    overlay.style.display =
-    "none";
+      overlay.style.display =
+        "none";
 
-    uploadBtn.disabled =
-    false;
+      uploadBtn.disabled =
+        false;
 
-    alert(
-      "❌ Network error"
-    );
+      alert(
+        "❌ Network error"
+      );
 
-  };
+    };
 
 
   xhr.send(formData);
@@ -392,9 +397,9 @@ function loadPhotos(){
   .then(data => {
 
     const photoList =
-    document.getElementById(
-      "photo-list"
-    );
+      document.getElementById(
+        "photo-list"
+      );
 
     photoList.innerHTML = "";
 
@@ -405,7 +410,7 @@ function loadPhotos(){
     ){
 
       photoList.innerHTML =
-      "<p>📭 No photos found.</p>";
+        "<p>📭 No photos found.</p>";
 
       return;
 
@@ -415,60 +420,60 @@ function loadPhotos(){
     data.forEach(img => {
 
       const box =
-      document.createElement("div");
+        document.createElement("div");
 
       box.style.display =
-      "inline-block";
+        "inline-block";
 
       box.style.margin =
-      "10px";
+        "10px";
 
       box.style.textAlign =
-      "center";
+        "center";
 
 
       const image =
-      document.createElement("img");
+        document.createElement("img");
 
       image.src =
-      img.secure_url ||
-      img.url;
+        img.secure_url ||
+        img.url;
 
 
       image.onerror =
-      () => {
+        () => {
 
-        image.src =
-        "https://via.placeholder.com/120";
+          image.src =
+            "https://via.placeholder.com/120";
 
-      };
+        };
 
 
       image.style.width =
-      "120px";
+        "120px";
 
       image.style.height =
-      "120px";
+        "120px";
 
       image.style.objectFit =
-      "cover";
+        "cover";
 
 
       const btn =
-      document.createElement("button");
+        document.createElement("button");
 
       btn.innerText =
-      "🗑 Delete";
+        "🗑 Delete";
 
       btn.style.marginTop =
-      "5px";
+        "5px";
 
 
       btn.onclick =
-      () =>
-      deletePhoto(
-        img.public_id
-      );
+        () =>
+          deletePhoto(
+            img.public_id
+          );
 
 
       box.appendChild(image);
@@ -500,19 +505,24 @@ function loadPhotos(){
 async function loadPendingPhotos(){
 
   const pendingList =
-  document.getElementById(
-    "pending-list"
-  );
+    document.getElementById(
+      "pending-list"
+    );
 
   const pendingLoading =
-  document.getElementById(
-    "pending-loading"
-  );
+    document.getElementById(
+      "pending-loading"
+    );
 
   const pendingEmpty =
-  document.getElementById(
-    "pending-empty"
-  );
+    document.getElementById(
+      "pending-empty"
+    );
+
+  const pendingPasswordInput =
+    document.getElementById(
+      "pendingPassword"
+    );
 
 
   if(!pendingList){
@@ -525,30 +535,32 @@ async function loadPendingPhotos(){
   pendingList.innerHTML = "";
 
   pendingLoading.style.display =
-  "block";
+    "block";
 
   pendingEmpty.style.display =
-  "none";
+    "none";
 
 
-  /* 🔐 ADMIN PASSWORD */
+  /* =====================================================
+     🔐 SAME ADMIN PASSWORD
+     ===================================================== */
 
   const password =
-  document.getElementById(
-    "adminPassword"
-  ).value;
+    pendingPasswordInput
+      ? pendingPasswordInput.value
+      : "";
 
 
   if(!password){
 
     pendingLoading.style.display =
-    "none";
+      "none";
 
     pendingEmpty.innerHTML =
-    "🔐 Pending photos पाहण्यासाठी Admin Password टाका.";
+      "🔐 Pending photos पाहण्यासाठी Admin Password टाका.";
 
     pendingEmpty.style.display =
-    "block";
+      "block";
 
     return;
 
@@ -558,45 +570,54 @@ async function loadPendingPhotos(){
   try{
 
     const res =
-    await fetch(
-      `${SERVER}/pending-photos`,
-      {
-        method:"POST",
+      await fetch(
+        `${SERVER}/pending-photos`,
+        {
+          method:"POST",
 
-        headers:{
-          "Content-Type":
-          "application/json"
-        },
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
 
-        body:JSON.stringify({
-          password:password
-        })
-      }
-    );
+          body:JSON.stringify({
+            password:password
+          })
+        }
+      );
 
 
     if(res.status === 401){
 
       pendingLoading.style.display =
-      "none";
+        "none";
 
       pendingEmpty.innerHTML =
-      "❌ Admin Password चुकीचा आहे.";
+        "❌ Admin Password चुकीचा आहे.";
 
       pendingEmpty.style.display =
-      "block";
+        "block";
 
       return;
 
     }
 
 
+    if(!res.ok){
+
+      throw new Error(
+        "Pending photos request failed"
+      );
+
+    }
+
+
     const data =
-    await res.json();
+      await res.json();
 
 
     pendingLoading.style.display =
-    "none";
+      "none";
 
 
     if(
@@ -606,10 +627,10 @@ async function loadPendingPhotos(){
     ){
 
       pendingEmpty.innerHTML =
-      "📭 सध्या कोणतेही Pending फोटो नाहीत.";
+        "📭 सध्या कोणतेही Pending फोटो नाहीत.";
 
       pendingEmpty.style.display =
-      "block";
+        "block";
 
       return;
 
@@ -617,7 +638,7 @@ async function loadPendingPhotos(){
 
 
     pendingEmpty.style.display =
-    "none";
+      "none";
 
 
     data.photos.forEach(photo => {
@@ -632,13 +653,13 @@ async function loadPendingPhotos(){
   }catch(err){
 
     pendingLoading.style.display =
-    "none";
+      "none";
 
     pendingEmpty.innerHTML =
-    "❌ Pending photos load झाले नाहीत.";
+      "❌ Pending photos load झाले नाहीत.";
 
     pendingEmpty.style.display =
-    "block";
+      "block";
 
     console.error(
       "Pending error:",
@@ -660,63 +681,66 @@ function createPendingCard(
 ){
 
   const pendingList =
-  document.getElementById(
-    "pending-list"
-  );
+    document.getElementById(
+      "pending-list"
+    );
 
 
   const card =
-  document.createElement("div");
+    document.createElement("div");
 
   card.className =
-  "pending-card";
+    "pending-card";
 
 
-  /* IMAGE */
+  /* =====================================================
+     IMAGE
+     ===================================================== */
 
   const image =
-  document.createElement("img");
+    document.createElement("img");
 
   image.src =
-  photo.secure_url ||
-  photo.url;
-
+    photo.secure_url ||
+    photo.url;
 
   image.alt =
-  "Pending Photo";
+    "Pending Photo";
 
 
-  /* NAME */
+  /* =====================================================
+     NAME + CAPTION
+     ===================================================== */
 
   const context =
-  photo.context || {};
-
+    photo.context || {};
 
   const name =
-  context.name || "";
-
+    context.name || "";
 
   const caption =
-  context.caption || "";
+    context.caption || "";
 
 
   const info =
-  document.createElement("div");
+    document.createElement("div");
 
   info.className =
-  "pending-info";
+    "pending-info";
 
 
   if(name){
 
     const nameText =
-    document.createElement("p");
+      document.createElement("p");
 
     nameText.innerHTML =
-    "<strong>👤 नाव:</strong> " +
-    escapeHtml(name);
+      "<strong>👤 नाव:</strong> " +
+      escapeHtml(name);
 
-    info.appendChild(nameText);
+    info.appendChild(
+      nameText
+    );
 
   }
 
@@ -724,11 +748,11 @@ function createPendingCard(
   if(caption){
 
     const captionText =
-    document.createElement("p");
+      document.createElement("p");
 
     captionText.innerHTML =
-    "<strong>📝 Caption:</strong> " +
-    escapeHtml(caption);
+      "<strong>📝 Caption:</strong> " +
+      escapeHtml(caption);
 
     info.appendChild(
       captionText
@@ -737,57 +761,166 @@ function createPendingCard(
   }
 
 
-  /* BUTTONS */
+  /* =====================================================
+     📅 APPROVE MONTH
+     ===================================================== */
+
+  const approveDateBox =
+    document.createElement("div");
+
+  approveDateBox.className =
+    "approve-date-box";
+
+
+  const monthLabel =
+    document.createElement("label");
+
+  monthLabel.innerText =
+    "📅 Approve Month";
+
+
+  const monthSelect =
+    document.createElement("select");
+
+  monthSelect.className =
+    "approve-month";
+
+
+  months.forEach(month => {
+
+    const option =
+      document.createElement("option");
+
+    option.value =
+      month;
+
+    option.textContent =
+      month;
+
+    monthSelect.appendChild(
+      option
+    );
+
+  });
+
+
+  const currentMonth =
+    context.month ||
+    months[now.getMonth()];
+
+
+  monthSelect.value =
+    months.includes(currentMonth)
+      ? currentMonth
+      : months[now.getMonth()];
+
+
+  /* =====================================================
+     📅 APPROVE YEAR
+     ===================================================== */
+
+  const yearLabel =
+    document.createElement("label");
+
+  yearLabel.innerText =
+    "📅 Approve Year";
+
+
+  const yearInput =
+    document.createElement("input");
+
+  yearInput.type =
+    "number";
+
+  yearInput.className =
+    "approve-year";
+
+  yearInput.value =
+    context.year ||
+    now.getFullYear();
+
+  yearInput.min =
+    "2000";
+
+  yearInput.max =
+    "2100";
+
+  yearInput.placeholder =
+    "Year";
+
+
+  approveDateBox.appendChild(
+    monthLabel
+  );
+
+  approveDateBox.appendChild(
+    monthSelect
+  );
+
+  approveDateBox.appendChild(
+    yearLabel
+  );
+
+  approveDateBox.appendChild(
+    yearInput
+  );
+
+
+  /* =====================================================
+     BUTTONS
+     ===================================================== */
 
   const actions =
-  document.createElement("div");
+    document.createElement("div");
 
   actions.className =
-  "pending-actions";
+    "pending-actions";
 
 
   const approveBtn =
-  document.createElement("button");
+    document.createElement("button");
 
   approveBtn.className =
-  "approve-btn";
+    "approve-btn";
 
   approveBtn.innerText =
-  "✅ Approve";
+    "✅ Approve";
 
 
   const rejectBtn =
-  document.createElement("button");
+    document.createElement("button");
 
   rejectBtn.className =
-  "reject-btn";
+    "reject-btn";
 
   rejectBtn.innerText =
-  "❌ Reject";
+    "❌ Reject";
 
 
   approveBtn.onclick =
-  async function(){
+    async function(){
 
-    await approvePhoto(
-      photo.public_id,
-      password,
-      card
-    );
+      await approvePhoto(
+        photo.public_id,
+        password,
+        card,
+        monthSelect.value,
+        yearInput.value
+      );
 
-  };
+    };
 
 
   rejectBtn.onclick =
-  async function(){
+    async function(){
 
-    await rejectPhoto(
-      photo.public_id,
-      password,
-      card
-    );
+      await rejectPhoto(
+        photo.public_id,
+        password,
+        card
+      );
 
-  };
+    };
 
 
   actions.appendChild(
@@ -799,14 +932,26 @@ function createPendingCard(
   );
 
 
-  card.appendChild(image);
+  card.appendChild(
+    image
+  );
 
-  card.appendChild(info);
+  card.appendChild(
+    info
+  );
 
-  card.appendChild(actions);
+  card.appendChild(
+    approveDateBox
+  );
+
+  card.appendChild(
+    actions
+  );
 
 
-  pendingList.appendChild(card);
+  pendingList.appendChild(
+    card
+  );
 
 }
 
@@ -818,10 +963,10 @@ function createPendingCard(
 function escapeHtml(text){
 
   const div =
-  document.createElement("div");
+    document.createElement("div");
 
   div.textContent =
-  text;
+    text;
 
   return div.innerHTML;
 
@@ -830,17 +975,42 @@ function escapeHtml(text){
 
 /* =====================================================
    ✅ APPROVE PHOTO
+   Month + Year Server ला पाठवतो
    ===================================================== */
 
 async function approvePhoto(
   public_id,
   password,
-  card
+  card,
+  month,
+  year
 ){
+
+  if(!month){
+
+    alert(
+      "❌ Approve Month निवडा."
+    );
+
+    return;
+
+  }
+
+
+  if(!year){
+
+    alert(
+      "❌ Approve Year टाका."
+    );
+
+    return;
+
+  }
+
 
   if(
     !confirm(
-      "हा फोटो Gallery मध्ये दाखवायचा आहे का? ✅"
+      `हा फोटो ${month} ${year} मध्ये Gallery मध्ये दाखवायचा आहे का? ✅`
     )
   ){
 
@@ -850,70 +1020,76 @@ async function approvePhoto(
 
 
   const buttons =
-  card.querySelectorAll(
-    "button"
-  );
+    card.querySelectorAll(
+      "button"
+    );
 
 
   buttons.forEach(
     btn =>
-    btn.disabled = true
+      btn.disabled = true
   );
 
 
   overlay.style.display =
-  "flex";
+    "flex";
 
   progressBar.value =
-  0;
+    0;
 
   progressText.innerText =
-  "✅ Photo approving...";
+    "✅ Photo approving...";
 
 
   try{
 
     const res =
-    await fetch(
-      `${SERVER}/approve-photo`,
-      {
-        method:"POST",
+      await fetch(
+        `${SERVER}/approve-photo`,
+        {
+          method:"POST",
 
-        headers:{
-          "Content-Type":
-          "application/json"
-        },
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
 
-        body:JSON.stringify({
+          body:JSON.stringify({
 
-          public_id:
-          public_id,
+            public_id:
+              public_id,
 
-          password:
-          password
+            password:
+              password,
 
-        })
-      }
-    );
+            month:
+              month,
+
+            year:
+              year
+
+          })
+
+        }
+      );
 
 
     const data =
-    await res.json();
+      await res.json();
 
 
     overlay.style.display =
-    "none";
+      "none";
 
 
     if(data.success){
 
       alert(
-        "✅ Photo approved successfully!"
+        `✅ Photo approved!\n📅 ${month} ${year}`
       );
 
 
       card.remove();
-
 
       checkPendingEmpty();
 
@@ -929,7 +1105,7 @@ async function approvePhoto(
 
       buttons.forEach(
         btn =>
-        btn.disabled = false
+          btn.disabled = false
       );
 
     }
@@ -937,7 +1113,7 @@ async function approvePhoto(
   }catch(err){
 
     overlay.style.display =
-    "none";
+      "none";
 
 
     console.error(
@@ -953,7 +1129,7 @@ async function approvePhoto(
 
     buttons.forEach(
       btn =>
-      btn.disabled = false
+        btn.disabled = false
     );
 
   }
@@ -983,59 +1159,60 @@ async function rejectPhoto(
 
 
   const buttons =
-  card.querySelectorAll(
-    "button"
-  );
+    card.querySelectorAll(
+      "button"
+    );
 
 
   buttons.forEach(
     btn =>
-    btn.disabled = true
+      btn.disabled = true
   );
 
 
   overlay.style.display =
-  "flex";
+    "flex";
 
   progressBar.value =
-  0;
+    0;
 
   progressText.innerText =
-  "❌ Photo rejecting...";
+    "❌ Photo rejecting...";
 
 
   try{
 
     const res =
-    await fetch(
-      `${SERVER}/reject-photo`,
-      {
-        method:"POST",
+      await fetch(
+        `${SERVER}/reject-photo`,
+        {
+          method:"POST",
 
-        headers:{
-          "Content-Type":
-          "application/json"
-        },
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
 
-        body:JSON.stringify({
+          body:JSON.stringify({
 
-          public_id:
-          public_id,
+            public_id:
+              public_id,
 
-          password:
-          password
+            password:
+              password
 
-        })
-      }
-    );
+          })
+
+        }
+      );
 
 
     const data =
-    await res.json();
+      await res.json();
 
 
     overlay.style.display =
-    "none";
+      "none";
 
 
     if(data.success){
@@ -1046,7 +1223,6 @@ async function rejectPhoto(
 
 
       card.remove();
-
 
       checkPendingEmpty();
 
@@ -1060,7 +1236,7 @@ async function rejectPhoto(
 
       buttons.forEach(
         btn =>
-        btn.disabled = false
+          btn.disabled = false
       );
 
     }
@@ -1068,7 +1244,7 @@ async function rejectPhoto(
   }catch(err){
 
     overlay.style.display =
-    "none";
+      "none";
 
 
     console.error(
@@ -1084,7 +1260,7 @@ async function rejectPhoto(
 
     buttons.forEach(
       btn =>
-      btn.disabled = false
+        btn.disabled = false
     );
 
   }
@@ -1099,14 +1275,14 @@ async function rejectPhoto(
 function checkPendingEmpty(){
 
   const pendingList =
-  document.getElementById(
-    "pending-list"
-  );
+    document.getElementById(
+      "pending-list"
+    );
 
   const pendingEmpty =
-  document.getElementById(
-    "pending-empty"
-  );
+    document.getElementById(
+      "pending-empty"
+    );
 
 
   if(
@@ -1115,10 +1291,10 @@ function checkPendingEmpty(){
   ){
 
     pendingEmpty.innerHTML =
-    "📭 सध्या कोणतेही Pending फोटो नाहीत.";
+      "📭 सध्या कोणतेही Pending फोटो नाहीत.";
 
     pendingEmpty.style.display =
-    "block";
+      "block";
 
   }
 
@@ -1145,9 +1321,9 @@ async function deletePhoto(
 
 
   const password =
-  prompt(
-    "Enter admin password 🔐"
-  );
+    prompt(
+      "Enter admin password 🔐"
+    );
 
 
   if(!password){
@@ -1162,47 +1338,48 @@ async function deletePhoto(
 
 
   overlay.style.display =
-  "flex";
+    "flex";
 
   progressBar.value =
-  0;
+    0;
 
   progressText.innerText =
-  "🗑 Deleting photo...";
+    "🗑 Deleting photo...";
 
 
   try{
 
     const res =
-    await fetch(
-      `${SERVER}/delete-photo`,
-      {
-        method:"POST",
+      await fetch(
+        `${SERVER}/delete-photo`,
+        {
+          method:"POST",
 
-        headers:{
-          "Content-Type":
-          "application/json"
-        },
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
 
-        body:JSON.stringify({
+          body:JSON.stringify({
 
-          public_id:
-          public_id,
+            public_id:
+              public_id,
 
-          password:
-          password
+            password:
+              password
 
-        })
-      }
-    );
+          })
+
+        }
+      );
 
 
     const data =
-    await res.json();
+      await res.json();
 
 
     overlay.style.display =
-    "none";
+      "none";
 
 
     if(data.success){
@@ -1225,7 +1402,7 @@ async function deletePhoto(
   }catch(err){
 
     overlay.style.display =
-    "none";
+      "none";
 
     console.error(err);
 
@@ -1239,22 +1416,51 @@ async function deletePhoto(
 
 
 /* =====================================================
-   🔐 LOAD PENDING WHEN PASSWORD CHANGES
+   🔐 PENDING PHOTOS PASSWORD BUTTON
    ===================================================== */
 
-const adminPasswordInput =
-document.getElementById(
-  "adminPassword"
-);
+const pendingPasswordInput =
+  document.getElementById(
+    "pendingPassword"
+  );
+
+const pendingLoadBtn =
+  document.getElementById(
+    "pendingLoadBtn"
+  );
 
 
-if(adminPasswordInput){
+if(pendingLoadBtn){
 
-  adminPasswordInput.addEventListener(
-    "change",
+  pendingLoadBtn.addEventListener(
+    "click",
     function(){
 
       loadPendingPhotos();
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   🔐 ENTER KEY SUPPORT
+   ===================================================== */
+
+if(pendingPasswordInput){
+
+  pendingPasswordInput.addEventListener(
+    "keydown",
+    function(e){
+
+      if(e.key === "Enter"){
+
+        e.preventDefault();
+
+        loadPendingPhotos();
+
+      }
 
     }
   );
