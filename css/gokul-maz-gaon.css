@@ -1,69 +1,1755 @@
-/* ===== GOKUL MAZ GAON HEADER ===== */
+/* =========================================
+   🏡 GOKUL MAZ GAON HEADER
+   ========================================= */
 
 .gokul-maz-gaon {
-  position: relative;
-  min-height: 50px;
-  background-color: #210734; /* deep purple background */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1px 0;
-  overflow: hidden;
-  border-bottom-right-radius: 50px;
-  border-bottom-left-radius: 50px;
-  border: 1px solid #ffaa00b4; /* hot pink border */
-  margin: 0px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* subtle shadow */
+
+    position: relative;
+
+    min-height: 75px;
+
+    /* 🌌 Royal Deep Purple Gradient */
+    background: linear-gradient(
+        135deg,
+        #210734 0%,
+        #32104d 50%,
+        #210734 100%
+    );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 8px 10px;
+
+    overflow: hidden;
+
+    /* 🌙 Rounded Bottom */
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+    /* 🟡 Premium Golden Border */
+    border: 1px solid rgba(255, 193, 7, 0.75);
+
+    margin: 0;
+
+    box-sizing: border-box;
+
+    /* ✨ Shadow */
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.30),
+        0 0 12px rgba(255, 193, 7, 0.10);
+
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
 }
+
+
+/* =========================================
+   ✨ Decorative Glow
+   ========================================= */
 
 .gokul-maz-gaon::after {
-  content: "";
-  position: absolute;
-  inset: 0;
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 193, 7, 0.10),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(156, 39, 176, 0.15),
+            transparent 40%
+        );
+
+    pointer-events: none;
 }
 
-/* content */
+
+/* =========================================
+   ✨ Top Decorative Line
+   ========================================= */
+
+.gokul-maz-gaon::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 140px;
+    height: 3px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffc400,
+        transparent
+    );
+
+    border-radius: 0 0 10px 10px;
+
+    z-index: 3;
+}
+
+
+/* =========================================
+   📦 Content
+   ========================================= */
+
 .gokul-maz-gaon-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding: 0 2px;
+
+    position: relative;
+
+    z-index: 4;
+
+    width: 100%;
+
+    padding: 0 5px;
+
+    box-sizing: border-box;
 }
 
-/* flex layout */
+
+/* =========================================
+   ↔️ Flex Layout
+   ========================================= */
+
 .gokul-maz-gaon-flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: nowrap;
+
+    gap: 12px;
+
+    width: 100%;
 }
 
-/* image */
+
+/* =========================================
+   🖼️ Header Image
+   ========================================= */
+
 .gokul-maz-gaon-img {
-  width: 60px;
-  height: 80px;
-  min-width: 50px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-left: 20px;
-  border: 1px solid #8d9091;
- 
+
+    width: 65px;
+
+    height: 65px;
+
+    min-width: 65px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    margin-left: 0;
+
+    /* 🟡 Golden Frame */
+    border: 2px solid #ffc400;
+
+    /* ✨ Image Glow */
+    box-shadow:
+        0 0 0 3px rgba(255, 196, 0, 0.15),
+        0 4px 12px rgba(0, 0, 0, 0.40);
+
+    background-color: #ffffff;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
+
+/* Image Hover */
+
+.gokul-maz-gaon-img:hover {
+
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 0 4px rgba(255, 196, 0, 0.20),
+        0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================
+   🏡 Main Heading
+   ========================================= */
 
 .gokul-maz-gaon-content h1 {
-  font-size: clamp(28px,5vw,60px);
-  font-weight: 1000;
-  color: #ffc400;
-  text-shadow:
-    0 0.5px 0 #ffffff;
+
+    margin: 0;
+
+    padding: 0;
+
+    font-size: clamp(26px, 5vw, 58px);
+
+    line-height: 1.15;
+
+    font-weight: 900;
+
+    /* 🟡 Golden Text */
+    color: #ffc400;
+
+    /* ✨ Royal Glow */
+    text-shadow:
+        0 1px 0 #fff3b0,
+        0 2px 4px rgba(0, 0, 0, 0.45),
+        0 0 12px rgba(255, 196, 0, 0.20);
+
+    letter-spacing: 0.5px;
+}
 
 
-    
+/* =========================================
+   🌟 Heading Hover
+   ========================================= */
+
+.gokul-maz-gaon-content h1:hover {
+
+    text-shadow:
+        0 1px 0 #fff3b0,
+        0 2px 5px rgba(0, 0, 0, 0.50),
+        0 0 18px rgba(255, 196, 0, 0.35);
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .gokul-maz-gaon {
+
+        min-height: 65px;
+
+        padding: 7px 8px;
+
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+
+
+    .gokul-maz-gaon-flex {
+
+        gap: 9px;
+    }
+
+
+    .gokul-maz-gaon-img {
+
+        width: 55px;
+        height: 55px;
+        min-width: 55px;
+
+        border-width: 2px;
+    }
+
+
+    .gokul-maz-gaon-content h1 {
+
+        font-size: clamp(22px, 6vw, 38px);
+
+        letter-spacing: 0.3px;
+    }
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .gokul-maz-gaon {
+
+        min-height: 58px;
+
+        padding: 6px 6px;
+
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+
+
+    .gokul-maz-gaon-flex {
+
+        gap: 7px;
+    }
+
+
+    .gokul-maz-gaon-img {
+
+        width: 45px;
+        height: 45px;
+
+        min-width: 45px;
+
+        border-width: 1px;
+    }
+
+
+    .gokul-maz-gaon-content h1 {
+
+        font-size: clamp(19px, 6vw, 28px);
+
+        line-height: 1.15;
+
+        letter-spacing: 0;
+    }
+
+
+    .gokul-maz-gaon::before {
+
+        width: 90px;
+
+        height: 2px;
+    }
 }
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   📍 गोकुळला कसे जाल?
+   ========================================= */
+
+.gokul-route-section {
+
+    border: 1px solid #2195f367;
+
+    border-radius: 20px;
+
+    border-top: 1px solid #4caf50;
+    border-bottom: 1px solid #ff9800;
+
+    padding: 18px;
+
+    background-color: #ebf5fc;
+
+    color: #5c0b65;
+
+    max-width: 900px;
+
+    margin: 20px auto;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+
+/* Hover Effect */
+
+.gokul-route-section:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+/* Heading */
+
+.gokul-route-section h2 {
+
+    color: #0f3f77;
+
+    font-size: 26px;
+
+    margin-bottom: 15px;
+}
+
+
+/* Paragraph */
+
+.gokul-route-section p {
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    margin: 10px 0;
+}
+
+
+/* 🚗 Route Content */
+
+.gokul-route-content {
+
+    margin-top: 20px;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #90caf9;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+
+/* Route Heading */
+
+.gokul-route-content h3 {
+
+    color: #2e7d32;
+
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Route Strong Text */
+
+.gokul-route-content strong {
+
+    color: #e65100;
+
+    font-size: 19px;
+}
+
+
+/* 🗺️ Google Maps Button */
+
+.gokul-map-button {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 12px 22px;
+
+    background-color: #2e7d32;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Button Hover */
+
+.gokul-map-button:hover {
+
+    transform: scale(1.05);
+
+    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+}
+
+
+/* 🏡 Welcome Message */
+
+.gokul-welcome-message {
+
+    margin-top: 22px !important;
+
+    color: #6a1b9a;
+
+    font-size: 18px !important;
+
+    line-height: 1.7 !important;
+}
+
+
+/* Strong Welcome Text */
+
+.gokul-welcome-message strong {
+
+    color: #c62828;
+}
+
+
+/* =========================================
+   📱 Responsive Design
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .gokul-route-section {
+
+        padding: 12px;
+
+        margin: 15px auto;
+    }
+
+    .gokul-route-section h2 {
+
+        font-size: 22px;
+    }
+
+    .gokul-route-section p {
+
+        font-size: 16px;
+    }
+
+    .gokul-route-content {
+
+        padding: 14px;
+    }
+
+    .gokul-route-content h3 {
+
+        font-size: 19px;
+    }
+
+    .gokul-route-content strong {
+
+        font-size: 17px;
+    }
+
+    .gokul-map-button {
+
+        padding: 10px 18px;
+
+        font-size: 15px;
+    }
+
+}
+
+
+/* 📱 Mobile */
+
+@media (max-width: 480px) {
+
+    .gokul-route-section {
+
+        padding: 9px;
+
+        border-radius: 16px;
+    }
+
+    .gokul-route-section h2 {
+
+        font-size: 20px;
+    }
+
+    .gokul-route-section p {
+
+        font-size: 13px;
+
+        line-height: 1.5;
+    }
+
+    .gokul-route-content {
+
+        padding: 10px;
+    }
+
+    .gokul-route-content h3 {
+
+        font-size: 17px;
+    }
+
+    .gokul-route-content strong {
+
+        font-size: 15px;
+    }
+
+    .gokul-map-button {
+
+        padding: 9px 14px;
+
+        font-size: 13px;
+    }
+
+    .gokul-welcome-message {
+
+        font-size: 14px !important;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🕉️ गोकुळ गावचे महत्त्व
+   🚩 HINDU DHARMA PREMIUM THEME
+   ========================================= */
+
+.gokul-mahatva-box {
+
+    width: 92%;
+    max-width: 900px;
+
+    margin: 25px auto;
+    padding: 24px 20px;
+
+    box-sizing: border-box;
+
+    /* 🪔 धार्मिक Cream Background */
+    background: linear-gradient(
+        135deg,
+        #fff3d6 0%,
+        #fffaf0 50%,
+        #ffe8b3 100%
+    );
+
+    /* 🚩 भगवा + सुवर्ण Border */
+    border: 1px solid #e67e22;
+    border-radius: 25px;
+
+    /* 🪔 Premium Shadow */
+    box-shadow:
+        0 7px 20px rgba(139, 62, 0, 0.18),
+        0 2px 6px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+
+    color: #6d2c00;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* =========================================
+   🪔 वरचा भगवा Decorative Line
+   ========================================= */
+
+.gokul-mahatva-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 150px;
+    height: 4px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ff9800,
+        #b23a00,
+        #ff9800,
+        transparent
+    );
+
+    border-radius: 0 0 12px 12px;
+}
+
+
+/* =========================================
+   🚩 Hover Effect
+   ========================================= */
+
+.gokul-mahatva-box:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 13px 30px rgba(139, 62, 0, 0.25),
+        0 4px 10px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================
+   🕉️ Heading
+   ========================================= */
+
+.gokul-mahatva-box h2 {
+
+    color: #b23a00;
+
+    font-size: 28px;
+
+    margin: 5px 0 20px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+
+    text-shadow:
+        0 1px 2px rgba(139, 62, 0, 0.15);
+
+    position: relative;
+}
+
+
+/* =========================================
+   🪔 Heading खाली Decorative Line
+   ========================================= */
+
+.gokul-mahatva-box h2::after {
+
+    content: "";
+
+    display: block;
+
+    width: 90px;
+    height: 3px;
+
+    margin: 9px auto 0;
+
+    background: linear-gradient(
+        90deg,
+        #e67e22,
+        #f6a800,
+        #e67e22
+    );
+
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   📖 Paragraph
+   ========================================= */
+
+.gokul-mahatva-box p {
+
+    font-size: 18px;
+
+    line-height: 1.75;
+
+    margin: 13px 0;
+
+    color: #633300;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   🚩 Important Text
+   ========================================= */
+
+.gokul-mahatva-box strong {
+
+    color: #a52a00;
+
+    font-weight: 800;
+
+    text-shadow:
+        0 1px 1px rgba(139, 62, 0, 0.10);
+}
+
+
+/* =========================================
+   🪔 शेवटचा Paragraph Highlight
+   ========================================= */
+
+.gokul-mahatva-box p:last-child {
+
+    margin-top: 20px;
+
+    padding: 14px 15px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border-radius: 15px;
+
+    border: 1px solid rgba(230, 126, 34, 0.35);
+
+    box-shadow:
+        0 2px 8px rgba(139, 62, 0, 0.08);
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .gokul-mahatva-box {
+
+        width: 94%;
+
+        padding: 19px 15px;
+
+        border-radius: 21px;
+    }
+
+
+    .gokul-mahatva-box h2 {
+
+        font-size: 23px;
+
+        margin-bottom: 17px;
+    }
+
+
+    .gokul-mahatva-box h2::after {
+
+        width: 65px;
+
+        height: 2px;
+    }
+
+
+    .gokul-mahatva-box p {
+
+        font-size: 16px;
+
+        line-height: 1.65;
+
+        margin: 11px 0;
+    }
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .gokul-mahatva-box {
+
+        width: 95%;
+
+        padding: 14px 10px;
+
+        margin: 18px auto;
+
+        border-radius: 18px;
+
+        border-top-width: 3px;
+
+        border-bottom-width: 3px;
+    }
+
+
+    .gokul-mahatva-box h2 {
+
+        font-size: 20px;
+
+        margin: 3px 0 14px;
+    }
+
+
+    .gokul-mahatva-box h2::after {
+
+        width: 55px;
+
+        height: 2px;
+
+        margin-top: 7px;
+    }
+
+
+    .gokul-mahatva-box p {
+
+        font-size: 14px;
+
+        line-height: 1.6;
+
+        margin: 9px 0;
+    }
+
+
+    .gokul-mahatva-box p:last-child {
+
+        padding: 10px 8px;
+
+        margin-top: 15px;
+
+        border-radius: 12px;
+    }
+
+
+    .gokul-mahatva-box strong {
+
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🌊 केळणा नदी आणि गोकुळ
+   🚩 HINDU DHARMA PREMIUM THEME
+   ========================================= */
+
+.kelna-gokul-section {
+
+    width: 92%;
+    max-width: 950px;
+
+    margin: 28px auto;
+    padding: 22px 18px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8e7,
+            #fffdf7,
+            #ffe9bd
+        );
+
+    border: 2px solid #d97706;
+
+    border-top: 4px solid #9d2f00;
+    border-bottom: 4px solid #f4a300;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 8px 24px rgba(120, 53, 15, 0.16),
+        0 2px 7px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+
+    overflow: hidden;
+
+    color: #5f2d0c;
+}
+
+
+/* =========================================
+   🪔 HEADER
+   ========================================= */
+
+.kelna-gokul-header {
+
+    text-align: center;
+
+    margin-bottom: 22px;
+
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid rgba(217, 119, 6, 0.30);
+
+    position: relative;
+}
+
+
+.kelna-gokul-header h2 {
+
+    margin: 0;
+
+    color: #9d2f00;
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    line-height: 1.3;
+
+    text-shadow:
+        0 1px 2px rgba(120, 53, 15, 0.15);
+}
+
+
+.kelna-gokul-header span {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: #a85d00;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   📖 CONTENT BOX
+   ========================================= */
+
+.kelna-content-box {
+
+    margin: 16px 0;
+
+    padding: 18px 17px;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    border: 1px solid rgba(217, 119, 6, 0.28);
+
+    border-left: 4px solid #d97706;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 3px 9px rgba(120, 53, 15, 0.07);
+}
+
+
+.kelna-content-box h3 {
+
+    margin: 0 0 12px;
+
+    color: #9d2f00;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    text-align: center;
+}
+
+
+.kelna-content-box p {
+
+    margin: 10px 0;
+
+    color: #63330f;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+
+    text-align: center;
+}
+
+
+.kelna-content-box strong {
+
+    color: #9d2f00;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   🗺️ FLOW BOX
+   ========================================= */
+
+.kelna-flow-box {
+
+    margin: 20px 0;
+
+    padding: 20px 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1d2,
+            #fffaf0
+        );
+
+    border: 2px solid #e6a23c;
+
+    border-radius: 20px;
+
+    text-align: center;
+}
+
+
+.kelna-flow-box h3 {
+
+    margin: 0 0 18px;
+
+    color: #9d2f00;
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+
+.kelna-flow-route {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.kelna-place {
+
+    padding: 10px 18px;
+
+    min-width: 180px;
+
+    background: #ffffff;
+
+    border: 1px solid #e6a23c;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 3px 8px rgba(120, 53, 15, 0.08);
+}
+
+
+.kelna-place span {
+
+    display: block;
+
+    font-size: 22px;
+
+    margin-bottom: 3px;
+}
+
+
+.kelna-place strong {
+
+    display: block;
+
+    color: #9d2f00;
+
+    font-size: 18px;
+}
+
+
+.kelna-place small {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: #795548;
+
+    font-size: 13px;
+}
+
+
+.kelna-arrow {
+
+    color: #d97706;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    margin: 5px 0;
+}
+
+
+.kelna-route-line {
+
+    padding: 13px 15px;
+
+    width: 95%;
+
+    box-sizing: border-box;
+
+    background: #fffdf8;
+
+    border: 1px dashed #d97706;
+
+    border-radius: 14px;
+
+    color: #6d320d;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    font-weight: 600;
+}
+
+
+.kelna-route-line span {
+
+    color: #d97706;
+
+    font-weight: 900;
+
+    margin: 0 5px;
+}
+
+
+.kelna-route-line strong {
+
+    color: #9d2f00;
+
+    font-weight: 900;
+}
+
+
+/* =========================================
+   📏 INFORMATION CARDS
+   ========================================= */
+
+.kelna-info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin: 20px 0;
+}
+
+
+.kelna-info-card {
+
+    padding: 17px 12px;
+
+    background: rgba(255, 255, 255, 0.80);
+
+    border: 1px solid #e6a23c;
+
+    border-radius: 17px;
+
+    text-align: center;
+
+    box-shadow:
+        0 3px 9px rgba(120, 53, 15, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.kelna-info-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 17px rgba(120, 53, 15, 0.15);
+}
+
+
+.kelna-info-icon {
+
+    display: block;
+
+    font-size: 28px;
+
+    margin-bottom: 7px;
+}
+
+
+.kelna-info-card h3 {
+
+    margin: 0 0 8px;
+
+    color: #9d2f00;
+
+    font-size: 19px;
+}
+
+
+.kelna-info-card p {
+
+    margin: 5px 0;
+
+    color: #63330f;
+
+    font-size: 16px;
+
+    line-height: 1.55;
+}
+
+
+.kelna-info-card strong {
+
+    color: #9d2f00;
+
+    font-weight: 800;
+}
+
+
+.kelna-info-card small {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: #795548;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================
+   🌱 CONSERVATION
+   ========================================= */
+
+.kelna-conservation-box {
+
+    margin: 20px 0;
+
+    padding: 18px 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff4dc,
+            #ffffff
+        );
+
+    border: 1px solid #e6a23c;
+
+    border-radius: 18px;
+
+    text-align: center;
+}
+
+
+.kelna-conservation-box h3 {
+
+    margin: 0 0 10px;
+
+    color: #9d2f00;
+
+    font-size: 21px;
+
+    font-weight: 800;
+}
+
+
+.kelna-conservation-box p {
+
+    margin: 0;
+
+    color: #63330f;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+.kelna-conservation-box strong {
+
+    color: #9d2f00;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   ❤️ FINAL QUOTE
+   ========================================= */
+
+.kelna-quote {
+
+    margin-top: 22px;
+
+    padding: 15px 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff0cf,
+            #fffaf0,
+            #fff0cf
+        );
+
+    border-top: 2px solid #e6a23c;
+
+    border-bottom: 2px solid #e6a23c;
+
+    border-radius: 15px;
+
+    color: #8b3a00;
+
+    font-size: 17px;
+
+    line-height: 1.65;
+
+    text-align: center;
+}
+
+
+.kelna-quote strong {
+
+    color: #9d2f00;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .kelna-gokul-section {
+
+        width: 94%;
+
+        padding: 18px 13px;
+
+        border-radius: 22px;
+    }
+
+
+    .kelna-gokul-header h2 {
+
+        font-size: 23px;
+    }
+
+
+    .kelna-gokul-header span {
+
+        font-size: 13px;
+    }
+
+
+    .kelna-content-box {
+
+        padding: 15px 12px;
+    }
+
+
+    .kelna-content-box h3 {
+
+        font-size: 19px;
+    }
+
+
+    .kelna-content-box p {
+
+        font-size: 15px;
+
+        line-height: 1.65;
+    }
+
+
+    .kelna-info-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .kelna-route-line {
+
+        font-size: 15px;
+    }
+
+
+    .kelna-quote {
+
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .kelna-gokul-section {
+
+        width: 95%;
+
+        margin: 18px auto;
+
+        padding: 14px 9px;
+
+        border-radius: 18px;
+    }
+
+
+    .kelna-gokul-header {
+
+        margin-bottom: 17px;
+
+        padding-bottom: 10px;
+    }
+
+
+    .kelna-gokul-header h2 {
+
+        font-size: 20px;
+    }
+
+
+    .kelna-gokul-header span {
+
+        font-size: 11px;
+
+        margin-top: 5px;
+    }
+
+
+    .kelna-content-box {
+
+        padding: 12px 9px;
+
+        margin: 12px 0;
+
+        border-radius: 14px;
+    }
+
+
+    .kelna-content-box h3 {
+
+        font-size: 17px;
+
+        margin-bottom: 8px;
+    }
+
+
+    .kelna-content-box p {
+
+        font-size: 13px;
+
+        line-height: 1.6;
+
+        margin: 8px 0;
+    }
+
+
+    .kelna-flow-box {
+
+        padding: 15px 8px;
+
+        margin: 15px 0;
+
+        border-radius: 16px;
+    }
+
+
+    .kelna-flow-box h3 {
+
+        font-size: 18px;
+
+        margin-bottom: 13px;
+    }
+
+
+    .kelna-place {
+
+        min-width: 150px;
+
+        padding: 8px 12px;
+    }
+
+
+    .kelna-place span {
+
+        font-size: 19px;
+    }
+
+
+    .kelna-place strong {
+
+        font-size: 15px;
+    }
+
+
+    .kelna-place small {
+
+        font-size: 11px;
+    }
+
+
+    .kelna-arrow {
+
+        font-size: 20px;
+
+        margin: 3px 0;
+    }
+
+
+    .kelna-route-line {
+
+        width: 100%;
+
+        padding: 10px 7px;
+
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+
+    .kelna-route-line span {
+
+        margin: 0 2px;
+    }
+
+
+    .kelna-info-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin: 15px 0;
+    }
+
+
+    .kelna-info-card {
+
+        padding: 13px 10px;
+
+        border-radius: 14px;
+    }
+
+
+    .kelna-info-icon {
+
+        font-size: 24px;
+
+        margin-bottom: 4px;
+    }
+
+
+    .kelna-info-card h3 {
+
+        font-size: 17px;
+    }
+
+
+    .kelna-info-card p {
+
+        font-size: 14px;
+    }
+
+
+    .kelna-info-card small {
+
+        font-size: 11px;
+    }
+
+
+    .kelna-conservation-box {
+
+        padding: 13px 9px;
+
+        margin: 15px 0;
+
+        border-radius: 14px;
+    }
+
+
+    .kelna-conservation-box h3 {
+
+        font-size: 18px;
+    }
+
+
+    .kelna-conservation-box p {
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    .kelna-quote {
+
+        margin-top: 17px;
+
+        padding: 11px 8px;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+
+        border-radius: 12px;
+    }
+}
