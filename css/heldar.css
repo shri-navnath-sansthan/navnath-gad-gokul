@@ -1,137 +1,820 @@
+/* =========================================
+   🚩 HOME PAGE HEADER
+   🕉️ SHRI NAVNATH MAHARAJ PREMIUM THEME
+   ========================================= */
 
-    /* ===== HOME PAGE  HEADER ===== */
+.hero {
+
+    position: relative;
+
+    min-height: 90px;
+
+    background:
+        url('../images/heldarbackgroundimage.jpeg')
+        no-repeat center/cover;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 8px 10px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    /* 🪔 Soft Bottom Shape */
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+
+    /* 🟡 Golden Border */
+    border-bottom: 2px solid rgba(255, 193, 7, 0.75);
+
+    /* ✨ Shadow */
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   🪔 DARK RELIGIOUS OVERLAY
+   ========================================= */
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(45, 15, 0, 0.72),
+            rgba(0, 0, 0, 0.48),
+            rgba(45, 15, 0, 0.72)
+        );
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   ✨ TOP GOLDEN DECORATION
+   ========================================= */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 150px;
+
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffd54f,
+        #ff9800,
+        #ffd54f,
+        transparent
+    );
+
+    border-radius: 0 0 10px 10px;
+
+    z-index: 3;
+}
+
+
+/* =========================================
+   📦 HEADER CONTENT
+   ========================================= */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 4;
+
+    width: 100%;
+
+    padding: 0 8px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   ↔️ FLEX LAYOUT
+   ========================================= */
+
+.hero-flex {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    flex-wrap: nowrap;
+
+    width: 100%;
+}
+
+
+/* =========================================
+   🖼️ HEADER IMAGE
+   ========================================= */
+
+.hero-img {
+
+    width: 62px;
+
+    height: 62px;
+
+    min-width: 62px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 2px solid #ffc107;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 193, 7, 0.18),
+        0 3px 12px rgba(0, 0, 0, 0.45);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =========================================
+   🖼️ IMAGE HOVER EFFECT
+   ========================================= */
+
+.hero-img:hover {
+
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 0 4px rgba(255, 193, 7, 0.25),
+        0 5px 15px rgba(0, 0, 0, 0.50);
+}
+
+
+/* =========================================
+   🕉️ MAIN TITLE
+   🔥 DARK + PREMIUM GOLD TEXT
+   ========================================= */
+
+.hero-content h1 {
+
+    margin: 0;
+
+    padding: 3px 6px;
+
+    white-space: nowrap;
+
+    font-size: clamp(20px, 3.5vw, 34px);
+
+    font-weight: 900;
+
+    line-height: 1.2;
+
+    letter-spacing: 0.5px;
+
+    text-align: center;
+
+    /* 🟡 Rich Golden Gradient */
+
+    background: linear-gradient(
+        180deg,
+        #ffe082 0%,
+        #ffc107 35%,
+        #f59f00 70%,
+        #e68a00 100%
+    );
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+
+    -webkit-text-fill-color: transparent;
+
+    /* 🔥 Strong Royal Shadow */
+
+    text-shadow:
+        0 1px 0 rgba(255, 230, 150, 0.35),
+        0 2px 3px rgba(0, 0, 0, 0.85),
+        0 0 8px rgba(255, 152, 0, 0.30);
+}
+
+
+/* =========================================
+   🌺 SUB TITLE
+   🔥 CLEAR GOLD TEXT
+   ========================================= */
+
+.hero-content p {
+
+    margin: 4px 0 0;
+
+    padding: 0;
+
+    white-space: nowrap;
+
+    font-size: clamp(11px, 3.1vw, 16px);
+
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    text-align: center;
+
+    color: #ffd166;
+
+    text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.90),
+        0 0 5px rgba(255, 152, 0, 0.20);
+}
+
+
+/* =========================================
+   🪔 PREMIUM GOLDEN TITLE LINE
+   ========================================= */
+
+.hero-content h1::after {
+
+    content: "";
+
+    display: block;
+
+    width: 75px;
+
+    height: 3px;
+
+    margin: 6px auto 0;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #e68a00,
+        #ffc107,
+        #e68a00,
+        transparent
+    );
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 5px rgba(255, 152, 0, 0.35);
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
     .hero {
-      position: relative;
-      min-height: 90px;
-      background: url('../images/heldarbackgroundimage.jpeg') no-repeat center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8px 0;
+
+        min-height: 78px;
+
+        padding: 7px 6px;
+
+        border-bottom-left-radius: 22px;
+
+        border-bottom-right-radius: 22px;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      padding: 0 10px;
-    }
 
     .hero-flex {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2px;
-      flex-wrap: nowrap;
+
+        gap: 7px;
     }
+
 
     .hero-img {
-      width: 60px;
-      height: 80px;
-      min-width: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid rgba(255, 213, 0, 0.822);
+
+        width: 54px;
+
+        height: 54px;
+
+        min-width: 54px;
+
+        border-width: 2px;
     }
 
-    .hero-content h1,
-    .hero-content p {
-      color: #ffcc00;
-      white-space: nowrap;
-    }
 
     .hero-content h1 {
-      font-size: clamp(20px, 3.5vw, 32px);
+
+        font-size:
+            clamp(19px, 4.5vw, 29px);
+
+        line-height: 1.2;
     }
+
 
     .hero-content p {
-      font-size: clamp(  11px, 3.1vw, 16px);
+
+        font-size:
+            clamp(10px, 2.8vw, 14px);
     }
 
 
+    .hero-content h1::after {
 
+        width: 60px;
 
+        height: 2px;
 
-
-/* ===== VIDEO HTML HEADER AND IMAGE HTML HELDER  ===== */
-.video-hero {
-  position: relative;
-  min-height: 120px;
-  background: #3d5150;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 8px 0;
-  overflow: hidden;
+        margin-top: 5px;
+    }
 }
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .hero {
+
+        min-height: 65px;
+
+        padding: 6px 4px;
+
+        border-bottom-left-radius: 18px;
+
+        border-bottom-right-radius: 18px;
+    }
+
+
+    .hero-flex {
+
+        gap: 6px;
+    }
+
+
+    .hero-img {
+
+        width: 45px;
+
+        height: 45px;
+
+        min-width: 45px;
+
+        border-width: 1px;
+    }
+
+
+    .hero-content {
+
+        padding: 0 2px;
+    }
+
+
+    .hero-content h1 {
+
+        font-size:
+            clamp(16px, 5vw, 23px);
+
+        line-height: 1.15;
+
+        padding: 2px 4px;
+    }
+
+
+    .hero-content p {
+
+        margin-top: 2px;
+
+        font-size:
+            clamp(9px, 2.8vw, 12px);
+
+        line-height: 1.2;
+    }
+
+
+    .hero-content h1::after {
+
+        width: 48px;
+
+        height: 2px;
+
+        margin-top: 4px;
+    }
+
+
+    .hero::before {
+
+        width: 90px;
+
+        height: 2px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🚩 VIDEO + IMAGE PAGE HEADER
+   🕉️ SHRI NAVNATH MAHARAJ PREMIUM THEME
+   ========================================= */
+
+.video-hero {
+    position: relative;
+    min-height: 120px;
+
+    /* Background */
+    background: linear-gradient(
+        90deg,
+        #2b0d00,
+        #5a2100,
+        #2b0d00
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    padding: 10px 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+
+    border-top: 1px solid rgba(255, 193, 7, 0.35);
+    border-bottom: 2px solid #ffb300;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ===== DARK PREMIUM OVERLAY ===== */
 
 .video-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 152, 0, 0.18),
+            transparent 55%
+        ),
+        linear-gradient(
+            90deg,
+            rgba(35, 10, 0, 0.82),
+            rgba(0, 0, 0, 0.42),
+            rgba(35, 10, 0, 0.82)
+        );
+
+    z-index: 1;
 }
+
+
+/* ===== TOP GOLD DECORATION ===== */
+
+.video-hero::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 170px;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffd54f,
+        #ff9800,
+        #ffd54f,
+        transparent
+    );
+
+    border-radius: 0 0 12px 12px;
+
+    z-index: 3;
+}
+
+
+/* =========================================
+   CONTENT
+   ========================================= */
 
 .video-hero-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding: 0 10px;
+    position: relative;
+    z-index: 4;
+
+    width: 100%;
+    max-width: 1100px;
+
+    padding: 0 8px;
+
+    box-sizing: border-box;
 }
+
+
+/* ===== IMAGE + TEXT FLEX ===== */
 
 .video-hero-flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1px;
-  flex-wrap: nowrap;
+    display: flex;
 
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: nowrap;
+
+    width: 100%;
 }
+
+
+/* =========================================
+   🖼️ HEADER IMAGE
+   ========================================= */
 
 .video-hero-img {
-  width: 70px;
-  height: 100px;
-  min-width: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #ffffff;
+    width: 70px;
+    height: 70px;
+
+    min-width: 70px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 2px solid #ffc107;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(255, 193, 7, 0.16),
+        0 4px 14px rgba(0, 0, 0, 0.50);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-/* ===== TEXT STYLE ===== */
+
+/* Image Hover */
+
+.video-hero-img:hover {
+    transform: scale(1.07);
+
+    box-shadow:
+        0 0 0 5px rgba(255, 193, 7, 0.24),
+        0 6px 18px rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================
+   📝 MAIN TITLE
+   ========================================= */
 
 .video-hero-content h1 {
-  font-size: clamp(28px, 5vw, 48px);
-  font-weight: bold;
-  white-space: normal;
-  line-height: 1.3;
-  text-align: center;
-  margin: 0 auto;
-  display: inline-block;
-  padding: 6px 12px;
+    font-size: clamp(26px, 5vw, 48px);
 
-  /* Gradient Text */
-  background: linear-gradient(90deg, #ffea00, #ffffff);
-  background-clip: text;
-  -webkit-background-clip: text;
+    font-weight: 900;
 
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+    line-height: 1.2;
 
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    text-align: center;
+
+    margin: 0;
+
+    padding: 4px 8px;
+
+    white-space: normal;
+
+    letter-spacing: 0.5px;
+
+    /* Golden Gradient Text */
+
+    background: linear-gradient(
+        180deg,
+        #fff3a0 0%,
+        #ffd54f 35%,
+        #ffb300 70%,
+        #ff9800 100%
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 2px 3px rgba(0, 0, 0, 0.65),
+        0 0 12px rgba(255, 193, 7, 0.20);
 }
 
+
+/* ===== TITLE UNDERLINE ===== */
+
+.video-hero-content h1::after {
+    content: "";
+
+    display: block;
+
+    width: 75px;
+    height: 3px;
+
+    margin: 7px auto 0;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffb300,
+        #ffd54f,
+        #ffb300,
+        transparent
+    );
+
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   📜 SUB TITLE
+   ========================================= */
+
 .video-hero-content p {
-  font-size: clamp(14px, 3vw, 22px);
-  color: #ffffff;
-  white-space: nowrap;
-  margin-top: 4px;
+    font-size: clamp(13px, 3vw, 21px);
+
+    color: #ffe082;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    white-space: normal;
+
+    margin: 5px 0 0;
+
+    text-align: center;
+
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.75);
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .video-hero {
+        min-height: 95px;
+
+        padding: 8px 7px;
+
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+
+    .video-hero-flex {
+        gap: 9px;
+    }
+
+    .video-hero-img {
+        width: 58px;
+        height: 58px;
+        min-width: 58px;
+    }
+
+    .video-hero-content h1 {
+        font-size: clamp(22px, 5vw, 34px);
+    }
+
+    .video-hero-content p {
+        font-size: clamp(11px, 3vw, 16px);
+        margin-top: 3px;
+    }
+
+    .video-hero-content h1::after {
+        width: 60px;
+        height: 2px;
+        margin-top: 5px;
+    }
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .video-hero {
+        min-height: 72px;
+
+        padding: 6px 4px;
+
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .video-hero-flex {
+        gap: 6px;
+    }
+
+    .video-hero-content {
+        padding: 0 2px;
+    }
+
+    .video-hero-img {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+
+        border-width: 1px;
+    }
+
+    .video-hero-content h1 {
+        font-size: clamp(17px, 5.2vw, 25px);
+
+        line-height: 1.15;
+
+        padding: 2px 4px;
+    }
+
+    .video-hero-content p {
+        font-size: clamp(9px, 2.8vw, 12px);
+
+        line-height: 1.2;
+
+        margin-top: 2px;
+    }
+
+    .video-hero-content h1::after {
+        width: 45px;
+        height: 2px;
+        margin-top: 4px;
+    }
+
+    .video-hero::before {
+        width: 100px;
+        height: 2px;
+    }
 }

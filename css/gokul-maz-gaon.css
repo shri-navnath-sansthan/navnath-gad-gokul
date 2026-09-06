@@ -641,10 +641,10 @@
 
 
 
-
 /* =========================================
    🕉️ गोकुळ गावचे महत्त्व
-   🚩 HINDU DHARMA PREMIUM THEME
+   👑 ROYAL DEVOTIONAL PREMIUM THEME
+   🔵 निळा • 🦚 मोरपंखी • 🟡 सुवर्ण • 🤍 क्रीम
    ========================================= */
 
 .gokul-mahatva-box {
@@ -657,26 +657,30 @@
 
     box-sizing: border-box;
 
-    /* 🪔 धार्मिक Cream Background */
-    background: linear-gradient(
-        135deg,
-        #fff3d6 0%,
-        #fffaf0 50%,
-        #ffe8b3 100%
-    );
+    /* 👑 Premium Royal Background */
+    background:
+        linear-gradient(
+            135deg,
+            #eef8f7 0%,
+            #fffdf6 48%,
+            #e5f1f4 100%
+        );
 
-    /* 🚩 भगवा + सुवर्ण Border */
-    border: 1px solid #e67e22;
+    /* 🦚 मोरपंखी + सुवर्ण Border */
+    border: 1px solid #2f8f8b;
+    border-top: 4px solid #145c78;
+    border-bottom: 4px solid #c49a28;
+
     border-radius: 25px;
 
-    /* 🪔 Premium Shadow */
+    /* 👑 Premium Shadow */
     box-shadow:
-        0 7px 20px rgba(139, 62, 0, 0.18),
-        0 2px 6px rgba(0, 0, 0, 0.08);
+        0 8px 22px rgba(20, 92, 120, 0.16),
+        0 2px 7px rgba(0, 0, 0, 0.08);
 
     text-align: center;
 
-    color: #6d2c00;
+    color: #173f50;
 
     position: relative;
 
@@ -689,7 +693,7 @@
 
 
 /* =========================================
-   🪔 वरचा भगवा Decorative Line
+   ✨ वरचा Royal Decorative Line
    ========================================= */
 
 .gokul-mahatva-box::before {
@@ -706,21 +710,22 @@
 
     transform: translateX(-50%);
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #ff9800,
-        #b23a00,
-        #ff9800,
-        transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #2f8f8b,
+            #c49a28,
+            #2f8f8b,
+            transparent
+        );
 
     border-radius: 0 0 12px 12px;
 }
 
 
 /* =========================================
-   🚩 Hover Effect
+   👑 Hover Effect
    ========================================= */
 
 .gokul-mahatva-box:hover {
@@ -728,7 +733,7 @@
     transform: translateY(-6px);
 
     box-shadow:
-        0 13px 30px rgba(139, 62, 0, 0.25),
+        0 14px 32px rgba(20, 92, 120, 0.23),
         0 4px 10px rgba(0, 0, 0, 0.10);
 }
 
@@ -739,25 +744,25 @@
 
 .gokul-mahatva-box h2 {
 
-    color: #b23a00;
+    color: #145c78;
 
     font-size: 28px;
 
     margin: 5px 0 20px;
 
-    font-weight: 800;
+    font-weight: 900;
 
     letter-spacing: 0.5px;
 
     text-shadow:
-        0 1px 2px rgba(139, 62, 0, 0.15);
+        0 1px 2px rgba(20, 92, 120, 0.15);
 
     position: relative;
 }
 
 
 /* =========================================
-   🪔 Heading खाली Decorative Line
+   ✨ Heading खाली Royal Line
    ========================================= */
 
 .gokul-mahatva-box h2::after {
@@ -771,12 +776,13 @@
 
     margin: 9px auto 0;
 
-    background: linear-gradient(
-        90deg,
-        #e67e22,
-        #f6a800,
-        #e67e22
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #2f8f8b,
+            #c49a28,
+            #2f8f8b
+        );
 
     border-radius: 10px;
 }
@@ -794,29 +800,29 @@
 
     margin: 13px 0;
 
-    color: #633300;
+    color: #294c59;
 
     text-align: center;
 }
 
 
 /* =========================================
-   🚩 Important Text
+   🟡 Important Text
    ========================================= */
 
 .gokul-mahatva-box strong {
 
-    color: #a52a00;
+    color: #176b70;
 
     font-weight: 800;
 
     text-shadow:
-        0 1px 1px rgba(139, 62, 0, 0.10);
+        0 1px 1px rgba(23, 107, 112, 0.10);
 }
 
 
 /* =========================================
-   🪔 शेवटचा Paragraph Highlight
+   👑 शेवटचा Paragraph Highlight
    ========================================= */
 
 .gokul-mahatva-box p:last-child {
@@ -825,14 +831,20 @@
 
     padding: 14px 15px;
 
-    background: rgba(255, 255, 255, 0.65);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(47, 143, 139, 0.08),
+            rgba(255, 255, 255, 0.82),
+            rgba(196, 154, 40, 0.10)
+        );
 
     border-radius: 15px;
 
-    border: 1px solid rgba(230, 126, 34, 0.35);
+    border: 1px solid rgba(196, 154, 40, 0.38);
 
     box-shadow:
-        0 2px 8px rgba(139, 62, 0, 0.08);
+        0 2px 9px rgba(20, 92, 120, 0.08);
 }
 
 
@@ -944,6 +956,2705 @@
         font-size: 14px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🚩 GOKUL RELIGIOUS & CULTURAL IDENTITY
+   🙏 भगवा • सुवर्ण • क्रीम थीम
+   ========================================= */
+
+.gokul-religious-section {
+    width: 92%;
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 25px 20px 28px;
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8e7 0%,
+            #fffdf7 48%,
+            #ffecc7 100%
+        );
+
+    border: 2px solid #e67e22;
+    border-top: 4px solid #b23a00;
+    border-bottom: 4px solid #f6a800;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 8px 24px rgba(139, 62, 0, 0.16),
+        0 2px 7px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* वरचा सुंदर सुवर्ण पट्टा */
+.gokul-religious-section::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 180px;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff9800,
+            #b23a00,
+            #ff9800,
+            transparent
+        );
+
+    border-radius: 0 0 12px 12px;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.gokul-religious-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.gokul-religious-header h2 {
+    margin: 5px 0 8px;
+
+    color: #b23a00;
+
+    font-size: 29px;
+    font-weight: 900;
+
+    line-height: 1.35;
+    letter-spacing: 0.3px;
+
+    text-shadow:
+        0 1px 2px rgba(139, 62, 0, 0.15);
+}
+
+.gokul-religious-header h2::after {
+    content: "";
+
+    display: block;
+
+    width: 100px;
+    height: 3px;
+
+    margin: 9px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e67e22,
+            #f6a800,
+            #e67e22
+        );
+
+    border-radius: 10px;
+}
+
+.gokul-religious-header span {
+    display: block;
+
+    color: #8a4b08;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   INTRO CONTENT
+   ========================================= */
+
+.gokul-religious-intro {
+    padding: 5px 8px;
+    text-align: center;
+}
+
+.gokul-religious-intro p {
+    margin: 13px 0;
+
+    color: #633300;
+
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.gokul-religious-intro strong {
+    color: #a52a00;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   FAITH CARDS
+   ========================================= */
+
+.gokul-faith-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin: 24px 0;
+}
+
+
+.gokul-faith-card {
+    padding: 20px 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fff5df
+        );
+
+    border: 1px solid rgba(230, 126, 34, 0.45);
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 12px rgba(139, 62, 0, 0.10);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.gokul-faith-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 10px 22px rgba(139, 62, 0, 0.18);
+}
+
+
+.gokul-faith-icon {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0c2,
+            #ffe09a
+        );
+
+    border: 2px solid #f6a800;
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 3px 9px rgba(139, 62, 0, 0.12);
+}
+
+
+.gokul-faith-card h3 {
+    margin: 8px 0 10px;
+
+    color: #b23a00;
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+
+.gokul-faith-card p {
+    margin: 0;
+
+    color: #633300;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   CULTURE BOX
+   ========================================= */
+
+.gokul-culture-box {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0cf,
+            #fffaf0
+        );
+
+    border-left: 5px solid #e67e22;
+    border-right: 1px solid rgba(230, 126, 34, 0.35);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 3px 10px rgba(139, 62, 0, 0.08);
+}
+
+
+.gokul-culture-icon {
+    min-width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff7df;
+
+    border: 2px solid #f6a800;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+}
+
+
+.gokul-culture-box h3 {
+    margin: 0 0 8px;
+
+    color: #b23a00;
+
+    font-size: 21px;
+    font-weight: 800;
+}
+
+
+.gokul-culture-box p {
+    margin: 0;
+
+    color: #633300;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   UNITY MESSAGE
+   ========================================= */
+
+.gokul-unity-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 22px;
+
+    padding: 16px 14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 193, 7, 0.12),
+            rgba(255, 255, 255, 0.75),
+            rgba(255, 193, 7, 0.12)
+        );
+
+    border-top: 1px solid rgba(230, 126, 34, 0.35);
+    border-bottom: 1px solid rgba(230, 126, 34, 0.35);
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+
+.gokul-unity-message span {
+    font-size: 22px;
+}
+
+
+.gokul-unity-message p {
+    margin: 0;
+
+    color: #a52a00;
+
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+.gokul-unity-message strong {
+    font-weight: 900;
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .gokul-religious-section {
+        width: 94%;
+        padding: 22px 15px 24px;
+        border-radius: 23px;
+    }
+
+    .gokul-religious-header h2 {
+        font-size: 25px;
+    }
+
+    .gokul-religious-header span {
+        font-size: 14px;
+    }
+
+    .gokul-religious-intro p {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .gokul-faith-cards {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .gokul-faith-card {
+        padding: 17px 15px;
+    }
+
+    .gokul-culture-box {
+        align-items: flex-start;
+        padding: 17px;
+    }
+
+    .gokul-culture-box h3 {
+        font-size: 19px;
+    }
+
+    .gokul-culture-box p {
+        font-size: 16px;
+    }
+
+    .gokul-unity-message p {
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .gokul-religious-section {
+        width: 95%;
+        margin: 22px auto;
+        padding: 20px 12px 22px;
+        border-radius: 20px;
+    }
+
+    .gokul-religious-header h2 {
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+    .gokul-religious-header span {
+        font-size: 12px;
+    }
+
+    .gokul-religious-intro {
+        padding: 0 3px;
+    }
+
+    .gokul-religious-intro p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .gokul-faith-card {
+        padding: 16px 13px;
+        border-radius: 17px;
+    }
+
+    .gokul-faith-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .gokul-faith-card h3 {
+        font-size: 18px;
+    }
+
+    .gokul-faith-card p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .gokul-culture-box {
+        gap: 11px;
+        padding: 15px;
+    }
+
+    .gokul-culture-icon {
+        min-width: 48px;
+        height: 48px;
+        font-size: 23px;
+    }
+
+    .gokul-culture-box h3 {
+        font-size: 17px;
+    }
+
+    .gokul-culture-box p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .gokul-unity-message {
+        gap: 7px;
+        padding: 13px 8px;
+    }
+
+    .gokul-unity-message span {
+        font-size: 18px;
+    }
+
+    .gokul-unity-message p {
+        font-size: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🎉 GOKUL FESTIVALS & CELEBRATIONS
+   🪔 केशरी • गुलाबी • क्रीम • सुवर्ण THEME
+   ========================================= */
+
+.gokul-festivals-section {
+
+    width: 92%;
+    max-width: 950px;
+
+    margin: 30px auto;
+    padding: 25px 20px 28px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff4e8 0%,
+            #fffdf8 48%,
+            #ffe9d6 100%
+        );
+
+    border: 2px solid #e58b45;
+    border-top: 4px solid #c65318;
+    border-bottom: 4px solid #d9a21b;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 8px 24px rgba(176, 76, 24, 0.14),
+        0 2px 7px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   ✨ TOP DECORATIVE LINE
+   ========================================= */
+
+.gokul-festivals-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 180px;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #e58b45,
+            #d9a21b,
+            #e58b45,
+            transparent
+        );
+
+    border-radius: 0 0 12px 12px;
+}
+
+
+/* =========================================
+   🎉 HEADER
+   ========================================= */
+
+.gokul-festivals-header {
+
+    text-align: center;
+
+    margin-bottom: 22px;
+}
+
+
+.gokul-festivals-header h2 {
+
+    margin: 5px 0 8px;
+
+    color: #c65318;
+
+    font-size: 29px;
+
+    font-weight: 900;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.3px;
+
+    text-shadow:
+        0 1px 2px rgba(176, 76, 24, 0.15);
+}
+
+
+.gokul-festivals-header h2::after {
+
+    content: "";
+
+    display: block;
+
+    width: 100px;
+    height: 3px;
+
+    margin: 9px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e58b45,
+            #d9a21b,
+            #e58b45
+        );
+
+    border-radius: 10px;
+}
+
+
+.gokul-festivals-header span {
+
+    display: block;
+
+    color: #8a5a35;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   📖 INTRO
+   ========================================= */
+
+.gokul-festivals-intro {
+
+    padding: 5px 8px;
+
+    text-align: center;
+}
+
+
+.gokul-festivals-intro p {
+
+    margin: 13px 0;
+
+    color: #59483b;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+.gokul-festivals-intro strong {
+
+    color: #c65318;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   🪔 FESTIVAL CARDS
+   ========================================= */
+
+.gokul-festival-cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin: 24px 0;
+}
+
+
+.gokul-festival-card {
+
+    padding: 20px 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fff5eb
+        );
+
+    border: 1px solid rgba(229, 139, 69, 0.40);
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 12px rgba(176, 76, 24, 0.09);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.gokul-festival-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 10px 22px rgba(176, 76, 24, 0.17);
+}
+
+
+/* =========================================
+   🪔 ICON
+   ========================================= */
+
+.gokul-festival-icon {
+
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 10px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0d5,
+            #ffe0b8
+        );
+
+    border: 2px solid #d9a21b;
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 3px 9px rgba(176, 76, 24, 0.12);
+}
+
+
+/* =========================================
+   🎉 CARD HEADING
+   ========================================= */
+
+.gokul-festival-card h3 {
+
+    margin: 8px 0 10px;
+
+    color: #c65318;
+
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   📖 CARD TEXT
+   ========================================= */
+
+.gokul-festival-card p {
+
+    margin: 0;
+
+    color: #5a4b40;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   📸 🎥 MEDIA BUTTONS
+   ========================================= */
+
+.gokul-festival-media {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: stretch;
+
+    gap: 14px;
+
+    margin: 25px auto 5px;
+
+    width: 100%;
+}
+
+
+.gokul-festival-media-button {
+
+    flex: 1;
+
+    max-width: 310px;
+
+    min-height: 52px;
+
+    padding: 12px 16px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    text-decoration: none;
+
+    border-radius: 15px;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.gokul-festival-media-button:hover {
+
+    transform: translateY(-4px);
+}
+
+
+/* 📸 PHOTO BUTTON */
+
+.photo-button {
+
+    color: #8a4b08;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1cf,
+            #ffe2a5
+        );
+
+    border: 1px solid #d9a21b;
+
+    box-shadow:
+        0 4px 12px rgba(217, 162, 27, 0.16);
+}
+
+
+/* 🎥 VIDEO BUTTON */
+
+.video-button {
+
+    color: #9c3515;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe4d8,
+            #ffd1c0
+        );
+
+    border: 1px solid #df7048;
+
+    box-shadow:
+        0 4px 12px rgba(198, 83, 24, 0.14);
+}
+
+
+.gokul-festival-media-button span:first-child {
+
+    font-size: 22px;
+}
+
+
+.gokul-festival-media-button span:last-child {
+
+    font-size: 20px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.gokul-festival-media-button:hover span:last-child {
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   ❤️ FINAL MESSAGE
+   ========================================= */
+
+.gokul-festival-message {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    padding: 16px 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(229, 139, 69, 0.10),
+            rgba(255, 255, 255, 0.82),
+            rgba(217, 162, 27, 0.10)
+        );
+
+    border-top: 1px solid rgba(229, 139, 69, 0.30);
+
+    border-bottom: 1px solid rgba(217, 162, 27, 0.30);
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+
+.gokul-festival-message span {
+
+    font-size: 22px;
+}
+
+
+.gokul-festival-message p {
+
+    margin: 0;
+}
+
+
+.gokul-festival-message strong {
+
+    color: #a9481c;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    font-weight: 900;
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .gokul-festivals-section {
+
+        width: 94%;
+
+        padding: 22px 15px 24px;
+
+        border-radius: 23px;
+    }
+
+
+    .gokul-festivals-header h2 {
+
+        font-size: 25px;
+    }
+
+
+    .gokul-festivals-header span {
+
+        font-size: 14px;
+    }
+
+
+    .gokul-festivals-intro p {
+
+        font-size: 17px;
+
+        line-height: 1.7;
+    }
+
+
+    .gokul-festival-cards {
+
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+    }
+
+
+    .gokul-festival-card {
+
+        padding: 17px 15px;
+    }
+
+
+    .gokul-festival-card h3 {
+
+        font-size: 19px;
+    }
+
+
+    .gokul-festival-card p {
+
+        font-size: 16px;
+    }
+
+
+    .gokul-festival-media-button {
+
+        font-size: 15px;
+    }
+
+
+    .gokul-festival-message strong {
+
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .gokul-festivals-section {
+
+        width: 95%;
+
+        margin: 22px auto;
+
+        padding: 20px 12px 22px;
+
+        border-radius: 20px;
+    }
+
+
+    .gokul-festivals-header h2 {
+
+        font-size: 21px;
+
+        line-height: 1.4;
+    }
+
+
+    .gokul-festivals-header span {
+
+        font-size: 12px;
+    }
+
+
+    .gokul-festivals-intro {
+
+        padding: 0 3px;
+    }
+
+
+    .gokul-festivals-intro p {
+
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+
+    .gokul-festival-card {
+
+        padding: 16px 13px;
+
+        border-radius: 17px;
+    }
+
+
+    .gokul-festival-icon {
+
+        width: 50px;
+        height: 50px;
+
+        font-size: 24px;
+    }
+
+
+    .gokul-festival-card h3 {
+
+        font-size: 18px;
+    }
+
+
+    .gokul-festival-card p {
+
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    /* 📸 🎥 MOBILE BUTTONS */
+
+    .gokul-festival-media {
+
+        gap: 8px;
+
+        margin-top: 20px;
+    }
+
+
+    .gokul-festival-media-button {
+
+        min-height: 48px;
+
+        padding: 10px 7px;
+
+        gap: 5px;
+
+        border-radius: 13px;
+
+        font-size: 13px;
+    }
+
+
+    .gokul-festival-media-button span:first-child {
+
+        font-size: 19px;
+    }
+
+
+    .gokul-festival-media-button span:last-child {
+
+        font-size: 17px;
+    }
+
+
+    .gokul-festival-message {
+
+        gap: 6px;
+
+        padding: 13px 8px;
+    }
+
+
+    .gokul-festival-message span {
+
+        font-size: 18px;
+    }
+
+
+    .gokul-festival-message strong {
+
+        font-size: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   ⛰️ GOKUL HOLY HILL SECTION
+   🚩 भगवा • सुवर्ण • क्रीम थीम
+   ========================================= */
+
+.gokul-holy-hill-section {
+    width: 92%;
+    max-width: 950px;
+
+    margin: 30px auto;
+    padding: 25px 20px 28px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8e7 0%,
+            #fffdf7 48%,
+            #ffecc7 100%
+        );
+
+    border: 2px solid #e67e22;
+
+    border-top: 4px solid #b23a00;
+    border-bottom: 4px solid #f6a800;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 8px 24px rgba(139, 62, 0, 0.16),
+        0 2px 7px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   TOP DECORATION
+   ========================================= */
+
+.gokul-holy-hill-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 180px;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff9800,
+            #b23a00,
+            #ff9800,
+            transparent
+        );
+
+    border-radius: 0 0 12px 12px;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.gokul-holy-hill-header {
+    text-align: center;
+
+    margin-bottom: 22px;
+}
+
+
+.gokul-holy-hill-header h2 {
+    margin: 5px 0 8px;
+
+    color: #b23a00;
+
+    font-size: 29px;
+    font-weight: 900;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.3px;
+
+    text-shadow:
+        0 1px 2px rgba(139, 62, 0, 0.15);
+}
+
+
+.gokul-holy-hill-header h2::after {
+    content: "";
+
+    display: block;
+
+    width: 100px;
+    height: 3px;
+
+    margin: 9px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e67e22,
+            #f6a800,
+            #e67e22
+        );
+
+    border-radius: 10px;
+}
+
+
+.gokul-holy-hill-header span {
+    display: block;
+
+    margin-top: 10px;
+
+    color: #8a4b08;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.gokul-holy-hill-intro {
+    padding: 4px 8px;
+
+    text-align: center;
+}
+
+
+.gokul-holy-hill-intro p {
+    margin: 13px 0;
+
+    color: #633300;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+.gokul-holy-hill-intro strong {
+    color: #a52a00;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   INFORMATION CARDS
+   ========================================= */
+
+.gokul-hill-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin: 25px 0;
+}
+
+
+.gokul-hill-card {
+    padding: 20px 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fff5df
+        );
+
+    border: 1px solid
+        rgba(230, 126, 34, 0.45);
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 12px
+        rgba(139, 62, 0, 0.10);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.gokul-hill-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 10px 22px
+        rgba(139, 62, 0, 0.18);
+}
+
+
+/* ICON */
+
+.gokul-hill-icon {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 11px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0c2,
+            #ffe09a
+        );
+
+    border: 2px solid #f6a800;
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 3px 9px
+        rgba(139, 62, 0, 0.12);
+}
+
+
+.gokul-hill-card h3 {
+    margin: 8px 0 10px;
+
+    color: #b23a00;
+
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+
+.gokul-hill-card p {
+    margin: 0;
+
+    color: #633300;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   UNITY BOX
+   ========================================= */
+
+.gokul-hill-unity-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0cf,
+            #fffaf0
+        );
+
+    border-left: 5px solid #e67e22;
+
+    border-right: 1px solid
+        rgba(230, 126, 34, 0.35);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 3px 10px
+        rgba(139, 62, 0, 0.08);
+}
+
+
+.gokul-hill-unity-icon {
+    min-width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fff7df;
+
+    border: 2px solid #f6a800;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+}
+
+
+.gokul-hill-unity-box h3 {
+    margin: 0 0 8px;
+
+    color: #b23a00;
+
+    font-size: 21px;
+
+    font-weight: 800;
+}
+
+
+.gokul-hill-unity-box p {
+    margin: 0;
+
+    color: #633300;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   NATURE BOX
+   ========================================= */
+
+.gokul-hill-nature-box {
+    margin-top: 18px;
+
+    padding: 19px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf4,
+            #fff0d0
+        );
+
+    border: 1px solid
+        rgba(230, 126, 34, 0.35);
+
+    border-radius: 18px;
+
+    text-align: center;
+}
+
+
+.gokul-hill-nature-box h3 {
+    margin: 0 0 9px;
+
+    color: #a52a00;
+
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+
+.gokul-hill-nature-box p {
+    margin: 0;
+
+    color: #633300;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+}
+
+
+.gokul-hill-nature-box strong {
+    color: #a52a00;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   📸 SMALL IMAGE BUTTON
+   ========================================= */
+
+.gokul-hill-image-button-wrap {
+    text-align: center;
+
+    margin-top: 20px;
+}
+
+
+.gokul-hill-image-button {
+    display: inline-block;
+
+    padding: 9px 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b23a00,
+            #e67e22
+        );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    border-radius: 20px;
+
+    border: 1px solid #8f2e00;
+
+    box-shadow:
+        0 4px 10px
+        rgba(139, 62, 0, 0.20);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.gokul-hill-image-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 15px
+        rgba(139, 62, 0, 0.28);
+}
+
+
+/* =========================================
+   FINAL QUOTE
+   ========================================= */
+
+.gokul-hill-quote {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    padding: 15px 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 193, 7, 0.12),
+            rgba(255, 255, 255, 0.75),
+            rgba(255, 193, 7, 0.12)
+        );
+
+    border-top: 1px solid
+        rgba(230, 126, 34, 0.35);
+
+    border-bottom: 1px solid
+        rgba(230, 126, 34, 0.35);
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+
+.gokul-hill-quote strong {
+    color: #a52a00;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    font-weight: 900;
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .gokul-holy-hill-section {
+        width: 94%;
+
+        padding: 22px 15px 24px;
+
+        border-radius: 23px;
+    }
+
+
+    .gokul-holy-hill-header h2 {
+        font-size: 25px;
+    }
+
+
+    .gokul-holy-hill-header span {
+        font-size: 14px;
+    }
+
+
+    .gokul-holy-hill-intro p {
+        font-size: 17px;
+
+        line-height: 1.7;
+    }
+
+
+    .gokul-hill-cards {
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+    }
+
+
+    .gokul-hill-card {
+        padding: 17px 15px;
+    }
+
+
+    .gokul-hill-unity-box {
+        align-items: flex-start;
+
+        padding: 17px;
+    }
+
+
+    .gokul-hill-unity-box h3 {
+        font-size: 19px;
+    }
+
+
+    .gokul-hill-unity-box p {
+        font-size: 16px;
+    }
+
+
+    .gokul-hill-nature-box p {
+        font-size: 16px;
+    }
+
+
+    .gokul-hill-quote strong {
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .gokul-holy-hill-section {
+        width: 95%;
+
+        margin: 22px auto;
+
+        padding: 20px 12px 22px;
+
+        border-radius: 20px;
+    }
+
+
+    .gokul-holy-hill-header h2 {
+        font-size: 21px;
+
+        line-height: 1.4;
+    }
+
+
+    .gokul-holy-hill-header span {
+        font-size: 12px;
+    }
+
+
+    .gokul-holy-hill-intro {
+        padding: 0 3px;
+    }
+
+
+    .gokul-holy-hill-intro p {
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+
+    .gokul-hill-card {
+        padding: 16px 13px;
+
+        border-radius: 17px;
+    }
+
+
+    .gokul-hill-icon {
+        width: 50px;
+        height: 50px;
+
+        font-size: 24px;
+    }
+
+
+    .gokul-hill-card h3 {
+        font-size: 18px;
+    }
+
+
+    .gokul-hill-card p {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .gokul-hill-unity-box {
+        gap: 11px;
+
+        padding: 15px;
+    }
+
+
+    .gokul-hill-unity-icon {
+        min-width: 48px;
+        height: 48px;
+
+        font-size: 23px;
+    }
+
+
+    .gokul-hill-unity-box h3 {
+        font-size: 17px;
+    }
+
+
+    .gokul-hill-unity-box p {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .gokul-hill-nature-box {
+        padding: 16px 13px;
+    }
+
+
+    .gokul-hill-nature-box h3 {
+        font-size: 17px;
+    }
+
+
+    .gokul-hill-nature-box p {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .gokul-hill-image-button {
+        padding: 8px 15px;
+
+        font-size: 14px;
+    }
+
+
+    .gokul-hill-quote {
+        gap: 6px;
+
+        padding: 13px 8px;
+    }
+
+
+    .gokul-hill-quote strong {
+        font-size: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   ⛰️ GOKUL HOLY HILL SECTION
+   🌿 हिरवा • आकाशी • निळा NATURE THEME
+   ========================================= */
+
+.gokul-holy-hill-section {
+    width: 92%;
+    max-width: 950px;
+
+    margin: 30px auto;
+    padding: 25px 20px 28px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eefaf1 0%,
+            #f8fffb 48%,
+            #e1f4ea 100%
+        );
+
+    border: 2px solid #58a77a;
+
+    border-top: 4px solid #247a4b;
+    border-bottom: 4px solid #7bcf9b;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 8px 24px rgba(36, 122, 75, 0.14),
+        0 2px 7px rgba(0, 0, 0, 0.07);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   TOP DECORATION
+   ========================================= */
+
+.gokul-holy-hill-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 180px;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #4caf78,
+            #1976a8,
+            #4caf78,
+            transparent
+        );
+
+    border-radius: 0 0 12px 12px;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.gokul-holy-hill-header {
+    text-align: center;
+
+    margin-bottom: 22px;
+}
+
+
+.gokul-holy-hill-header h2 {
+    margin: 5px 0 8px;
+
+    color: #176b43;
+
+    font-size: 29px;
+    font-weight: 900;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.3px;
+
+    text-shadow:
+        0 1px 2px rgba(23, 107, 67, 0.15);
+}
+
+
+.gokul-holy-hill-header h2::after {
+    content: "";
+
+    display: block;
+
+    width: 100px;
+    height: 3px;
+
+    margin: 9px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #45a86b,
+            #2196c7,
+            #45a86b
+        );
+
+    border-radius: 10px;
+}
+
+
+.gokul-holy-hill-header span {
+    display: block;
+
+    margin-top: 10px;
+
+    color: #28758d;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.gokul-holy-hill-intro {
+    padding: 4px 8px;
+
+    text-align: center;
+}
+
+
+.gokul-holy-hill-intro p {
+    margin: 13px 0;
+
+    color: #285842;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+.gokul-holy-hill-intro strong {
+    color: #176b43;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   INFORMATION CARDS
+   ========================================= */
+
+.gokul-hill-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin: 25px 0;
+}
+
+
+.gokul-hill-card {
+    padding: 20px 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #eefaf3
+        );
+
+    border: 1px solid
+        rgba(76, 175, 80, 0.38);
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 12px
+        rgba(36, 122, 75, 0.09);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.gokul-hill-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 10px 22px
+        rgba(36, 122, 75, 0.17);
+}
+
+
+/* ICON */
+
+.gokul-hill-icon {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 11px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e0f5e8,
+            #c4e9d2
+        );
+
+    border: 2px solid #59ad7b;
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 3px 9px
+        rgba(36, 122, 75, 0.12);
+}
+
+
+.gokul-hill-card h3 {
+    margin: 8px 0 10px;
+
+    color: #197044;
+
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+
+.gokul-hill-card p {
+    margin: 0;
+
+    color: #315d48;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   UNITY BOX
+   ========================================= */
+
+.gokul-hill-unity-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e6f6ef,
+            #f8fffb
+        );
+
+    border-left: 5px solid #3c9b68;
+
+    border-right: 1px solid
+        rgba(76, 175, 80, 0.32);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 3px 10px
+        rgba(36, 122, 75, 0.07);
+}
+
+
+.gokul-hill-unity-icon {
+    min-width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #eaf8f0;
+
+    border: 2px solid #69b987;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+}
+
+
+.gokul-hill-unity-box h3 {
+    margin: 0 0 8px;
+
+    color: #176b43;
+
+    font-size: 21px;
+
+    font-weight: 800;
+}
+
+
+.gokul-hill-unity-box p {
+    margin: 0;
+
+    color: #315d48;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   NATURE BOX
+   ========================================= */
+
+.gokul-hill-nature-box {
+    margin-top: 18px;
+
+    padding: 19px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1fbf5,
+            #e2f5ea
+        );
+
+    border: 1px solid
+        rgba(76, 175, 80, 0.32);
+
+    border-radius: 18px;
+
+    text-align: center;
+}
+
+
+.gokul-hill-nature-box h3 {
+    margin: 0 0 9px;
+
+    color: #23764b;
+
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+
+.gokul-hill-nature-box p {
+    margin: 0;
+
+    color: #315d48;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+}
+
+
+.gokul-hill-nature-box strong {
+    color: #176b43;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   📸 SMALL IMAGE BUTTON
+   ========================================= */
+
+.gokul-hill-image-button-wrap {
+    text-align: center;
+
+    margin-top: 20px;
+}
+
+
+.gokul-hill-image-button {
+    display: inline-block;
+
+    padding: 9px 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1976a8,
+            #2496c7
+        );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    border-radius: 20px;
+
+    border: 1px solid #126187;
+
+    box-shadow:
+        0 4px 10px
+        rgba(18, 97, 135, 0.20);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.gokul-hill-image-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 15px
+        rgba(18, 97, 135, 0.27);
+}
+
+
+/* =========================================
+   FINAL QUOTE
+   ========================================= */
+
+.gokul-hill-quote {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    padding: 15px 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(76, 175, 80, 0.10),
+            rgba(255, 255, 255, 0.80),
+            rgba(33, 150, 199, 0.10)
+        );
+
+    border-top: 1px solid
+        rgba(76, 175, 80, 0.30);
+
+    border-bottom: 1px solid
+        rgba(76, 175, 80, 0.30);
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+
+.gokul-hill-quote strong {
+    color: #176b43;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    font-weight: 900;
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .gokul-holy-hill-section {
+        width: 94%;
+
+        padding: 22px 15px 24px;
+
+        border-radius: 23px;
+    }
+
+
+    .gokul-holy-hill-header h2 {
+        font-size: 25px;
+    }
+
+
+    .gokul-holy-hill-header span {
+        font-size: 14px;
+    }
+
+
+    .gokul-holy-hill-intro p {
+        font-size: 17px;
+
+        line-height: 1.7;
+    }
+
+
+    .gokul-hill-cards {
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+    }
+
+
+    .gokul-hill-card {
+        padding: 17px 15px;
+    }
+
+
+    .gokul-hill-unity-box {
+        align-items: flex-start;
+
+        padding: 17px;
+    }
+
+
+    .gokul-hill-unity-box h3 {
+        font-size: 19px;
+    }
+
+
+    .gokul-hill-unity-box p {
+        font-size: 16px;
+    }
+
+
+    .gokul-hill-nature-box p {
+        font-size: 16px;
+    }
+
+
+    .gokul-hill-quote strong {
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .gokul-holy-hill-section {
+        width: 95%;
+
+        margin: 22px auto;
+
+        padding: 20px 12px 22px;
+
+        border-radius: 20px;
+    }
+
+
+    .gokul-holy-hill-header h2 {
+        font-size: 21px;
+
+        line-height: 1.4;
+    }
+
+
+    .gokul-holy-hill-header span {
+        font-size: 12px;
+    }
+
+
+    .gokul-holy-hill-intro {
+        padding: 0 3px;
+    }
+
+
+    .gokul-holy-hill-intro p {
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+
+    .gokul-hill-card {
+        padding: 16px 13px;
+
+        border-radius: 17px;
+    }
+
+
+    .gokul-hill-icon {
+        width: 50px;
+        height: 50px;
+
+        font-size: 24px;
+    }
+
+
+    .gokul-hill-card h3 {
+        font-size: 18px;
+    }
+
+
+    .gokul-hill-card p {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .gokul-hill-unity-box {
+        gap: 11px;
+
+        padding: 15px;
+    }
+
+
+    .gokul-hill-unity-icon {
+        min-width: 48px;
+        height: 48px;
+
+        font-size: 23px;
+    }
+
+
+    .gokul-hill-unity-box h3 {
+        font-size: 17px;
+    }
+
+
+    .gokul-hill-unity-box p {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .gokul-hill-nature-box {
+        padding: 16px 13px;
+    }
+
+
+    .gokul-hill-nature-box h3 {
+        font-size: 17px;
+    }
+
+
+    .gokul-hill-nature-box p {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .gokul-hill-image-button {
+        padding: 8px 15px;
+
+        font-size: 14px;
+    }
+
+
+    .gokul-hill-quote {
+        gap: 6px;
+
+        padding: 13px 8px;
+    }
+
+
+    .gokul-hill-quote strong {
+        font-size: 15px;
+    }
+}
+
+
+
+
+
+
+
 
 
 
@@ -1751,5 +4462,516 @@
         line-height: 1.6;
 
         border-radius: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🌾 GOKUL FARMING & RURAL LIFE
+   🌱 हिरवा • मातीचा तपकिरी • क्रीम THEME
+   ========================================= */
+
+.gokul-farming-section {
+    width: 92%;
+    max-width: 950px;
+
+    margin: 30px auto;
+    padding: 25px 20px 28px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f4df 0%,
+            #fffdf4 48%,
+            #edf5dc 100%
+        );
+
+    border: 2px solid #91a85b;
+
+    border-top: 4px solid #637c2d;
+    border-bottom: 4px solid #b08a45;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 8px 24px rgba(83, 96, 39, 0.14),
+        0 2px 7px rgba(0, 0, 0, 0.07);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   TOP DECORATION
+   ========================================= */
+
+.gokul-farming-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 180px;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #7d9d35,
+            #b08a45,
+            #7d9d35,
+            transparent
+        );
+
+    border-radius: 0 0 12px 12px;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.gokul-farming-header {
+    text-align: center;
+
+    margin-bottom: 22px;
+}
+
+
+.gokul-farming-header h2 {
+    margin: 5px 0 8px;
+
+    color: #596f25;
+
+    font-size: 29px;
+    font-weight: 900;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.3px;
+
+    text-shadow:
+        0 1px 2px rgba(83, 96, 39, 0.15);
+}
+
+
+.gokul-farming-header h2::after {
+    content: "";
+
+    display: block;
+
+    width: 100px;
+    height: 3px;
+
+    margin: 9px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #789c32,
+            #b08a45,
+            #789c32
+        );
+
+    border-radius: 10px;
+}
+
+
+.gokul-farming-header span {
+    display: block;
+
+    margin-top: 10px;
+
+    color: #80683c;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.gokul-farming-intro {
+    padding: 4px 8px;
+
+    text-align: center;
+}
+
+
+.gokul-farming-intro p {
+    margin: 13px 0;
+
+    color: #4f5837;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+.gokul-farming-intro strong {
+    color: #596f25;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   FARMING CARDS
+   ========================================= */
+
+.gokul-farming-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin: 25px 0;
+}
+
+
+.gokul-farming-card {
+    padding: 20px 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f3f6e5
+        );
+
+    border: 1px solid
+        rgba(126, 153, 55, 0.38);
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 12px
+        rgba(83, 96, 39, 0.09);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.gokul-farming-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 10px 22px
+        rgba(83, 96, 39, 0.17);
+}
+
+
+/* =========================================
+   ICON
+   ========================================= */
+
+.gokul-farming-icon {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 11px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf3d8,
+            #dce9bd
+        );
+
+    border: 2px solid #91a85b;
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 3px 9px
+        rgba(83, 96, 39, 0.12);
+}
+
+
+/* =========================================
+   CARD TITLE
+   ========================================= */
+
+.gokul-farming-card h3 {
+    margin: 8px 0 10px;
+
+    color: #637c2d;
+
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   CARD TEXT
+   ========================================= */
+
+.gokul-farming-card p {
+    margin: 0;
+
+    color: #50583b;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   FINAL MESSAGE
+   ========================================= */
+
+.gokul-farming-message {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    padding: 16px 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(126, 153, 55, 0.10),
+            rgba(255, 255, 255, 0.82),
+            rgba(176, 138, 69, 0.10)
+        );
+
+    border-top: 1px solid
+        rgba(126, 153, 55, 0.30);
+
+    border-bottom: 1px solid
+        rgba(176, 138, 69, 0.30);
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+
+.gokul-farming-message span {
+    font-size: 22px;
+}
+
+
+.gokul-farming-message p {
+    margin: 0;
+}
+
+
+.gokul-farming-message strong {
+    color: #596f25;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    font-weight: 900;
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .gokul-farming-section {
+        width: 94%;
+
+        padding: 22px 15px 24px;
+
+        border-radius: 23px;
+    }
+
+
+    .gokul-farming-header h2 {
+        font-size: 25px;
+    }
+
+
+    .gokul-farming-header span {
+        font-size: 14px;
+    }
+
+
+    .gokul-farming-intro p {
+        font-size: 17px;
+
+        line-height: 1.7;
+    }
+
+
+    .gokul-farming-cards {
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+    }
+
+
+    .gokul-farming-card {
+        padding: 17px 15px;
+    }
+
+
+    .gokul-farming-card h3 {
+        font-size: 19px;
+    }
+
+
+    .gokul-farming-card p {
+        font-size: 16px;
+    }
+
+
+    .gokul-farming-message strong {
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .gokul-farming-section {
+        width: 95%;
+
+        margin: 22px auto;
+
+        padding: 20px 12px 22px;
+
+        border-radius: 20px;
+    }
+
+
+    .gokul-farming-header h2 {
+        font-size: 21px;
+
+        line-height: 1.4;
+    }
+
+
+    .gokul-farming-header span {
+        font-size: 12px;
+    }
+
+
+    .gokul-farming-intro {
+        padding: 0 3px;
+    }
+
+
+    .gokul-farming-intro p {
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+
+    .gokul-farming-card {
+        padding: 16px 13px;
+
+        border-radius: 17px;
+    }
+
+
+    .gokul-farming-icon {
+        width: 50px;
+        height: 50px;
+
+        font-size: 24px;
+    }
+
+
+    .gokul-farming-card h3 {
+        font-size: 18px;
+    }
+
+
+    .gokul-farming-card p {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .gokul-farming-message {
+        gap: 6px;
+
+        padding: 13px 8px;
+    }
+
+
+    .gokul-farming-message span {
+        font-size: 18px;
+    }
+
+
+    .gokul-farming-message strong {
+        font-size: 15px;
     }
 }
