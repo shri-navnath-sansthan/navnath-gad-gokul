@@ -1,55 +1,25 @@
-/* ===== LUKLUK DOT ===== */
-
+/* ===== GREEN DOT - BIGGER ===== */
 .luklukdot {
-  width: 10px;
-  height: 10px;
-  border: 3px solid green;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 6px;
-  animation: ripple 1s infinite;
+    width: 8px !important;
+    height: 8px !important;
+    min-width: 8px !important;
+    min-height: 8px !important;
+
+    display: inline-block;
+    border-radius: 50%;
+    background: #03511e;
+
+    margin-right: 6px;
+    padding: 0 !important;
+    border: none !important;
+
+    animation: greenBlink 0.7s ease-in-out infinite;
+}@keyframes greenBlink {
+    0%, 35% {
+        opacity: 1;
+    }
+
+    65%, 100% {
+        opacity: 0;
+    }
 }
-
-
-/* ===== RIPPLE ANIMATION ===== */
-
-@keyframes ripple {
-
-  0% {
-    transform: scale(0.2);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(2.5);
-    opacity: 0;
-  }
-
-}
-
-
-
-
-.whatsapp_dot {
-  width: 10px;
-  height: 10px;
-  border: 3px solid rgb(36, 0, 107);   /* ripple साठी border */
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 6px;
-  animation: ripple 1s infinite;
-}
-
-@keyframes ripple {
-  0% {
-    transform: scale(0.2);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(2.5);
-    opacity: 0;
-  }
-}
-
-
-

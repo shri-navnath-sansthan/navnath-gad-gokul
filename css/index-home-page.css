@@ -1,0 +1,3241 @@
+/* =========================================
+   🛕 NAVNATH GAD
+   🚩 SPIRITUAL TRADITION SECTION
+   🎨 PURPLE • GOLD • TEAL THEME
+   ========================================= */
+
+.navnath-parampara-section {
+
+    width: 92%;
+    max-width: 1000px;
+
+    margin: 35px auto;
+    padding: 28px 20px 32px;
+
+    box-sizing: border-box;
+
+    background: linear-gradient(
+        135deg,
+        #fffaf0 0%,
+        #f7f1ff 50%,
+        #eef8f7 100%
+    );
+
+    border: 1px solid #8b6fb3;
+
+    border-top: 4px solid #5b3f8c;
+    border-bottom: 4px solid #c49a28;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 8px 24px rgba(91, 63, 140, 0.15),
+        0 2px 8px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* =========================================
+   ✨ TOP DECORATIVE LINE
+   ========================================= */
+
+.navnath-parampara-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 180px;
+    height: 4px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #5b3f8c,
+        #c49a28,
+        #2f8f8b,
+        transparent
+    );
+
+    border-radius: 0 0 15px 15px;
+}
+
+
+/* =========================================
+   ✨ HOVER
+   ========================================= */
+
+.navnath-parampara-section:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 14px 32px rgba(91, 63, 140, 0.22),
+        0 4px 10px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================
+   🛕 HEADER
+   ========================================= */
+
+.navnath-parampara-header h2 {
+
+    margin: 5px 0 9px;
+
+    color: #4b2f78;
+
+    font-size: 29px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+
+    text-shadow:
+        0 1px 2px rgba(75, 47, 120, 0.15);
+}
+
+
+/* =========================================
+   🌈 HEADER UNDERLINE
+   ========================================= */
+
+.navnath-parampara-header h2::after {
+
+    content: "";
+
+    display: block;
+
+    width: 95px;
+    height: 3px;
+
+    margin: 10px auto 0;
+
+    background: linear-gradient(
+        90deg,
+        #5b3f8c,
+        #c49a28,
+        #2f8f8b
+    );
+
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   🪔 SUBTITLE
+   ========================================= */
+
+.navnath-parampara-header span {
+
+    display: block;
+
+    margin-top: 12px;
+
+    color: #6b5b7e;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   📖 INTRO / TEXT BOX
+   ========================================= */
+
+.navnath-parampara-intro {
+
+    width: 94%;
+    max-width: 850px;
+
+    margin: 22px auto;
+
+    padding: 15px 18px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    border-left: 4px solid #c49a28;
+    border-right: 4px solid #2f8f8b;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 3px 12px rgba(91, 63, 140, 0.08);
+}
+
+
+.navnath-parampara-intro p {
+
+    margin: 0;
+
+    color: #3f4550;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+}
+
+
+.navnath-parampara-intro strong {
+
+    color: #4b2f78;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   🪔 CONTENT GRID
+   ========================================= */
+
+.navnath-parampara-grid {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 17px;
+
+    margin-top: 24px;
+}
+
+
+/* =========================================
+   🌸 CARDS
+   ========================================= */
+
+.navnath-parampara-card {
+
+    padding: 21px 16px 20px;
+
+    background: rgba(255, 255, 255, 0.86);
+
+    border:
+        1px solid rgba(91, 63, 140, 0.20);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 5px 15px rgba(91, 63, 140, 0.10);
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* =========================================
+   ✨ CARD HOVER
+   ========================================= */
+
+.navnath-parampara-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color: #c49a28;
+
+    box-shadow:
+        0 10px 23px rgba(91, 63, 140, 0.18);
+}
+
+
+/* =========================================
+   🙏 ICON
+   ========================================= */
+
+.navnath-parampara-icon {
+
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #f3eaff,
+        #fff7dc
+    );
+
+    border: 2px solid #c49a28;
+
+    border-radius: 50%;
+
+    font-size: 29px;
+
+    box-shadow:
+        0 4px 10px rgba(196, 154, 40, 0.16);
+}
+
+
+/* =========================================
+   📜 CARD HEADING
+   ========================================= */
+
+.navnath-parampara-card h3 {
+
+    margin: 5px 0 10px;
+
+    color: #4b2f78;
+
+    font-size: 19px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================
+   📖 CARD TEXT
+   ========================================= */
+
+.navnath-parampara-card p {
+
+    margin: 0;
+
+    color: #4d555c;
+
+    font-size: 15.5px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================
+   🪔 RELIGIOUS TRADITION
+   ========================================= */
+
+.navnath-parampara-tradition {
+
+    margin-top: 24px;
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   🌿 FINAL CONTENT
+   ========================================= */
+
+.navnath-parampara-final {
+
+    width: 94%;
+    max-width: 900px;
+
+    margin: 20px auto 0;
+
+    padding: 15px 18px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    border-left: 4px solid #5b3f8c;
+    border-right: 4px solid #c49a28;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 3px 12px rgba(91, 63, 140, 0.08);
+}
+
+
+.navnath-parampara-final p {
+
+    margin: 0;
+
+    color: #3f4550;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+}
+
+
+.navnath-parampara-final strong {
+
+    color: #4b2f78;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   🚩 FINAL HIGHLIGHT
+   ========================================= */
+
+.navnath-parampara-highlight {
+
+    width: 94%;
+    max-width: 900px;
+
+    margin: 27px auto 0;
+
+    padding: 17px 15px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(91, 63, 140, 0.08),
+        rgba(255, 255, 255, 0.88),
+        rgba(196, 154, 40, 0.12)
+    );
+
+    border:
+        1px solid rgba(196, 154, 40, 0.45);
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 3px 12px rgba(91, 63, 140, 0.08);
+}
+
+
+.navnath-parampara-highlight span {
+
+    font-size: 25px;
+
+    flex-shrink: 0;
+}
+
+
+.navnath-parampara-highlight p {
+
+    margin: 0;
+
+    color: #4b2f78;
+
+    font-size: 17px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .navnath-parampara-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+
+    .navnath-parampara-header h2 {
+
+        font-size: 26px;
+    }
+
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 550px) {
+
+    .navnath-parampara-section {
+
+        width: 94%;
+
+        padding: 21px 12px 25px;
+
+        margin: 22px auto;
+
+        border-radius: 22px;
+
+        border-top-width: 3px;
+        border-bottom-width: 3px;
+    }
+
+
+    .navnath-parampara-section::before {
+
+        width: 125px;
+        height: 3px;
+    }
+
+
+    .navnath-parampara-header h2 {
+
+        font-size: 22px;
+
+        margin-top: 3px;
+    }
+
+
+    .navnath-parampara-header h2::after {
+
+        width: 65px;
+        height: 2px;
+
+        margin-top: 8px;
+    }
+
+
+    .navnath-parampara-header span {
+
+        font-size: 13px;
+
+        margin-top: 9px;
+    }
+
+
+    .navnath-parampara-intro {
+
+        width: 97%;
+
+        margin: 17px auto;
+
+        padding: 12px 10px;
+    }
+
+
+    .navnath-parampara-intro p {
+
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .navnath-parampara-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        margin-top: 18px;
+    }
+
+
+    .navnath-parampara-card {
+
+        padding: 17px 13px;
+
+        border-radius: 17px;
+    }
+
+
+    .navnath-parampara-icon {
+
+        width: 50px;
+        height: 50px;
+
+        font-size: 25px;
+
+        margin-bottom: 9px;
+    }
+
+
+    .navnath-parampara-card h3 {
+
+        font-size: 17px;
+
+        margin-bottom: 8px;
+    }
+
+
+    .navnath-parampara-card p {
+
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+
+    .navnath-parampara-tradition {
+
+        margin-top: 18px;
+    }
+
+
+    .navnath-parampara-final {
+
+        width: 97%;
+
+        margin-top: 15px;
+
+        padding: 12px 10px;
+    }
+
+
+    .navnath-parampara-final p {
+
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .navnath-parampara-highlight {
+
+        width: 97%;
+
+        margin-top: 19px;
+
+        padding: 12px 9px;
+
+        gap: 7px;
+
+        border-radius: 13px;
+    }
+
+
+    .navnath-parampara-highlight span {
+
+        font-size: 19px;
+    }
+
+
+    .navnath-parampara-highlight p {
+
+        font-size: 13.5px;
+
+        line-height: 1.55;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   धार्मिक उत्सव व कार्यक्रम
+   ========================================= */
+
+.religious-festivals {
+    position: relative;
+    padding: 80px 20px;
+    background:
+        radial-gradient(circle at top left, rgba(255, 153, 51, 0.12), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(255, 193, 7, 0.10), transparent 35%),
+        #fffaf2;
+    overflow: hidden;
+}
+
+/* Decorative background */
+.religious-festivals::before,
+.religious-festivals::after {
+    content: "✦";
+    position: absolute;
+    font-size: 90px;
+    color: rgba(191, 87, 0, 0.05);
+    pointer-events: none;
+}
+
+.religious-festivals::before {
+    top: 20px;
+    left: 4%;
+}
+
+.religious-festivals::after {
+    bottom: 20px;
+    right: 4%;
+}
+
+
+/* Container */
+.festivals-container {
+    width: min(1200px, 100%);
+    margin: auto;
+}
+
+
+/* Heading */
+.festivals-heading {
+    max-width: 850px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.festivals-heading h2 {
+    margin: 12px 0 18px;
+    color: #9d3f00;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.festivals-heading p {
+    margin: 0 auto;
+    max-width: 760px;
+    color: #5f5147;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+
+/* Heading decorative lines */
+.heading-line {
+    display: inline-block;
+    width: 65px;
+    height: 3px;
+    margin: 0 10px 10px;
+    border-radius: 50px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #d66a18,
+        transparent
+    );
+}
+
+
+/* Cards layout */
+.festival-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: stretch;
+}
+
+
+/* Individual card */
+.festival-card {
+    position: relative;
+    padding: 35px 28px 32px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(190, 104, 32, 0.18);
+    border-radius: 24px;
+    box-shadow: 0 12px 35px rgba(99, 54, 19, 0.09);
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* Top decorative line */
+.festival-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 4px;
+    border-radius: 0 0 20px 20px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #d66a18,
+        #f0a323,
+        #d66a18,
+        transparent
+    );
+}
+
+
+/* Card hover */
+.festival-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(190, 104, 32, 0.35);
+    box-shadow: 0 18px 45px rgba(99, 54, 19, 0.15);
+}
+
+
+/* Icon */
+.festival-icon {
+    width: 72px;
+    height: 72px;
+    margin: 5px auto 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+
+    border-radius: 50%;
+    background: linear-gradient(
+        145deg,
+        #fff1d6,
+        #ffe2b1
+    );
+
+    border: 1px solid rgba(190, 104, 32, 0.20);
+
+    box-shadow:
+        0 7px 18px rgba(145, 76, 16, 0.10);
+}
+
+
+/* Card heading */
+.festival-content h3 {
+    margin: 0 0 17px;
+    text-align: center;
+
+    color: #a44705;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+
+/* Card paragraph */
+.festival-content p {
+    margin: 0 0 14px;
+
+    color: #5c5149;
+    font-size: 16px;
+    line-height: 1.85;
+    text-align: justify;
+}
+
+.festival-content p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Bottom message */
+.festivals-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    max-width: 900px;
+    margin: 48px auto 0;
+    padding: 20px 25px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(190, 104, 32, 0.20);
+    border-bottom: 1px solid rgba(190, 104, 32, 0.20);
+}
+
+.festivals-footer span {
+    flex-shrink: 0;
+    font-size: 22px;
+}
+
+.festivals-footer p {
+    margin: 0;
+    color: #765d4b;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   Tablet
+   ========================================= */
+
+@media (max-width: 950px) {
+
+    .religious-festivals {
+        padding: 65px 18px;
+    }
+
+    .festival-cards {
+        grid-template-columns: 1fr;
+        max-width: 720px;
+        margin: auto;
+    }
+
+    .festival-card {
+        padding: 32px 30px;
+    }
+
+}
+
+
+/* =========================================
+   Mobile
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .religious-festivals {
+        padding: 55px 14px;
+    }
+
+    .festivals-heading {
+        margin-bottom: 38px;
+    }
+
+    .festivals-heading h2 {
+        font-size: 28px;
+    }
+
+    .festivals-heading p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .heading-line {
+        width: 40px;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+
+    .festival-cards {
+        gap: 20px;
+    }
+
+    .festival-card {
+        padding: 30px 21px;
+        border-radius: 20px;
+    }
+
+    .festival-icon {
+        width: 64px;
+        height: 64px;
+        font-size: 30px;
+        margin-bottom: 18px;
+    }
+
+    .festival-content h3 {
+        font-size: 21px;
+    }
+
+    .festival-content p {
+        font-size: 15px;
+        line-height: 1.8;
+        text-align: left;
+    }
+
+    .festivals-footer {
+        gap: 8px;
+        padding: 18px 12px;
+        margin-top: 35px;
+    }
+
+    .festivals-footer span {
+        font-size: 18px;
+    }
+
+    .festivals-footer p {
+        font-size: 14px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🚩 RELIGIOUS FESTIVAL SECTION
+   🙏 भगवा • सुवर्ण • क्रीम थीम
+   ========================================= */
+
+.festival-section {
+    width: 92%;
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 25px 20px 28px;
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8e7 0%,
+            #fffdf7 48%,
+            #ffecc7 100%
+        );
+
+    border: 2px solid #e67e22;
+    border-top: 4px solid #b23a00;
+    border-bottom: 4px solid #f6a800;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 8px 24px rgba(139, 62, 0, 0.16),
+        0 2px 7px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   ✨ वरचा सुवर्ण पट्टा
+   ========================================= */
+
+.festival-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 180px;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff9800,
+            #b23a00,
+            #ff9800,
+            transparent
+        );
+
+    border-radius: 0 0 12px 12px;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.festival-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+
+.festival-header h2 {
+    margin: 5px 0 8px;
+
+    color: #b23a00;
+
+    font-size: 29px;
+    font-weight: 900;
+
+    line-height: 1.35;
+    letter-spacing: 0.3px;
+
+    text-shadow:
+        0 1px 2px rgba(139, 62, 0, 0.15);
+}
+
+
+.festival-header h2::after {
+    content: "";
+
+    display: block;
+
+    width: 100px;
+    height: 3px;
+
+    margin: 9px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e67e22,
+            #f6a800,
+            #e67e22
+        );
+
+    border-radius: 10px;
+}
+
+
+.festival-header span {
+    display: block;
+
+    color: #8a4b08;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   INTRO CONTENT
+   ========================================= */
+
+.festival-intro {
+    padding: 5px 8px;
+    text-align: center;
+}
+
+
+.festival-intro p {
+    margin: 13px 0;
+
+    color: #633300;
+
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+
+.festival-intro strong {
+    color: #a52a00;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   🎉 FESTIVAL CARDS
+   ========================================= */
+
+.festival-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin: 24px 0;
+}
+
+
+.festival-card {
+    padding: 20px 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fff5df
+        );
+
+    border: 1px solid rgba(230, 126, 34, 0.45);
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 12px rgba(139, 62, 0, 0.10);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.festival-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 10px 22px rgba(139, 62, 0, 0.18);
+}
+
+
+/* =========================================
+   🎯 FESTIVAL ICON
+   ========================================= */
+
+.festival-icon {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0c2,
+            #ffe09a
+        );
+
+    border: 2px solid #f6a800;
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 3px 9px rgba(139, 62, 0, 0.12);
+}
+
+
+.festival-card h3 {
+    margin: 8px 0 10px;
+
+    color: #b23a00;
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+
+.festival-card p {
+    margin: 0;
+
+    color: #633300;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   🙏 CULTURE BOX
+   ========================================= */
+
+.festival-culture {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0cf,
+            #fffaf0
+        );
+
+    border-left: 5px solid #e67e22;
+    border-right: 1px solid rgba(230, 126, 34, 0.35);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 3px 10px rgba(139, 62, 0, 0.08);
+}
+
+
+/* =========================================
+   CULTURE ICON
+   ========================================= */
+
+.festival-culture-icon {
+    min-width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff7df;
+
+    border: 2px solid #f6a800;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+}
+
+
+.festival-culture-content {
+    flex: 1;
+}
+
+
+.festival-culture-content h3 {
+    margin: 0 0 8px;
+
+    color: #b23a00;
+
+    font-size: 21px;
+    font-weight: 800;
+}
+
+
+.festival-culture-content p {
+    margin: 0;
+
+    color: #633300;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   🚩 UNITY MESSAGE
+   ========================================= */
+
+.festival-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 22px;
+
+    padding: 16px 14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 193, 7, 0.12),
+            rgba(255, 255, 255, 0.75),
+            rgba(255, 193, 7, 0.12)
+        );
+
+    border-top: 1px solid rgba(230, 126, 34, 0.35);
+    border-bottom: 1px solid rgba(230, 126, 34, 0.35);
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+
+.festival-message span {
+    font-size: 22px;
+}
+
+
+.festival-message p {
+    margin: 0;
+
+    color: #a52a00;
+
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+.festival-message strong {
+    font-weight: 900;
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .festival-section {
+        width: 94%;
+        padding: 22px 15px 24px;
+        border-radius: 23px;
+    }
+
+
+    .festival-header h2 {
+        font-size: 25px;
+    }
+
+
+    .festival-header span {
+        font-size: 14px;
+    }
+
+
+    .festival-intro p {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+
+    .festival-cards {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+
+    .festival-card {
+        padding: 17px 15px;
+    }
+
+
+    .festival-culture {
+        align-items: flex-start;
+        padding: 17px;
+    }
+
+
+    .festival-culture-content h3 {
+        font-size: 19px;
+    }
+
+
+    .festival-culture-content p {
+        font-size: 16px;
+    }
+
+
+    .festival-message p {
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .festival-section {
+        width: 95%;
+        margin: 22px auto;
+        padding: 20px 12px 22px;
+        border-radius: 20px;
+    }
+
+
+    .festival-header h2 {
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+
+    .festival-header span {
+        font-size: 12px;
+    }
+
+
+    .festival-intro {
+        padding: 0 3px;
+    }
+
+
+    .festival-intro p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    .festival-card {
+        padding: 16px 13px;
+        border-radius: 17px;
+    }
+
+
+    .festival-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+
+    .festival-card h3 {
+        font-size: 18px;
+    }
+
+
+    .festival-card p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+
+    .festival-culture {
+        gap: 11px;
+        padding: 15px;
+    }
+
+
+    .festival-culture-icon {
+        min-width: 48px;
+        height: 48px;
+        font-size: 23px;
+    }
+
+
+    .festival-culture-content h3 {
+        font-size: 17px;
+    }
+
+
+    .festival-culture-content p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+
+    .festival-message {
+        gap: 7px;
+        padding: 13px 8px;
+    }
+
+
+    .festival-message span {
+        font-size: 18px;
+    }
+
+
+    .festival-message p {
+        font-size: 15px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🙏 SEVA & UPKRAM
+   🌿 सेवा • समर्पण • सहकार्य थीम
+   ========================================= */
+
+.seva-section {
+    width: 92%;
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 26px 20px 28px;
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7fff8 0%,
+            #ffffff 50%,
+            #fff8ed 100%
+        );
+
+    border: 1px solid #b7d9bd;
+    border-top: 4px solid #4d8b57;
+    border-bottom: 4px solid #e89b3c;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 8px 24px rgba(45, 95, 55, 0.12),
+        0 2px 7px rgba(0, 0, 0, 0.06);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   🌿 TOP DECORATION
+   ========================================= */
+
+.seva-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 180px;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #72a878,
+            #e89b3c,
+            #72a878,
+            transparent
+        );
+
+    border-radius: 0 0 12px 12px;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.seva-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+
+.seva-header h2 {
+    margin: 5px 0 8px;
+
+    color: #397044;
+
+    font-size: 29px;
+    font-weight: 900;
+
+    line-height: 1.35;
+    letter-spacing: 0.3px;
+
+    text-shadow:
+        0 1px 2px rgba(45, 95, 55, 0.12);
+}
+
+
+.seva-header h2::after {
+    content: "";
+
+    display: block;
+
+    width: 100px;
+    height: 3px;
+
+    margin: 9px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4d8b57,
+            #e89b3c,
+            #4d8b57
+        );
+
+    border-radius: 10px;
+}
+
+
+.seva-header span {
+    display: block;
+
+    color: #6b633f;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.seva-intro {
+    padding: 5px 8px;
+    text-align: center;
+}
+
+
+.seva-intro p {
+    margin: 13px 0;
+
+    color: #405342;
+
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+
+.seva-intro strong {
+    color: #397044;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   SERVICE CARDS
+   ========================================= */
+
+.seva-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin: 25px 0;
+}
+
+
+.seva-card {
+    padding: 20px 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f5fbf5
+        );
+
+    border: 1px solid rgba(77, 139, 87, 0.30);
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 12px rgba(45, 95, 55, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.seva-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(232, 155, 60, 0.65);
+
+    box-shadow:
+        0 10px 22px rgba(45, 95, 55, 0.14);
+}
+
+
+/* =========================================
+   SERVICE ICON
+   ========================================= */
+
+.seva-icon {
+    width: 56px;
+    height: 56px;
+
+    margin: 0 auto 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf8ed,
+            #fff3df
+        );
+
+    border: 2px solid #9bc59f;
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 3px 9px rgba(45, 95, 55, 0.10);
+}
+
+
+.seva-card h3 {
+    margin: 8px 0 10px;
+
+    color: #397044;
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+
+.seva-card p {
+    margin: 0;
+
+    color: #465548;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   🌿 SERVICE MESSAGE
+   ========================================= */
+
+.seva-message {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf8ed,
+            #fffaf0
+        );
+
+    border-left: 5px solid #4d8b57;
+    border-right: 1px solid rgba(232, 155, 60, 0.35);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 3px 10px rgba(45, 95, 55, 0.07);
+}
+
+
+.seva-message-icon {
+    min-width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f7fff5;
+
+    border: 2px solid #9bc59f;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+}
+
+
+.seva-message h3 {
+    margin: 0 0 8px;
+
+    color: #397044;
+
+    font-size: 21px;
+    font-weight: 800;
+}
+
+
+.seva-message p {
+    margin: 0;
+
+    color: #465548;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   🙏 BOTTOM MESSAGE
+   ========================================= */
+
+.seva-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 22px;
+
+    padding: 16px 14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(76, 175, 80, 0.08),
+            rgba(255, 255, 255, 0.85),
+            rgba(232, 155, 60, 0.10)
+        );
+
+    border-top: 1px solid rgba(77, 139, 87, 0.25);
+    border-bottom: 1px solid rgba(232, 155, 60, 0.30);
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+
+.seva-bottom span {
+    font-size: 22px;
+}
+
+
+.seva-bottom p {
+    margin: 0;
+
+    color: #4b694f;
+
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+.seva-bottom strong {
+    color: #397044;
+    font-weight: 900;
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .seva-section {
+        width: 94%;
+        padding: 22px 15px 24px;
+        border-radius: 23px;
+    }
+
+
+    .seva-header h2 {
+        font-size: 25px;
+    }
+
+
+    .seva-header span {
+        font-size: 14px;
+    }
+
+
+    .seva-intro p {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+
+    .seva-cards {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+
+    .seva-card {
+        padding: 17px 15px;
+    }
+
+
+    .seva-message {
+        align-items: flex-start;
+        padding: 17px;
+    }
+
+
+    .seva-message h3 {
+        font-size: 19px;
+    }
+
+
+    .seva-message p {
+        font-size: 16px;
+    }
+
+
+    .seva-bottom p {
+        font-size: 17px;
+    }
+
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .seva-section {
+        width: 95%;
+        margin: 22px auto;
+        padding: 20px 12px 22px;
+        border-radius: 20px;
+    }
+
+
+    .seva-header h2 {
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+
+    .seva-header span {
+        font-size: 12px;
+    }
+
+
+    .seva-intro {
+        padding: 0 3px;
+    }
+
+
+    .seva-intro p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    .seva-card {
+        padding: 16px 13px;
+        border-radius: 17px;
+    }
+
+
+    .seva-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+
+    .seva-card h3 {
+        font-size: 18px;
+    }
+
+
+    .seva-card p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+
+    .seva-message {
+        gap: 11px;
+        padding: 15px;
+    }
+
+
+    .seva-message-icon {
+        min-width: 48px;
+        height: 48px;
+        font-size: 23px;
+    }
+
+
+    .seva-message h3 {
+        font-size: 17px;
+    }
+
+
+    .seva-message p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+
+    .seva-bottom {
+        gap: 7px;
+        padding: 13px 8px;
+    }
+
+
+    .seva-bottom span {
+        font-size: 18px;
+    }
+
+
+    .seva-bottom p {
+        font-size: 15px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🙏 VISITOR INFORMATION
+   🚩 भक्ती • शिस्त • स्वच्छता थीम
+   ========================================= */
+
+.visitor-section {
+    width: 92%;
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 28px 20px 30px;
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf8 0%,
+            #f8fbff 52%,
+            #fff3df 100%
+        );
+
+    border: 1px solid #d9c7a6;
+    border-top: 4px solid #6b7f50;
+    border-bottom: 4px solid #c9822b;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 8px 25px rgba(74, 66, 48, 0.12),
+        0 2px 7px rgba(0, 0, 0, 0.05);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   TOP DECORATION
+   ========================================= */
+
+.visitor-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 190px;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #6b7f50,
+            #c9822b,
+            #6b7f50,
+            transparent
+        );
+
+    border-radius: 0 0 12px 12px;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.visitor-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.visitor-title-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4f8eb,
+            #fff0d8
+        );
+
+    border: 2px solid #c8b37d;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+
+    box-shadow:
+        0 4px 10px rgba(74, 66, 48, 0.10);
+}
+
+
+.visitor-header h2 {
+    margin: 5px 0 7px;
+
+    color: #53663d;
+
+    font-size: 29px;
+    font-weight: 900;
+
+    line-height: 1.35;
+}
+
+
+.visitor-header h2::after {
+    content: "";
+
+    display: block;
+
+    width: 95px;
+    height: 3px;
+
+    margin: 9px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6b7f50,
+            #c9822b,
+            #6b7f50
+        );
+
+    border-radius: 10px;
+}
+
+
+.visitor-header span {
+    display: block;
+
+    margin-top: 10px;
+
+    color: #77694d;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.visitor-intro {
+    max-width: 820px;
+
+    margin: 0 auto 24px;
+
+    padding: 5px 10px;
+
+    text-align: center;
+}
+
+
+.visitor-intro p {
+    margin: 10px 0;
+
+    color: #4e574b;
+
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+
+.visitor-intro strong {
+    color: #53663d;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   GUIDELINES
+   ========================================= */
+
+.visitor-guidelines {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+/* =========================================
+   VISITOR ITEM
+   ========================================= */
+
+.visitor-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 16px 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f8faf4
+        );
+
+    border: 1px solid rgba(107, 127, 80, 0.25);
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 3px 10px rgba(74, 66, 48, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.visitor-item:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(201, 130, 43, 0.50);
+
+    box-shadow:
+        0 8px 18px rgba(74, 66, 48, 0.11);
+}
+
+
+/* =========================================
+   NUMBER
+   ========================================= */
+
+.visitor-number {
+    min-width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f3ead8;
+
+    color: #9a6a2d;
+
+    border: 1px solid #d7bd91;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   ICON
+   ========================================= */
+
+.visitor-icon {
+    min-width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1f7e9,
+            #fff0d8
+        );
+
+    border: 1px solid #c9bd98;
+
+    border-radius: 50%;
+
+    font-size: 23px;
+}
+
+
+/* =========================================
+   CONTENT
+   ========================================= */
+
+.visitor-content {
+    flex: 1;
+}
+
+
+.visitor-content h3 {
+    margin: 0 0 5px;
+
+    color: #53663d;
+
+    font-size: 18px;
+    font-weight: 800;
+}
+
+
+.visitor-content p {
+    margin: 0;
+
+    color: #555d53;
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   BOTTOM MESSAGE
+   ========================================= */
+
+.visitor-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 13px;
+
+    margin-top: 22px;
+
+    padding: 17px 14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(107, 127, 80, 0.08),
+            rgba(255, 255, 255, 0.85),
+            rgba(201, 130, 43, 0.09)
+        );
+
+    border-top: 1px solid rgba(107, 127, 80, 0.25);
+    border-bottom: 1px solid rgba(201, 130, 43, 0.28);
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+
+.visitor-message span {
+    font-size: 22px;
+}
+
+
+.visitor-message p {
+    margin: 0;
+
+    color: #59634f;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+.visitor-message strong {
+    color: #53663d;
+
+    font-weight: 900;
+}
+
+
+/* =========================================
+   📱 TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .visitor-section {
+        width: 94%;
+
+        padding: 23px 15px 25px;
+
+        border-radius: 23px;
+    }
+
+
+    .visitor-header h2 {
+        font-size: 25px;
+    }
+
+
+    .visitor-header span {
+        font-size: 14px;
+    }
+
+
+    .visitor-intro p {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+
+    .visitor-guidelines {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+
+    .visitor-item {
+        padding: 16px 14px;
+    }
+
+
+    .visitor-message p {
+        font-size: 16px;
+    }
+
+}
+
+
+/* =========================================
+   📱 MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .visitor-section {
+        width: 95%;
+
+        margin: 22px auto;
+
+        padding: 20px 12px 22px;
+
+        border-radius: 20px;
+    }
+
+
+    .visitor-title-icon {
+        width: 50px;
+        height: 50px;
+
+        font-size: 24px;
+    }
+
+
+    .visitor-header h2 {
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+
+    .visitor-header span {
+        font-size: 12px;
+    }
+
+
+    .visitor-intro {
+        padding: 0 3px;
+    }
+
+
+    .visitor-intro p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    .visitor-item {
+        gap: 9px;
+
+        padding: 14px 10px;
+
+        border-radius: 16px;
+    }
+
+
+    .visitor-number {
+        min-width: 30px;
+        height: 30px;
+
+        border-radius: 8px;
+
+        font-size: 10px;
+    }
+
+
+    .visitor-icon {
+        min-width: 44px;
+        height: 44px;
+
+        font-size: 21px;
+    }
+
+
+    .visitor-content h3 {
+        font-size: 16px;
+    }
+
+
+    .visitor-content p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+
+    .visitor-message {
+        gap: 7px;
+
+        padding: 13px 8px;
+    }
+
+
+    .visitor-message span {
+        font-size: 18px;
+    }
+
+
+    .visitor-message p {
+        font-size: 14px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🚩 NAVNATH CLOSING SECTION
+   💜 ROYAL PURPLE • BLUE • GOLD THEME
+   ========================================= */
+
+.navnath-closing-section {
+    width: 92%;
+    max-width: 950px;
+
+    margin: 38px auto 30px;
+    padding: 30px 22px 26px;
+
+    box-sizing: border-box;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(217, 181, 72, 0.20),
+            transparent 42%
+        ),
+        linear-gradient(
+            135deg,
+            #f8f4ff 0%,
+            #eef4ff 52%,
+            #fffaf0 100%
+        );
+
+    border: 1px solid #c7b4e3;
+
+    border-top: 5px solid #54257d;
+    border-bottom: 5px solid #315b9b;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 10px 28px rgba(63, 39, 98, 0.15),
+        0 3px 8px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================
+   DECORATIVE GLOW
+   ========================================= */
+
+.navnath-closing-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    top: -140px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(197, 157, 52, 0.16),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   TOP SYMBOL
+   ========================================= */
+
+.navnath-closing-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 13px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.navnath-closing-symbol {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eee4ff,
+            #fff4c9
+        );
+
+    border: 2px solid #b99a43;
+
+    border-radius: 50%;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 5px 13px rgba(67, 40, 104, 0.16);
+}
+
+.navnath-closing-top span {
+    color: #54257d;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+.navnath-closing-line {
+    width: 75px;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #8b68b5
+        );
+}
+
+.navnath-closing-line:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            #8b68b5,
+            transparent
+        );
+}
+
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+
+.navnath-closing-content {
+    position: relative;
+    z-index: 1;
+
+    text-align: center;
+
+    margin-top: 15px;
+}
+
+.navnath-closing-content h2 {
+    margin: 5px 0 7px;
+
+    color: #47206d;
+
+    font-size: 29px;
+    font-weight: 900;
+
+    line-height: 1.4;
+}
+
+.navnath-closing-subtitle {
+    margin: 0;
+
+    color: #315b9b;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    letter-spacing: 0.4px;
+}
+
+
+/* =========================================
+   DIVIDER
+   ========================================= */
+
+.navnath-closing-divider {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 13px;
+
+    margin: 15px auto 13px;
+
+    color: #b28a28;
+
+    font-size: 15px;
+}
+
+.navnath-closing-divider::before,
+.navnath-closing-divider::after {
+    content: "";
+
+    width: 75px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c5a54d
+        );
+}
+
+.navnath-closing-divider::after {
+    background:
+        linear-gradient(
+            90deg,
+            #c5a54d,
+            transparent
+        );
+}
+
+
+/* =========================================
+   MAIN TEXT
+   ========================================= */
+
+.navnath-closing-text {
+    max-width: 730px;
+
+    margin: 0 auto;
+
+    color: #514b60;
+
+    font-size: 17px;
+
+    line-height: 1.85;
+
+    font-weight: 500;
+}
+
+.navnath-closing-blessing {
+    display: inline-block;
+
+    margin: 17px auto 0;
+
+    padding: 9px 20px;
+
+    color: #54257d;
+
+    background:
+        rgba(255, 255, 255, 0.72);
+
+    border: 1px solid rgba(185, 154, 67, 0.45);
+
+    border-radius: 30px;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    line-height: 1.6;
+
+    box-shadow:
+        0 3px 9px rgba(67, 40, 104, 0.07);
+}
+
+
+/* =========================================
+   BOTTOM MESSAGE
+   ========================================= */
+
+.navnath-closing-bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 22px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(84, 37, 125, 0.22);
+
+    text-align: center;
+}
+
+.navnath-closing-bottom > span {
+    font-size: 20px;
+}
+
+.navnath-closing-bottom div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.navnath-closing-bottom strong {
+    color: #54257d;
+
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.navnath-closing-bottom small {
+    color: #65718a;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .navnath-closing-section {
+        width: 94%;
+
+        padding: 25px 17px 23px;
+
+        border-radius: 25px;
+    }
+
+    .navnath-closing-content h2 {
+        font-size: 25px;
+    }
+
+    .navnath-closing-text {
+        font-size: 16px;
+
+        line-height: 1.75;
+    }
+
+    .navnath-closing-blessing {
+        font-size: 16px;
+    }
+
+    .navnath-closing-line {
+        width: 50px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .navnath-closing-section {
+        width: 95%;
+
+        margin: 27px auto 22px;
+
+        padding: 21px 12px 20px;
+
+        border-radius: 21px;
+    }
+
+    .navnath-closing-symbol {
+        width: 49px;
+        height: 49px;
+
+        font-size: 25px;
+    }
+
+    .navnath-closing-top {
+        gap: 8px;
+    }
+
+    .navnath-closing-top span {
+        font-size: 14px;
+    }
+
+    .navnath-closing-line {
+        width: 27px;
+    }
+
+    .navnath-closing-content h2 {
+        font-size: 21px;
+
+        line-height: 1.45;
+    }
+
+    .navnath-closing-subtitle {
+        font-size: 13px;
+    }
+
+    .navnath-closing-divider {
+        margin: 12px auto;
+
+        gap: 9px;
+    }
+
+    .navnath-closing-divider::before,
+    .navnath-closing-divider::after {
+        width: 45px;
+    }
+
+    .navnath-closing-text {
+        font-size: 14px;
+
+        line-height: 1.75;
+    }
+
+    .navnath-closing-blessing {
+        margin-top: 14px;
+
+        padding: 8px 13px;
+
+        font-size: 14px;
+    }
+
+    .navnath-closing-bottom {
+        gap: 8px;
+
+        margin-top: 18px;
+        padding-top: 15px;
+    }
+
+    .navnath-closing-bottom > span {
+        font-size: 17px;
+    }
+
+    .navnath-closing-bottom strong {
+        font-size: 13px;
+    }
+
+    .navnath-closing-bottom small {
+        font-size: 11px;
+    }
+}

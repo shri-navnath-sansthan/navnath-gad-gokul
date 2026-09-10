@@ -1,148 +1,970 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
- body {
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
-    line-height: 1.4;
-    }
-
-
-
-
-
-
-
-/* ===== LOCATION ===== */
-.location-bar {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 5px 0;
-  background-color: #dad8fb;   /* हलका sky blue */
-  padding: 4px 0;
-  border-radius: 8px;
-}
-
-.location-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-  text-decoration: none;
-  font-weight: bold;
-  color: #1b1b99;   /* deep blue */
-  font-size: clamp(12px, 2.5vw, 16px);
-}
-
-/* 📍 Smooth Fade In - Fade Out */
-.location-icon {
-  animation: locationFade 0.6s ease-in-out infinite;
-
-}
-
-@keyframes locationFade {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-
-/* "क्लिक करा" blink */
-.click-anim {
-  color: #1d7611;
-  animation: textBlink 0.8s infinite;
-}
-
-@keyframes textBlink {
-  50% { 
-    opacity: 0.3; 
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===== MENU SECTION  ===== */
+/* =========================================================
+   🛕 SHRI NAVNATH MAHARAJ SANSTHAN GOKUL
+   🌸 SOFT CHAMPAGNE PREMIUM MENU
+   ✨ LIGHT PEACH • CHAMPAGNE GOLD
+   🤍 SOFT WHITE SHINE
+   ========================================================= */
 
 .menu-container {
-  width: 99%;
-  height: auto;
-  max-width: 1000px;
-  margin: 5px auto;
-  padding: 8px;
-  border-radius: 12px;
+    width: 97%;
+    max-width: 1000px;
+    margin: 7px auto;
+    padding: 8px;
 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 9px;
 
-  border: 1px solid #ff5722;
-  border-top: 1px solid #ffbb00;
-  border-bottom: 1px solid #ff9900;
- 
+    position: relative;
+    box-sizing: border-box;
 
-  background-color: #f9f9e8;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background:
+        linear-gradient(
+            135deg,
+            #fbf1df,
+            #fffaf2 50%,
+            #f7e9d2
+        );
 
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 10px;
+    border: 1px solid #d2b477;
+    border-radius: 17px;
 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow:
+        0 5px 15px rgba(120, 85, 30, 0.09),
+        0 2px 6px rgba(190, 150, 70, 0.08),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+
+    overflow: visible;
 }
 
-/* Hover effect container */
-.menu-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+/* =========================================================
+   ✨ TOP DECORATIVE LINE
+   ========================================================= */
+
+.menu-container::before {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    top: -1px;
+
+    transform: translateX(-50%);
+
+    width: 150px;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d1b06b,
+            #f7e6b8,
+            #ffffff,
+            #f7e6b8,
+            #d1b06b,
+            transparent
+        );
+
+    border-radius: 20px;
 }
 
-/* Menu Buttons */
+
+/* =========================================================
+   🏠 MAIN MENU BUTTON
+   ========================================================= */
+
 .menu-btn {
-  flex: 1;
-  text-align: center;
-  padding: 9px 5px;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
+    flex: 1;
+    min-width: 0;
 
-  color: #bf360c;
-  background: #f5e0c0;
-  border-top-left-radius: 100px;
-  border-bottom-right-radius: 100px ;
+    position: relative;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  border: 1px solid #ff9900;
+    gap: 7px;
 
-  transition: all 0.3s ease;
+    padding: 9px 8px;
+
+    text-align: center;
+    text-decoration: none;
+
+    box-sizing: border-box;
+
+    color: #4b3418 !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0dfbb,
+            #fff8e9 50%,
+            #efd9ae
+        ) !important;
+
+    border: 1px solid #c9aa6d !important;
+
+    border-radius: 13px 30px 13px 30px;
+
+    font-size: clamp(15px, 2vw, 19px);
+
+    font-weight: 900;
+
+    text-shadow:
+        0 1px 0 rgba(255,255,255,0.85),
+        0 1px 3px rgba(70,45,10,0.12);
+
+    box-shadow:
+        0 3px 9px rgba(110,75,20,0.09),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-/* Button Hover */
+
+/* =========================================================
+   🤍 SOFT WHITE SHINE
+   हलका चमक effect
+   ========================================================= */
+
+.menu-btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -80%;
+
+    width: 25%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,0.10) 25%,
+            rgba(255,255,255,0.52) 50%,
+            rgba(255,255,255,0.14) 75%,
+            transparent 100%
+        );
+
+    transform: skewX(-20deg);
+
+    animation:
+        menuSoftWhiteShine 2.8s linear infinite;
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+
+@keyframes menuSoftWhiteShine {
+
+    0% {
+        left: -80%;
+    }
+
+    45% {
+        left: 125%;
+    }
+
+    100% {
+        left: 125%;
+    }
+}
+
+
+/* =========================================================
+   ✨ SMALL TOP HIGHLIGHT
+   ========================================================= */
+
+.menu-btn::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 90px;
+    height: 1.5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d0ae6b,
+            #fff7df,
+            #ffffff,
+            #fff7df,
+            #d0ae6b,
+            transparent
+        );
+
+    border-radius: 20px;
+
+    z-index: 4;
+}
+
+
+/* =========================================================
+   🌟 HOVER EFFECT
+   ========================================================= */
+
 .menu-btn:hover {
-  background: #ff5722;
-  color: white;
-  transform: scale(1.05);
+
+    transform: translateY(-2px);
+
+    color: #3f2910 !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ead4a5,
+            #fff2d5 50%,
+            #e6cc96
+        ) !important;
+
+    border-color: #b99350 !important;
+
+    box-shadow:
+        0 7px 15px rgba(110,75,20,0.14),
+        0 3px 9px rgba(190,150,70,0.13),
+        inset 0 1px 0 rgba(255,255,255,0.92);
 }
+
+
+/* =========================================================
+   👆 CLICK EFFECT
+   ========================================================= */
+
+.menu-btn:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   🟡 BLINKING DOT
+   ========================================================= */
+
+.luklukdot {
+
+    width: 8px;
+    height: 8px;
+
+    flex-shrink: 0;
+
+    display: inline-block;
+
+    border-radius: 50%;
+
+    background: #a77b2d;
+
+    box-shadow:
+        0 0 0 3px rgba(190,150,70,0.13);
+
+    animation:
+        menuDot 1.5s ease-in-out infinite;
+
+    position: relative;
+
+    z-index: 6;
+}
+
+
+.menu-btn:hover .luklukdot {
+
+    background: #8c641f;
+
+    box-shadow:
+        0 0 0 3px rgba(190,150,70,0.18);
+}
+
+
+/* =========================================================
+   ✨ DOT ANIMATION
+   ========================================================= */
+
+@keyframes menuDot {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.45;
+        transform: scale(0.72);
+    }
+}
+
+
+/* =========================================================
+   📱 TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .menu-container {
+
+        width: 95%;
+
+        gap: 7px;
+
+        padding: 7px;
+
+        margin: 6px auto;
+    }
+
+    .menu-btn {
+
+        padding: 8px 6px;
+
+        border-radius:
+            12px 27px 12px 27px;
+
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   📱 MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .menu-container {
+
+        width: 96%;
+
+        margin: 5px auto;
+
+        padding: 5px;
+
+        gap: 5px;
+
+        border-radius: 14px;
+    }
+
+    .menu-btn {
+
+        padding: 8px 4px;
+
+        gap: 4px;
+
+        font-size: 14px;
+
+        border-radius:
+            10px 21px 10px 21px;
+
+        border-width: 1px !important;
+    }
+
+    .luklukdot {
+
+        width: 6px;
+        height: 6px;
+
+        box-shadow:
+            0 0 0 2px rgba(190,150,70,0.13);
+    }
+}
+
+
+/* =========================================================
+   📱 SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .menu-container {
+
+        gap: 3px;
+
+        padding: 5px;
+    }
+
+    .menu-btn {
+
+        font-size: 12px;
+
+        padding: 7px 2px;
+
+        border-radius:
+            9px 18px 9px 18px;
+    }
+
+    .luklukdot {
+
+        width: 5px;
+        height: 5px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   🏡 GOKUL + 📚 ABHYASHIKA
+   🌿 GREEN • ✨ GOLD PREMIUM THEME
+   🤍 LIGHT • SOFT SHINE
+   ========================================================= */
+
+.gokul-abhyashika-menu {
+    width: 97%;
+    max-width: 1000px;
+
+    margin: 6px auto 8px;
+
+    display: grid;
+    grid-template-columns: 65fr 35fr;
+    gap: 8px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   🏡 GOKUL — 65%
+   ========================================================= */
+
+.gokul-abhyashika-menu .gokul-btn {
+
+    width: 100%;
+    min-height: 41px;
+
+    padding: 4px 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    color: #294b2b !important;
+
+    background:
+        linear-gradient(
+            110deg,
+            #dfead3 0%,
+            #eef4e6 22%,
+            #fffdf2 50%,
+            #edf3e2 72%,
+            #dbe8ce 100%
+        ) !important;
+
+    border: 1.5px solid #b59a45 !important;
+
+    border-radius: 12px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 4px 10px rgba(40,80,40,0.10),
+        0 2px 6px rgba(180,145,55,0.10),
+        inset 0 1px 0 rgba(255,255,255,0.90);
+
+    outline: 1px solid rgba(235,242,211,0.80);
+    outline-offset: -4px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* =========================================================
+   📚 ABHYASHIKA — 35%
+   ========================================================= */
+
+.gokul-abhyashika-menu .abhyashika-btn {
+
+    width: 100% !important;
+
+    min-height: 41px;
+
+    padding: 4px 8px;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    color: #294b2b !important;
+
+    background:
+        linear-gradient(
+            110deg,
+            #dfead3 0%,
+            #eef4e6 22%,
+            #fffdf2 50%,
+            #edf3e2 72%,
+            #dbe8ce 100%
+        ) !important;
+
+    border: 1.5px solid #b59a45 !important;
+
+    border-radius: 12px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 4px 10px rgba(40,80,40,0.10),
+        0 2px 6px rgba(180,145,55,0.10),
+        inset 0 1px 0 rgba(255,255,255,0.90);
+
+    outline: 1px solid rgba(235,242,211,0.80);
+    outline-offset: -4px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* =========================================================
+   🤍 SOFT WHITE-GOLD SHINE — GOKUL
+   ========================================================= */
+
+.gokul-abhyashika-menu .gokul-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -80%;
+
+    width: 25%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,0.10) 25%,
+            rgba(255,255,255,0.52) 50%,
+            rgba(255,255,255,0.14) 75%,
+            transparent 100%
+        );
+
+    transform: skewX(-20deg);
+
+    animation:
+        gokulSoftGreenGoldShine 2.8s linear infinite;
+
+    pointer-events: none;
+
+    z-index: 10;
+}
+
+
+@keyframes gokulSoftGreenGoldShine {
+
+    0% {
+        left: -80%;
+    }
+
+    45% {
+        left: 125%;
+    }
+
+    100% {
+        left: 125%;
+    }
+}
+
+
+/* =========================================================
+   🤍 SOFT WHITE-GOLD SHINE — ABHYASHIKA
+   ========================================================= */
+
+.gokul-abhyashika-menu .abhyashika-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -80%;
+
+    width: 25%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,0.10) 25%,
+            rgba(255,255,255,0.55) 50%,
+            rgba(255,255,255,0.14) 75%,
+            transparent 100%
+        );
+
+    transform: skewX(-20deg);
+
+    animation:
+        abhyashikaSoftGreenGoldShine 3s linear infinite;
+
+    pointer-events: none;
+
+    z-index: 10;
+}
+
+
+@keyframes abhyashikaSoftGreenGoldShine {
+
+    0% {
+        left: -80%;
+    }
+
+    45% {
+        left: 125%;
+    }
+
+    100% {
+        left: 125%;
+    }
+}
+
+
+/* =========================================================
+   ✨ TOP GOLD HIGHLIGHT
+   ========================================================= */
+
+.gokul-abhyashika-menu .gokul-btn::after,
+.gokul-abhyashika-menu .abhyashika-btn::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 130px;
+    height: 1.5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #b99a43,
+            #ead99e,
+            #fffdf0,
+            #ead99e,
+            #b99a43,
+            transparent
+        );
+
+    border-radius: 20px;
+
+    z-index: 4;
+}
+
+
+/* =========================================================
+   📝 GOKUL TEXT
+   ========================================================= */
+
+.gokul-abhyashika-menu .gokul-text {
+
+    position: relative;
+    z-index: 20;
+
+    white-space: nowrap;
+
+    color: #294b2b !important;
+
+    font-size: clamp(18px, 2.3vw, 23px);
+
+    font-weight: 900;
+
+    line-height: 1.1;
+
+    letter-spacing: 0;
+
+    text-align: center;
+
+    text-shadow:
+        0 1px 0 rgba(255,255,255,0.90),
+        0 1px 3px rgba(30,70,35,0.15);
+}
+
+
+/* =========================================================
+   📝 ABHYASHIKA TEXT
+   ========================================================= */
+
+.gokul-abhyashika-menu .abhyashika-text {
+
+    position: relative;
+    z-index: 20;
+
+    white-space: nowrap;
+
+    color: #294b2b !important;
+
+    font-size: clamp(15px, 2.05vw, 21px);
+
+    font-weight: 900;
+
+    line-height: 1.1;
+
+    text-align: center;
+
+    letter-spacing: 0;
+
+    text-shadow:
+        0 1px 0 rgba(255,255,255,0.90),
+        0 1px 3px rgba(30,70,35,0.15);
+}
+
+
+/* =========================================================
+   🖱️ HOVER
+   ========================================================= */
+
+.gokul-abhyashika-menu .gokul-btn:hover,
+.gokul-abhyashika-menu .abhyashika-btn:hover {
+
+    transform: translateY(-2px);
+
+    border-color: #9f8638 !important;
+
+    box-shadow:
+        0 7px 16px rgba(40,80,40,0.14),
+        0 3px 9px rgba(180,145,55,0.14),
+        inset 0 1px 0 rgba(255,255,255,0.95);
+}
+
+
+/* =========================================================
+   👆 ACTIVE
+   ========================================================= */
+
+.gokul-abhyashika-menu .gokul-btn:active,
+.gokul-abhyashika-menu .abhyashika-btn:active {
+
+    transform: scale(0.985);
+}
+
+
+/* =========================================================
+   📱 TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .gokul-abhyashika-menu {
+
+        width: 95%;
+
+        grid-template-columns: 65fr 35fr;
+
+        gap: 7px;
+
+        margin: 5px auto 7px;
+    }
+
+    .gokul-abhyashika-menu .gokul-btn,
+    .gokul-abhyashika-menu .abhyashika-btn {
+
+        min-height: 40px;
+
+        border-radius: 11px;
+    }
+
+    .gokul-abhyashika-menu .gokul-text {
+
+        font-size: 17px;
+    }
+
+    .gokul-abhyashika-menu .abhyashika-text {
+
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   📱 MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .gokul-abhyashika-menu {
+
+        width: 96%;
+
+        grid-template-columns: 65fr 35fr;
+
+        gap: 5px;
+
+        margin: 4px auto 6px;
+    }
+
+    .gokul-abhyashika-menu .gokul-btn {
+
+        min-height: 38px;
+
+        padding: 3px 5px;
+
+        border-radius: 10px;
+
+        border-width: 1px !important;
+    }
+
+    .gokul-abhyashika-menu .abhyashika-btn {
+
+        min-height: 38px;
+
+        padding: 3px 2px;
+
+        border-radius: 10px;
+
+        border-width: 1px !important;
+    }
+
+    .gokul-abhyashika-menu .gokul-text {
+
+        font-size: 15px;
+    }
+
+    .gokul-abhyashika-menu .abhyashika-text {
+
+        font-size: 13px;
+
+        font-weight: 900;
+    }
+}
+
+
+/* =========================================================
+   📱 SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .gokul-abhyashika-menu {
+
+        width: 97%;
+
+        gap: 4px;
+    }
+
+    .gokul-abhyashika-menu .gokul-btn {
+
+        min-height: 36px;
+
+        padding: 3px;
+    }
+
+    .gokul-abhyashika-menu .abhyashika-btn {
+
+        min-height: 36px;
+
+        padding: 3px 2px;
+    }
+
+    .gokul-abhyashika-menu .gokul-text {
+
+        font-size: 14px;
+    }
+
+    .gokul-abhyashika-menu .abhyashika-text {
+
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -297,132 +1119,706 @@
 
 
 
-/* Info Box 1 - माझ्या रंगसंगतीसह, Text Centered */
-.info-box1 {
-  border: 2px solid #ff5722;       
-  border-radius: 20px;
-  border-top:1px solid #157bbb; 
-  border-bottom:1px solid #ff9900; 
-  padding: 15px;
-  background-color: #fff3e0;       
-  color: #bf360c;             
-  max-width: 900px;
-  margin: 10px auto;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;               
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   📍 LOCATION BAR
+   ✨ SOFT PREMIUM GOLD • LIGHT EFFECT
+   ========================================================= */
+
+.location-bar {
+    width: 97%;
+    max-width: 1000px;
+
+    margin: 7px auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
 }
 
-/* Hover effect */
-.info-box1:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+/* =========================================================
+   📍 LOCATION LINK
+   ========================================================= */
+
+.location-link {
+    width: 100%;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 8px 12px;
+
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    color: #4b3518 !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4e5c4,
+            #fff9eb 50%,
+            #f0dfba
+        );
+
+    border: 1px solid #c9aa6d;
+
+    border-radius: 12px;
+
+    font-size: clamp(14px, 2vw, 18px);
+
+    font-weight: 800;
+
+    box-shadow:
+        0 3px 9px rgba(110, 75, 20, 0.09),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
 
-/* Heading style */
-.info-box1 h2 {
-  color: #e64a19;                  
-  font-size: 26px;
-  margin-bottom: 15px;
+
+/* =========================================================
+   ✨ हलका SHINE EFFECT
+   ========================================================= */
+
+.location-link::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -75%;
+
+    width: 22%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.48),
+            rgba(255,255,255,0.12),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    animation: locationSoftShine 3.2s linear infinite;
+
+    pointer-events: none;
+
+    z-index: 1;
 }
 
-/* Paragraph style */
-.info-box1 p {
-  font-size: 18px;
-  line-height: 1.6;
+
+@keyframes locationSoftShine {
+
+    0% {
+        left: -75%;
+    }
+
+    45% {
+        left: 125%;
+    }
+
+    100% {
+        left: 125%;
+    }
 }
 
-/* Responsive design */
+
+/* =========================================================
+   📍 LOCATION ICON
+   ========================================================= */
+
+.location-icon {
+    position: relative;
+    z-index: 3;
+
+    font-size: 18px;
+
+    filter:
+        drop-shadow(0 1px 1px rgba(80,50,10,0.15));
+
+    animation: locationPin 2s ease-in-out infinite;
+}
+
+
+@keyframes locationPin {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+
+/* =========================================================
+   📝 TEXT
+   ========================================================= */
+
+.location-link {
+    text-shadow:
+        0 1px 0 rgba(255,255,255,0.85),
+        0 1px 2px rgba(70,45,10,0.10);
+}
+
+
+/* =========================================================
+   👆 "स्थान पहा"
+   ========================================================= */
+
+.click-anim {
+    position: relative;
+    z-index: 3;
+
+    margin-left: 4px;
+
+    padding: 3px 8px;
+
+    color: #74531c;
+
+    background: rgba(255,255,255,0.38);
+
+    border: 1px solid rgba(185,150,80,0.35);
+
+    border-radius: 7px;
+
+    font-size: 0.82em;
+
+    font-weight: 900;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   🌟 HOVER
+   ========================================================= */
+
+.location-link:hover {
+
+    transform: translateY(-2px);
+
+    border-color: #b9944e;
+
+    box-shadow:
+        0 6px 14px rgba(110,75,20,0.13),
+        0 2px 7px rgba(190,150,70,0.10),
+        inset 0 1px 0 rgba(255,255,255,0.95);
+}
+
+
+.location-link:hover .click-anim {
+
+    background: rgba(255,255,255,0.62);
+
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   👆 CLICK
+   ========================================================= */
+
+.location-link:active {
+    transform: scale(0.985);
+}
+
+
+/* =========================================================
+   📱 TABLET
+   ========================================================= */
+
 @media (max-width: 768px) {
-  .info-box1 {
-    padding: 12px;
-    font-size: 16px;
-  }
-  .info-box1 h2 {
-    font-size: 22px;
-  }
-  .info-box1 p {
-    font-size: 16px;
-  }
+
+    .location-bar {
+        width: 95%;
+        margin: 6px auto;
+    }
+
+    .location-link {
+        padding: 7px 9px;
+        gap: 6px;
+        font-size: 15px;
+        border-radius: 11px;
+    }
+
+    .location-icon {
+        font-size: 17px;
+    }
+
+    .click-anim {
+        padding: 3px 7px;
+    }
 }
+
+
+/* =========================================================
+   📱 MOBILE
+   ========================================================= */
 
 @media (max-width: 480px) {
-  .info-box1 {
-    padding: 8px;
-    font-size: 14px;
-  }
-  .info-box1 h2 {
-    font-size: 20px;
-  }
-  .info-box1 p {
-    font-size: 12px;
-  }
+
+    .location-bar {
+        width: 96%;
+        margin: 5px auto;
+    }
+
+    .location-link {
+        padding: 7px 6px;
+        gap: 4px;
+
+        font-size: 13px;
+
+        border-radius: 10px;
+    }
+
+    .location-icon {
+        font-size: 16px;
+    }
+
+    .click-anim {
+        margin-left: 2px;
+        padding: 2px 6px;
+        font-size: 11px;
+        border-radius: 6px;
+    }
+}
+
+
+/* =========================================================
+   📱 SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .location-link {
+        padding: 6px 4px;
+        gap: 3px;
+        font-size: 12px;
+    }
+
+    .location-icon {
+        font-size: 15px;
+    }
+
+    .click-anim {
+        padding: 2px 5px;
+        font-size: 10px;
+    }
 }
 
 
 
 
-/* Info Box 2 - माझ्या रंगसंगतीसह, Text Centered */
-.info-box2 {
-  border: 2px solid #8e44ad;      
-  border-radius: 20px;
-  padding: 15px;
-  border-top:1px solid #bd3ca3; 
-  border-bottom:1px solid #ff0000; 
-  background-color: #f3e5f5;       
-  color: #4a148c;                 
-  max-width: 900px;
-  margin: 10px auto;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;              
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   📍 LOCATION BAR
+   🌿 GREEN • ✨ GOLD PREMIUM THEME
+   🤍 LIGHT • SOFT EFFECT
+   ========================================================= */
+
+.location-bar {
+    width: 97%;
+    max-width: 1000px;
+
+    margin: 7px auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
 }
 
-/* Hover effect */
-.info-box2:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+/* =========================================================
+   📍 LOCATION LINK
+   ========================================================= */
+
+.location-link {
+    width: 100%;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 8px 12px;
+
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    color: #294b2b !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e6efd9,
+            #fffdf2 50%,
+            #e9efd9
+        );
+
+    border: 1px solid #b59a45;
+
+    border-radius: 12px;
+
+    font-size: clamp(14px, 2vw, 18px);
+
+    font-weight: 900;
+
+    text-shadow:
+        0 1px 0 rgba(255,255,255,0.9),
+        0 1px 2px rgba(30,70,35,0.10);
+
+    box-shadow:
+        0 3px 9px rgba(40,80,40,0.10),
+        0 2px 5px rgba(180,145,55,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
 
-/* Heading style */
-.info-box2 h2 {
-  color: #6a1b9a;                  /* मध्यम जांभळट */
-  font-size: 26px;
-  margin-bottom: 15px;
+
+/* =========================================================
+   🤍 SOFT GOLD-WHITE SHINE
+   ========================================================= */
+
+.location-link::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -75%;
+
+    width: 22%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.10),
+            rgba(255,255,255,0.50),
+            rgba(255,255,255,0.12),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    animation:
+        locationGreenGoldShine 3.2s linear infinite;
+
+    pointer-events: none;
+
+    z-index: 1;
 }
 
-/* Paragraph style */
-.info-box2 p {
-  font-size: 18px;
-  line-height: 1.6;
+
+@keyframes locationGreenGoldShine {
+
+    0% {
+        left: -75%;
+    }
+
+    45% {
+        left: 125%;
+    }
+
+    100% {
+        left: 125%;
+    }
 }
 
-/* Responsive design */
+
+/* =========================================================
+   📍 LOCATION ICON
+   ========================================================= */
+
+.location-icon {
+    position: relative;
+
+    z-index: 3;
+
+    font-size: 18px;
+
+    filter:
+        drop-shadow(0 1px 1px rgba(50,70,25,0.15));
+
+    animation:
+        locationPin 2.2s ease-in-out infinite;
+}
+
+
+@keyframes locationPin {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+
+/* =========================================================
+   📍 "स्थान पहा"
+   ========================================================= */
+
+.click-anim {
+    position: relative;
+
+    z-index: 3;
+
+    margin-left: 4px;
+
+    padding: 3px 8px;
+
+    color: #5b4916;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(239,226,173,0.55),
+            rgba(255,255,255,0.45)
+        );
+
+    border: 1px solid rgba(181,154,69,0.40);
+
+    border-radius: 7px;
+
+    font-size: 0.82em;
+
+    font-weight: 900;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   🌿 HOVER
+   ========================================================= */
+
+.location-link:hover {
+
+    transform: translateY(-2px);
+
+    border-color: #9c8538;
+
+    box-shadow:
+        0 6px 14px rgba(40,80,40,0.14),
+        0 2px 7px rgba(180,145,55,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.95);
+}
+
+
+.location-link:hover .click-anim {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(229,216,156,0.75),
+            rgba(255,255,255,0.65)
+        );
+
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   👆 CLICK
+   ========================================================= */
+
+.location-link:active {
+    transform: scale(0.985);
+}
+
+
+/* =========================================================
+   📱 TABLET
+   ========================================================= */
+
 @media (max-width: 768px) {
-  .info-box2 {
-    padding: 12px;
-    font-size: 16px;
-  }
-  .info-box2 h2 {
-    font-size: 22px;
-  }
-  .info-box2 p {
-    font-size: 16px;
-  }
+
+    .location-bar {
+        width: 95%;
+        margin: 6px auto;
+    }
+
+    .location-link {
+        padding: 7px 9px;
+        gap: 6px;
+        font-size: 15px;
+        border-radius: 11px;
+    }
+
+    .location-icon {
+        font-size: 17px;
+    }
+
+    .click-anim {
+        padding: 3px 7px;
+    }
 }
+
+
+/* =========================================================
+   📱 MOBILE
+   ========================================================= */
 
 @media (max-width: 480px) {
-  .info-box2 {
-    padding: 8px;
-    font-size: 14px;
-  }
-  .info-box2 h2 {
-    font-size: 20px;
-  }
-  .info-box2 p {
-    font-size: 12px;
-  }
+
+    .location-bar {
+        width: 96%;
+        margin: 5px auto;
+    }
+
+    .location-link {
+        padding: 7px 6px;
+        gap: 4px;
+        font-size: 13px;
+        border-radius: 10px;
+    }
+
+    .location-icon {
+        font-size: 16px;
+    }
+
+    .click-anim {
+        margin-left: 2px;
+        padding: 2px 6px;
+        font-size: 11px;
+        border-radius: 6px;
+    }
 }
+
+
+/* =========================================================
+   📱 SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .location-link {
+        padding: 6px 4px;
+        gap: 3px;
+        font-size: 12px;
+    }
+
+    .location-icon {
+        font-size: 15px;
+    }
+
+    .click-anim {
+        padding: 2px 5px;
+        font-size: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -540,865 +1936,146 @@ border-bottom:2px solid #e4e4e1;
 
 
 
+/* ===== GALLERY GRID ===== */
 
-/* =========================================================
-   🚩 NAVNATH GAD GOKUL
-   📸 PHOTO GALLERY
-   ROYAL TEMPLE HERITAGE PREMIUM THEME
-   ========================================================= */
+.gallery{
 
+display:grid;
 
-/* =========================================================
-   🌐 BASIC
-   ========================================================= */
+grid-template-columns:repeat(3,1fr);
 
-* {
-    box-sizing: border-box;
-}
+gap:8px;
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-
-    background:
-        linear-gradient(
-            180deg,
-            #fffaf0 0%,
-            #fffdf8 45%,
-            #f8f0df 100%
-        );
-
-    color: #35251c;
-
-    font-family:
-        "Noto Sans Devanagari",
-        "Mukta",
-        Arial,
-        sans-serif;
-}
-
-
-/* =========================================================
-   🚩 PAGE TITLE
-   ========================================================= */
-
-.page-title {
-    width: 92%;
-    max-width: 1000px;
-
-    margin: 25px auto 18px;
-
-    padding: 14px 20px;
-
-    text-align: center;
-
-    font-size: clamp(22px, 4vw, 34px);
-
-    font-weight: 800;
-
-    color: #7a1f1f;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fffaf0,
-            #f8e7c4
-        );
-
-    border: 1px solid #d6a84f;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 8px 22px rgba(88, 48, 20, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-
-    position: relative;
-}
-
-.page-title::after {
-    content: "";
-
-    display: block;
-
-    width: 90px;
-    height: 3px;
-
-    margin: 9px auto 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #d59a24,
-            transparent
-        );
-
-    border-radius: 20px;
-}
-
-
-/* =========================================================
-   📍 LOCATION BAR
-   ========================================================= */
-
-.location-bar {
-    width: 94%;
-    max-width: 1100px;
-
-    margin: 12px auto;
-
-    padding: 10px 15px;
-
-    text-align: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #711f1f,
-            #8d2929
-        );
-
-    border-radius: 14px;
-
-    border: 1px solid #d6a84f;
-
-    box-shadow:
-        0 5px 15px rgba(72, 26, 20, 0.18);
-}
-
-.location-link {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 7px;
-
-    color: #fff9e8;
-
-    text-decoration: none;
-
-    font-size: clamp(14px, 2vw, 17px);
-
-    font-weight: 600;
-}
-
-.location-link:hover {
-    color: #ffe29a;
-}
-
-.location-icon {
-    font-size: 19px;
-}
-
-.click-anim {
-    color: #ffd36a;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    animation: clickPulse 1.6s ease-in-out infinite;
-}
-
-@keyframes clickPulse {
-
-    0%,
-    100% {
-        opacity: 0.65;
-        transform: translateY(0);
-    }
-
-    50% {
-        opacity: 1;
-        transform: translateY(-2px);
-    }
-}
-
-
-/* =========================================================
-   🔎 SEARCH BOX
-   ========================================================= */
-
-#searchBox {
-    width: 90% !important;
-    max-width: 450px !important;
-
-    padding: 12px 16px !important;
-
-    font-size: 15px;
-
-    color: #3a2920;
-
-    background: #fffdf8;
-
-    border: 1px solid #cfa45b !important;
-
-    border-radius: 25px !important;
-
-    outline: none;
-
-    box-shadow:
-        0 5px 15px rgba(80, 48, 20, 0.08);
-
-    transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.25s ease;
-}
-
-#searchBox::placeholder {
-    color: #927e6a;
-}
-
-#searchBox:focus {
-    border-color: #8d2929 !important;
-
-    box-shadow:
-        0 0 0 3px rgba(141, 41, 41, 0.10),
-        0 7px 18px rgba(80, 48, 20, 0.12);
-
-    transform: translateY(-1px);
-}
-
-
-/* =========================================================
-   📸 GALLERY WRAPPER
-   ========================================================= */
-
-#gallery-wrapper {
-    width: 96%;
-    max-width: 1450px;
-
-    margin: 0 auto 45px;
-}
-
-
-/* =========================================================
-   📅 MONTH TITLE
-   ========================================================= */
-
-.month-title {
-    position: relative;
-
-    width: fit-content;
-
-    max-width: 92%;
-
-    margin: 28px auto 14px;
-
-    padding: 8px 24px;
-
-    text-align: center;
-
-    color: #6e1d1d;
-
-    font-size: clamp(18px, 3vw, 25px);
-
-    font-weight: 800;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff8e9,
-            #f4dfb3
-        );
-
-    border: 1px solid #d5aa58;
-
-    border-radius: 25px;
-
-    box-shadow:
-        0 5px 15px rgba(91, 54, 21, 0.10);
-}
-
-.month-title::before {
-    content: "📅";
-
-    margin-right: 7px;
-}
-
-
-/* =========================================================
-   🖼️ GALLERY GRID
-   ========================================================= */
-
-.gallery {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 10px;
-
-    padding: 10px;
-
-    width: 100%;
-
-    margin: 0 auto;
-}
-
-
-/* =========================================================
-   📷 GALLERY THUMBNAILS
-   ========================================================= */
-
-.gallery img {
-    display: block;
-
-    width: 100%;
-
-    aspect-ratio: 1 / 1;
-
-    object-fit: cover;
-
-    cursor: pointer;
-
-    border-radius: 13px;
-
-    border: 2px solid transparent;
-
-    background: #fff;
-
-    box-shadow:
-        0 5px 14px rgba(65, 39, 20, 0.12);
-
-    transition:
-        transform 0.28s ease,
-        box-shadow 0.28s ease,
-        border-color 0.28s ease;
-}
-
-.gallery img:hover {
-    transform: translateY(-3px) scale(1.015);
-
-    border-color: #d5a642;
-
-    box-shadow:
-        0 10px 24px rgba(72, 35, 20, 0.20);
-}
-
-.gallery img:active {
-    transform: scale(0.98);
-}
-
-
-/* =========================================================
-   💻 TABLET
-   ========================================================= */
-
-@media (min-width: 768px) {
-
-    .gallery {
-        grid-template-columns: repeat(4, 1fr);
-
-        gap: 12px;
-
-        padding: 12px;
-    }
+padding:10px;
 
 }
 
+.gallery img{
 
-/* =========================================================
-   💻 LAPTOP / DESKTOP
-   ========================================================= */
+width:100%;
 
-@media (min-width: 1200px) {
+aspect-ratio:1/1;
 
-    .gallery {
-        grid-template-columns: repeat(6, 1fr);
+object-fit:cover;
 
-        gap: 13px;
+cursor:pointer;
 
-        padding: 14px;
-    }
+border-radius:10px;
 
-}
-
-
-/* =========================================================
-   🦴 SKELETON LOADER
-   ========================================================= */
-
-#skeleton-loader {
-    width: 96%;
-    max-width: 1450px;
-
-    margin: 0 auto 30px;
-}
-
-.skeleton-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 10px;
-
-    padding: 10px;
-}
-
-.skeleton {
-    width: 100%;
-
-    aspect-ratio: 1 / 1;
-
-    border-radius: 13px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #eadfcd 25%,
-            #f8f2e8 37%,
-            #eadfcd 63%
-        );
-
-    background-size: 400% 100%;
-
-    animation:
-        skeleton-loading 1.5s ease infinite;
-}
-
-@keyframes skeleton-loading {
-
-    0% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0 50%;
-    }
+transition:transform 0.3s ease;
 
 }
 
+.gallery img:hover{
 
-/* =========================================================
-   📱 SKELETON TABLET
-   ========================================================= */
-
-@media (min-width: 768px) {
-
-    .skeleton-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+transform:scale(1.05);
 
 }
 
+/* ===== RESPONSIVE GALLERY ===== */
 
-/* =========================================================
-   💻 SKELETON DESKTOP
-   ========================================================= */
+/* Tablet */
 
-@media (min-width: 1200px) {
+@media (min-width:768px){
 
-    .skeleton-grid {
-        grid-template-columns: repeat(6, 1fr);
-    }
+.gallery{
+
+grid-template-columns:repeat(4,1fr);
 
 }
 
-
-/* =========================================================
-   📸 FULL SCREEN PHOTO VIEWER
-   ========================================================= */
-
-.modal {
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #171717 0%,
-            #050505 55%,
-            #000 100%
-        );
-
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-
-    z-index: 99999;
-
-    /*
-       Vertical page scrolling बंद,
-       horizontal swipe JS कडे.
-    */
-    touch-action: pan-y;
-
-    overscroll-behavior: contain;
 }
 
+/* Laptop / Desktop */
 
-/* =========================================================
-   📸 SLIDER TRACK
-   ========================================================= */
+@media (min-width:1200px){
 
-.modal-track {
-    display: flex;
+.gallery{
 
-    width: 100vw;
-    height: 100vh;
-
-    flex-shrink: 0;
-
-    align-items: center;
-
-    will-change: transform;
-
-    transition:
-        transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-
-/* =========================================================
-   🖼️ FULL SCREEN IMAGE
-   ========================================================= */
-
-.modal-track img {
-    display: block;
-
-    width: 100vw;
-    height: 100vh;
-
-    flex: 0 0 100vw;
-
-    object-fit: contain;
-
-    object-position: center center;
-
-    margin: 0;
-    padding: 0;
-
-    /*
-       Photo select / drag होऊ नये.
-    */
-    user-select: none;
-    -webkit-user-select: none;
-
-    -webkit-user-drag: none;
-
-    pointer-events: none;
-
-    /*
-       Browser rendering smooth.
-    */
-    backface-visibility: hidden;
-
-    transform: translateZ(0);
-}
-
-
-/* =========================================================
-   ❌ CLOSE BUTTON
-   ========================================================= */
-
-.close-btn {
-    position: fixed;
-
-    top: 18px;
-    right: 18px;
-
-    width: 40px;
-    height: 40px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    color: #fff;
-
-    font-size: 20px;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-    z-index: 100002;
-
-    background:
-        rgba(70, 20, 20, 0.78);
-
-    border:
-        1px solid rgba(224, 177, 80, 0.80);
-
-    border-radius: 50%;
-
-    box-shadow:
-        0 5px 18px rgba(0, 0, 0, 0.45);
-
-    transition:
-        background 0.25s ease,
-        transform 0.25s ease;
-}
-
-.close-btn:hover {
-    background: #8b2525;
-
-    transform: scale(1.08);
-}
-
-.close-btn:active {
-    transform: scale(0.94);
-}
-
-
-/* =========================================================
-   📱 MOBILE PHOTO VIEWER
-   ========================================================= */
-
-@media (max-width: 767px) {
-
-    .modal {
-        width: 100vw;
-
-        height: 100dvh;
-
-        min-height: 100vh;
-    }
-
-    .modal-track {
-        width: 100vw;
-
-        height: 100dvh;
-
-        min-height: 100vh;
-
-        align-items: center;
-    }
-
-    .modal-track img {
-        width: 100vw;
-
-        height: 100dvh;
-
-        min-height: 100vh;
-
-        flex: 0 0 100vw;
-
-        object-fit: contain;
-
-        object-position: center center;
-    }
-
-    .close-btn {
-        top: 12px;
-
-        right: 12px;
-
-        width: 38px;
-
-        height: 38px;
-
-        font-size: 18px;
-    }
+grid-template-columns:repeat(6,1fr);
 
 }
 
+}
 
-/* =========================================================
-   📱 SMALL MOBILE
-   ========================================================= */
+/* ===== FULL SCREEN MODAL ===== */
 
-@media (max-width: 420px) {
+.modal{
 
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
+position:fixed;
 
-        gap: 8px;
+top:0;
 
-        padding: 8px;
-    }
+left:0;
 
-    .gallery img {
-        border-radius: 11px;
-    }
+width:100%;
 
-    .page-title {
-        width: 94%;
+height:100%;
 
-        padding: 12px 10px;
+background:#000;
 
-        font-size: 21px;
+display:none;
 
-        border-radius: 15px;
-    }
-
-    .location-bar {
-        width: 94%;
-
-        padding: 9px 8px;
-    }
-
-    .location-link {
-        font-size: 13px;
-
-        line-height: 1.5;
-    }
-
-    .month-title {
-        font-size: 18px;
-
-        padding: 7px 16px;
-    }
+overflow:hidden;
 
 }
 
+.modal-track{
 
-/* =========================================================
-   📱 VERY SMALL MOBILE SKELETON
-   ========================================================= */
+display:flex;
 
-@media (max-width: 420px) {
+height:100%;
 
-    .skeleton-grid {
-        grid-template-columns: repeat(2, 1fr);
+width:100%;
 
-        gap: 8px;
-
-        padding: 8px;
-    }
+transition:transform 0.35s ease;
 
 }
 
+.modal-track img{
 
-/* =========================================================
-   📜 MODAL CAPTION
-   ========================================================= */
+width:100%;
 
-/*
-   JS caption ला inline styles देतो.
-   खालील CSS त्याला premium appearance देण्यासाठी आहे.
-*/
+height:100%;
 
-.modal > div:not(.modal-track) {
-    font-family:
-        "Noto Sans Devanagari",
-        "Mukta",
-        Arial,
-        sans-serif;
-}
+object-fit:contain;
 
-
-/* =========================================================
-   📱 MODAL CAPTION MOBILE SUPPORT
-   ========================================================= */
-
-@media (max-width: 767px) {
-
-    .modal-caption {
-        max-height: 30vh;
-    }
+flex-shrink:0;
 
 }
 
+/* ===== CLOSE BUTTON ===== */
 
-/* =========================================================
-   ✨ TOUCH FEEDBACK
-   ========================================================= */
+.close-btn{
 
-.gallery img {
-    -webkit-tap-highlight-color: transparent;
-}
+position:absolute;
 
+top:25px;
 
-/* =========================================================
-   🚫 BODY MODAL OPEN SUPPORT
-   ========================================================= */
+right:15px;
 
-.modal-track,
-.modal-track img {
-    -webkit-touch-callout: none;
-}
+font-size:15px;
 
+color:#fff;
 
-/* =========================================================
-   🌟 PREMIUM SCROLLBAR
-   ========================================================= */
+cursor:pointer;
 
-::-webkit-scrollbar {
-    width: 8px;
-}
+z-index:10;
 
-::-webkit-scrollbar-track {
-    background: #f3eadb;
-}
+background:rgba(255,255,255,0.5);
 
-::-webkit-scrollbar-thumb {
-    background:
-        linear-gradient(
-            180deg,
-            #8b2929,
-            #c4933e
-        );
+padding:5px 10px;
 
-    border-radius: 10px;
-}
+border-radius:5px;
 
-::-webkit-scrollbar-thumb:hover {
-    background: #711f1f;
-}
-
-
-/* =========================================================
-   📱 MOBILE SCROLLBAR
-   ========================================================= */
-
-@media (max-width: 767px) {
-
-    ::-webkit-scrollbar {
-        width: 4px;
-    }
+transition:background 0.3s ease;
 
 }
 
+.close-btn:hover{
 
-/* =========================================================
-   ❤️ FINAL GALLERY DECORATION
-   ========================================================= */
+background:rgba(255,0,0,0.7);
 
-#gallery-wrapper::after {
-    content: "🚩 श्री नवनाथ महाराज संस्थान, गोकुळ 🚩";
-
-    display: block;
-
-    width: fit-content;
-    max-width: 92%;
-
-    margin: 35px auto 10px;
-
-    padding: 9px 18px;
-
-    text-align: center;
-
-    color: #7a2920;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    background: #fff8e9;
-
-    border: 1px solid #d7b064;
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 4px 12px rgba(80, 45, 20, 0.08);
 }
 
 
@@ -1410,57 +2087,61 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===== SKELETON LOADER VIDEO ===== */
+/* ===== SKELETON LOADER IMAGE===== */
 
 .skeleton-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  padding:15px;
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:8px;
+
+padding:10px;
+
 }
 
-/* 🔥 FIX: video-card सारखाच size */
-.skeleton-box{
-  width:97%;
-  aspect-ratio:11/16;   /* ✔ video-card same */
-  border-radius:12px;
+.skeleton{
 
-  background:linear-gradient(
-    90deg,
-    #7d7d7d 25%,
-    #4c4848 37%,
-    #90a0c4 63%
-  );
+width:100%;
 
-  background-size:400% 100%;
-  animation:skeleton-loading 1.2s infinite;
+aspect-ratio:1/1;
+
+border-radius:10px;
+
+background:linear-gradient(
+
+90deg,
+
+#9d9c9c 25%,
+
+#dddddd 37%,
+
+#eeeeee 63%
+
+);
+
+background-size:400% 100%;
+
+animation:skeleton-loading 1.4s ease infinite;
+
 }
 
 @keyframes skeleton-loading{
-  0%{background-position:100% 50%;}
-  100%{background-position:0 50%;}
+
+0%{
+
+background-position:100% 50%;
+
 }
 
-/* 💻 Laptop वर skeleton पण 6 columns */
-@media (min-width:1024px){
-  .skeleton-grid{
-    grid-template-columns:repeat(6,1fr);
-  }
+100%{
+
+background-position:0 50%;
+
 }
 
+}
 
 
 
@@ -2154,9 +2835,12 @@ html {
 .page-title-suchana {
     text-align: center;
     margin: 20px 0;
-    color: #ff0000;
+    color: #6b5b45;
     font-size: 10px;
 }
+
+
+
 
 
 

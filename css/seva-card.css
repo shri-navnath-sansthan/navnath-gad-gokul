@@ -1,344 +1,558 @@
+/* =========================================
+   🌿 वृक्षदानातून निसर्गसेवा
+   PREMIUM PURPLE • GOLD • TEAL • GREEN
+   ========================================= */
 
-/* ===== OUTER FRAME ===== */
-.seva-card-frame {
-  background: #f8f2e9;
-  padding: 15px 10px;
-  border-radius: 20px;
+.seva-premium-section {
 
-  border: 2px solid #ff5722;
-  border-top: 1px solid #ff7300; 
-  border-bottom: 1px solid #ff9900;
+    width: 92%;
+    max-width: 1100px;
 
-  margin: 20px auto;
-  max-width: 99%;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    margin: 35px auto;
+    padding: 28px 20px 32px;
 
-  transition: 0.3s ease;
-}
+    box-sizing: border-box;
 
-.seva-card-frame:hover {
-  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-  transform: translateY(-4px);
-}
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf0 0%,
+            #f7f1ff 48%,
+            #eef8f7 100%
+        );
 
-.seva-card-frame .seva-card-header {
-  margin: 2px auto;
-}
+    border: 1px solid #8b6fb3;
 
+    border-top: 4px solid #5b3f8c;
+    border-bottom: 4px solid #c49a28;
 
-/* ===== CARD HEADER ===== */
-.seva-card-header {
-  padding: 5px 5px;
-  display: flex;
-  justify-content: center;
-}
+    border-radius: 28px;
 
-/* ===== CARD CONTENT ===== */
-.seva-card-content {
-  width: 100%;
-  max-width: 100%;
-  padding: 8px;
+    box-shadow:
+        0 8px 24px rgba(91, 63, 140, 0.15),
+        0 2px 8px rgba(0, 0, 0, 0.08);
 
-  border: 1px solid #581111;
-  border-top: 1px solid #ac7777;
-  border-bottom: 1px solid #4c1d1d;
-  border-radius: 50px;
+    position: relative;
 
-  background-color: #efe4d1;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    overflow: hidden;
 
-  transition: 0.3s ease;
-}
-
-.seva-card-content:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-}
-
-/* ===== FLEX LAYOUT (FIXED) ===== */
-.seva-card-flex {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;   /* center ऐवजी */
-  gap: 15px;
-  flex-wrap: nowrap;
-  padding-left: 40px;            /* alignment fix */
-}
-
-/* ===== IMAGE (FIXED) ===== */
-.seva-card-img {
-  width: 90px;
-  height: 120px;
-  margin: 5px;
-  min-width: 90px;      /* equal width */
-  flex-shrink: 0;       /* image shift होऊ नये म्हणून */
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #ff5722;
-}
-
-/* ===== TEXT ===== */
-.seva-card-text {
-  text-align: center;
-  width: 100%;
-}
-
-.seva-card-text h1 {
-  color: #bf360c;
-  font-size: clamp(18px, 3vw, 30px);
-  margin-bottom: 5px;
-  white-space: nowrap;
-}
-
-.seva-card-text p {
-  color: #e64a19;
-  font-size: clamp(14px, 2vw, 16px);
-  margin: 2px 0;
-  white-space: normal;
-  word-break: break-word;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 
-.seva-card-text2 p {
-  font-size: clamp(14px, 2vw, 16px);
-  margin: 2px 0;
-  white-space: normal;
-  word-break: break-word;
+/* TOP DECORATIVE LINE */
 
-  /* Gradient text */
-  background: linear-gradient(
-    90deg, 
-    #2c4b79 16.6%,
-    #0b3c6c 33.2%,
-    #2da233 49.8%,
-    #a29350 66.4%,
-    #fb8c00 83%,
-    #d81b60 100%
-  );
+.seva-premium-section::before {
 
-  /* Standard property for compatibility */
-  background-clip: text;
+    content: "";
 
-  /* Vendor-specific for WebKit */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    position: absolute;
 
-  font-weight: bold;
+    top: 0;
+    left: 50%;
+
+    width: 190px;
+    height: 4px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #5b3f8c,
+            #c49a28,
+            #2f8f8b,
+            transparent
+        );
+
+    border-radius: 0 0 15px 15px;
 }
-
-.seva-card-text2 h1 {
-  color: #834d3d;
-  font-size: clamp(15px, 3vw, 25px);
-  margin-bottom: 2px;
-  text-align: center;
-  white-space: nowrap;
-}
-
-
-
-/* ===== MOBILE FIX ===== */
-@media (max-width: 600px) {
-
-  .seva-card-frame {
-    padding: 10px 6px;
-  }
-
-  .seva-card-content {
-    padding: 8px;
-    border-radius: 15px;
-  }
-
-  .seva-card-flex {
-    flex-direction: row;
-    gap: 5px;
-    padding-left: 10px;
-  }
-
-  .seva-card-img {
-    width: 60px;
-    height: 90px;
-    min-width: 60px;
-  }
-
-  .seva-card-text h1 {
-    font-size: 18px;
-  }
-
-  .seva-card-text p {
-    font-size: 12px;
-    white-space: normal;
-
-    
-  }
-
-  
-}
-
-
-
-/* ===== वृक्षदानातून निसर्गसेवा ===== */
-
-.main-box {
-  text-align: center;
-}
-
-/* ===== OVAL TITLE - Nature Green Theme ===== */
-.oval-title {
-  display: inline-block;
-  padding: 14px 30px;
-  font-size: 22px;
-  font-weight: bold;
-  margin: 15px 0;
-
-  /* 🌿 Rounded Green Background */
-  background: linear-gradient(135deg, #a5d6a7, #43a047);
- border-top-left-radius: 100px;
- border-bottom-right-radius: 100px ;
-
-  /* 🌳 Border */
-  border: 0.5px solid #2e7d32;
-
-  /* 🌿 Text Gradient */
-  background-clip: text;
-  -webkit-background-clip: text;
-
-  /* Important Trick */
-  color: #1b5e20;
-
-  transition: all 0.3s ease;
-}
-
-/* Hover Effect */
-.oval-title:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 100, 0, 0.35);
-}
-
-
-
-/* ===== फिरता बॉर्डर  ===== */
-
-.main-box {
-  text-align: center;
-}
-
-/* ===== OVAL TITLE ===== */
-.oval-title {
-  position: relative;
-  display: inline-block;
-  padding: 14px 30px;
-  font-size: 22px;
-  font-weight: bold;
-  margin: 15px 0;
-
-  background: #ffffff;   /* White background inside */
-  color: #1b5e20;
-
-  border-top-left-radius: 100px;
-  border-bottom-right-radius: 100px;
-
-  z-index: 1;
-  overflow: hidden;
-
-  transition: all 0.3s ease;
-}
-
-/* 🔴 Single Red Rotating Border */
-.oval-title::before {
-  content: "";
-  position: absolute;
-  inset: -3px;   /* Border thickness */
-
-  border-top-left-radius: 110px;
-  border-bottom-right-radius: 110px;
-
-  background: conic-gradient(
-    from 0deg,
-    rgb(255, 0, 0) 0deg 90deg,
-    transparent 90deg 360deg
-  );
-
-  animation: rotateBorder 3s linear infinite;
-  z-index: -2;
-}
-
-/* Inner Layer */
-.oval-title::after {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  background: #ffffff;
-
-  border-top-left-radius: 100px;
-  border-bottom-right-radius: 100px;
-
-  z-index: -1;
-}
-
-/* Rotation Animation */
-@keyframes rotateBorder {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Hover */
-.oval-title:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(200, 0, 0, 0.35);
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* =========================================
-   🌱 TREE DONATION WHATSAPP SECTION
+   🌿 HEADER
+   ========================================= */
+
+.seva-premium-header {
+
+    text-align: center;
+
+    margin-bottom: 28px;
+}
+
+
+.seva-premium-badge {
+
+    display: inline-block;
+
+    padding: 6px 20px;
+
+    margin-bottom: 9px;
+
+    border: 1px solid #a9b78b;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.75);
+
+    color: #4d7435;
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+
+.seva-premium-header h2 {
+
+    margin: 4px 0 9px;
+
+    color: #4b2f78;
+
+    font-size: 30px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+
+    text-shadow:
+        0 1px 2px rgba(75,47,120,0.15);
+}
+
+
+.seva-premium-header h2::after {
+
+    content: "";
+
+    display: block;
+
+    width: 95px;
+    height: 3px;
+
+    margin: 10px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #5b3f8c,
+            #c49a28,
+            #2f8f8b
+        );
+
+    border-radius: 10px;
+}
+
+
+.seva-premium-header p {
+
+    width: 90%;
+    max-width: 760px;
+
+    margin: 13px auto 0;
+
+    color: #536052;
+
+    font-size: 16px;
+
+    line-height: 1.65;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   🌱 DONOR GRID
+   ========================================= */
+
+.seva-premium-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    width: 100%;
+}
+
+
+/* =========================================
+   🌳 DONOR CARD
+   ========================================= */
+
+.seva-premium-card {
+
+    background:
+        rgba(255,255,255,0.88);
+
+    border:
+        1px solid rgba(91,63,140,0.20);
+
+    border-top:
+        3px solid #657a3a;
+
+    border-radius: 22px;
+
+    padding: 20px 16px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    box-shadow:
+        0 6px 18px rgba(91,63,140,0.10);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.seva-premium-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: #c49a28;
+
+    box-shadow:
+        0 12px 26px rgba(91,63,140,0.18);
+}
+
+
+/* =========================================
+   📷 PHOTO
+   ========================================= */
+
+.seva-premium-photo-wrap {
+
+    width: 105px;
+    height: 105px;
+
+    margin: 0 auto 13px;
+
+    padding: 4px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b3f8c,
+            #c49a28,
+            #2f8f8b
+        );
+
+    box-shadow:
+        0 5px 14px rgba(91,63,140,0.18);
+
+    box-sizing: border-box;
+}
+
+
+.seva-premium-img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 3px solid #ffffff;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   🏷️ LABEL
+   ========================================= */
+
+.seva-premium-label {
+
+    display: inline-block;
+
+    padding: 4px 10px;
+
+    margin-bottom: 7px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(101,122,58,0.10);
+
+    color: #587034;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   👤 NAME
+   ========================================= */
+
+.seva-premium-content h3 {
+
+    margin: 3px 0 9px;
+
+    color: #4b2f78;
+
+    font-size: 19px;
+
+    font-weight: 900;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================
+   🌳 TREE COUNT
+   ========================================= */
+
+.seva-tree-count {
+
+    display: inline-block;
+
+    padding: 6px 13px;
+
+    margin-bottom: 11px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #edf7e8,
+            #f9fff5
+        );
+
+    border:
+        1px solid #a9c68e;
+
+    border-radius: 20px;
+
+    color: #39713b;
+
+    font-size: 14px;
+}
+
+
+.seva-tree-count strong {
+
+    color: #2f6b32;
+}
+
+
+/* =========================================
+   📖 DESCRIPTION
+   ========================================= */
+
+.seva-premium-content p {
+
+    margin: 0;
+
+    color: #4d555c;
+
+    font-size: 14.5px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================
+   🙏 THANKS
+   ========================================= */
+
+.seva-thanks {
+
+    margin-top: 13px;
+
+    padding-top: 10px;
+
+    border-top:
+        1px dashed rgba(91,63,140,0.25);
+
+    color: #9a7020;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   🌿 ALL DONORS
+   ========================================= */
+
+.seva-all-donors {
+
+    width: 94%;
+    max-width: 920px;
+
+    margin: 25px auto 0;
+
+    padding: 17px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(91,63,140,0.07),
+            rgba(255,255,255,0.85),
+            rgba(196,154,40,0.10)
+        );
+
+    border:
+        1px solid rgba(196,154,40,0.40);
+
+    border-left:
+        4px solid #657a3a;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 4px 13px rgba(91,63,140,0.07);
+}
+
+
+.seva-all-donors-icon {
+
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef7e8,
+            #fff8df
+        );
+
+    border:
+        2px solid #c49a28;
+
+    font-size: 25px;
+}
+
+
+.seva-all-donors h3 {
+
+    margin: 0 0 5px;
+
+    color: #4b2f78;
+
+    font-size: 18px;
+
+    font-weight: 900;
+}
+
+
+.seva-all-donors p {
+
+    margin: 0;
+
+    color: #4d555c;
+
+    font-size: 14.5px;
+
+    line-height: 1.6;
+}
+
+
+.seva-location {
+
+    display: inline-block;
+
+    margin-top: 7px;
+
+    color: #5d733b;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   🌱 WHATSAPP SECTION
    ========================================= */
 
 .tree-donation-section {
+
     width: 90%;
     max-width: 650px;
-    margin: 35px auto;
-    padding: 25px 18px 30px;
 
-    background: #fffdf5;
+    margin: 28px auto 0;
 
-    border: 2px solid #4caf50;
-    border-radius: 35px;
+    padding: 22px 17px 25px;
+
+    background:
+        rgba(255,253,245,0.92);
+
+    border:
+        1px solid #8fbd8c;
+
+    border-top:
+        3px solid #5b3f8c;
+
+    border-bottom:
+        3px solid #4caf50;
+
+    border-radius: 25px;
 
     box-sizing: border-box;
+
     text-align: center;
 
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+    box-shadow:
+        0 7px 20px rgba(0,0,0,0.09);
 }
 
 
 /* =========================================
-   🌱 SECTION HEADING
+   🌱 WHATSAPP TITLE
    ========================================= */
 
 .tree-donation-title {
-    margin: 0 auto 24px;
-    padding: 5px 6px;
 
-    border: 1px solid #4caf50;
-  
+    margin: 0 auto 20px;
+
+    padding: 9px 12px;
+
+    border:
+        1px solid #4caf50;
+
     border-top-left-radius: 100px;
-    border-bottom-right-radius: 100px ;
+    border-bottom-right-radius: 100px;
 
     background: #ffffff;
 
     color: #286b2d;
 
-    font-size: 22px;
+    font-size: 20px;
+
     font-weight: 800;
 
     line-height: 1.45;
@@ -356,38 +570,42 @@
     position: relative;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     width: 100%;
-    min-height: 54px;
 
-    margin: 14px 0;
-    padding: 10px 15px;
+    min-height: 52px;
+
+    margin: 12px 0;
+
+    padding: 9px 13px;
 
     box-sizing: border-box;
 
-    border-radius: 9px;
+    border-radius: 10px;
 
-    /* 🌿 TWO COLOR MIX */
-    background: linear-gradient(
-        100deg,
-        #235d29 0%,
-        #08ed41 50%,
-        #195c1c 100%
-    );
+    background:
+        linear-gradient(
+            100deg,
+            #235d29 0%,
+            #08ed41 50%,
+            #195c1c 100%
+        );
 
     color: #ffffff;
 
     text-decoration: none;
 
-    font-size: 19px;
+    font-size: 17px;
+
     font-weight: 800;
 
     overflow: hidden;
 
     box-shadow:
-        0 4px 10px rgba(46, 158, 46, 0.30);
+        0 4px 10px rgba(46,158,46,0.30);
 
     transition:
         transform 0.25s ease,
@@ -395,25 +613,31 @@
 }
 
 
-/* =========================================
-   💬 LEFT TEXT
-   ========================================= */
+.tree-whatsapp-btn:hover {
+
+    transform:
+        translateY(-2px) scale(1.01);
+
+    box-shadow:
+        0 7px 18px rgba(55,167,55,0.40);
+}
+
 
 .whatsapp-left {
+
     position: relative;
 
     z-index: 2;
 
-    white-space: nowrap;
+    white-space: normal;
 
     text-shadow:
-        1px 1px 2px rgba(0, 0, 0, 0.25);
+        1px 1px 2px rgba(0,0,0,0.25);
 }
 
 
 /* =========================================
    >>> MOVING ARROWS
-   एकामागोमाग एक पुढे धावतील
    ========================================= */
 
 .moving-arrows {
@@ -421,9 +645,10 @@
     display: inline-flex;
 
     margin-left: 7px;
-    gap: 10px;
 
-    min-width: 42px;
+    gap: 6px;
+
+    min-width: 38px;
 
     justify-content: flex-start;
 
@@ -431,42 +656,34 @@
 }
 
 
-/* प्रत्येक > */
-
 .moving-arrows i {
 
     display: inline-block;
 
     font-style: normal;
 
-    font-size: 40px;
+    font-size: 30px;
+
     font-weight: 900;
 
     opacity: 0;
 
     transform: translateX(-12px);
 
-    animation: arrowRunning 1.2s infinite;
+    animation:
+        arrowRunning 1.2s infinite;
 }
 
-
-/* दुसरा > */
 
 .moving-arrows i:nth-child(2) {
     animation-delay: 0.20s;
 }
 
 
-/* तिसरा > */
-
 .moving-arrows i:nth-child(3) {
     animation-delay: 0.40s;
 }
 
-
-/* =========================================
-   ➡️ ARROW ANIMATION
-   ========================================= */
 
 @keyframes arrowRunning {
 
@@ -498,15 +715,17 @@
 
 
 /* =========================================
-   ✨ BUTTON HOVER
+   📱 TABLET
    ========================================= */
 
-.tree-whatsapp-btn:hover {
+@media (max-width: 800px) {
 
-    transform: translateY(-2px) scale(1.015);
+    .seva-premium-grid {
 
-    box-shadow:
-        0 7px 18px rgba(55, 167, 55, 0.4);
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
 }
 
 
@@ -516,37 +735,191 @@
 
 @media (max-width: 600px) {
 
+    .seva-premium-section {
+
+        width: 94%;
+
+        margin: 22px auto;
+
+        padding: 21px 12px 25px;
+
+        border-radius: 22px;
+    }
+
+
+    .seva-premium-section::before {
+
+        width: 125px;
+
+        height: 3px;
+    }
+
+
+    .seva-premium-header {
+
+        margin-bottom: 21px;
+    }
+
+
+    .seva-premium-badge {
+
+        font-size: 12px;
+
+        padding: 5px 13px;
+    }
+
+
+    .seva-premium-header h2 {
+
+        font-size: 22px;
+    }
+
+
+    .seva-premium-header h2::after {
+
+        width: 65px;
+
+        height: 2px;
+
+        margin-top: 8px;
+    }
+
+
+    .seva-premium-header p {
+
+        width: 97%;
+
+        font-size: 13.5px;
+
+        line-height: 1.6;
+    }
+
+
+    .seva-premium-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+    }
+
+
+    .seva-premium-card {
+
+        padding: 17px 13px;
+
+        border-radius: 18px;
+    }
+
+
+    .seva-premium-photo-wrap {
+
+        width: 88px;
+        height: 88px;
+
+        margin-bottom: 11px;
+    }
+
+
+    .seva-premium-content h3 {
+
+        font-size: 17px;
+    }
+
+
+    .seva-premium-content p {
+
+        font-size: 13.5px;
+
+        line-height: 1.6;
+    }
+
+
+    .seva-tree-count {
+
+        font-size: 13px;
+
+        padding: 5px 11px;
+    }
+
+
+    .seva-thanks {
+
+        font-size: 12px;
+    }
+
+
+    .seva-all-donors {
+
+        width: 97%;
+
+        padding: 13px 10px;
+
+        gap: 9px;
+
+        margin-top: 19px;
+
+        border-radius: 14px;
+    }
+
+
+    .seva-all-donors-icon {
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 21px;
+    }
+
+
+    .seva-all-donors h3 {
+
+        font-size: 16px;
+    }
+
+
+    .seva-all-donors p {
+
+        font-size: 13px;
+
+        line-height: 1.55;
+    }
+
+
+    .seva-location {
+
+        font-size: 12px;
+    }
+
+
     .tree-donation-section {
 
-        width: 92%;
+        width: 97%;
 
-        margin: 25px auto;
+        margin-top: 20px;
 
-        padding: 20px 12px 25px;
+        padding: 18px 10px 21px;
 
-        border-radius: 30px;
+        border-radius: 21px;
     }
 
 
     .tree-donation-title {
 
-        font-size: 18px;
+        font-size: 17px;
 
-        line-height: 1.4;
+        padding: 8px;
 
-        padding: 9px 8px;
-
-        margin-bottom: 20px;
+        margin-bottom: 17px;
     }
 
 
     .tree-whatsapp-btn {
 
-        min-height: 50px;
+        min-height: 49px;
 
-        padding: 9px 10px;
+        font-size: 14.5px;
 
-        font-size: 16px;
+        padding: 8px 8px;
 
         border-radius: 8px;
     }
@@ -554,16 +927,19 @@
 
     .moving-arrows {
 
-        margin-left: 5px;
+        margin-left: 4px;
 
-        min-width: 35px;
+        min-width: 30px;
+
+        gap: 3px;
     }
 
 
     .moving-arrows i {
 
-        font-size: 18px;
+        font-size: 20px;
     }
+
 }
 
 
@@ -573,61 +949,30 @@
 
 @media (max-width: 380px) {
 
+    .seva-premium-header h2 {
+
+        font-size: 20px;
+    }
+
+
+    .seva-premium-header p {
+
+        font-size: 13px;
+    }
+
+
     .tree-whatsapp-btn {
 
-        font-size: 14px;
+        font-size: 13px;
 
-        padding-left: 7px;
-        padding-right: 7px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
+
 
     .moving-arrows i {
 
-        font-size: 16px;
+        font-size: 17px;
     }
-}
 
-
-
-
-
-
-
-.quote-section {
-  width: 100%;
-  margin: 20px 0;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-#quote-text {
-  margin: 0;
-  font-size: 25px;
-  font-weight: 600;
-  line-height: 1.6;
-  font-style: italic;
-  transition: opacity 0.5s ease;
-
-  /* एकच रंग */
-  color: #05602c;
-}
-
-/* Animation states */
-.show {
-  opacity: 1;
-}
-
-.hide {
-  opacity: 0;
-}
-
-@media (max-width:768px) {
-  #quote-text {
-    font-size: 14px;
-    line-height: 1.5;
-
-    /* Mobile वरही तोच रंग */
-    color: #064923;
-  }
 }

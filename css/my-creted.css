@@ -1,44 +1,53 @@
 /* =========================================================
-   🌿 CREATOR + CONTACT + SOCIAL
-   NAVNATH GAD GOKUL — NATURE HERITAGE PREMIUM THEME
+   🚩 NAVNATH GAD GOKUL
+   👤 CREATOR + CONTACT
+   ROYAL TEMPLE HERITAGE PREMIUM THEME
    ========================================================= */
 
 
 /* =========================================================
-   👤 CREATOR / CONTACT PARENT FRAME
+   🌐 BASIC
    ========================================================= */
 
-.cards-frame{
-    width:96%;
-    max-width:900px;
+* {
+    box-sizing: border-box;
+}
 
-    margin:28px auto;
+html {
+    scroll-behavior: smooth;
+}
 
-    padding:14px;
+.cards-frame {
+    width: 96%;
+    max-width: 1000px;
 
-    border-radius:25px;
+    margin: 28px auto;
+
+    padding: 14px;
+
+    border-radius: 25px;
 
     background:
         linear-gradient(
             145deg,
-            #eef4e5,
-            #f5efe1
+            #fff8ea,
+            #f4e4c4
         );
 
-    border:1px solid #d5ddc4;
+    border: 1px solid #d6ad5b;
 
     box-shadow:
-        0 9px 28px rgba(67,82,48,.14);
+        0 10px 30px rgba(77, 35, 20, 0.14);
 
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
 
-    gap:15px;
+    gap: 15px;
 
-    justify-content:flex-start;
-    align-items:center;
+    justify-content: flex-start;
+    align-items: center;
 
-    overflow:hidden;
+    overflow: hidden;
 }
 
 
@@ -47,45 +56,45 @@
    ========================================================= */
 
 .creator-card,
-.contact-card{
-    width:100%;
-    min-width:0;
+.contact-card {
+    width: 100%;
+    min-width: 0;
 
     background:
         linear-gradient(
             135deg,
-            #ffffff,
-            #f8f7ee
+            #fffdf8,
+            #fff5e2
         );
 
-    border:1px solid #d8dfca;
+    border: 1px solid #dfc27e;
 
-    border-radius:19px;
+    border-radius: 19px;
 
-    padding:15px 18px;
+    padding: 15px 18px;
 
-    display:flex;
-    align-items:center;
+    display: flex;
+    align-items: center;
 
-    gap:18px;
+    gap: 18px;
 
     box-shadow:
-        0 5px 15px rgba(70,82,52,.09);
+        0 5px 17px rgba(75, 37, 20, 0.10);
 
     transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        border-color .25s ease;
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
 
 .creator-card:hover,
-.contact-card:hover{
-    transform:translateY(-4px);
+.contact-card:hover {
+    transform: translateY(-3px);
 
-    border-color:#aebd8e;
+    border-color: #c79a3d;
 
     box-shadow:
-        0 10px 25px rgba(72,88,48,.16);
+        0 10px 25px rgba(75, 37, 20, 0.16);
 }
 
 
@@ -94,69 +103,74 @@
    ========================================================= */
 
 .creator-img,
-.contact-img{
-    width:100px;
-    height:120px;
+.contact-img {
+    width: 100px;
+    height: 120px;
 
-    flex:0 0 auto;
+    flex: 0 0 auto;
 
-    border-radius:50%;
+    border-radius: 50%;
 
-    object-fit:cover;
+    object-fit: cover;
 
-    border:3px solid #d9c98d;
+    border: 3px solid #d6a84d;
 
-    background:#f1f1e9;
+    background: #f8ead0;
 
     box-shadow:
-        0 4px 12px rgba(71,75,50,.15);
+        0 4px 14px rgba(75, 37, 20, 0.18);
 }
 
 
 /* =========================================================
-   📝 CREATOR TEXT
+   📝 TEXT AREA
    ========================================================= */
 
 .creator-text,
-.contact-text{
-    min-width:0;
+.contact-text {
+    min-width: 0;
 
-    flex:1;
+    flex: 1;
 
-    text-align:left;
-}
-
-.creator-text h2{
-    margin:0 0 6px;
-
-    font-size:clamp(20px,3vw,28px);
-
-    color:#405d2d;
-
-    letter-spacing:.5px;
-
-    font-weight:800;
-
-    line-height:1.3;
+    text-align: left;
 }
 
 
 /* =========================================================
-   ☎️ CONTACT TITLE
+   🌐 CREATOR TITLE
    ========================================================= */
 
-.contact-text h2{
-    margin:0 0 6px;
+.creator-text h2 {
+    margin: 0 0 7px;
 
-    font-size:clamp(20px,3vw,28px);
+    font-size: clamp(20px, 3vw, 28px);
 
-    color:#52683a;
+    color: #761f1f;
 
-    letter-spacing:.5px;
+    letter-spacing: 0.3px;
 
-    font-weight:800;
+    font-weight: 800;
 
-    line-height:1.3;
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   ⛪ CONTACT TITLE
+   ========================================================= */
+
+.contact-text h2 {
+    margin: 0 0 7px;
+
+    font-size: clamp(20px, 3vw, 28px);
+
+    color: #761f1f;
+
+    letter-spacing: 0.3px;
+
+    font-weight: 800;
+
+    line-height: 1.3;
 }
 
 
@@ -164,16 +178,16 @@
    📅 WEBSITE DATE
    ========================================================= */
 
-.website-date{
-    margin:0 0 8px;
+.website-date {
+    margin: 0 0 8px;
 
-    color:#777863;
+    color: #806b54;
 
-    font-size:11px;
+    font-size: 11px;
 
-    font-weight:500;
+    font-weight: 600;
 
-    line-height:1.5;
+    line-height: 1.5;
 }
 
 
@@ -181,16 +195,16 @@
    👨‍💻 CREATOR ROLE
    ========================================================= */
 
-.creator-role{
-    margin:0 0 8px;
+.creator-role {
+    margin: 0 0 8px;
 
-    color:#71844f;
+    color: #8a6a3e;
 
-    font-size:11px;
+    font-size: 11px;
 
-    font-weight:600;
+    font-weight: 700;
 
-    line-height:1.5;
+    line-height: 1.5;
 }
 
 
@@ -198,51 +212,58 @@
    📞 CONTACT ROLE
    ========================================================= */
 
-.contact-role{
-    margin:0 0 10px;
+.contact-role {
+    margin: 0 0 10px;
 
-    color:#68705b;
+    color: #6d5b4c;
 
-    font-size:14px;
+    font-size: 14px;
 
-    font-weight:600;
+    font-weight: 700;
 
-    line-height:1.5;
+    line-height: 1.5;
 }
 
 
 /* =========================================================
-   📱 BUTTONS
+   📱 BUTTON COMMON
    ========================================================= */
 
 .creator-whatsapp,
-.contact-call{
-    display:inline-flex;
+.contact-call,
+.upload-btn {
+    display: inline-flex;
 
-    align-items:center;
-    justify-content:center;
+    align-items: center;
+    justify-content: center;
 
-    gap:8px;
+    gap: 7px;
 
-    padding:10px 20px;
+    min-height: 42px;
 
-    border-radius:40px;
+    padding: 9px 16px;
 
-    color:#fff;
+    border-radius: 30px;
 
-    text-decoration:none;
+    color: #fff;
 
-    font-size:14px;
+    text-decoration: none;
 
-    font-weight:800;
+    font-size: 13px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    border: 1px solid rgba(255,255,255,0.18);
 
     box-shadow:
-        0 5px 13px rgba(55,70,43,.18);
+        0 5px 14px rgba(60, 30, 15, 0.18);
 
     transition:
-        transform .22s ease,
-        box-shadow .22s ease,
-        filter .22s ease;
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        filter 0.22s ease;
 }
 
 
@@ -250,15 +271,15 @@
    💬 WHATSAPP
    ========================================================= */
 
-.creator-whatsapp{
+.creator-whatsapp {
     background:
         linear-gradient(
             135deg,
-            #4caf50,
-            #277b3a
+            #329b4c,
+            #176c31
         );
 
-    margin-top:4px;
+    margin-top: 4px;
 }
 
 
@@ -266,13 +287,39 @@
    📞 CALL
    ========================================================= */
 
-.contact-call{
+.contact-call {
     background:
         linear-gradient(
             135deg,
-            #667d4b,
-            #435e35
+            #8b2929,
+            #641919
         );
+}
+
+
+/* =========================================================
+   📤 PANEL BUTTON
+   ========================================================= */
+
+.upload-btn-box {
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-top: 4px;
+
+    margin-left: 7px;
+}
+
+.upload-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #b17a20,
+            #7c5011
+        );
+
+    min-width: 105px;
 }
 
 
@@ -281,13 +328,14 @@
    ========================================================= */
 
 .creator-whatsapp:hover,
-.contact-call:hover{
-    transform:translateY(-2px);
+.contact-call:hover,
+.upload-btn:hover {
+    transform: translateY(-2px);
 
     box-shadow:
-        0 9px 20px rgba(57,79,45,.25);
+        0 9px 21px rgba(60, 30, 15, 0.25);
 
-    filter:brightness(1.05);
+    filter: brightness(1.06);
 }
 
 
@@ -296,11 +344,32 @@
    ========================================================= */
 
 .creator-wa-icon,
-.contact-call-icon{
-    width:21px;
-    height:21px;
+.contact-call-icon {
+    width: 20px;
+    height: 20px;
 
-    object-fit:contain;
+    object-fit: contain;
+
+    flex: 0 0 auto;
+}
+
+
+
+/* =========================================================
+   💻 DESKTOP BUTTON ROW
+   ========================================================= */
+
+@media (min-width: 601px) {
+
+    .creator-text .creator-whatsapp,
+    .creator-text .upload-btn-box {
+        vertical-align: middle;
+    }
+
+    .creator-text .upload-btn-box {
+        margin-left: 8px;
+    }
+
 }
 
 
@@ -308,59 +377,66 @@
    📱 TABLET
    ========================================================= */
 
-@media(max-width:900px){
+@media (max-width: 900px) {
 
-    .cards-frame{
-        width:96%;
+    .cards-frame {
+        width: 96%;
 
-        padding:12px;
+        padding: 12px;
 
-        border-radius:21px;
+        border-radius: 21px;
     }
 
     .creator-card,
-    .contact-card{
-        width:100%;
+    .contact-card {
+        width: 100%;
 
-        padding:13px;
+        padding: 13px;
 
-        gap:13px;
+        gap: 13px;
     }
 
     .creator-img,
-    .contact-img{
-        width:75px;
-        height:90px;
+    .contact-img {
+        width: 75px;
+        height: 90px;
     }
 
     .creator-text h2,
-    .contact-text h2{
-        font-size:18px;
+    .contact-text h2 {
+        font-size: 18px;
     }
 
-    .website-date{
-        font-size:10px;
+    .website-date {
+        font-size: 10px;
     }
 
-    .creator-role{
-        font-size:10px;
+    .creator-role {
+        font-size: 10px;
     }
 
-    .contact-role{
-        font-size:12px;
+    .contact-role {
+        font-size: 12px;
     }
 
     .creator-whatsapp,
-    .contact-call{
-        padding:8px 15px;
+    .contact-call,
+    .upload-btn {
+        min-height: 38px;
 
-        font-size:12px;
+        padding: 8px 13px;
+
+        font-size: 12px;
     }
 
     .creator-wa-icon,
-    .contact-call-icon{
-        width:18px;
-        height:18px;
+    .contact-call-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .upload-btn {
+        min-width: 88px;
     }
 }
 
@@ -369,95 +445,144 @@
    📱 MOBILE
    ========================================================= */
 
-@media(max-width:600px){
+@media (max-width: 600px) {
 
-    .cards-frame{
-        width:96%;
+    .cards-frame {
+        width: 96%;
 
-        margin:22px auto;
+        margin: 22px auto;
 
-        padding:9px;
+        padding: 9px;
 
-        gap:9px;
+        gap: 9px;
 
-        border-radius:18px;
+        border-radius: 18px;
     }
 
     .creator-card,
-    .contact-card{
-        width:100%;
+    .contact-card {
+        width: 100%;
 
-        padding:10px;
+        padding: 10px;
 
-        gap:10px;
+        gap: 10px;
 
-        border-radius:14px;
+        border-radius: 14px;
 
-        align-items:center;
+        align-items: center;
     }
 
     .creator-card:hover,
-    .contact-card:hover{
-        transform:none;
+    .contact-card:hover {
+        transform: none;
     }
 
     .creator-img,
-    .contact-img{
-        width:58px;
-        height:70px;
+    .contact-img {
+        width: 58px;
+        height: 70px;
 
-        border-width:2px;
+        border-width: 2px;
     }
 
     .creator-text,
-    .contact-text{
-        overflow:hidden;
+    .contact-text {
+        overflow: hidden;
     }
 
     .creator-text h2,
-    .contact-text h2{
-        margin-bottom:4px;
+    .contact-text h2 {
+        margin-bottom: 4px;
 
-        font-size:15px;
+        font-size: 15px;
 
-        line-height:1.3;
+        line-height: 1.3;
     }
 
-    .website-date{
-        margin-bottom:4px;
+    .website-date {
+        margin-bottom: 4px;
 
-        font-size:9px;
+        font-size: 9px;
 
-        line-height:1.4;
+        line-height: 1.4;
     }
 
-    .creator-role{
-        margin-bottom:5px;
+    .creator-role {
+        margin-bottom: 5px;
 
-        font-size:9px;
+        font-size: 9px;
     }
 
-    .contact-role{
-        margin-bottom:6px;
+    .contact-role {
+        margin-bottom: 6px;
 
-        font-size:10px;
+        font-size: 10px;
+    }
+
+    /* =========================================
+       💬 WHATSAPP + 📤 PANEL SAME ROW
+       ========================================= */
+
+    .creator-text .creator-whatsapp,
+    .creator-text .upload-btn-box {
+        display: inline-flex;
+
+        vertical-align: middle;
+
+        margin-top: 3px;
+    }
+
+    .creator-text .upload-btn-box {
+        margin-left: 4px;
     }
 
     .creator-whatsapp,
-    .contact-call{
-        padding:7px 11px;
+    .upload-btn {
+        min-height: 34px;
 
-        gap:5px;
+        padding: 6px 9px;
 
-        font-size:10px;
+        gap: 4px;
 
-        border-radius:30px;
+        font-size: 9px;
+
+        border-radius: 22px;
     }
 
-    .creator-wa-icon,
-    .contact-call-icon{
-        width:15px;
-        height:15px;
+    .creator-wa-icon {
+        width: 15px;
+        height: 15px;
+    }
+
+    .upload-btn {
+        min-width: 67px;
+    }
+
+    .whatsapp_dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    /* Contact call button */
+
+    .contact-call {
+        min-height: 34px;
+
+        padding: 6px 10px;
+
+        font-size: 10px;
+
+        gap: 5px;
+    }
+
+    .contact-call-icon {
+        width: 15px;
+        height: 15px;
+    }
+
+    .luklukdot {
+        width: 5px;
+        height: 5px;
     }
 }
 
@@ -466,48 +591,107 @@
    📱 VERY SMALL MOBILE
    ========================================================= */
 
-@media(max-width:360px){
+@media (max-width: 360px) {
 
-    .cards-frame{
-        width:97%;
+    .cards-frame {
+        width: 97%;
 
-        padding:7px;
+        padding: 7px;
 
-        gap:7px;
+        gap: 7px;
     }
 
     .creator-card,
-    .contact-card{
-        padding:8px;
+    .contact-card {
+        padding: 8px;
 
-        gap:8px;
+        gap: 8px;
     }
 
     .creator-img,
-    .contact-img{
-        width:50px;
-        height:62px;
+    .contact-img {
+        width: 50px;
+        height: 62px;
     }
 
     .creator-text h2,
-    .contact-text h2{
-        font-size:13px;
+    .contact-text h2 {
+        font-size: 13px;
     }
 
     .website-date,
-    .creator-role{
-        font-size:8px;
+    .creator-role {
+        font-size: 8px;
     }
 
-    .contact-role{
-        font-size:9px;
+    .contact-role {
+        font-size: 9px;
+    }
+
+    /* WhatsApp + Panel */
+
+    .creator-text .creator-whatsapp,
+    .creator-text .upload-btn-box {
+        margin-top: 2px;
+    }
+
+    .creator-text .upload-btn-box {
+        margin-left: 3px;
     }
 
     .creator-whatsapp,
-    .contact-call{
-        padding:6px 8px;
+    .upload-btn {
+        min-height: 31px;
 
-        font-size:9px;
+        padding: 5px 7px;
+
+        font-size: 8px;
+
+        gap: 3px;
+    }
+
+    .creator-wa-icon {
+        width: 13px;
+        height: 13px;
+    }
+
+    .upload-btn {
+        min-width: 57px;
+    }
+}
+
+
+/* =========================================================
+   📱 ULTRA SMALL SCREEN
+   ========================================================= */
+
+@media (max-width: 320px) {
+
+    .creator-img,
+    .contact-img {
+        width: 46px;
+        height: 56px;
+    }
+
+    .creator-text h2,
+    .contact-text h2 {
+        font-size: 12px;
+    }
+
+    .creator-whatsapp,
+    .upload-btn {
+        padding: 4px 6px;
+
+        font-size: 7.5px;
+    }
+
+    .creator-wa-icon {
+        width: 12px;
+        height: 12px;
+    }
+
+    .upload-btn {
+        min-width: 52px;
     }
 }
 
@@ -516,37 +700,37 @@
    📱 SOCIAL MEDIA CONTAINER
    ========================================================= */
 
-.navnath-container{
-    width:96%;
-    max-width:900px;
+.navnath-container {
+    width: 96%;
+    max-width: 1000px;
 
-    margin:30px auto 15px;
+    margin: 30px auto 15px;
 
-    padding:18px;
+    padding: 18px;
 
     background:
         linear-gradient(
             145deg,
-            #f7f5e9,
-            #edf3e4
+            #fff8e9,
+            #f4e4c5
         );
 
-    border:1px solid #d5ddc5;
+    border: 1px solid #d7b15f;
 
-    border-radius:22px;
+    border-radius: 22px;
 
     box-shadow:
-        0 8px 24px rgba(68,82,49,.12);
+        0 8px 24px rgba(76, 37, 20, 0.12);
 
-    text-align:center;
+    text-align: center;
 
-    display:flex;
+    display: flex;
 
-    flex-direction:column;
+    flex-direction: column;
 
-    align-items:center;
+    align-items: center;
 
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
 
@@ -554,28 +738,28 @@
    🏷️ SOCIAL TITLE
    ========================================================= */
 
-.navnath-title{
-    display:inline-block;
+.navnath-title {
+    display: inline-block;
 
-    padding:7px 18px;
+    padding: 7px 18px;
 
-    background:#fffdf5;
+    background: #fffdf7;
 
-    border-top-left-radius:100px;
-    border-bottom-right-radius:100px;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
 
-    border:1px solid #d8cda8;
+    border: 1px solid #d5ad5c;
 
-    color:#596b35;
+    color: #762020;
 
-    font-size:13px;
+    font-size: 13px;
 
-    font-weight:800;
+    font-weight: 800;
 
-    margin-bottom:16px;
+    margin-bottom: 16px;
 
     box-shadow:
-        0 3px 8px rgba(70,78,48,.08);
+        0 3px 8px rgba(72, 37, 20, 0.08);
 }
 
 
@@ -583,33 +767,33 @@
    📱 SOCIAL ICON BOX
    ========================================================= */
 
-.navnath-box{
-    width:92%;
+.navnath-box {
+    width: 92%;
 
-    padding:14px 18px;
+    padding: 14px 18px;
 
     background:
         linear-gradient(
             135deg,
-            #405b32,
-            #536f3d
+            #701f1f,
+            #8c2929
         );
 
-    border-top-left-radius:55px;
-    border-bottom-right-radius:55px;
+    border-top-left-radius: 55px;
+    border-bottom-right-radius: 55px;
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
 
-    gap:15px;
+    gap: 15px;
 
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.12),
-        0 6px 15px rgba(62,79,45,.16);
+        0 6px 15px rgba(68, 30, 20, 0.18);
 }
 
 
@@ -617,24 +801,24 @@
    ⚪ SOCIAL CIRCLE
    ========================================================= */
 
-.circle{
-    width:55px;
-    height:55px;
+.circle {
+    width: 55px;
+    height: 55px;
 
-    flex:0 0 auto;
+    flex: 0 0 auto;
 
-    background:#fffdf6;
+    background: #fffdf6;
 
-    border-radius:50%;
+    border-radius: 50%;
 
-    display:flex;
+    display: flex;
 
-    align-items:center;
-    justify-content:center;
+    align-items: center;
+    justify-content: center;
 
-    border:2px solid #d9c98f;
+    border: 2px solid #d7ad55;
 
-    text-decoration:none;
+    text-decoration: none;
 
     box-shadow:
         0 4px 10px rgba(0,0,0,.14);
@@ -644,18 +828,18 @@
         box-shadow .25s ease;
 }
 
-.circle:hover{
-    transform:scale(1.12);
+.circle:hover {
+    transform: scale(1.12);
 
     box-shadow:
-        0 7px 16px rgba(35,53,26,.28);
+        0 7px 16px rgba(60,30,20,.28);
 }
 
-.circle img{
-    width:38px;
-    height:38px;
+.circle img {
+    width: 38px;
+    height: 38px;
 
-    object-fit:contain;
+    object-fit: contain;
 }
 
 
@@ -663,45 +847,45 @@
    📱 SOCIAL MOBILE
    ========================================================= */
 
-@media(max-width:600px){
+@media (max-width: 600px) {
 
-    .navnath-container{
-        width:96%;
+    .navnath-container {
+        width: 96%;
 
-        margin-top:24px;
+        margin-top: 24px;
 
-        padding:13px;
+        padding: 13px;
 
-        border-radius:17px;
+        border-radius: 17px;
     }
 
-    .navnath-title{
-        font-size:11px;
+    .navnath-title {
+        font-size: 11px;
 
-        padding:6px 14px;
+        padding: 6px 14px;
 
-        margin-bottom:12px;
+        margin-bottom: 12px;
     }
 
-    .navnath-box{
-        width:96%;
+    .navnath-box {
+        width: 96%;
 
-        padding:10px 12px;
+        padding: 10px 12px;
 
-        gap:9px;
+        gap: 9px;
 
-        border-top-left-radius:40px;
-        border-bottom-right-radius:40px;
+        border-top-left-radius: 40px;
+        border-bottom-right-radius: 40px;
     }
 
-    .circle{
-        width:46px;
-        height:46px;
+    .circle {
+        width: 46px;
+        height: 46px;
     }
 
-    .circle img{
-        width:31px;
-        height:31px;
+    .circle img {
+        width: 31px;
+        height: 31px;
     }
 }
 
@@ -710,52 +894,52 @@
    👁️ VISITOR COUNTER
    ========================================================= */
 
-.visitor-counter{
-    display:flex;
+.visitor-counter {
+    display: flex;
 
-    align-items:center;
-    justify-content:center;
+    align-items: center;
+    justify-content: center;
 
-    gap:6px;
+    gap: 6px;
 
-    width:max-content;
-    max-width:95%;
+    width: max-content;
+    max-width: 95%;
 
-    margin:12px auto 4px;
+    margin: 12px auto 4px;
 
-    padding:6px 11px;
+    padding: 6px 11px;
 
     background:
         linear-gradient(
             135deg,
             #fffdf6,
-            #f1f4e7
+            #f7ead3
         );
 
-    border:1px solid #d9dfc8;
+    border: 1px solid #d8bd7d;
 
-    border-radius:12px;
+    border-radius: 12px;
 
-    color:#526a3a;
+    color: #6f3828;
 
-    font-size:10px;
+    font-size: 10px;
 
-    font-weight:800;
+    font-weight: 800;
 
     box-shadow:
-        0 3px 9px rgba(66,79,47,.12);
+        0 3px 9px rgba(72, 37, 20, 0.10);
 }
 
-.visitor-counter img{
-    height:18px;
+.visitor-counter img {
+    height: 18px;
 
-    width:auto;
+    width: auto;
 
-    object-fit:contain;
+    object-fit: contain;
 }
 
-.visitor-text{
-    white-space:nowrap;
+.visitor-text {
+    white-space: nowrap;
 }
 
 
@@ -763,29 +947,29 @@
    💬 QUOTE ANIMATION
    ========================================================= */
 
-#quote-text{
+#quote-text {
     transition:
         all .5s ease;
 }
 
-.show{
-    opacity:1;
+.show {
+    opacity: 1;
 
     transform:
         translateY(0)
         scale(1);
 
-    filter:blur(0);
+    filter: blur(0);
 }
 
-.hide{
-    opacity:0;
+.hide {
+    opacity: 0;
 
     transform:
         translateY(20px)
         scale(.95);
 
-    filter:blur(5px);
+    filter: blur(5px);
 }
 
 
@@ -793,11 +977,11 @@
    📱 QUOTE MOBILE
    ========================================================= */
 
-@media(max-width:600px){
+@media (max-width: 600px) {
 
-    #quote-text{
-        font-size:12px;
+    #quote-text {
+        font-size: 12px;
 
-        line-height:1.5;
+        line-height: 1.5;
     }
 }

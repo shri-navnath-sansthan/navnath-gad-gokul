@@ -1,386 +1,1149 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-const API = "https://navnath-upload-server.onrender.com/gallery";
+    const API = "https://navnath-upload-server.onrender.com/gallery";
 
-const skeleton = document.getElementById("skeleton-loader");
-const galleryWrapper = document.getElementById("gallery-wrapper");
-const modal = document.getElementById("modal");
-const header = document.querySelector("header");
-const searchBox = document.getElementById("searchBox");
+    const skeleton = document.getElementById("skeleton-loader");
+    const galleryWrapper = document.getElementById("gallery-wrapper");
+    const modal = document.getElementById("modal");
+    const header = document.querySelector("header");
+    const searchBox = document.getElementById("searchBox");
 
-let images = [];
-let currentIndex = 0;
+    let images = [];
+    let currentIndex = 0;
 
-let sliderTrack;
-let modalCaption;
-let modalCaptionText;
-let readMoreBtn;
-let imageCounter;
-let isExpanded = false;
+    let sliderTrack;
+    let modalCaption;
+    let modalCaptionText;
+    let readMoreBtn;
+    let imageCounter;
 
-const COLLAPSED_HEIGHT = 40;
+    let isExpanded = false;
 
-/* ✅ HISTORY SETUP (NEW) */
-history.replaceState({page:"home"},"");
-history.pushState({page:"gallery"},"","#gallery");
+    const COLLAPSED_HEIGHT = 40;
 
-/* ===== FETCH GALLERY ===== */
+    /* =====================================================
+       🔍 PINCH ZOOM
+       ===================================================== */
 
-fetch(API)
-.then(res => res.json())
-.then(data => {
+    let zoomScale = 1;
 
-if(skeleton) skeleton.style.display = "none";
+    const MIN_ZOOM = 1;
+    const MAX_ZOOM = 3;
 
-images = data.map((img,index)=>{
+    let pinchActive = false;
+    let pinchStartDistance = 0;
+    let pinchStartScale = 1;
 
-let caption="";
-let month="Gallery";
-let year="";
+    /* =====================================================
+       👆 SWIPE
+       ===================================================== */
 
-if(img.context){
-caption = img.context.caption || "";
-month = img.context.month || "Gallery";
-year = img.context.year || "";
-}
+    let startX = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
 
-let fastImage = img.secure_url.replace(
-"/upload/",
-"/upload/f_auto,q_auto,w_800/"
-);
+    let isDragging = false;
+    let touchMoved = false;
 
-return{
-src: fastImage,
-original: img.secure_url,
-month: month,
-year: year,
-caption: caption,
-index: index
-};
+    /* =====================================================
+       🚫 PREVENT ACCIDENTAL CLICK
+       ===================================================== */
 
-});
+    let suppressClick = false;
 
-renderGallery(images);
-createModal();
 
-})
-.catch(err=>{
-console.log("Gallery load error",err);
-});
+    /* =====================================================
+       📜 HISTORY SETUP
+       ===================================================== */
 
-/* ===== SEARCH ===== */
+    history.replaceState(
+        { page: "home" },
+        "",
+        location.pathname
+    );
 
-if(searchBox){
+    history.pushState(
+        { page: "gallery" },
+        "",
+        "#gallery"
+    );
 
-searchBox.addEventListener("input",function(){
 
-const value=this.value.toLowerCase();
+    /* =====================================================
+       📥 FETCH GALLERY
+       ===================================================== */
 
-const filtered=images.filter(img =>
-img.caption.toLowerCase().includes(value)
-);
+    fetch(API)
 
-renderGallery(filtered);
+        .then(res => res.json())
 
-});
+        .then(data => {
 
-}
+            if (skeleton) {
+                skeleton.style.display = "none";
+            }
 
-/* ===== RENDER GALLERY ===== */
+            images = data.map((img, index) => {
 
-function renderGallery(imagesList){
+                let caption = "";
+                let month = "Gallery";
+                let year = "";
 
-galleryWrapper.innerHTML="";
+                if (img.context) {
 
-const grouped={};
+                    caption = img.context.caption || "";
 
-imagesList.forEach(img=>{
+                    month =
+                        img.context.month ||
+                        "Gallery";
 
-const key = img.month + " " + img.year;
+                    year =
+                        img.context.year ||
+                        "";
+                }
 
-if(!grouped[key]) grouped[key] = [];
+                const fastImage =
+                    img.secure_url.replace(
+                        "/upload/",
+                        "/upload/f_auto,q_auto,w_800/"
+                    );
 
-grouped[key].push(img);
+                return {
 
-});
+                    src: fastImage,
 
-const monthOrder = [
-"January","February","March","April","May","June",
-"July","August","September","October","November","December"
-];
+                    original: img.secure_url,
 
-Object.keys(grouped)
-.sort((a,b)=>{
+                    month: month,
 
-const [monthA, yearA] = a.split(" ");
-const [monthB, yearB] = b.split(" ");
+                    year: year,
 
-if(yearA !== yearB){
-return yearB - yearA;
-}
+                    caption: caption,
 
-return monthOrder.indexOf(monthB) - monthOrder.indexOf(monthA);
+                    index: index
+                };
 
-})
-.forEach(monthKey=>{
+            });
 
-const monthTitle=document.createElement("h2");
-monthTitle.className="month-title";
-monthTitle.innerText=monthKey;
+            renderGallery(images);
 
-const gallery=document.createElement("div");
-gallery.className="gallery";
+            createModal();
 
-grouped[monthKey].forEach(item=>{
+        })
 
-const image=document.createElement("img");
+        .catch(err => {
 
-image.src=item.src;
-image.loading="lazy";
+            console.log(
+                "Gallery load error:",
+                err
+            );
 
-image.onclick = ()=> openModal(item.index);
+        });
 
-gallery.appendChild(image);
 
-});
+    /* =====================================================
+       🔎 SEARCH
+       ===================================================== */
 
-galleryWrapper.appendChild(monthTitle);
-galleryWrapper.appendChild(gallery);
+    if (searchBox) {
 
-});
+        searchBox.addEventListener(
+            "input",
+            function () {
 
-}
+                const value =
+                    this.value
+                        .toLowerCase()
+                        .trim();
 
-/* ===== CREATE MODAL ===== */
+                const filtered =
+                    images.filter(img =>
+                        img.caption
+                            .toLowerCase()
+                            .includes(value)
+                    );
 
-function createModal(){
+                renderGallery(filtered);
 
-sliderTrack=document.createElement("div");
-sliderTrack.classList.add("modal-track");
+            }
+        );
 
-images.forEach(img=>{
+    }
 
-const image=document.createElement("img");
-image.src=img.original;
 
-sliderTrack.appendChild(image);
+    /* =====================================================
+       🖼️ RENDER GALLERY
+       ===================================================== */
 
-});
+    function renderGallery(imagesList) {
 
-modalCaption=document.createElement("div");
+        galleryWrapper.innerHTML = "";
 
-modalCaption.style.position="absolute";
-modalCaption.style.bottom="0";
-modalCaption.style.left="0";
-modalCaption.style.width="100%";
-modalCaption.style.background="#000";
-modalCaption.style.color="#fff";
-modalCaption.style.padding="6px";
-modalCaption.style.textAlign="center";
+        const grouped = {};
 
-modalCaptionText=document.createElement("div");
+        imagesList.forEach(img => {
 
-modalCaptionText.style.overflow="hidden";
-modalCaptionText.style.height=COLLAPSED_HEIGHT+"px";
-modalCaptionText.style.transition="height 0.3s ease";
+            const key =
+                img.month +
+                " " +
+                img.year;
 
-readMoreBtn=document.createElement("div");
+            if (!grouped[key]) {
+                grouped[key] = [];
+            }
 
-readMoreBtn.style.marginTop="4px";
-readMoreBtn.style.fontWeight="bold";
-readMoreBtn.style.cursor="pointer";
-readMoreBtn.innerText="आणखी वाचा";
+            grouped[key].push(img);
 
-readMoreBtn.addEventListener("click",function(e){
+        });
 
-e.stopPropagation();
 
-if(!isExpanded){
+        const monthOrder = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ];
 
-modalCaptionText.style.height =
-modalCaptionText.scrollHeight+"px";
 
-readMoreBtn.innerText="कमी करा";
+        Object.keys(grouped)
 
-isExpanded=true;
+            .sort((a, b) => {
 
-}else{
+                const [
+                    monthA,
+                    yearA
+                ] = a.split(" ");
 
-modalCaptionText.style.height =
-COLLAPSED_HEIGHT+"px";
+                const [
+                    monthB,
+                    yearB
+                ] = b.split(" ");
 
-readMoreBtn.innerText="आणखी वाचा";
 
-isExpanded=false;
+                if (yearA !== yearB) {
 
-}
+                    return yearB - yearA;
 
-});
+                }
 
-imageCounter = document.createElement("div");
 
-imageCounter.style.position="absolute";
-imageCounter.style.top="20px";
-imageCounter.style.left="20px";
-imageCounter.style.color="#fff";
-imageCounter.style.fontSize="15px";
-imageCounter.style.background="rgba(0,0,0,0.6)";
-imageCounter.style.padding="5px 10px";
-imageCounter.style.borderRadius="6px";
+                return (
+                    monthOrder.indexOf(monthB) -
+                    monthOrder.indexOf(monthA)
+                );
 
-modal.appendChild(imageCounter);
+            })
 
-modalCaption.appendChild(modalCaptionText);
-modalCaption.appendChild(readMoreBtn);
+            .forEach(monthKey => {
 
-modal.appendChild(sliderTrack);
-modal.appendChild(modalCaption);
+                const monthTitle =
+                    document.createElement("h2");
 
-}
+                monthTitle.className =
+                    "month-title";
 
-/* ===== OPEN MODAL ===== */
+                monthTitle.innerText =
+                    monthKey;
 
-function openModal(index){
 
-currentIndex=index;
+                const gallery =
+                    document.createElement("div");
 
-modal.style.display="flex";
+                gallery.className =
+                    "gallery";
 
-if(header) header.style.display="none";
 
-setTimeout(()=>{
-setPositionByIndex();
-updateCaption();
-},30);
+                grouped[monthKey].forEach(item => {
 
-/* modal state */
-history.pushState({modalOpen:true},"","#modal");
+                    const image =
+                        document.createElement("img");
 
-}
+                    image.src = item.src;
 
-/* ===== UPDATE CAPTION ===== */
+                    image.loading = "lazy";
 
-function updateCaption(){
+                    image.alt =
+                        item.caption ||
+                        "नवनाथ गड गोकुळ फोटो";
 
-modalCaptionText.innerText = images[currentIndex].caption;
 
-imageCounter.innerText = (currentIndex + 1) + " / " + images.length;
+                    image.onclick = function (e) {
 
-modalCaptionText.style.height = COLLAPSED_HEIGHT+"px";
+                        e.preventDefault();
+                        e.stopPropagation();
 
-readMoreBtn.innerText="आणखी वाचा";
+                        openModal(item.index);
 
-isExpanded=false;
+                    };
 
-setTimeout(()=>{
 
-if(modalCaptionText.scrollHeight > COLLAPSED_HEIGHT){
-readMoreBtn.style.display="block";
-}else{
-readMoreBtn.style.display="none";
-}
+                    gallery.appendChild(image);
 
-},50);
+                });
 
-}
 
-/* ===== CLOSE MODAL ===== */
+                galleryWrapper.appendChild(
+                    monthTitle
+                );
 
-function closeModal(){
+                galleryWrapper.appendChild(
+                    gallery
+                );
 
-modal.style.display="none";
+            });
 
-if(header) header.style.display="block";
+    }
 
-if(location.hash === "#modal"){
-history.back();
-}
 
-}
+    /* =====================================================
+       📸 CREATE MODAL
+       ===================================================== */
 
-window.closeModal = closeModal;
+    function createModal() {
 
-modal.addEventListener("click",function(e){
+        sliderTrack =
+            document.createElement("div");
 
-if(e.target===modal) closeModal();
+        sliderTrack.classList.add(
+            "modal-track"
+        );
 
-});
 
-/* ===== BACK BUTTON FLOW ===== */
+        images.forEach(img => {
 
-window.addEventListener("popstate",function(e){
+            const image =
+                document.createElement("img");
 
-// modal open असेल → close
-if(modal.style.display==="flex"){
-modal.style.display="none";
-if(header) header.style.display="block";
-return;
-}
+            image.src =
+                img.original;
 
-// gallery वरून back → index.html
-if(e.state && e.state.page === "home"){
-window.location.href = "index.html";
-}
+            image.alt =
+                img.caption ||
+                "नवनाथ गड गोकुळ फोटो";
 
-});
+            image.draggable = false;
 
-/* ===== MOBILE SWIPE ===== */
+            image.style.transformOrigin =
+                "center center";
 
-let startX=0;
-let isDragging=false;
-let currentTranslate=0;
-let prevTranslate=0;
+            image.style.transition =
+                "transform 0.15s ease";
 
-modal.addEventListener("touchstart",(e)=>{
 
-startX=e.touches[0].clientX;
+            sliderTrack.appendChild(
+                image
+            );
 
-isDragging=true;
+        });
 
-sliderTrack.style.transition="none";
 
-});
+        /* =================================================
+           📝 CAPTION
+           ================================================= */
 
-modal.addEventListener("touchmove",(e)=>{
+        modalCaption =
+            document.createElement("div");
 
-if(!isDragging) return;
+        modalCaption.className =
+            "modal-caption";
 
-const currentX=e.touches[0].clientX;
+        modalCaption.style.position =
+            "absolute";
 
-const diff=currentX-startX;
+        modalCaption.style.bottom =
+            "0";
 
-currentTranslate=prevTranslate+diff;
+        modalCaption.style.left =
+            "0";
 
-sliderTrack.style.transform=`translateX(${currentTranslate}px)`;
+        modalCaption.style.width =
+            "100%";
 
-});
+        modalCaption.style.background =
+            "#000";
 
-modal.addEventListener("touchend",()=>{
+        modalCaption.style.color =
+            "#fff";
 
-isDragging=false;
+        modalCaption.style.padding =
+            "6px";
 
-const movedBy=currentTranslate-prevTranslate;
+        modalCaption.style.textAlign =
+            "center";
 
-if(movedBy<-80 && currentIndex<images.length-1) currentIndex++;
-if(movedBy>80 && currentIndex>0) currentIndex--;
 
-setPositionByIndex();
-updateCaption();
+        modalCaptionText =
+            document.createElement("div");
 
-});
+        modalCaptionText.style.overflow =
+            "hidden";
 
-function setPositionByIndex(){
+        modalCaptionText.style.height =
+            COLLAPSED_HEIGHT + "px";
 
-const slideWidth = window.innerWidth;
+        modalCaptionText.style.transition =
+            "height 0.3s ease";
 
-currentTranslate=currentIndex*-slideWidth;
 
-prevTranslate=currentTranslate;
+        /* =================================================
+           📖 READ MORE
+           ================================================= */
 
-sliderTrack.style.transition="transform 0.35s ease";
+        readMoreBtn =
+            document.createElement("div");
 
-sliderTrack.style.transform=`translateX(${currentTranslate}px)`;
+        readMoreBtn.style.marginTop =
+            "4px";
 
-}
+        readMoreBtn.style.fontWeight =
+            "bold";
+
+        readMoreBtn.style.cursor =
+            "pointer";
+
+        readMoreBtn.innerText =
+            "आणखी वाचा";
+
+
+        readMoreBtn.addEventListener(
+            "click",
+            function (e) {
+
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (!isExpanded) {
+
+                    modalCaptionText.style.height =
+                        modalCaptionText.scrollHeight +
+                        "px";
+
+                    readMoreBtn.innerText =
+                        "कमी करा";
+
+                    isExpanded = true;
+
+                } else {
+
+                    modalCaptionText.style.height =
+                        COLLAPSED_HEIGHT + "px";
+
+                    readMoreBtn.innerText =
+                        "आणखी वाचा";
+
+                    isExpanded = false;
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           🔢 IMAGE COUNTER
+           ================================================= */
+
+        imageCounter =
+            document.createElement("div");
+
+        imageCounter.style.position =
+            "absolute";
+
+        imageCounter.style.top =
+            "20px";
+
+        imageCounter.style.left =
+            "20px";
+
+        imageCounter.style.color =
+            "#fff";
+
+        imageCounter.style.fontSize =
+            "15px";
+
+        imageCounter.style.background =
+            "rgba(0,0,0,0.6)";
+
+        imageCounter.style.padding =
+            "5px 10px";
+
+        imageCounter.style.borderRadius =
+            "6px";
+
+
+        modal.appendChild(
+            imageCounter
+        );
+
+        modal.appendChild(
+            sliderTrack
+        );
+
+        modalCaption.appendChild(
+            modalCaptionText
+        );
+
+        modalCaption.appendChild(
+            readMoreBtn
+        );
+
+        modal.appendChild(
+            modalCaption
+        );
+
+    }
+
+
+    /* =====================================================
+       📂 OPEN MODAL
+       ===================================================== */
+
+    function openModal(index) {
+
+        currentIndex = index;
+
+        resetZoom();
+
+        modal.style.display = "flex";
+
+        if (header) {
+            header.style.display = "none";
+        }
+
+
+        setTimeout(() => {
+
+            setPositionByIndex();
+
+            updateCaption();
+
+        }, 30);
+
+
+        history.pushState(
+            { modalOpen: true },
+            "",
+            "#modal"
+        );
+
+    }
+
+
+    /* =====================================================
+       📝 UPDATE CAPTION
+       ===================================================== */
+
+    function updateCaption() {
+
+        if (!images[currentIndex]) {
+            return;
+        }
+
+
+        modalCaptionText.innerText =
+            images[currentIndex].caption;
+
+
+        imageCounter.innerText =
+            (currentIndex + 1) +
+            " / " +
+            images.length;
+
+
+        modalCaptionText.style.height =
+            COLLAPSED_HEIGHT + "px";
+
+
+        readMoreBtn.innerText =
+            "आणखी वाचा";
+
+
+        isExpanded = false;
+
+
+        setTimeout(() => {
+
+            if (
+                modalCaptionText.scrollHeight >
+                COLLAPSED_HEIGHT
+            ) {
+
+                readMoreBtn.style.display =
+                    "block";
+
+            } else {
+
+                readMoreBtn.style.display =
+                    "none";
+
+            }
+
+        }, 50);
+
+    }
+
+
+    /* =====================================================
+       🔍 GET CURRENT IMAGE
+       ===================================================== */
+
+    function getCurrentImage() {
+
+        if (!sliderTrack) {
+            return null;
+        }
+
+        const allImages =
+            sliderTrack.querySelectorAll("img");
+
+        return allImages[currentIndex] || null;
+
+    }
+
+
+    /* =====================================================
+       🔍 APPLY ZOOM
+       ===================================================== */
+
+    function applyZoom() {
+
+        const currentImage =
+            getCurrentImage();
+
+        if (!currentImage) {
+            return;
+        }
+
+
+        currentImage.style.transform =
+            "translate3d(0,0,0) scale(" +
+            zoomScale +
+            ")";
+
+    }
+
+
+    /* =====================================================
+       🔄 RESET ZOOM
+       ===================================================== */
+
+    function resetZoom() {
+
+        zoomScale = 1;
+
+        pinchActive = false;
+
+        pinchStartDistance = 0;
+
+        pinchStartScale = 1;
+
+
+        if (!sliderTrack) {
+            return;
+        }
+
+
+        const allImages =
+            sliderTrack.querySelectorAll("img");
+
+
+        allImages.forEach(img => {
+
+            img.style.transform =
+                "translate3d(0,0,0) scale(1)";
+
+        });
+
+    }
+
+
+    /* =====================================================
+       📏 PINCH DISTANCE
+       ===================================================== */
+
+    function getTouchDistance(touches) {
+
+        const dx =
+            touches[0].clientX -
+            touches[1].clientX;
+
+        const dy =
+            touches[0].clientY -
+            touches[1].clientY;
+
+
+        return Math.sqrt(
+            dx * dx +
+            dy * dy
+        );
+
+    }
+
+
+    /* =====================================================
+       ❌ CLOSE MODAL
+       ===================================================== */
+
+    function closeModal() {
+
+        resetZoom();
+
+        modal.style.display =
+            "none";
+
+        if (header) {
+            header.style.display =
+                "block";
+        }
+
+
+        if (location.hash === "#modal") {
+
+            history.back();
+
+        }
+
+    }
+
+
+    window.closeModal =
+        closeModal;
+
+
+    /* =====================================================
+       🖱️ MODAL CLICK
+       ===================================================== */
+
+    modal.addEventListener(
+        "click",
+        function (e) {
+
+            if (suppressClick) {
+
+                e.preventDefault();
+
+                e.stopPropagation();
+
+                suppressClick = false;
+
+                return;
+
+            }
+
+
+            if (e.target === modal) {
+
+                closeModal();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       👆 TOUCH START
+       ===================================================== */
+
+    modal.addEventListener(
+        "touchstart",
+        function (e) {
+
+            /* PINCH START */
+
+            if (e.touches.length === 2) {
+
+                e.preventDefault();
+
+                pinchActive = true;
+
+                isDragging = false;
+
+                pinchStartDistance =
+                    getTouchDistance(
+                        e.touches
+                    );
+
+                pinchStartScale =
+                    zoomScale;
+
+                return;
+
+            }
+
+
+            /* SINGLE FINGER */
+
+            if (
+                e.touches.length !== 1 ||
+                pinchActive
+            ) {
+
+                return;
+
+            }
+
+
+            touchMoved = false;
+
+            startX =
+                e.touches[0].clientX;
+
+            isDragging = true;
+
+            sliderTrack.style.transition =
+                "none";
+
+        },
+        { passive: false }
+    );
+
+
+    /* =====================================================
+       👆 TOUCH MOVE
+       ===================================================== */
+
+    modal.addEventListener(
+        "touchmove",
+        function (e) {
+
+            /* PINCH ZOOM */
+
+            if (
+                pinchActive &&
+                e.touches.length === 2
+            ) {
+
+                e.preventDefault();
+
+                const currentDistance =
+                    getTouchDistance(
+                        e.touches
+                    );
+
+
+                if (
+                    pinchStartDistance <= 0
+                ) {
+
+                    return;
+
+                }
+
+
+                zoomScale =
+                    pinchStartScale *
+                    (
+                        currentDistance /
+                        pinchStartDistance
+                    );
+
+
+                zoomScale =
+                    Math.max(
+                        MIN_ZOOM,
+                        Math.min(
+                            MAX_ZOOM,
+                            zoomScale
+                        )
+                    );
+
+
+                applyZoom();
+
+                return;
+
+            }
+
+
+            /* DON'T SWIPE WHILE ZOOMED */
+
+            if (zoomScale > 1) {
+
+                return;
+
+            }
+
+
+            if (
+                !isDragging ||
+                e.touches.length !== 1
+            ) {
+
+                return;
+
+            }
+
+
+            e.preventDefault();
+
+
+            const currentX =
+                e.touches[0].clientX;
+
+
+            const diff =
+                currentX - startX;
+
+
+            if (Math.abs(diff) > 10) {
+
+                touchMoved = true;
+
+            }
+
+
+            currentTranslate =
+                prevTranslate + diff;
+
+
+            sliderTrack.style.transform =
+                "translate3d(" +
+                currentTranslate +
+                "px,0,0)";
+
+        },
+        { passive: false }
+    );
+
+
+    /* =====================================================
+       👆 TOUCH END
+       ===================================================== */
+
+    modal.addEventListener(
+        "touchend",
+        function (e) {
+
+            /* PINCH FINISHED */
+
+            if (
+                pinchActive &&
+                e.touches.length < 2
+            ) {
+
+                pinchActive = false;
+
+                if (zoomScale < 1.05) {
+
+                    resetZoom();
+
+                }
+
+
+                /* Prevent accidental click */
+
+                suppressClick = true;
+
+                setTimeout(() => {
+
+                    suppressClick = false;
+
+                }, 350);
+
+
+                return;
+
+            }
+
+
+            if (!isDragging) {
+
+                return;
+
+            }
+
+
+            isDragging = false;
+
+
+            /* SIMPLE TAP */
+
+            if (!touchMoved) {
+
+                suppressClick = true;
+
+                setTimeout(() => {
+
+                    suppressClick = false;
+
+                }, 350);
+
+                return;
+
+            }
+
+
+            /* DON'T CHANGE PHOTO WHILE ZOOMED */
+
+            if (zoomScale > 1) {
+
+                return;
+
+            }
+
+
+            const movedBy =
+                currentTranslate -
+                prevTranslate;
+
+
+            /* SWIPE LEFT */
+
+            if (
+                movedBy < -80 &&
+                currentIndex <
+                images.length - 1
+            ) {
+
+                currentIndex++;
+
+            }
+
+
+            /* SWIPE RIGHT */
+
+            if (
+                movedBy > 80 &&
+                currentIndex > 0
+            ) {
+
+                currentIndex--;
+
+            }
+
+
+            resetZoom();
+
+            setPositionByIndex();
+
+            updateCaption();
+
+
+            suppressClick = true;
+
+            setTimeout(() => {
+
+                suppressClick = false;
+
+            }, 350);
+
+        },
+        { passive: false }
+    );
+
+
+    /* =====================================================
+       🚫 TOUCH CANCEL
+       ===================================================== */
+
+    modal.addEventListener(
+        "touchcancel",
+        function () {
+
+            isDragging = false;
+
+            pinchActive = false;
+
+            resetZoom();
+
+            setPositionByIndex();
+
+        }
+    );
+
+
+    /* =====================================================
+       📐 PERFECT PHOTO POSITION
+       ===================================================== */
+
+    function setPositionByIndex() {
+
+        if (!sliderTrack) {
+            return;
+        }
+
+
+        const slideWidth =
+            modal.getBoundingClientRect().width;
+
+
+        const allImages =
+            sliderTrack.querySelectorAll("img");
+
+
+        /* प्रत्येक photo ला exact screen width */
+
+        allImages.forEach(img => {
+
+            img.style.width =
+                slideWidth + "px";
+
+            img.style.flex =
+                "0 0 " +
+                slideWidth +
+                "px";
+
+        });
+
+
+        /* पूर्ण slider width */
+
+        sliderTrack.style.width =
+            (
+                slideWidth *
+                images.length
+            ) +
+            "px";
+
+
+        currentTranslate =
+            currentIndex *
+            -slideWidth;
+
+
+        prevTranslate =
+            currentTranslate;
+
+
+        sliderTrack.style.transition =
+            "transform 0.35s cubic-bezier(0.22,0.61,0.36,1)";
+
+
+        sliderTrack.style.transform =
+            "translate3d(" +
+            currentTranslate +
+            "px,0,0)";
+
+    }
+
+
+    /* =====================================================
+       📱 RESIZE
+       ===================================================== */
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            if (
+                modal.style.display ===
+                "flex"
+            ) {
+
+                setPositionByIndex();
+
+            }
+
+        }
+    );
 
 });
