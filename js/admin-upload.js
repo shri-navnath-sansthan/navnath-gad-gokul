@@ -556,8 +556,8 @@ async function loadPendingPhotos(){
     pendingLoading.style.display =
       "none";
 
-    pendingEmpty.innerHTML =
-      "🔐 Pending photos पाहण्यासाठी Admin Password टाका.";
+  pendingEmpty.innerHTML =
+    "🔐 Enter the Admin Password to view pending photos.";
 
     pendingEmpty.style.display =
       "block";
@@ -627,7 +627,7 @@ async function loadPendingPhotos(){
     ){
 
       pendingEmpty.innerHTML =
-        "📭 सध्या कोणतेही Pending फोटो नाहीत.";
+    "📭 There are currently no pending photos.";
 
       pendingEmpty.style.display =
         "block";
@@ -655,8 +655,8 @@ async function loadPendingPhotos(){
     pendingLoading.style.display =
       "none";
 
-    pendingEmpty.innerHTML =
-      "❌ Pending photos load झाले नाहीत.";
+  pendingEmpty.innerHTML =
+    "❌ Failed to load pending photos.";
 
     pendingEmpty.style.display =
       "block";
@@ -989,7 +989,7 @@ async function approvePhoto(
   if(!month){
 
     alert(
-      "❌ Approve Month निवडा."
+     "❌ Select an Approve Month."
     );
 
     return;
@@ -1000,7 +1000,7 @@ async function approvePhoto(
   if(!year){
 
     alert(
-      "❌ Approve Year टाका."
+     "❌ Enter an Approve Year."
     );
 
     return;
@@ -1010,7 +1010,7 @@ async function approvePhoto(
 
   if(
     !confirm(
-      `हा फोटो ${month} ${year} मध्ये Gallery मध्ये दाखवायचा आहे का? ✅`
+      `Do you want to show this photo in the Gallery in ${month} ${year}? ✅`
     )
   ){
 
@@ -1023,6 +1023,7 @@ async function approvePhoto(
     card.querySelectorAll(
       "button"
     );
+
 
 
   buttons.forEach(
@@ -1290,8 +1291,8 @@ function checkPendingEmpty(){
     pendingList.children.length === 0
   ){
 
-    pendingEmpty.innerHTML =
-      "📭 सध्या कोणतेही Pending फोटो नाहीत.";
+ pendingEmpty.innerHTML =
+    "📭 There are currently no pending photos.";
 
     pendingEmpty.style.display =
       "block";
