@@ -858,12 +858,94 @@ app.get(
 
 
 /* =====================================================
-   🗑️ DELETE PHOTO
-   जुना system
+   🗑️ DELETE MULTIPLE PHOTOS
    ===================================================== */
 
 app.post(
-  "/delete-photo",
+  "/delete-photos",
+  async (req, res) => {
+
+    if (!checkPassword(req, res))
+      return;
+
+    try {
+
+      const {
+        public_ids
+      } = req.body;
+
+
+      if (
+        !Array.isArray(public_ids) ||
+        public_ids.length === 0
+      ) {
+
+        return res.status(400).json({
+
+          success: false,
+
+          message:
+            "Public IDs required"
+
+        });
+
+      }
+
+
+      /* =====================================================
+         ☁️ DELETE MULTIPLE PHOTOS FROM CLOUDINARY
+         ===================================================== */
+
+      const result =
+        await cloudinary.api.delete_resources(
+          public_ids,
+          {
+            resource_type: "image"
+          }
+        );
+
+
+      res.json({
+
+        success: true,
+
+        deleted:
+          public_ids.length,
+
+        result:
+          result
+
+      });
+
+
+    } catch (err) {
+
+      console.error(
+        "DELETE MULTIPLE PHOTOS ERROR:",
+        err
+      );
+
+
+      res.status(500).json({
+
+        success: false,
+
+        error:
+          err.message
+
+      });
+
+    }
+
+  }
+);
+
+/* =====================================================
+   🗑️ DELETE MULTIPLE VIDEOS
+   ===================================================== */
+
+app.post(
+  "/delete-videos",
   async (req, res) => {
 
     if (!checkPassword(req, res))
@@ -873,32 +955,55 @@ app.post(
     try {
 
       const {
-        public_id
+        public_ids
       } = req.body;
 
 
-      if (!public_id) {
+      /* ===== CHECK PUBLIC IDS ===== */
+
+      if (
+        !Array.isArray(public_ids) ||
+        public_ids.length === 0
+      ) {
 
         return res.status(400).json({
 
           success: false,
 
           message:
-            "Public ID required"
+            "Public IDs required"
 
         });
 
       }
 
 
-      await cloudinary.uploader.destroy(
-        public_id
-      );
+      /* ===== DELETE MULTIPLE VIDEOS ===== */
 
+      const result =
+        await cloudinary.api.delete_resources(
+
+          public_ids,
+
+          {
+            resource_type:
+              "video"
+          }
+
+        );
+
+
+      /* ===== SUCCESS ===== */
 
       res.json({
 
-        success: true
+        success: true,
+
+        deleted:
+          public_ids.length,
+
+        result:
+          result
 
       });
 
@@ -906,11 +1011,12 @@ app.post(
     } catch (err) {
 
       console.error(
-        "DELETE PHOTO ERROR:",
+        "DELETE MULTIPLE VIDEOS ERROR:",
         err
       );
 
-      res.json({
+
+      res.status(500).json({
 
         success: false,
 
@@ -958,6 +1064,8 @@ app.post(
       }
 
 
+      /* ===== DELETE SINGLE VIDEO ===== */
+
       await cloudinary.uploader.destroy(
 
         public_id,
@@ -969,6 +1077,8 @@ app.post(
 
       );
 
+
+      /* ===== SUCCESS ===== */
 
       res.json({
 
@@ -983,6 +1093,7 @@ app.post(
         "DELETE VIDEO ERROR:",
         err
       );
+
 
       res.json({
 

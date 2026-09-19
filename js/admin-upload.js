@@ -388,21 +388,16 @@ form.addEventListener("submit", async function(e){
 
 function loadPhotos(){
 
-  fetch(
-    `${SERVER}/gallery`
-  )
+  fetch(`${SERVER}/gallery`)
 
   .then(res => res.json())
 
   .then(data => {
 
     const photoList =
-      document.getElementById(
-        "photo-list"
-      );
+      document.getElementById("photo-list");
 
     photoList.innerHTML = "";
-
 
     if(
       !Array.isArray(data) ||
@@ -413,9 +408,121 @@ function loadPhotos(){
         "<p>📭 No photos found.</p>";
 
       return;
-
     }
 
+
+    /* =====================================================
+       ☑️ BULK DELETE CONTROLS
+       ===================================================== */
+
+    const controls =
+      document.createElement("div");
+
+    controls.style.margin = "15px 0";
+    controls.style.padding = "12px";
+    controls.style.background = "#f5f5f5";
+    controls.style.borderRadius = "10px";
+    controls.style.width = "100%";
+    controls.style.boxSizing = "border-box";
+
+
+    /* SELECT ALL */
+
+    const selectAll =
+      document.createElement("input");
+
+    selectAll.type = "checkbox";
+    selectAll.id = "selectAllPhotos";
+
+
+    const selectAllLabel =
+      document.createElement("label");
+
+    selectAllLabel.htmlFor =
+      "selectAllPhotos";
+
+    selectAllLabel.innerText =
+      " ☑️ Select All";
+
+
+    /* SELECTED COUNT */
+
+    const selectedCount =
+      document.createElement("span");
+
+    selectedCount.id =
+      "selectedPhotoCount";
+
+    selectedCount.innerText =
+      "   Selected: 0";
+
+
+    /* DELETE SELECTED */
+
+    const deleteSelectedBtn =
+      document.createElement("button");
+
+    deleteSelectedBtn.innerText =
+      " 🗑️ Delete Selected";
+
+    deleteSelectedBtn.type =
+      "button";
+
+    deleteSelectedBtn.style.marginLeft =
+      "15px";
+
+    deleteSelectedBtn.style.background =
+      "#c0392b";
+
+    deleteSelectedBtn.style.color =
+      "white";
+
+    deleteSelectedBtn.style.border =
+      "none";
+
+    deleteSelectedBtn.style.padding =
+      "8px 14px";
+
+    deleteSelectedBtn.style.borderRadius =
+      "6px";
+
+    deleteSelectedBtn.style.cursor =
+      "pointer";
+
+
+    controls.appendChild(selectAll);
+    controls.appendChild(selectAllLabel);
+    controls.appendChild(selectedCount);
+    controls.appendChild(deleteSelectedBtn);
+
+    photoList.appendChild(controls);
+
+
+    /* =====================================================
+       📸 PHOTO LIST
+       ===================================================== */
+
+    const photosContainer =
+      document.createElement("div");
+
+    /*
+       ⭐ IMPORTANT:
+       हा container स्वतः layout घेणार नाही.
+       त्यामुळे photo-list चा जुना CSS layout
+       पुन्हा फोटोवर लागू होईल.
+    */
+
+    photosContainer.style.display =
+      "contents";
+
+    photoList.appendChild(
+      photosContainer
+    );
+
+
+    /* =====================================================
+       📸 CREATE PHOTO CARDS
+       ===================================================== */
 
     data.forEach(img => {
 
@@ -432,13 +539,33 @@ function loadPhotos(){
         "center";
 
 
+      /* =====================================================
+         ☑️ PHOTO CHECKBOX
+         ===================================================== */
+
+      const checkbox =
+        document.createElement("input");
+
+      checkbox.type =
+        "checkbox";
+
+      checkbox.className =
+        "photo-select";
+
+      checkbox.dataset.publicId =
+        img.public_id;
+
+
+      /* =====================================================
+         🖼️ IMAGE
+         ===================================================== */
+
       const image =
         document.createElement("img");
 
       image.src =
         img.secure_url ||
         img.url;
-
 
       image.onerror =
         () => {
@@ -449,15 +576,18 @@ function loadPhotos(){
         };
 
 
-      image.style.width =
-        "120px";
+      /*
+         ⭐ येथे width / height / objectFit
+         दिलेले नाहीत.
 
-      image.style.height =
-        "120px";
+         त्यामुळे तुमचा जुना CSS
+         image size आणि layout ठरवेल.
+      */
 
-      image.style.objectFit =
-        "cover";
 
+      /* =====================================================
+         🗑️ SINGLE DELETE
+         ===================================================== */
 
       const btn =
         document.createElement("button");
@@ -476,13 +606,157 @@ function loadPhotos(){
           );
 
 
-      box.appendChild(image);
+      /* =====================================================
+         📦 ADD ELEMENTS
+         ===================================================== */
 
-      box.appendChild(btn);
+      box.appendChild(
+        checkbox
+      );
 
-      photoList.appendChild(box);
+      box.appendChild(
+        document.createElement("br")
+      );
+
+      box.appendChild(
+        image
+      );
+
+      box.appendChild(
+        btn
+      );
+
+      photosContainer.appendChild(
+        box
+      );
 
     });
+
+
+    /* =====================================================
+       ☑️ UPDATE SELECTED COUNT
+       ===================================================== */
+
+    function updateSelectedCount(){
+
+      const selected =
+        photosContainer.querySelectorAll(
+          ".photo-select:checked"
+        );
+
+      selectedCount.innerText =
+        `   Selected: ${selected.length}`;
+
+    }
+
+
+    /* =====================================================
+       ☑️ INDIVIDUAL CHECKBOX CHANGE
+       ===================================================== */
+
+    photosContainer.addEventListener(
+      "change",
+      function(e){
+
+        if(
+          e.target.classList.contains(
+            "photo-select"
+          )
+        ){
+
+          updateSelectedCount();
+
+          /*
+             जर सर्व photos manually select केले
+             तर Select All सुद्धा checked दिसेल.
+          */
+
+          const allCheckboxes =
+            photosContainer.querySelectorAll(
+              ".photo-select"
+            );
+
+          const checkedCheckboxes =
+            photosContainer.querySelectorAll(
+              ".photo-select:checked"
+            );
+
+          selectAll.checked =
+            allCheckboxes.length > 0 &&
+            allCheckboxes.length ===
+            checkedCheckboxes.length;
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       ☑️ SELECT ALL
+       ===================================================== */
+
+    selectAll.addEventListener(
+      "change",
+      function(){
+
+        const checkboxes =
+          photosContainer.querySelectorAll(
+            ".photo-select"
+          );
+
+        checkboxes.forEach(
+          checkbox => {
+
+            checkbox.checked =
+              selectAll.checked;
+
+          }
+        );
+
+        updateSelectedCount();
+
+      }
+    );
+
+
+    /* =====================================================
+       🗑️ DELETE SELECTED
+       ===================================================== */
+
+    deleteSelectedBtn.addEventListener(
+      "click",
+      function(){
+
+        const selected =
+          photosContainer.querySelectorAll(
+            ".photo-select:checked"
+          );
+
+
+        if(selected.length === 0){
+
+          alert(
+            "⚠️ Please select photos first."
+          );
+
+          return;
+        }
+
+
+        const publicIds =
+          Array.from(selected).map(
+            checkbox =>
+              checkbox.dataset.publicId
+          );
+
+
+        deleteSelectedPhotos(
+          publicIds
+        );
+
+      }
+    );
 
   })
 
@@ -494,6 +768,121 @@ function loadPhotos(){
     );
 
   });
+
+}
+
+
+/* =====================================================
+   🗑️ DELETE SELECTED PHOTOS
+   ===================================================== */
+
+async function deleteSelectedPhotos(
+  publicIds
+){
+
+  if(
+    !confirm(
+      `⚠️ ${publicIds.length} photos delete करायचे आहेत का?`
+    )
+  ){
+
+    return;
+
+  }
+
+
+  const password =
+    prompt(
+      "Enter admin password 🔐"
+    );
+
+
+  if(!password){
+
+    alert(
+      "Password not entered ❌"
+    );
+
+    return;
+
+  }
+
+
+  overlay.style.display =
+    "flex";
+
+  progressBar.value =
+    0;
+
+  progressText.innerText =
+    `🗑 Deleting ${publicIds.length} photos...`;
+
+
+  try{
+
+    const res =
+      await fetch(
+        `${SERVER}/delete-photos`,
+        {
+
+          method:"POST",
+
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
+
+          body:JSON.stringify({
+
+            public_ids:
+              publicIds,
+
+            password:
+              password
+
+          })
+
+        }
+      );
+
+
+    const data =
+      await res.json();
+
+
+    overlay.style.display =
+      "none";
+
+
+    if(data.success){
+
+      alert(
+        `✅ ${publicIds.length} photos deleted successfully`
+      );
+
+      loadPhotos();
+
+    }else{
+
+      alert(
+        data.message ||
+        "❌ Photos delete झाले नाहीत."
+      );
+
+    }
+
+  }catch(err){
+
+    overlay.style.display =
+      "none";
+
+    console.error(err);
+
+    alert(
+      "❌ Network error"
+    );
+
+  }
 
 }
 
