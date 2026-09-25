@@ -1,229 +1,776 @@
+/* =========================================================
+   📚 श्री नवनाथ गड अभ्यासिका
+   PREMIUM ROYAL PURPLE • ANTIQUE GOLD • CREAM THEME
+   ========================================================= */
 
-/* ===== ABHYASIKA HEADER ===== */
+
+/* =========================================================
+   📚 ABHYASIKA HEADER
+   ========================================================= */
 
 .abhyasika-heldar {
-position: relative;
-min-height: 45px;
-background-color: rgb(81, 10, 82);
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
-padding: 10px 0;
-overflow: hidden;
-border-top-right-radius: 50px;
-border-bottom-left-radius: 50px;
-border: 1px solid #ff00d4;
-margin: 5px;
+    position: relative;
+
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 14px 12px;
+
+    margin: 8px 12px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #42164d 0%,
+            #5d1f68 48%,
+            #45174f 100%
+        );
+
+    border-top: 3px solid #d0aa4b;
+    border-bottom: 3px solid #d0aa4b;
+
+    border-left: 1px solid rgba(255,255,255,0.18);
+    border-right: 1px solid rgba(255,255,255,0.18);
+
+    border-top-right-radius: 52px;
+    border-bottom-left-radius: 52px;
+
+    box-shadow:
+        0 8px 24px rgba(58, 20, 67, 0.25);
 }
 
+
+/* TOP GOLD DECORATION */
+
+.abhyasika-heldar::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 210px;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #91a85b,
+            #d5ae48,
+            #91a85b,
+            transparent
+        );
+
+    border-radius:
+        0 0 12px 12px;
+}
+
+
+/* SOFT SHINE */
 
 .abhyasika-heldar::after {
-content: "";
-position: absolute;
-inset: 0;
 
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    top: -190px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.13),
+            transparent 65%
+        );
+
+    pointer-events: none;
 }
 
-/* content */
+
+/* CONTENT */
+
 .abhyasika-heldar-content {
-position: relative;
-z-index: 2;
-width: 100%;
-padding: 0 10px;
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    padding: 0 8px;
+
+    box-sizing: border-box;
 }
 
-/* flex layout */
+
+/* FLEX */
+
 .abhyasika-heldar-flex {
-display: flex;
-align-items: center;
-justify-content: center;
 
+    display: flex;
 
-/* image wrap होऊ नये */
-flex-wrap: nowrap;
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    flex-wrap: nowrap;
 }
 
-/* image */
+
+/* =========================================================
+   📷 HEADER IMAGE
+   ========================================================= */
+
 .abhyasika-heldar-img {
-width: 70px;
-height: 70px;
-min-width: 50px;
-flex-shrink: 0;   /* image shrink किंवा wrap होणार नाही */
 
-border-radius: 50%;
-object-fit: cover;
-border: 0.5px solid #041924;
-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 70px;
+    height: 70px;
+
+    min-width: 70px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 3px solid #d3ad4e;
+
+    box-shadow:
+        0 4px 13px rgba(0,0,0,0.40),
+        0 0 0 2px rgba(255,255,255,0.25);
 }
 
-/* ===== TEXT STYLE ===== */
+
+/* =========================================================
+   🏆 MAIN TITLE
+   ========================================================= */
 
 .abhyasika-heldar-content h1 {
-font-size: clamp(22px,5vw,50px);
-font-weight: 1000;
-line-height: 1.2;
-margin: 0;
-padding: 4px 10px;
 
-/* text wrap */
-white-space: normal;
-word-break: break-word;
+    margin: 0;
 
-background: linear-gradient(90deg,#ffffff,#ffffff);
-background-clip: text;
--webkit-background-clip: text;
+    padding: 3px 8px;
 
-color: transparent;
--webkit-text-fill-color: transparent;
+    font-size:
+        clamp(24px, 5vw, 50px);
 
-text-shadow: 0.5px 0.5px 2px rgba(154, 25, 194, 0);
+    font-weight: 900;
+
+    line-height: 1.2;
+
+    letter-spacing: 0.2px;
+
+    color: #fffdf7;
+
+    text-shadow:
+        0 2px 4px rgba(0,0,0,0.35);
 }
 
 
+/* =========================================================
+   📅 DATE / TIME
+   ========================================================= */
 
-
-
-
-/* subtitle date and time */
 .abhyasika-heldar-content p {
-font-size: clamp(14px,3vw,20px);
-color: #ffffff;
-margin-top: 2px;
 
+    margin: 5px 0 0;
 
-/* text wrap */
-white-space: normal;
-word-break: break-word;
-}
+    font-size:
+        clamp(13px, 2.4vw, 18px);
 
-.abhyasika-establish{
-display:block;
-width: auto;
-margin: 2px auto;
-padding:2px 6px;
+    font-weight: 700;
 
-text-align:center;
-font-size:10.6px;
-font-weight:500;
+    line-height: 1.5;
 
-background:#cfe2f3;
-color:#5b0a0a;
+    color: #fffdf7;
 
-border-radius:8px;
-white-space:nowrap;
-}
+    white-space: normal;
 
-.abhyasika-establish b{
-color:#0c374f;
+    word-break: break-word;
 }
 
 
+/* =========================================================
+   📌 ESTABLISH / LOCATION INFO
+   ========================================================= */
 
+.abhyasika-establish {
 
+    display: block;
 
+    width: fit-content;
 
-/* ===== ABHYASIKA SECTION ===== */
+    max-width: 96%;
 
-.abhyasika-section{
-padding:30px 10px;
-background:#1c3048;
-font-family:Arial, Helvetica, sans-serif;
-}
+    margin: 7px auto 2px;
 
-/* container */
+    padding: 5px 13px;
 
-.abhyasika-container{
-max-width:1100px;
-margin:auto;
-text-align:center;
-}
+    box-sizing: border-box;
 
+    text-align: center;
 
+    font-size: 12px;
 
-/* intro text */
+    font-weight: 800;
 
-.abhyasika-intro{
-max-width:800px;
-margin:auto;
-font-size:18px;
-line-height:1.4;
-color:#ffffff;
-margin-bottom:40px;
-}
+    color: #5c461a;
 
-/* grid layout */
+    background:
+        linear-gradient(
+            135deg,
+            #f0f3df,
+            #fffdf4
+        );
 
-.abhyasika-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:25px;
-}
+    border: 1px solid #d6bc6c;
 
-/* cards */
+    border-radius: 20px;
 
-.abhyasika-card{
-background:#ffffff;
-padding:25px;
-border-radius:16px;
-box-shadow:0 6px 18px rgba(0,0,0,0.08);
-text-align:left;
-transition:0.3s;
-}
+    white-space: nowrap;
 
-/* hover effect */
-
-.abhyasika-card:hover{
-transform:translateY(-6px);
-box-shadow:0 12px 30px rgba(0,0,0,0.15);
-}
-
-/* card heading */
-
-.abhyasika-card h3{
-font-size:22px;
-margin-bottom:12px;
-color:#094863;
-}
-
-/* list */
-
-.abhyasika-card ul{
-padding-left:20px;
-}
-
-.abhyasika-card ul li{
-margin-bottom:8px;
-font-size:16px;
-color:#000000;
-}
-
-/* paragraph */
-
-.abhyasika-card p{
-font-size:16px;
-color:#000000;
-margin-bottom:6px;
-}
-
-/* ===== MOBILE RESPONSIVE ===== */
-
-@media (max-width:768px){
-
-.abhyasika-title{
-font-size:30px;
-}
-
-.abhyasika-intro{
-font-size:16px;
-}
-
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.12);
 }
 
 
+.abhyasika-establish b {
+
+    color: #526d28;
+
+    font-weight: 900;
+}
 
 
+/* =========================================================
+   📚 MAIN SECTION
+   ========================================================= */
+
+.abhyasika-section {
+
+    position: relative;
+
+    padding: 34px 15px 40px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5f0df 0%,
+            #fffdf7 48%,
+            #f0f2e2 100%
+        );
+
+    border-top: 3px solid #c49b3d;
+
+    border-bottom: 3px solid #765080;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow: hidden;
+}
 
 
+/* SECTION TOP DECORATION */
+
+.abhyasika-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 190px;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #735080,
+            #c49b3d,
+            #735080,
+            transparent
+        );
+
+    border-radius:
+        0 0 12px 12px;
+}
 
 
+/* =========================================================
+   📦 CONTAINER
+   ========================================================= */
+
+.abhyasika-container {
+
+    width: 94%;
+
+    max-width: 1120px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   📝 INTRODUCTION
+   ========================================================= */
+
+.abhyasika-intro {
+
+    max-width: 900px;
+
+    margin: 0 auto 28px;
+
+    padding: 14px 20px;
+
+    box-sizing: border-box;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    line-height: 1.75;
+
+    color: #514a43;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(112,77,133,0.07),
+            rgba(255,255,255,0.88),
+            rgba(196,155,61,0.07)
+        );
+
+    border-top: 1px solid
+        rgba(112,77,133,0.25);
+
+    border-bottom: 1px solid
+        rgba(196,155,61,0.30);
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 3px 10px rgba(75,55,80,0.06);
+}
+
+
+/* =========================================================
+   📚 CARD GRID
+   ========================================================= */
+
+.abhyasika-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   📖 PREMIUM CARDS
+   ========================================================= */
+
+.abhyasika-card {
+
+    position: relative;
+
+    padding: 24px 19px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #fffdf6 100%
+        );
+
+    border: 1px solid
+        rgba(100,70,118,0.20);
+
+    border-top: 4px solid #70447f;
+
+    border-bottom: 3px solid #c59c40;
+
+    border-radius: 21px;
+
+    text-align: left;
+
+    box-shadow:
+        0 7px 20px
+        rgba(72,52,82,0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* CARD HOVER */
+
+.abhyasika-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 13px 28px
+        rgba(72,52,82,0.19);
+}
+
+
+/* =========================================================
+   🏆 CARD HEADING
+   ========================================================= */
+
+.abhyasika-card h3 {
+
+    margin:
+        0 0 14px;
+
+    padding:
+        0 0 10px;
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.2px;
+
+    color: #57296b;
+
+    border-bottom:
+        2px solid
+        rgba(197,156,64,0.42);
+
+    text-shadow:
+        0 1px 1px
+        rgba(0,0,0,0.08);
+}
+
+
+/* =========================================================
+   📋 LIST
+   ========================================================= */
+
+.abhyasika-card ul {
+
+    margin: 0;
+
+    padding-left: 21px;
+}
+
+
+.abhyasika-card ul li {
+
+    margin-bottom: 10px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    line-height: 1.65;
+
+    color: #403b37;
+}
+
+
+/* =========================================================
+   📝 CARD PARAGRAPH
+   ========================================================= */
+
+.abhyasika-card p {
+
+    margin:
+        0 0 9px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    line-height: 1.7;
+
+    color: #403b37;
+}
+
+
+/* =========================================================
+   ✨ STRONG TEXT
+   ========================================================= */
+
+.abhyasika-card strong {
+
+    color: #5a2c6d;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   📱 TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .abhyasika-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+
+    .abhyasika-heldar-content h1 {
+
+        font-size:
+            clamp(25px, 5vw, 42px);
+    }
+}
+
+
+/* =========================================================
+   📱 MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .abhyasika-heldar {
+
+        margin: 6px 5px;
+
+        min-height: 62px;
+
+        padding: 11px 7px;
+
+        border-top-right-radius: 35px;
+
+        border-bottom-left-radius: 35px;
+    }
+
+
+    .abhyasika-heldar-flex {
+
+        gap: 8px;
+    }
+
+
+    .abhyasika-heldar-img {
+
+        width: 53px;
+        height: 53px;
+
+        min-width: 53px;
+
+        border-width: 2px;
+    }
+
+
+    .abhyasika-heldar-content h1 {
+
+        font-size: 24px;
+
+        line-height: 1.25;
+
+        padding: 2px;
+    }
+
+
+    .abhyasika-heldar-content p {
+
+        font-size: 12px;
+
+        font-weight: 700;
+    }
+
+
+    .abhyasika-establish {
+
+        font-size: 10px;
+
+        padding: 4px 9px;
+    }
+
+
+    .abhyasika-section {
+
+        padding:
+            25px 8px 30px;
+    }
+
+
+    .abhyasika-container {
+
+        width: 95%;
+    }
+
+
+    .abhyasika-intro {
+
+        font-size: 15px;
+
+        font-weight: 700;
+
+        line-height: 1.7;
+
+        padding:
+            11px 13px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .abhyasika-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+
+        margin-top: 20px;
+    }
+
+
+    .abhyasika-card {
+
+        padding:
+            20px 16px;
+
+        border-radius: 18px;
+
+        border-top-width: 3px;
+    }
+
+
+    .abhyasika-card h3 {
+
+        font-size: 20px;
+
+        font-weight: 900;
+
+        margin-bottom: 12px;
+    }
+
+
+    .abhyasika-card ul {
+
+        padding-left: 20px;
+    }
+
+
+    .abhyasika-card ul li {
+
+        font-size: 15px;
+
+        font-weight: 600;
+
+        line-height: 1.65;
+
+        margin-bottom: 8px;
+    }
+
+
+    .abhyasika-card p {
+
+        font-size: 15px;
+
+        font-weight: 600;
+
+        line-height: 1.65;
+    }
+}
+
+
+/* =========================================================
+   📱 SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .abhyasika-heldar-img {
+
+        width: 46px;
+        height: 46px;
+
+        min-width: 46px;
+    }
+
+
+    .abhyasika-heldar-content h1 {
+
+        font-size: 20px;
+    }
+
+
+    .abhyasika-heldar-content p {
+
+        font-size: 10.5px;
+    }
+
+
+    .abhyasika-card {
+
+        padding:
+            18px 14px;
+    }
+
+
+    .abhyasika-card h3 {
+
+        font-size: 18px;
+    }
+
+
+    .abhyasika-card ul li {
+
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+
+    .abhyasika-card p {
+
+        font-size: 14px;
+    }
+}
