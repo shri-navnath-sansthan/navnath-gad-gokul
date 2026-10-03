@@ -5,16 +5,43 @@
 
 
 /* =========================================================
-   📚 ABHYASIKA HEADER
-   ========================================================= */
+   01. GLOBAL SETTINGS
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    background: #eeeeee;
+
+    font-family:
+        "Noto Sans Devanagari",
+        "Mangal",
+        Arial,
+        sans-serif;
+}
+
+
+
+/* =========================================================
+   02. ABHYASIKA HEADER
+========================================================= */
 
 .abhyasika-heldar {
+
     position: relative;
 
     min-height: 72px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
@@ -36,20 +63,31 @@
         );
 
     border-top: 3px solid #d0aa4b;
+
     border-bottom: 3px solid #d0aa4b;
 
-    border-left: 1px solid rgba(255,255,255,0.18);
-    border-right: 1px solid rgba(255,255,255,0.18);
+    border-left:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    border-right:
+        1px solid
+        rgba(255,255,255,0.18);
 
     border-top-right-radius: 52px;
+
     border-bottom-left-radius: 52px;
 
     box-shadow:
-        0 8px 24px rgba(58, 20, 67, 0.25);
+        0 8px 24px
+        rgba(58,20,67,0.25);
 }
 
 
-/* TOP GOLD DECORATION */
+
+/* =========================================================
+   03. HEADER TOP GOLD DECORATION
+========================================================= */
 
 .abhyasika-heldar::before {
 
@@ -58,11 +96,14 @@
     position: absolute;
 
     top: 0;
+
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width: 210px;
+
     height: 4px;
 
     background:
@@ -80,7 +121,10 @@
 }
 
 
-/* SOFT SHINE */
+
+/* =========================================================
+   04. HEADER SOFT SHINE
+========================================================= */
 
 .abhyasika-heldar::after {
 
@@ -89,12 +133,15 @@
     position: absolute;
 
     width: 260px;
+
     height: 260px;
 
     top: -190px;
+
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     background:
         radial-gradient(
@@ -107,7 +154,10 @@
 }
 
 
-/* CONTENT */
+
+/* =========================================================
+   05. HEADER CONTENT
+========================================================= */
 
 .abhyasika-heldar-content {
 
@@ -123,7 +173,10 @@
 }
 
 
-/* FLEX */
+
+/* =========================================================
+   06. HEADER FLEX
+========================================================= */
 
 .abhyasika-heldar-flex {
 
@@ -139,13 +192,15 @@
 }
 
 
+
 /* =========================================================
-   📷 HEADER IMAGE
-   ========================================================= */
+   07. HEADER IMAGE
+========================================================= */
 
 .abhyasika-heldar-img {
 
     width: 70px;
+
     height: 70px;
 
     min-width: 70px;
@@ -159,14 +214,18 @@
     border: 3px solid #d3ad4e;
 
     box-shadow:
-        0 4px 13px rgba(0,0,0,0.40),
-        0 0 0 2px rgba(255,255,255,0.25);
+        0 4px 13px
+        rgba(0,0,0,0.40),
+
+        0 0 0 2px
+        rgba(255,255,255,0.25);
 }
 
 
+
 /* =========================================================
-   🏆 MAIN TITLE
-   ========================================================= */
+   08. HEADER MAIN TITLE
+========================================================= */
 
 .abhyasika-heldar-content h1 {
 
@@ -186,13 +245,15 @@
     color: #fffdf7;
 
     text-shadow:
-        0 2px 4px rgba(0,0,0,0.35);
+        0 2px 4px
+        rgba(0,0,0,0.35);
 }
 
 
+
 /* =========================================================
-   📅 DATE / TIME
-   ========================================================= */
+   09. HEADER DATE / TIME
+========================================================= */
 
 .abhyasika-heldar-content p {
 
@@ -213,9 +274,10 @@
 }
 
 
+
 /* =========================================================
-   📌 ESTABLISH / LOCATION INFO
-   ========================================================= */
+   10. ESTABLISHMENT / DATE / TIME BAR
+========================================================= */
 
 .abhyasika-establish {
 
@@ -253,7 +315,8 @@
     white-space: nowrap;
 
     box-shadow:
-        0 3px 8px rgba(0,0,0,0.12);
+        0 3px 8px
+        rgba(0,0,0,0.12);
 }
 
 
@@ -265,15 +328,18 @@
 }
 
 
+
 /* =========================================================
-   📚 MAIN SECTION
-   ========================================================= */
+   11. MAIN ABHYASIKA SECTION
+========================================================= */
 
 .abhyasika-section {
 
     position: relative;
 
-    padding: 34px 15px 40px;
+    width: 100%;
+
+    padding: 34px 15px 45px;
 
     box-sizing: border-box;
 
@@ -289,16 +355,14 @@
 
     border-bottom: 3px solid #765080;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
     overflow: hidden;
 }
 
 
-/* SECTION TOP DECORATION */
+
+/* =========================================================
+   12. SECTION TOP DECORATION
+========================================================= */
 
 .abhyasika-section::before {
 
@@ -307,11 +371,14 @@
     position: absolute;
 
     top: 0;
+
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width: 190px;
+
     height: 4px;
 
     background:
@@ -329,9 +396,128 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* =========================================================
-   📦 CONTAINER
-   ========================================================= */
+   13. ABHYAS STUDY MATERIAL SECTION
+   दुसरा section स्वतंत्र
+========================================================= */
+
+.abhyasika-study-section {
+
+    position: relative;
+
+    width: 100%;
+
+    padding: 34px 15px 45px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5f0df 0%,
+            #fffdf7 48%,
+            #f0f2e2 100%
+        );
+
+    border-top: 3px solid #c49b3d;
+
+    border-bottom: 3px solid #765080;
+
+    overflow: hidden;
+
+    margin-top: 25px;
+}
+
+
+
+/* =========================================================
+   14. STUDY SECTION TOP DECORATION
+========================================================= */
+
+.abhyasika-study-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 190px;
+
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #735080,
+            #c49b3d,
+            #735080,
+            transparent
+        );
+
+    border-radius:
+        0 0 12px 12px;
+}
+
+
+
+/* =========================================================
+   15. CONTAINER
+========================================================= */
 
 .abhyasika-container {
 
@@ -345,9 +531,10 @@
 }
 
 
+
 /* =========================================================
-   📝 INTRODUCTION
-   ========================================================= */
+   16. ABHYASIKA INTRODUCTION
+========================================================= */
 
 .abhyasika-intro {
 
@@ -359,45 +546,122 @@
 
     box-sizing: border-box;
 
-    font-size: 18px;
+    font-size: 17px;
 
     font-weight: 700;
 
-    line-height: 1.75;
+    line-height: 1.7;
 
     color: #514a43;
 
     background:
         linear-gradient(
             90deg,
-            rgba(112,77,133,0.07),
-            rgba(255,255,255,0.88),
-            rgba(196,155,61,0.07)
+            rgba(112,77,133,.07),
+            rgba(255,255,255,.88),
+            rgba(196,155,61,.07)
         );
 
-    border-top: 1px solid
-        rgba(112,77,133,0.25);
+    border-top:
+        1px solid
+        rgba(112,77,133,.25);
 
-    border-bottom: 1px solid
-        rgba(196,155,61,0.30);
+    border-bottom:
+        1px solid
+        rgba(196,155,61,.30);
 
     border-radius: 15px;
 
     box-shadow:
-        0 3px 10px rgba(75,55,80,0.06);
+        0 3px 10px
+        rgba(75,55,80,.06);
 }
 
 
+
 /* =========================================================
-   📚 CARD GRID
-   ========================================================= */
+   17. SECTION TITLE
+========================================================= */
+
+.abhyasika-title {
+
+    margin: 0;
+
+    padding: 0;
+
+    font-size:
+        clamp(28px,5vw,46px);
+
+    font-weight: 900;
+
+    line-height: 1.25;
+
+    color: #57296b;
+
+    text-shadow:
+        0 2px 2px
+        rgba(0,0,0,0.08);
+}
+
+
+
+/* =========================================================
+   18. SECTION SUBTITLE
+========================================================= */
+
+.abhyasika-subtitle {
+
+    margin: 7px 0 0;
+
+    font-size:
+        clamp(13px,2.2vw,18px);
+
+    font-weight: 700;
+
+    color: #705b35;
+
+    letter-spacing: .2px;
+}
+
+
+
+/* =========================================================
+   19. SECTION GOLD LINE
+========================================================= */
+
+.abhyasika-title-line {
+
+    width: 180px;
+
+    height: 3px;
+
+    margin: 12px auto 22px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #70447f,
+            #c49b3d,
+            #70447f,
+            transparent
+        );
+
+    border-radius: 10px;
+}
+
+
+
+/* =========================================================
+   20. CARD GRID
+========================================================= */
 
 .abhyasika-grid {
 
     display: grid;
 
     grid-template-columns:
-        repeat(4, minmax(0, 1fr));
+        repeat(4,minmax(0,1fr));
 
     gap: 18px;
 
@@ -405,9 +669,10 @@
 }
 
 
+
 /* =========================================================
-   📖 PREMIUM CARDS
-   ========================================================= */
+   21. PREMIUM CARD
+========================================================= */
 
 .abhyasika-card {
 
@@ -425,7 +690,7 @@
         );
 
     border: 1px solid
-        rgba(100,70,118,0.20);
+        rgba(100,70,118,.20);
 
     border-top: 4px solid #70447f;
 
@@ -437,15 +702,18 @@
 
     box-shadow:
         0 7px 20px
-        rgba(72,52,82,0.12);
+        rgba(72,52,82,.12);
 
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 
-/* CARD HOVER */
+
+/* =========================================================
+   22. CARD HOVER
+========================================================= */
 
 .abhyasika-card:hover {
 
@@ -454,13 +722,27 @@
 
     box-shadow:
         0 13px 28px
-        rgba(72,52,82,0.19);
+        rgba(72,52,82,.19);
 }
 
 
+
 /* =========================================================
-   🏆 CARD HEADING
-   ========================================================= */
+   23. CARD ICON
+========================================================= */
+
+.abhyasika-card-icon {
+
+    font-size: 38px;
+
+    margin-bottom: 9px;
+}
+
+
+
+/* =========================================================
+   24. CARD HEADING
+========================================================= */
 
 .abhyasika-card h3 {
 
@@ -476,23 +758,24 @@
 
     line-height: 1.35;
 
-    letter-spacing: 0.2px;
+    letter-spacing: .2px;
 
     color: #57296b;
 
     border-bottom:
         2px solid
-        rgba(197,156,64,0.42);
+        rgba(197,156,64,.42);
 
     text-shadow:
         0 1px 1px
-        rgba(0,0,0,0.08);
+        rgba(0,0,0,.08);
 }
 
 
+
 /* =========================================================
-   📋 LIST
-   ========================================================= */
+   25. CARD LIST
+========================================================= */
 
 .abhyasika-card ul {
 
@@ -516,28 +799,30 @@
 }
 
 
+
 /* =========================================================
-   📝 CARD PARAGRAPH
-   ========================================================= */
+   26. CARD PARAGRAPH
+========================================================= */
 
 .abhyasika-card p {
 
     margin:
-        0 0 9px;
+        0 0 15px;
 
-    font-size: 16px;
+    font-size: 15px;
 
     font-weight: 600;
 
-    line-height: 1.7;
+    line-height: 1.65;
 
     color: #403b37;
 }
 
 
+
 /* =========================================================
-   ✨ STRONG TEXT
-   ========================================================= */
+   27. STRONG TEXT
+========================================================= */
 
 .abhyasika-card strong {
 
@@ -547,16 +832,715 @@
 }
 
 
+
 /* =========================================================
-   📱 TABLET
-   ========================================================= */
+   28. STUDY MATERIAL DOWNLOAD BUTTON
+========================================================= */
+
+.study-download-btn {
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 7px;
+
+    width: 100%;
+
+    padding: 11px 14px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #57296b,
+            #70447f
+        );
+
+    color: #fff;
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 5px 12px
+        rgba(87,41,107,.25);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+
+.study-download-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #70447f,
+            #57296b
+        );
+
+    box-shadow:
+        0 8px 16px
+        rgba(87,41,107,.32);
+}
+
+
+
+/* =========================================================
+   29. OMR AREA
+   स्क्रीनवर दिसणार नाही
+========================================================= */
+
+.omr-preview-section {
+
+    position: absolute;
+
+    left: -10000px;
+
+    top: 0;
+
+    width: 210mm;
+
+    overflow: hidden;
+}
+
+
+
+/* =========================================================
+   30. OMR DOWNLOAD AREA
+========================================================= */
+
+.download-area {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 16px;
+
+    background: #fffdf7;
+
+    border-bottom:
+        1px solid
+        rgba(196,155,61,.35);
+}
+
+
+
+/* =========================================================
+   31. OMR DOWNLOAD BUTTON
+========================================================= */
+
+.download-btn {
+
+    border: none;
+
+    padding: 11px 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #57296b,
+            #70447f
+        );
+
+    color: #fff;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 10px
+        rgba(87,41,107,.20);
+
+    transition: .25s ease;
+}
+
+
+.download-btn:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #70447f,
+            #57296b
+        );
+
+    transform:
+        translateY(-2px);
+}
+
+
+
+/* =========================================================
+   32. OMR PREVIEW TITLE
+========================================================= */
+
+.omr-preview-title {
+
+    text-align: center;
+
+    margin: 0 0 18px;
+
+    color: #57296b;
+
+    font-size: 23px;
+
+    font-weight: 900;
+}
+
+
+
+/* =========================================================
+   33. A4 OMR SHEET
+========================================================= */
+
+.omr-sheet {
+
+    width: 210mm;
+
+    height: 297mm;
+
+    margin: 0 auto;
+
+    padding: 1mm 6mm 5mm 6mm;
+
+    background: #fff;
+
+    color: #000;
+
+    border: 1px solid #999;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.18);
+}
+
+
+
+/* =========================================================
+   34. OMR HEADER
+========================================================= */
+
+.header {
+
+    width: 100%;
+
+    flex: 0 0 auto;
+
+    position: relative;
+
+    text-align: center;
+
+    min-height: 18mm;
+
+    margin-bottom: 1.5mm;
+}
+
+
+
+/* =========================================================
+   35. OMR PHOTO + NAME
+========================================================= */
+
+.study-header {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 6mm;
+
+    width: auto;
+
+    display: flex;
+
+    justify-content: flex-start;
+
+    align-items: center;
+
+    gap: 2.5mm;
+
+    text-align: left;
+
+    z-index: 5;
+}
+
+
+
+/* =========================================================
+   36. OMR NAVNATH PHOTO
+========================================================= */
+
+.navnath-photo {
+
+    width: 7mm;
+
+    height: 7mm;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 1px solid #222;
+
+    display: block;
+}
+
+
+
+/* =========================================================
+   37. OMR STUDY NAME
+========================================================= */
+
+.study-name {
+
+    font-size: 9.5px;
+
+    font-weight: 900;
+
+    line-height: 12px;
+
+    white-space: nowrap;
+}
+
+
+
+/* =========================================================
+   38. OMR MAIN TITLE
+========================================================= */
+
+.header-title {
+
+    padding-top: 6mm;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    line-height: 18px;
+}
+
+
+
+/* =========================================================
+   39. OMR SUBTITLE
+========================================================= */
+
+.header-subtitle {
+
+    font-size: 6.5px;
+
+    font-weight: 600;
+
+    margin-top: 1px;
+}
+
+
+
+/* =========================================================
+   40. CANDIDATE INFORMATION BOX
+========================================================= */
+
+.info-box {
+
+    width: 100%;
+
+    height: 9mm;
+
+    border: 1px solid #222;
+
+    display: flex;
+
+    flex: 0 0 auto;
+}
+
+
+.info-left,
+.info-right {
+
+    width: 50%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 2mm;
+}
+
+
+.info-left {
+
+    border-right: 1px solid #222;
+}
+
+
+
+/* =========================================================
+   41. INFORMATION LABEL
+========================================================= */
+
+.info-label {
+
+    font-size: 7.5px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+
+/* =========================================================
+   42. INFORMATION LINE
+========================================================= */
+
+.info-line {
+
+    height: 1px;
+
+    background: #000;
+
+    flex: 1;
+
+    margin-left: 3mm;
+
+    margin-top: 4mm;
+}
+
+
+
+/* =========================================================
+   43. OMR DATE ROW
+========================================================= */
+
+.sub-info {
+
+    width: 100%;
+
+    height: 8mm;
+
+    border-left: 1px solid #222;
+
+    border-right: 1px solid #222;
+
+    border-bottom: 1px solid #222;
+
+    display: flex;
+
+    flex: 0 0 auto;
+}
+
+
+.sub-cell {
+
+    width: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 2mm;
+}
+
+
+.sub-cell:first-child {
+
+    border-right: 1px solid #222;
+}
+
+
+
+/* =========================================================
+   44. MAIN OMR AREA
+========================================================= */
+
+.omr-container {
+
+    width: 100%;
+
+    flex: 1 1 auto;
+
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(0,1fr);
+
+    column-gap: 4mm;
+
+    margin-top: 2mm;
+}
+
+
+
+/* =========================================================
+   45. 100 QUESTION BOX
+========================================================= */
+
+.question-group {
+
+    min-width: 0;
+
+    height: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(0,1fr);
+
+    border: 1px solid #111;
+}
+
+
+
+/* =========================================================
+   46. QUESTION COLUMN
+========================================================= */
+
+.question-column {
+
+    min-width: 0;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.question-column:first-child {
+
+    border-right: 1px solid #111;
+}
+
+
+
+/* =========================================================
+   47. QUESTION ROW
+========================================================= */
+
+.question-row {
+
+    flex: 1 1 0;
+
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        13%
+        repeat(4,21.75%);
+
+    align-items: center;
+
+    border-bottom: 1px dotted #999;
+}
+
+
+
+/* =========================================================
+   48. LAST QUESTION ROW
+========================================================= */
+
+.question-column
+.question-row:last-child {
+
+    border-bottom: none;
+}
+
+
+
+/* =========================================================
+   49. EVERY 5TH QUESTION LINE
+========================================================= */
+
+.question-row.fifth-row {
+
+    border-bottom: 1px solid #222;
+}
+
+
+
+/* =========================================================
+   50. QUESTION NUMBER
+========================================================= */
+
+.question-number {
+
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    border-right: 2px solid #ccc;
+
+    color: #000;
+
+    line-height: 1;
+}
+
+
+
+/* =========================================================
+   51. OPTION CELL
+========================================================= */
+
+.option-cell {
+
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+
+/* =========================================================
+   52. OPTION BUBBLE
+========================================================= */
+
+.bubble {
+
+    width: 3mm;
+
+    height: 3mm;
+
+    border: 1.5px solid #0c0c0c;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 5px;
+
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+
+/* =========================================================
+   53. OMR FOOTER
+========================================================= */
+
+.footer {
+
+    width: 100%;
+
+    height: 8mm;
+
+    flex: 0 0 auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    padding-top: 2mm;
+}
+
+
+.footer-item {
+
+    width: 42%;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 2mm;
+}
+
+
+.footer-item span:first-child {
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.footer-line {
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #000;
+
+    margin-bottom: 1px;
+}
+
+
+
+/* =========================================================
+   54. TABLET RESPONSIVE
+========================================================= */
 
 @media (max-width: 1000px) {
 
     .abhyasika-grid {
 
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+            repeat(2,minmax(0,1fr));
 
         gap: 16px;
     }
@@ -565,16 +1549,21 @@
     .abhyasika-heldar-content h1 {
 
         font-size:
-            clamp(25px, 5vw, 42px);
+            clamp(25px,5vw,42px);
     }
+
 }
 
 
+
 /* =========================================================
-   📱 MOBILE
-   ========================================================= */
+   55. MOBILE RESPONSIVE
+========================================================= */
 
 @media (max-width: 650px) {
+
+
+    /* HEADER */
 
     .abhyasika-heldar {
 
@@ -599,6 +1588,7 @@
     .abhyasika-heldar-img {
 
         width: 53px;
+
         height: 53px;
 
         min-width: 53px;
@@ -625,6 +1615,9 @@
     }
 
 
+
+    /* ESTABLISHMENT */
+
     .abhyasika-establish {
 
         font-size: 10px;
@@ -633,10 +1626,25 @@
     }
 
 
+
+    /* FIRST SECTION */
+
     .abhyasika-section {
 
         padding:
-            25px 8px 30px;
+            25px 8px 32px;
+    }
+
+
+
+    /* SECOND / STUDY MATERIAL SECTION */
+
+    .abhyasika-study-section {
+
+        padding:
+            25px 8px 32px;
+
+        margin-top: 18px;
     }
 
 
@@ -646,11 +1654,29 @@
     }
 
 
+
+    /* TITLE */
+
+    .abhyasika-title {
+
+        font-size: 28px;
+    }
+
+
+    .abhyasika-subtitle {
+
+        font-size: 12px;
+
+        line-height: 1.5;
+    }
+
+
+
+    /* INTRO */
+
     .abhyasika-intro {
 
         font-size: 15px;
-
-        font-weight: 700;
 
         line-height: 1.7;
 
@@ -660,6 +1686,9 @@
         margin-bottom: 20px;
     }
 
+
+
+    /* GRID */
 
     .abhyasika-grid {
 
@@ -671,65 +1700,55 @@
     }
 
 
+
+    /* CARD */
+
     .abhyasika-card {
 
         padding:
             20px 16px;
 
         border-radius: 18px;
-
-        border-top-width: 3px;
     }
 
 
     .abhyasika-card h3 {
 
         font-size: 20px;
-
-        font-weight: 900;
-
-        margin-bottom: 12px;
-    }
-
-
-    .abhyasika-card ul {
-
-        padding-left: 20px;
-    }
-
-
-    .abhyasika-card ul li {
-
-        font-size: 15px;
-
-        font-weight: 600;
-
-        line-height: 1.65;
-
-        margin-bottom: 8px;
     }
 
 
     .abhyasika-card p {
 
         font-size: 15px;
-
-        font-weight: 600;
-
-        line-height: 1.65;
     }
+
+
+
+    /* DOWNLOAD BUTTON */
+
+    .study-download-btn {
+
+        font-size: 14px;
+
+        padding: 11px 10px;
+    }
+
 }
 
 
+
 /* =========================================================
-   📱 SMALL MOBILE
-   ========================================================= */
+   56. SMALL MOBILE
+========================================================= */
 
 @media (max-width: 380px) {
+
 
     .abhyasika-heldar-img {
 
         width: 46px;
+
         height: 46px;
 
         min-width: 46px;
@@ -773,4 +1792,84 @@
 
         font-size: 14px;
     }
+
+}
+
+
+
+/* =========================================================
+   57. PRINT PAGE SETTINGS
+========================================================= */
+
+@page {
+
+    size: A4 portrait;
+
+    margin: 0;
+}
+
+
+
+/* =========================================================
+   58. PRINT MODE
+========================================================= */
+
+@media print {
+
+    html,
+    body {
+
+        background: #fff;
+
+        margin: 0;
+
+        padding: 0;
+    }
+
+
+    .abhyasika-section {
+
+        display: none !important;
+    }
+
+
+    .omr-preview-title {
+
+        display: none !important;
+    }
+
+
+    .download-area {
+
+        display: none !important;
+    }
+
+
+    .omr-preview-section {
+
+        position: static;
+
+        width: auto;
+
+        padding: 0;
+
+        background: #fff;
+    }
+
+
+    .omr-sheet {
+
+        width: 210mm;
+
+        height: 297mm;
+
+        margin: 0;
+
+        border: none;
+
+        box-shadow: none;
+
+        padding: 1mm 6mm 5mm 6mm;
+    }
+
 }
